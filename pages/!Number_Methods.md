@@ -1,0 +1,155 @@
+# NUMBERS  
+
+> It’s important to note that all numbers in JavaScript are floating-point numbers.  
+
+## za konverziju "stringa" u decimalni.broj  
+
+```js
+parseFloat(3.14); // 3.14
+parseFloat('3.14'); // 3.14
+parseFloat('  3.14  '); // 3.14
+parseFloat('314e-2'); // 3.14
+parseFloat('0.0314E+2'); // 3.14
+parseFloat('3.14some non-digit characters'); // 3.14
+parseFloat({ toString: function () { return "3.14" } }); // 3.14
+Number.parseFloat('3.14'); // 3.14
+```
+
+## za konverziju "stringa" u prirodni broj  
+
+```js
+Number.parseInt("123.456 .6,456qwe"); // 123
+
+parseInt("123.456qwe") // 123
+parseInt("123", 8) // 83 - tretira broj '123' kao OKT i pretvara=> ga u DEC
+parseInt("bf3", 16) // 3059 - tretira broj kao HEX
+parseInt('1000011', 2); // 67
+
+Number("456"); // 456
+
+eval("1") // 1
+```
+
+## ispitivanje broja
+
+```js
+let num = 1
+typeof num // number
+Number.isInteger(num) // true
+function isInt(num) { return num % 1 === 0 } // true
+Number.isNaN(num); // false
+Number.isSafeInteger(num); // true - safe brojevi su svi od -(2^53 - 1) do 2^53 - 1
+isFinite(1000 / 0); // false // br. je Infinity
+isFinite(1000 / 1); // true
+isFinite((2**1023)) // true // br. nije Infinity, ali nije safe
+isFinite((2**1024)) // false // br. je Infinity
+````
+
+## eval
+
+```js
+typeof eval("'1'"); // string
+// console.log(typeof eval(""1"")); // Syntax Error
+typeof eval("", "1"); // undefined
+```
+
+## exponencijlni nacin pisanja broja
+
+```js
+.12e-2 // 0.0012 === 0.12 * 10**-2
+12e-2 // 0.12 === 12 * 10**-2
+```
+
+## grupno_pisanje_brojeva
+
+```js
+120_201_123.05; // 120201123.05
+123_450; // 123450
+12345_00; // 1234500 
+0.000_001; // 1 millionth
+
+// BigInt
+const max = 9_223_372_036_854_775_807n;
+
+// binary
+let nibbles = 0b1011_0101_0101;
+
+// octal
+let val = 0o1234_5670;
+
+// hex
+let message = 0xD0_E0_F0; 
+```
+
+## konverzija HEX <=> DEC
+
+```js
+let br = 255
+br.toString(16) // "ff"
+Number.parseInt("ff", 16) // 255
+```
+
+## BigInt
+
+* Pravi se tako sto se dodaje "n" na kraju broja
+```js
+9007199254740991n
+```
+
+* ili pomocu BigInt()
+```js
+BigInt(9007199254740991)
+BigInt("9007199254740991")
+BigInt("0x1fffffffffffff")
+BigInt("0o377777777777777777")
+BigInt("0b11111111111111111111111111111111111111111111111111111")
+```
+
+* BigInt brojevi ne mogu da se koriste sa Math metodama
+* Ne mogu da se racunaju BigInt brojevi sa Number brojevima
+```js
+1n+1 // Uncaught TypeError: can't convert BigInt to number
+```
+
+
+## ostale metode
+
+```js
+var pi = 3.141;
+pi.toFixed(0);          // 3
+pi.toFixed(2);          // "3.14" - FixeDecimal
+pi.toPrecision(2)       // "3.1" - stepen preciznosti, broj cifara
+pi.valueOf();           // number
+Number(true);           // 1 - converts to number
+Number(new Date())      // number of milliseconds since 1970
+parseInt("3 months");   // returns the first number: 3
+parseFloat("3.5 days"); // returns 3.5
+Number.MAX_VALUE        // largest possible JS number
+Number.MIN_VALUE        // smallest possible JS number
+Number.NEGATIVE_INFINITY// -Infinity
+Number.POSITIVE_INFINITY// Infinity
+Number.EPSILON			    // Najmanja moguca decimala izmedju 1 i 2 - 2.7755575615628914e-17 = 2**-55
+```
+
+```js
+var {PI} = Math;        // 3.141592653589793
+Math.round(4.4);        // 4 - rounded
+Math.round(4.5);        // 5
+Math.pow(2, 8);         // 256 - 2 to the power of 8
+Math.sqrt(49);          // 7 - square root
+Math.abs(-3.14);        // 3.14 - absolute, positive value
+Math.ceil(3.14);        // 4 - rounded up
+Math.floor(3.99);       // 3 - rounded down
+Math.trunc(3.14);~~3.14 // 3 - cuts of floating
+Math.trunc(-3.14);      // -3
+Math.sin(0);            // 0 - sine
+Math.cos(Math.PI);      // HERS: tan,atan,asin,acos,
+Math.min(0, 3, -2, 2);  // -2 - the lowest value
+Math.max(0, 3, -2, 2);  // 3 - the highest value
+Math.log(1);            // 0 natural logarithm
+Math.exp(1);            // 2.7182pow(E,x)
+Math.random();          // random number between 0 and 1
+Math.floor(Math.random() * 5) + 1;  // random integer, from 1 to 5
+// Constants like Math.PI:
+// E, PI, SQRT2, SQRT1_2, LN2, LN10, LOG2E, Log10E
+```

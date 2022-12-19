@@ -26,6 +26,7 @@
 <body>
   <style>
     html {font-size: 1.5em;}
+    h3 {color: yellow}
     body {background-color: black; color: white;}
     hr {border: 1px solid #fff;}
     @media only screen and (max-width: 700px) {
@@ -40,10 +41,14 @@
     .span-color-brStr {color:#40f}
   </style>
   <div>
-    <div id="test"></div>
-    <p>help = {assign:{...}, create:{...}} // sve Object metode</p>
-    <p>FUNKCIJE:<br>t("qwe") // qwe<br>ta("qwe") // qwe&lt;br&gt;
-      <br>LETIC() - Loc(''), Elem, Txt, Id, Class</p>
+    <h3>PREDEFINISANE FUNKCIJE</h3>
+    <p>("qwe") // qwe<br>
+      ta("qwe") // qwe&lt;br&gt;<br>
+      LETIC() - Loc(''), Elem, Txt, Id, Class<br>
+      Ctrl+Click → refresh Page</p>
+      
+    <h3>PREDEFINISANE PROMENJIVE</h3>
+    <div id="test">&lt;div id='test'&gt;&lt;/div&gt;</div>
     <p><b>Nulovane vrednosti:</b> nul, undef, nan</p>
     <p>arr = [1,2,3,4,5]</p>
     <pre>arr2D = [
@@ -235,21 +240,21 @@ restorani={
 ,8'         `         `8.`8888. 8 888888888888     8 8888       `8888888P'     8 888888888P'      8 888888888888 
  -->
     <h3>METODE</h3>
-    <a href="../../_George\JS\Methods JS\!Array_Methods.md">
+    <a href="pages\!Array_Methods.md">
       ARRAY</a>
-    <a href="../../_George\JS\Methods JS\!String_Methods.md">
+    <a href="pages\!String_Methods.md">
       STRING</a>
-    <a href="../../_George\JS\Methods JS\!Number_Methods.md">
+    <a href="pages\!Number_Methods.md">
       NUMBER</a>
-    <a href="../../_George\JS\Methods JS\!Object_Methods.md">
+    <a href="pages\!Object_Methods.md">
       OBJECT</a>
-    <a href="../../_George\JS\Methods JS\!Function_Methods.md">
+    <a href="pages\!Function_Methods.md">
       FUNCTION</a>
-    <a href="../../_George\Git\GIT.md">
+    <a href="pages\GIT.md">
       GIT</a>
-    <a href="../../_George\JS\Methods JS\RegExp\RegExp_Methods.md">
+    <a href="pages\RegExp_Methods.md">
       REG_EXP</a>
-    <a href="../../_George\Frame Works\Lodash\lodash.docx">
+    <a href="pages\lodash.docx">
       LoDash</a>
       <br><br>
 <!--
@@ -266,39 +271,34 @@ restorani={
 
  -->
     <h3>FAJLOVI I FOLDERI</h3>
-    <a href="../../_George\JS\">
-      [ JS ]</a><br>
 
-    <a href="../../_Projects\bbBlank\bbBlanko.html" download> 
+    <a href="Index.html" download> 
       bbBlank</a><br>
 <!-- parametar download, za bbBlanko pita da li da pokrene sa Sublime zato sto je stranica vec otvorena. Na ostalim linkovima ne bi radilo. Da bi radilo na ostalim linkovima, prvo mora ta stranica da se ucita u FF, pa onda da se klikne na link sa parametrom download -->
-    <a href="../../_George\HTML-CSS\HTML_svi_tagovi.html">
+    <a href="pages\HTML_svi_tagovi.html">
       HTML tagovi</a><br>
 
-    <a href="../../_George\HTML-CSS\HTML_svi_tagovi_2.html">
+    <a href="pages\HTML_svi_tagovi_2.html">
       HTML tagovi 2</a><br>
 
-    <a href="../../_George\JS\Prioritet operatora\Prioritet operatora.xlsx">
+    <a href="pages\Prioritet operatora.xlsx">
       Operators</a><br>
 
-    <a href="../../_George\Emmet\Emmet.html">
+    <a href="pages\Emmet.html">
       Emmet</a><br>
   </div>
 
-  <a href="../../_George\JS\Methods JS\Metode - moja slika iz CDR\Array.html">
-    <img hidden width="50%" src="img/Metode-Array.gif" alt="Sve Array Metode">
+  <a href="img/Metode - Array.svg">
     <img width="50%" src="img\Metode-Array.gif" alt="Sve Array Metode">
   </a>
   
-  <a href="../../_George\JS\Methods JS\Metode - moja slika iz CDR\String.html">
-    <img hidden width="50%" src="img\Metode-String.gif" alt="Sve String Metode">
+  <a href="img/Metode - String.svg">
     <img width="50%" src="img\Metode-String.gif" alt="Sve String Metode">
   </a>
   
-  <img hidden width="50%" src="img\Boolean Advanced.gif" alt="Advanced Boolean - Truthy-Falsy">
-  <img width="50%" src="img\Boolean Advanced.gif" alt="Advanced Boolean - Truthy-Falsy"></img>
+  <img width="50%" src="img\Boolean Advanced.gif" alt="Advanced Boolean - Truthy-Falsy">
 
-  <!--img width="90%" src="../../_George\JS\Methods JS\Konverzije  Number-String-Boolean-Array.gif" alt="Konverzije izmedju Array - String - Number"> -->
+  <img width="50%" src="pages\Konverzije  Number-String-Boolean-Array.gif" alt="Konverzije izmedju Array - String - Number">
 
 <!-- KREIRANJE OBJEKATA -->
   <h3>Kreiranje {Objekata}</h3>
@@ -551,233 +551,6 @@ console.dir('After Change - objClone: ', objClone);
 `8b.  ;8.`8888    8888     ,88'  8 8888   `8b.    8 8888 8 8888             8 8888       
  `Y8888P ,88P'     `8888888P'    8 8888     `88.  8 8888 8 8888             8 8888       
 */
-help = {
-  "assign" : {0 :`Kopira se enumerabilne stavke iz jednog objekata u drugi.
-  const target = { a: 1, b: 2 };
-  const source = { b: 4, c: 5 };
-  const returnedTarget = Object.assign(target, source);
-  console.log(target); // expected output: Object { a: 1, b: 4, c: 5 } // sta je sa b:2? Njega je pregazio b:4
-  console.log(returnedTarget); // expected output: Object { a: 1, b: 4, c: 5 }`} 
-  ,
-  "create" : {0:`Nesto slicno kao Corel-u Clone. 
-  Pravi se novi, PRAZAN, objekat na osnovu postojeceg objekta, ali taj postojeci objekat ce da bude prototype novog objekta, a "skoljka" ce da bude prazna. 
-  Drugim recima, od postojeceg objekta pravi se prototip za novi objekat, a tom novom objektu skoljka ce da bude prazna. Ako promenim neko svojstavo objekta od kojeg je napravljen prototip za novi objekta, menja se i prototip u novom objektu. 
-  Object.create nije dobro za NE ZAVISNO kopiranje.`}
-  ,
-  "defineProperty" : {0:`Na ovaj nacin dodata svojstva su, po default-u imutabilna (confugurable:false) i nisu enumerabilna (enumerable:false).
-  Da bi se promenilo svojstvo(propString) od Objekta(obj), mora prvo da se dozvoli kofigurisanje objekta (confugurable:true), pa potom da se dozvoli upis u to svojstvo (writable:true). Ako jos zelim i da se to svojstvo npr. pojavi u for...in petlji tj. da bude enumerabilno onda moram to ukljuciti (enumerable:true).`}
-  ,  
-  "defineProperties" : {0:`Isto kao i "defineProperty" ali za vise svojstava odjednom.
-  OBRATI PAZNJU, nisu isti argumenti kao kod Object.defineProperty (vidi defineProperty). Ovde je drugi argument {blok} u kojem su prop.-si: {deskriptori}. PAZI, kada kucas u editoru sa intelisense. Obrati paznju sta si izabrao, ...Property ili Properties`}
-  ,
-  "getOwnPropertyDescriptor" : {0:`Pravi se novi objekat (tzv. deskriptor) pomocu kojeg se prikazuje konfiguracija nekog svojstva.
-
-		deskriptor = Object.getOwnPropertyDescriptor(qwe123, 'q')
-
-		console.log(deskriptor.value) // 1
-		console.log(deskriptor.writable) // T
-		console.log(deskriptor.enumerable) // T
-		console.log(deskriptor.configurable) // T
-		console.log(deskriptor.valueOf()) /*
-		Object {
-			value: 1,
-			writable: true,
-			enumerable: true,
-			configurable: true
-		}
-		*/
-		console.log(deskriptor.set) // undefined
-		console.log(deskriptor.get) // undefined
-
-		deskriptor.value = 11 // 11 // moze da se menja vrednost objekta koji prikazuje konfiguraciju svojstva, ali...
-		qwe123.q // 1 // ... vrednost u originalnom objektu ostaje nepromenjena. Verovatno zato sto je "deskriptor" nezavistan objekat. Prepisane vrednosi.`}
-    ,
-    "getOwnPropertyDescriptors" : {0:`Isto sto i ↑ Object.getOwnPropertyDescriptor samo sto prikazuje konfiguracije od SVIH svojstava (ili onih koje si odabrao).
-
-		deskriptor = Object.getOwnPropertyDescriptors(qwe123)
-		/*
-		deskriptor = {
-			"q": {
-				"value": 1,
-				"writable": true,
-				"enumerable": true,
-				"configurable": true
-			},
-			"w": {
-				"value": 2,
-				"writable": true,
-				"enumerable": true,
-				"configurable": true
-			},
-			"e": {
-				"value": 3,
-				"writable": true,
-				"enumerable": true,
-				"configurable": true
-			}
-		}
-		*/
-
-		console.log(deskriptor) // isto kao ↑
-		console.log(deskriptor.valueOf()) // isto kao ↑
-		console.log(deskriptor.w.value) // 2
-		console.log(deskriptor.w.writable) // T
-		console.log(deskriptor.w.enumerable) // T
-		console.log(deskriptor.w.configurable) // T
-		console.log(deskriptor.set) // undefined
-		console.log(deskriptor.get) // undefined
-
-		deskriptor.q.value = 11 // 11 // moze da se menja objekat koji prikazuje konfiguraciju svojstva, ali...
-		qwe123.q // 1 // ... vrednost u originalnom objektu ostaje nepromenjena.`}
-    ,
-    "preventExtensions" : {0:`Onemogucava objekat da mu se dodaju novi props`}
-    ,
-    "isExtensible" : {0:`Proverava da li objektu mogu da se dodoaju novi props`}
-    ,
-    "freeze" : {0:`Zamrzava objekat da ne moze da se menja. !Podobjekat nije smrznut. Svaki posebno mora da se smrzne. Takodje i obrnuto, ako zamrznem podobjekat(ili niz) to ne znaci da ce i maticni objekat biti smrzut.`}
-	  ,
-    "isFrozen" : {0:`Proverava da li je objekat zamrznut. Vidi "freeze"`} 
-    ,
-    "seal" : {0:`Zapečaćeno. Objekatu NE mogu da se dodaju novi props, a postojeci props NE mogu da se konfigurisu. Ali VREDNOSTI postojecih propsa mogu da se menjaju (ako su writable)`}
-    ,
-    "isSealed" : {0:`Proverava da li je objekat zapečaćen. Vidi "seal"`}
-    ,
-    "hasOwnProperty" : {0:`Proverava da li objekat sadrzi odredjeni properties. pogledaj fajl hasOwnProperty.js
-    psi.hasOwnProperty('ime') // F
-    psi[0].hasOwnProperty('ime') // T
-    psi[0].hasOwnProperty('Bela') // F`} 
-    ,
-    "propertyIsEnumerable" : {0:`Proverava da li prop pripada licno tom objektu i da li je enumerabilan.
-    qwe123.propertyIsEnumerable("q") // T
-    psi[0].propertyIsEnumerable('ime') // T
-    psi['0'].propertyIsEnumerable('god') // T
-    arr.propertyIsEnumerable(0) // T
-
-    arr.propertyIsEnumerable('length') // F
-    boo.propertyIsEnumerable() // F - ovo nisu Objekti vec primitive
-    qwe.propertyIsEnumerable() // F`}
-   , 
-    "keys" : {0:`Pravi niz (ne iterator) od kljuceva objekta. Moze da se koristi kao kod Array.length - Object.keys(qwe).length.
-		
-    Object.keys(qwe123) // [ 'q', 'w', 'e' ]
-    qwe123.keys()			 	// Pravi iterator (ne niz) od kljuceva objekta.`}
-    ,
-    "values" : {0:`Pravi niz od vrednosti svojstava (ako su enumerativni). Slicno je kao for...in loop, ali loop enumerise i propertie od prototype lanca.
-		Object.values(qwe123) // [ 1, 2, 3 ]
-    qwe123.values(qwe123) // Pravi iterator (ne niz) od vrednosti svojstava.`} 
-    ,
-    "entries" : {0:`Vraca 2D-niz kljuceva i vrednosti
-		Object.entries(qwe123) // [ [ "q", 1 ], [ "w", 2 ], [ "e", 3 ] ]
-    qwe123.entries()   	   // Pravi iterator (ne niz) od [kljuceva i vrednosti svojstava].`}
-    ,
-    "valueOf" : {0:`qwe123.valueOf()		// Vraca vrednost objekta, isto dobija i kada pozoves objekat qwe123`}
-    ,
-    "fromEntries" : {0:`Obrunto od Object.entries. Transformise neku listu vrednosti oblika [key, value] u objekat {key: value}
-		const entries = new Map([
-			['foo', 'bar'],
-			['baz', 42]
-		]);
-
-		const obj = Object.fromEntries(entries);
-
-		console.log(obj); // expected output: Object { foo: "bar", baz: 42 }`}
-    ,
-    "getOwnPropertyNames" : {0:`Vraca Array svih kljuceva (ukljucujuci i ne-enumerable, ISkljucujuci one koji koriste Symbol).
-	  Object.getOwnPropertyNames(obmix) // Array(12) [ "0", "1", "2", "3", "4", "q", "a", "qwe", "abc", "nan", "undef", "nul" ]`}
-    ,
-    "getOwnPropertySymbols" : {0:`Vraca Array od svih simbola koji su korisceni u datom objektu
-	Object.getOwnPropertySymbols(obmix) // Array [ Symbol("sym"), Symbol("nedeklarisani sym") ]
-
-	obmix[Object.getOwnPropertySymbols(obmix)[1]] // "kako ga pozvati?" ← ovo je vrednost koja stoji iz simbol kljuca`} 
-  ,
-  "setPrototypeOf" : {0:`Dodeljivanje prototipa nekom objektu, tacnije: target objektu se dodeljuje prototypeObject da mu bude prototip.
-		targetObj = {}
-
-		Object.setPrototypeOf(targetObj, obmix)
-
-		targetObj.hasOwnProperty(qwe) // false //targetObj "licno" NEMA qwe, vec ga ima u prototipu.
-		targetObj.qwe // 'qwerty'
-
-		targetObj.hasOwnProperty(abc) // false
-		targetObj.abc[0] // "a"`}
-    ,
-    "getPrototypeOf" : {0:`Vraca objekat koji je koriscen kao prototip
-
-		// ----- MOJA ISPITIVANJA -----
-		Object.getPrototypeOf(q)      // Number { 0 }
-		Object.getPrototypeOf(w)      // Number { 0 }
-		Object.getPrototypeOf(qwe)    // String { "" }
-		Object.getPrototypeOf(arr)    // Array []
-		Object.getPrototypeOf(boo)    // Boolean { false }
-		Object.getPrototypeOf(ta)     // function ()
-		Object.getPrototypeOf(qwe123) // Object { … }
-		Object.getPrototypeOf({}) 				// Object { … }
-		Object.getPrototypeOf(qwe123) === Object.getPrototypeOf({})  // T
-		Object.getPrototypeOf(Number)     // function ()
-		Object.getPrototypeOf(Function)   // function()
-		Object.getPrototypeOf(Object)     // function()
-		Object.getPrototypeOf(null)       // Uncaught TypeError: can't convert null to object
-		Object.getPrototypeOf(undefined)  // Uncaught TypeError: can't convert undefined to object
-		Object.getPrototypeOf(NaN)        // Number { 0 }
-		Object.getPrototypeOf(0/0)        // Number { 0 }
-
-		const prototype1 = {};
-		const object1 = Object.create(prototype1);
-		console.log(Object.getPrototypeOf(object1) === prototype1); // T`}
-    ,
-    "isPrototypeOf" : {0:`Proverava da li je neki objekat prototip drugom objektu.
-		// Object, Array, String, Number... Imaju prototype (tj. imaju svoju class). Posto su to kostruktori prototip im je Function > a njegov prototip je Object > a on je osnova svega tj. nema prototip tj prototype:null
-
-		Object.prototype.isPrototypeOf(String) // T
-		////////////////////////////
-		Object.__proto__.isPrototypeOf() //
-
-	// ----- moj primer -----------------------------------
-		targetObj = {}
-
-		Object.setPrototypeOf(targetObj, obmix) // obmix je postao prototip za targetObj
-
-		// DOKAZ:
-		targetObj.hasOwnProperty(qwe) // false
-		targetObj.qwe // 'qwerty'
-
-		targetObj.__proto__.isPrototypeOf(obmix) // F // BTW __proto__ je u FireFox
-		obmix.__proto__.isPrototypeOf(targetObj) // T
-
-	// ----- MDN PRIMER -----------------------------------
-	function object1() {}
-	function object2() {}
-
-	object1.prototype = Object.create(object2.prototype);
-
-	const object3 = new object1();
-
-	console.log(object1.prototype.isPrototypeOf(object3)); // T
-	console.log(object2.prototype.isPrototypeOf(object3)); // T
-	console.log(object1.prototype.isPrototypeOf(object2)); // T
-
-	// ----- moja ispitivanja -----------------------------
-	console.log([].isPrototypeOf(object3))       // F
-	console.log([].isPrototypeOf(Array))         // F
-	console.log(object3.isPrototypeOf(Function)) // F
-	console.log(object3.isPrototypeOf(Object))   // F
-	console.log(Math.isPrototypeOf(Number))      // F
-	console.log(Function.isPrototypeOf(object1)) // F
-	console.log(object3.isPrototypeOf(Function)) // F
-	console.log(object3.isPrototypeOf(Object))   // F`}
-  ,
-  "is" : {0:`Proverava istoću dve vrednosti. Za razliku od ==komparacije ovde je:
-		// NaN == NaN 					// F
-		Object.is(NaN, NaN)     // T
-		Object.is(NaN, 0/0);    // T
-		Object.is(0, -0);       // F
-		// '' == false == 0     // T
-		Object.is('', false);   // F
-		Object.is('', 0);       // F
-		Object.is(false, 0);    // F`}
-  ,
-  "toLocaleString" : {0:`Mislim da to ima neke veze sa "Srpski string"`}
-}
 
 nul = null
 undef = undefined

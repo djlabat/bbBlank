@@ -1,0 +1,205 @@
+<head>
+    <style type="text/css">
+        body {
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+<a href="../../_George\Emmet\Emmet.html" download>
+      otvori Emmet</a><br>
+
+<p>sve skracenice = https://docs.emmet.io/cheat-sheet/</p>
+<p>snippets.json - u njemu su smesteni svi snipeti</p>
+<p>znakovi *+^... odnose se na trenutni (poslednji) element u emmet definiciji, a ne na celu definiciju</p>
+<p>* ima znacenje "multiplikuj" i/ili "u svaku novu liniju"</p>
+<p>^ level up</p>
+<p>+ sibling</p>
+<p>{text elementa} - (taga), ali BUKVALAN TEXT, lorem pise kao "lorem" a ne kao formulu</p>
+<p>[atributi taga]</p>
+<p>(grupisanje)</p>
+
+
+
+<h3>Wrap individual lines with abbreviation</h3>
+p*
+<p>qweqwe</p>
+<p>asdasd</p>
+<p>zxczxc</p>
+
+<h3>↓↓↓ KOMPLEXAN PRIMER EMMETA KOJI U SEBI IMA SVEGA ↓↓↓</h3>
+<p>(nav>ul>li#link$$@0*4>a)+(header>h1{Ovo je HEADER}+p[lang="sr"]{text ispod header-a})+(main>(article>p*3>lorem5)*2)+(aside>div>h2>span>em^^p>lorem5)+footer>p</p>
+  <nav>
+      <ul>
+          <li id="link00"><a href=""></a></li>
+          <li id="link01"><a href=""></a></li>
+          <li id="link02"><a href=""></a></li>
+          <li id="link03"><a href=""></a></li>
+      </ul>
+  </nav>
+  <header>
+      <h1>Ovo je HEADER</h1>
+      <p lang="sr">text ispod header-a</p>
+  </header>
+  <main>
+      <article>
+          <p>Lorem ipsum dolor sit amet.</p>
+          <p>Minus officiis neque libero veritatis.</p>
+          <p>Recusandae cupiditate quibusdam quod expedita!</p>
+      </article>
+      <article>
+          <p>Rerum beatae natus culpa quo.</p>
+          <p>Id aspernatur incidunt dolor inventore!</p>
+          <p>Beatae ab rerum voluptatum debitis.</p>
+      </article>
+  </main>
+  <aside>
+      <div>
+          <h2><span><em></em></span></h2>
+          <p>Lorem ipsum dolor sit amet.</p>
+      </div>
+  </aside>
+  <footer>
+      <p></p>
+  </footer>
+
+<h3>↑↑↑ KOMPLEXAN PRIMER EMMETA KOJI U SEBI IMA SVEGA ↑↑↑</h3>
+(nav>ul>li#link$$@0*4>a)+(header>h1{Ovo je HEADER}+p[lang="sr"]{text ispod header-a})+(main>(article>p*3>lorem5)*2)+(aside>div>h2>span>em^^p>lorem5)+footer>p
+
+
+
+.test
+<div class="test"></div>
+
+table>.row>.col
+<table>
+    <tr class="row">
+        <td class="col"></td>
+    </tr>
+</table>
+
+ul>.item$*2
+<ul>
+    <li class="item1"></li>
+    <li class="item2"></li>
+</ul>
+
+lorem (default: 30 reci)
+Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel unde nesciunt ad fugiat quod nemo ab in consectetur
+    neque laboriosam! Ad, porro dolorum debitis labore laudantium nam alias eum maiores?
+
+p>lorem60 (generise lorem od 60 reci)
+<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi soluta officia nam quaerat aut molestias tenetur consequuntur ipsam? Reiciendis debitis iure, inventore praesentium voluptatum officia nesciunt dolores eveniet quae, porro nemo obcaecati quidem recusandae sint hic autem esse numquam veritatis beatae quisquam nulla quis impedit sequi. Quidem aliquam ipsam quod. Optio facere quas saepe sit quos impedit sequi culpa possimus!</p>
+
+p*3>lorem5
+<p>Lorem ipsum dolor sit amet.</p>
+<p>Odit nam inventore numquam non?</p>
+<p>Molestias perspiciatis explicabo in necessitatibus.</p>
+
+lorem5*5
+Lorem ipsum dolor sit amet.
+Excepturi non iure totam incidunt.
+Nisi harum provident eos voluptate?
+Voluptas cupiditate doloribus recusandae eaque.
+Laborum culpa perspiciatis maiores adipisci?
+
+div>lorem3
+<div>Lorem, ipsum dolor.</div>
+
+ul>li>lorem
+<ul>
+    <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nam, odit blanditiis saepe impedit rem nostrum numquam molestias placeat a sapiente eligendi, atque id enim voluptatibus aspernatur maxime sed tempora debitis?</li>
+</ul>
+
+textarea>lorem
+<textarea name="" id="" cols="30" rows="10">Lorem, ipsum dolor.</textarea>
+
+textarea#ID.CLASS[rows=20][name=NAME]>lorem
+<textarea name="NAME" id="ID" cols="30" rows="20" class="CLASS">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error nisi hic sapiente ullam laboriosam neque dolor nam recusandae odit illum dolores laudantium provident delectus, temporibus id maiores blanditiis debitis aliquam.</textarea>
+
+div>p.lorem_txt*4>lorem5   
+<div>
+    <p class="lorem_txt">Lorem ipsum dolor sit amet.</p>
+    <p class="lorem_txt">Unde harum consequatur quasi aliquid.</p>
+    <p class="lorem_txt">Cum, reprehenderit. Debitis, quam suscipit.</p>
+    <p class="lorem_txt">Incidunt repellat numquam maxime in.</p>
+</div>   
+
+
+ol>li#test$@10*3
+<ol>
+	<li id="test10"></li>
+	<li id="test11"></li>
+	<li id="test12"></li>
+</ol>
+
+ul>li.item$@-10*3
+<ul>
+	<li class="item12"></li>
+	<li class="item11"></li>
+	<li class="item10"></li>
+</ul>
+
+div>p{Lorem}+p{ipsum}
+<div>
+    <p>Lorem</p>
+    <p>ipsum</p>
+</div>
+
+div>div>p>a^p
+<div>
+    <div>
+        <p><a href=""></a></p>
+        <p></p>
+    </div>
+</div>
+
+{$$@9}*3
+09
+10
+11
+
+
+<!-- 
+<style>
+    m10-20 margin: 10px 20px;
+
+    m10--20rem margin: 10px -20rem;
+
+    m1rem2rem margin: 1rem 2rem;
+
+    m1r2e3p4x margin: 1rem 2em 3% 4ex;
+
+    c#3 color: #333333;
+
+    c#a2 color: #a2a2a2;
+
+    c#abc color: #aabbcc;
+
+    p !+m10 padding: !important;
+    margin: 10px;
+
+    -bdrs -webkit-border-radius:;
+    -moz-border-radius:;
+    border-radius:;
+
+    -p10 -webkit-padding: 10px;
+    -moz-padding: 10px;
+    -ms-padding: 10px;
+    -o-padding: 10px;
+    padding: 10px;
+
+    -omws-p-10x -o-padding: -10ex;
+    -moz-padding: -10ex;
+    -webkit-padding: -10ex;
+    -ms-padding: -10ex;
+    padding: -10ex;
+
+    bd1r-s border: 1rem solid;
+
+    bdt border-top: 1px solid #000;
+</style> 
+-->
+</body>

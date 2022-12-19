@@ -1,0 +1,204 @@
+RegExp
+======
+
+## RegExp PARAMETRI:
+* **flags** - npr. 'gmi'
+* **dotAll** - Whether . matches newlines or not. Da li . (tacka) podrazumeva i \n (novi red) ili ne // default: false  
+* **global** - da li se koristi 'g' flag  
+* **ignoreCase** - 'i' flag
+* **multiline** - 'm' flag
+* **source** - The text of the pattern.  
+* **sticky** - Whether or not the search is sticky.  
+* **unicode** - Whether or not Unicode features are enabled.  
+* **lastIndex** - The index at which to start the next match.  
+* **hasIndices** - 'd' flag // Da li ce rezultat da prikaze pocetne i kranje indexe uhvacenog substringa.  
+```js
+const str1 = 'foo bar foo';
+const regex1 = new RegExp('foo', 'gd');  
+console.log(regex1.hasIndices); // Output: true  
+  console.log(regex1.exec(str1).indices[0]); // Output: Array [0, 3]  
+  console.log(regex1.exec(str1).indices[0]); // Output: Array [8, 11]  
+
+const str2 = 'foo bar foo';
+const regex2 = new RegExp('foo');
+console.log(regex2.hasIndices); // Output: false
+  console.log(regex2.exec(str2).indices); // Output: undefined
+```
+
+
+
+## RegExp METODE
+
+### test
+```js
+console.log(/(.).*\1/.test('outsidertye')); // true
+/q/.test('qweq'); // true - proverava da li postoji 'q' u 'qweq'
+/Q/.test('qweq'); // false
+```
+
+### exec
+
+* Poput "match" ali vraca samo jedan rezultat, prvi na koji naidje, pa prekida pretragu i pamti gde je stao sa pretragom. Kada ga ponovo pokrenes pocinje pretragu od indexa gde je stao tj. vraca ti sledeci rezultat pretrage. Znaci pomalo podseca na iterator.
+
+```js
+console.log(/(.)(.*)(\1)/.exec('outsidertye')); // ["tsidert", "t", "sider", "t", index: 2, input: "outsidertye", groups: undefined] - vraca Array
+// rezultat[0] = "tsidert" = ukupan rezultat /(.)(.*)(\1)/ tj. substring koji pocinje i zavrsava sa istom slovom ('t') i sa bilo kojim karakterima izmedju ('sider')
+// rezultat[1] = "t" = rezultat prve grupe /(.)...
+// rezultat[2] = "sider" = rezultat druge grupe /(.*)...
+// rezultat[3] = "t" = rezultat trece grupe /(\1)...
+// index: 2 = index na kojem je nadjen rezultat[0]
+// input: "outsidertye" = string koji je koriscen kao argument
+```
+
+```js
+regex1 = RegExp('foo*', 'g'); // regexp koji ce da se koristi u pretrazi. Obavezno koristiti 'g' flag. RegExp objekti u sebi imaju parametar "lastIndex" koji se u ovom primeru koristi.
+str1 = 'table football, foosball'; // string koji ce da se pretrazuje
+let array1; // U "while" ne sme da se stavi /regexp_literal/ ili RegExp('konstruktor'). Zasto? Jer ce to da stvori beskonacni loop ako je nesto nasao. Zasto? Zato sto ce lastIndex property da se resetuje pri svakoj novoj iteraciji.
+
+while ((array1 = regex1.exec(str1)) !== null) {
+  console.log(`Found "${array1[0]}". Next starts at index ${regex1.lastIndex}, STO JE ZAPRAVO SLOVO "${str1[regex1.lastIndex]}"`);
+}
+// Found "foo". Next starts at index 9, STO JE ZAPRAVO SLOVO "t" debugger eval code:6:11
+// Found "foo". Next starts at index 19, STO JE ZAPRAVO SLOVO "s"
+```
+
+## STRING metode
+
+### toString
+
+```js
+reg = /qwe/g
+reg.toString() // "/qwe/g"
+```
+
+### match 
+
+* Kao rezultat vraca [Array] sa svim rezultatima koje je nasao
+
+* If the `g` flag is used, all results matching the complete regular expression will be returned, but capturing groups are not included.
+* If the `g` flag is NOT used, only the first complete match and its related capturing groups are returned. In this case, match() will return the same result as RegExp.prototype.exec() (an array with some extra properties).
+
+
+```js
+console.log('outsidertye'.match(/(.)(.*)(\1)/)); // ["tsidert", "t", "sider", "t", index: 2, input: "outsidertye", groups: undefined]
+// Za detaljnije objasnjenje rezultata vidi ↑ "exec"
+
+var reg = /\d+\b/; // broj koji je na kraju reci
+var s = 'K8s0CyJRAI DxNwg98EtT RMIMurcjES R5jmnJULg8';
+console.log(s.match(reg)); // 8
+
+var paragraph = 'The quick brown fox jumps over the lazy dog 3 times. It barked. WOW!';
+var regex = /[A-Z]/g; // sva velika slova
+var found = paragraph.match(regex);
+console.log(found); // Array(5) [ "T", "I", "W", "O", "W" ]
+
+// Poredjenje sa "exec"
+var foundd = regex.exec(paragraph);
+console.log(foundd); // Array [ "T" ]
+```
+
+```js
+/a/[Symbol.match]('abc') // regExp metoda 
+'abc'.match(/a/) // isti rezultat kao ↑
+```
+
+### matchAll
+
+* kao rezultat vraca Iterator (cak i ako nista ne nadje. Takav iterator cim se pokrene pomocu `.next()` => `done: true`)
+
+### search 
+
+* return index of String. Radi istu stavar sto i `String.prototype.indexOf()` ali sa regex-om
+
+```js
+var paragraph = 'The quick brown fox jumps over the lazy dog. If the dog barked, was it really lazy?';
+var regex = /[^\w\s]/g; // any character that is not a word character or whitespace
+console.log(paragraph.search(regex)); // 43
+console.log(paragraph[paragraph.search(regex)]); // . (tacka)// isto sto i paragraph[0]
+// Vraca prvi rezultat na koji naidje ('g' flag ne radi na njemu). Ako nema rezultata vraca -1.
+```
+
+
+### REPLACE - return changed string
+```js
+console.log('outsiderty'.replace(/r/ig, '_$& $`')); // outsider outsidety
+// $& - vraca patern (r); $` - vraca ono sto je bilo pre paterna (outside)
+console.log('outsiderTY'.replace(/(W)we(r)/ig, "$2-$' $1_$' $2*$'#")); // outsider TYTY
+// $1 - vraca prvu vrednost iz zagrada u paternu (W); $2 vraca (r); $' vraca ono sto je pre paterna
+console.log('Qwe & Asd!!!'.replace(/\W/g, '')) // QweAsd
+// replace moze da se koristi za brisanje
+
+// ↓ oba daju isti rezultat
+'abc'.replace(/a/, 'A');
+/a/[Symbol.replace]('abc', 'A');
+```
+
+## REGEXP Tokens
+* `.` bilo koji karakter, osim 'new line'
+* `\w` word karkter = a-z, A-Z, 0-9, ukljucujuci "_" (donju liniju)
+  - `\W` ne-reci tj. SVI SPECIJANI KARAKTERI ukljucujuci space
+* `\d` digit
+  - `\D` ne-brojevi tj. SVI KARAKTERI OSIM BROJEVA
+* `\s` space
+  - `\S` ne-sapce tj. SVI KARAKTERI OSIM SPACE i \r\n\t\f\v
+* `\b` pocetak|kraj reci tj. \bQ = BILO KOJA REC KOJA POCINJE SA "Q" ; Q\b = BILO KOJA REC KOJA ZAVRSAVA SA "Q"
+  - `\B` ne-pocetak|kraj reci tj. \BQ = BILO KOJA REC samo da NE POCINJE SA "Q" ; Q\B = BILO KOJA REC samo da NE ZAVRSAVA SA "Q"
+* `\0` nul kar.
+* `\xdd` trazenje karaktera pomocu njegove hexadecimalne vrednosti. npr \x41 = A
+* `\udddd` unikod npr. \u0041 = A
+
+### KVANTIFIKATORI [ ***  **0**  ?…?…?  **1**  +…+…+  **∞**  *** ]
+
+>
+> Upamti: Kvatifikatori idu POSLE karaktera. Pamti kao "posle 2000 godine" = 2000+
+>
+
+* `o*` ~ 0-∞ "o"-ova
+  - Npr. "Hellooo World! Hello W3Schools!".match(\lo*\g) => l,looo,l,l,lo,l 
+  - Znaci trazi se 'l' ili 'lo' ili 'loo' ili itd. tj 'o' moze, ali i ne mora da ga bude.
+
+* `o+` ~ 1-∞ "o"-ova
+  - Npr. "Hellooo World! Hello W3Schools!".match(\lo+\g) => looo,loo
+  - Znaci trazi se 'lo' ili 'loo' ili 'looo' ili itd.
+
+* `o?` ~ 0-1 "o"-ova
+  - Npr. "Hellooo World! Hello W3Schools!".match(\lo?\g) => l,lo,l,l,lo,l
+  - Znaci trazi se 'l' i 'lo' tj 'o' moze, ali i ne mora da ga bude.
+
+* `[helo]` = (h|e|l|o) = [trazi se JEDAN karakter] "h" ili "e" ili "l" ili "o"
+* `[^helo]` = [bilo koji karakter osim] "h" ili "e" ili "l" ili "o"
+* `[0-9]` = cifre
+* `(o+|he|hello)` = "o+", ako ne nadje onda "he",ako ne nadje onda "hello". Bitan je redosled.
+* `o{3}` = ooo
+* `o{2,4}` = oo, ooo, oooo
+* `o{2, }` = oo+ (2 ili vise)
+* `^o` = string (red) koji pocinje sa 'o'. Kad se kaze 'string' misli se na red
+* `o$` = string koji se zavrsava sa 'o'
+
+* `l(?=og)` = selektuje se 'l' ali pod ?uslovom da =je IZA njega 'og'
+* `l(?!og)` = selektuje se 'l' ali pod ?uslovom da je IZA njega !NIJE 'og'
+* `(?<=Jack|Tom)Sprat` = selektuje se 'Spart' ali pod ?uslovom da \<ISPRED njega =jeste 'Jack' |ili 'Tom'
+* `(?<!Jack|Tom)Sprat` = selektuje se 'Spart' ali pod ?uslovom da je \<ISPRED njega !NIJE 'Jack' |ili 'Tom'
+
+> Kako pamtim:  
+> `?` - uslov, terrnary  
+> `=` i `!=` - poredjenje u JS-u, x==3 ili x!=3  
+
+* `$&` (!!!deprecated, osim za replace!!!) = Ako zelim da replace/nadogradim text, onda je `$&` je tekst koji sam nasao. NPR. Trazim cele reci i hocu da ih stavim pod navodnike, znaci regEx ce biti \w+, a njegova supstitucija ce biti "$&". Ako nesto nije jasno isprobati na regex101.com . Tamo obavezno staviti da je FLAVOR ECMAScript(JavaScript). To mogu i da isprobam i sa VS CODE Find&replace (ctrl+H)
+
+## MODIFIKATORI
+* g = global  * 
+* i = ignore case (po difoltu je case sensitive, znaci razlikuje mala i velika slova)  
+* m = multiline = komande ^ i $ vise negledaju red kao jedan string, vec ceo text je jedan veliki string.  
+* s = . sa 'new line'  
+
+
+#### TIPS
+* Ovo je nacin kako da se u RegExp ubaci promenljiva
+```js
+let stariKarakteri = "_";
+
+let regexPromenljiva = new RegExp(stariKarakteri, "g");
+
+console.log("Iz_ovog_texta_treba_da_se_izbace_donje_linije".replace(regexPromenljiva, " "))
+```
