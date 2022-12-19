@@ -1,0 +1,13 @@
+html {font-size: 1.5em;}
+body {background-color: black; color: white;}
+hr {border: 1px solid #fff;}
+@media only screen and (max-width: 700px) {
+    .img-bmp {width: 100%; min-width: 420px}
+}
+a {text-decoration: cyan underline; color: cyan; line-height: 2em;}
+a:hover {color: azure}
+details summary span {color: yellow}
+/* code {white-space: pre-line;} */
+
+.span-color-gray {color:gray}
+.span-color-brStr {color:#40f}

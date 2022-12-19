@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<HEAD>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Moja HTML-CSS-JS radionica">
+  <meta name="keywords" content="html css js playground online offline">
+
+  <title>CONSOLE</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
+    
+    <!-- Lodash -->
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+    <!-- <script src="js/lodash.js"></script> -->
+    
+    <!-- jQuery
+    <script src="jquery-3.6.0_comp.js"></script>  -->
+
+    <!-- StyleBBBlanko -->
+    <link rel="stylesheet" href="css/styleBBBlanko.css">
+</HEAD>
+
+<body>
+  <style>
+    html {font-size: 1.5em;}
+    body {background-color: black; color: white;}
+    hr {border: 1px solid #fff;}
+    @media only screen and (max-width: 700px) {
+        .img-bmp {width: 100%; min-width: 420px}
+    }
+    a {text-decoration: cyan underline; color: cyan; line-height: 2em;}
+    a:hover {color: azure}
+    details summary span {color: yellow}
+    /* code {white-space: pre-line;} */
+
+    .span-color-gray {color:gray}
+    .span-color-brStr {color:#40f}
+  </style>
+  <div>
+    <div id="test"></div>
+    <p>help = {assign:{...}, create:{...}} // sve Object metode</p>
+    <p>FUNKCIJE:<br>t("qwe") // qwe<br>ta("qwe") // qwe&lt;br&gt;
+      <br>LETIC() - Loc(''), Elem, Txt, Id, Class</p>
+    <p><b>Nulovane vrednosti:</b> nul, undef, nan</p>
+    <p>arr = [1,2,3,4,5]</p>
+    <pre>arr2D = [
+  [2,  4,   8],
+  [3,  9,  27],
+  [5, 25, 125],
+  [6, 36, 216],
+  [7, 49, 343]
+]</pre>
+    <p>qwe = 'qwerty' </p>
+    <p>lorem = "Lorem..."</p>
+    <p>loraz = "abc...ABC...!@#$...{}"</p>
+    <p>boo = true</p>
+    <p>today = new Date</p>
+    <p>sym = Symbol('sym')</p>
+      <hr width=30% align=left>
+    <p>abc = ['a','b','c','d','e'] </p>
+    <details>
+      <summary><span>Object</span> obar = { abc: ['a', 'b', 'c', 'd', 'e'] } </summary>
+      <p>obar = {abc}</p>
+    </details>
+      <hr width=30% align=left>
+    <p>q = 1, <br>w = 2, <br>e = 3 </p>
+    <details>
+      <summary><span>Object</span> qwe123 = { q:1, w:2, e:3 }</summary>
+      <p>qwe123 = {q,w,e}</p>
+    </details>
+      <hr width=30% align=left> 
+    <p>a = 'a', <br>b = 'b', <br>c= 'c' </p>
+    <details>
+      <summary><span>Object</span> aabbcc = { a:'a', b:'b', c:'c' }</summary>
+      <p>aabbcc = {a,b,c}</p>
+    </details>
+      <hr width=30% align=left>
+    <details>
+      <summary><span>Object</span> obmix = { 0: 1, 1: 2, 2: 3, 3: 4, 4: 5, q: 1, a: "a", qwe: "qwerty", qwe123: {q:1, w:2, e:3}, abc: (5) […], nan: NaN, nul: null, undef: undefined, Symbol(sym): true, Symbol(nedeklarisani sym): "kako ga pozvati?" }</summary>
+      <p>obmix = {{
+        [sym] : boo, [Symbol('nedeklarisani sym')]: "kako ga pozvati?",
+        q, a, qwe, ...arr, abc, nan, undef, nul
+      }}</p>
+    </details>
+    <details>
+      <summary><span>Array</span> arrmix = ["", nan, nul, undef,  arr, qwe, boo, sym,  abc, obar,  q, w, e, qwe123,  a, b, c, aabbcc, psi, restorani]</summary>  
+    </details>
+      <hr width=30% align=left>
+    <details>
+      <summary>
+        <span class="text-warning">Psi </span>
+        <span class="text-info">[ </span>Niz 
+        <span class="text-warning">{ </span>Objekata 
+        <span class="text-warning">} </span>
+        <span class="text-info">] </span>
+        
+      </summary>
+      <pre>
+<!-- 
+8 888888888o     d888888o.    8 8888 
+8 8888    `88. .`8888:' `88.  8 8888 
+8 8888     `88 8.`8888.   Y8  8 8888 
+8 8888     ,88 `8.`8888.      8 8888 
+8 8888.   ,88'  `8.`8888.     8 8888 
+8 888888888P'    `8.`8888.    8 8888 
+8 8888            `8.`8888.   8 8888 
+8 8888        8b   `8.`8888.  8 8888 
+8 8888        `8b.  ;8.`8888  8 8888 
+8 8888         `Y8888P ,88P'  8 8888 
+ -->
+psi=[
+      {
+        ime: 'Bela',
+        god: 1,
+        muzjak: false,
+        nadimci: ["Beki", "Cupi", "Pufi", "Lizaca"],
+        vlasnik: "Labat porodica",
+      },
+      {
+        ime: 'Vucko',
+        god: 10,
+        muzjak: true,
+        nadimci: ["Vuki", "Vule", "Matori", "Legenda"],
+        vlasnik: undefined,
+      },
+      {
+        ime: 'Sari',
+        god: 40,
+        muzjak: true,
+        nadimci: ["Sari", "Sarpi"],
+        vlasnik: undefined,
+      },
+      {
+        ime: 'Snoopy',
+        god: 60,
+        muzjak: true,
+        nadimci: ["Snupi"],
+        vlasnik: "Shultz",
+      },
+      {
+        ime: 'Betoven',
+        god: 200,
+        muzjak: true,
+        nadimci: ["Beton"],
+        vlasnik: "Filharmonija",
+      }
+    ]
+      </pre>
+    </details>
+    <details>
+      <summary>
+        <span class="text-warning">restorani</span>
+        <span class="text-info">{ </span>Objekat 
+        <span class="text-warning">[ </span> 
+        <span class="text-success">{ </span>Niz
+        <span class="text-success">} </span>
+        <span class="text-success">{ </span> Objekata
+          <span class="text-success">} </span>
+        <span class="text-warning">] </span>
+        <span class="text-info">} </span>
+      </summary>
+      <pre>
+<!-- 
+8 888888888o.   8 8888888888     d888888o. 8888888 8888888888 ,o888888o.     8 888888888o.            .8.          b.             8  8 8888 
+8 8888    `88.  8 8888         .`8888:' `88.     8 8888    . 8888     `88.   8 8888    `88.          .888.         888o.          8  8 8888 
+8 8888     `88  8 8888         8.`8888.   Y8     8 8888   ,8 8888       `8b  8 8888     `88         :88888.        Y88888o.       8  8 8888 
+8 8888     ,88  8 8888         `8.`8888.         8 8888   88 8888        `8b 8 8888     ,88        . `88888.       .`Y888888o.    8  8 8888 
+8 8888.   ,88'  8 888888888888  `8.`8888.        8 8888   88 8888         88 8 8888.   ,88'       .8. `88888.      8o. `Y888888o. 8  8 8888 
+8 888888888P'   8 8888           `8.`8888.       8 8888   88 8888         88 8 888888888P'       .8`8. `88888.     8`Y8o. `Y88888o8  8 8888 
+8 8888`8b       8 8888            `8.`8888.      8 8888   88 8888        ,8P 8 8888`8b          .8' `8. `88888.    8   `Y8o. `Y8888  8 8888 
+8 8888 `8b.     8 8888        8b   `8.`8888.     8 8888   `8 8888       ,8P  8 8888 `8b.       .8'   `8. `88888.   8      `Y8o. `Y8  8 8888 
+8 8888   `8b.   8 8888        `8b.  ;8.`8888     8 8888    ` 8888     ,88'   8 8888   `8b.    .888888888. `88888.  8         `Y8o.`  8 8888 
+8 8888     `88. 8 888888888888 `Y8888P ,88P'     8 8888       `8888888P'     8 8888     `88. .8'       `8. `88888. 8            `Yo  8 8888 
+ -->
+restorani={
+  "count": 39,
+  "results": [
+    {
+      "name": "Esther's German Saloon",
+      "cuisine": "german",
+      "_id": 0,
+      "description": "German home-cooked meals and fifty-eight different beers on tap. To get more authentic, you'd need to be wearing lederhosen.",
+      "location": "22 Teutonic Ave.",
+      "price": 3,
+      "days": {
+        "1": {
+          "closes": "22:00",
+          "opens": "12:00"
+        },
+        "2": {
+          "closes": "16:00",
+          "opens": "9:00"
+        },
+        "3": {
+          "closes": "22:00",
+          "opens": "12:00"
+        },
+        "4": {
+          "closes": "20:00",
+          "opens": "11:00"
+        },
+        "5": {
+          "closes": "16:00",
+          "opens": "9:00"
+        },
+        "6": {
+          "closes": "18:00",
+          "opens": "10:00"
+        },
+        "7": {
+          "closes": "18:00",
+          "opens": "10:00"
+        }
+      },
+    "rating": 3
+  },{...}, ...
+}
+      </pre>
+    </details>
+    <hr width=30% align=left>
+
+<!--
+         ,8.       ,8.          8 8888888888 8888888 8888888888 ,o888888o.     8 888888888o.      8 8888888888   
+        ,888.     ,888.         8 8888             8 8888    . 8888     `88.   8 8888    `^888.   8 8888         
+       .`8888.   .`8888.        8 8888             8 8888   ,8 8888       `8b  8 8888        `88. 8 8888         
+      ,8.`8888. ,8.`8888.       8 8888             8 8888   88 8888        `8b 8 8888         `88 8 8888         
+     ,8'8.`8888,8^8.`8888.      8 888888888888     8 8888   88 8888         88 8 8888          88 8 888888888888 
+    ,8' `8.`8888' `8.`8888.     8 8888             8 8888   88 8888         88 8 8888          88 8 8888         
+   ,8'   `8.`88'   `8.`8888.    8 8888             8 8888   88 8888        ,8P 8 8888         ,88 8 8888         
+  ,8'     `8.`'     `8.`8888.   8 8888             8 8888   `8 8888       ,8P  8 8888        ,88' 8 8888         
+ ,8'       `8        `8.`8888.  8 8888             8 8888    ` 8888     ,88'   8 8888    ,o88P'   8 8888         
+,8'         `         `8.`8888. 8 888888888888     8 8888       `8888888P'     8 888888888P'      8 888888888888 
+ -->
+    <h3>METODE</h3>
+    <a href="../../_George\JS\Methods JS\!Array_Methods.md">
+      ARRAY</a>
+    <a href="../../_George\JS\Methods JS\!String_Methods.md">
+      STRING</a>
+    <a href="../../_George\JS\Methods JS\!Number_Methods.md">
+      NUMBER</a>
+    <a href="../../_George\JS\Methods JS\!Object_Methods.md">
+      OBJECT</a>
+    <a href="../../_George\JS\Methods JS\!Function_Methods.md">
+      FUNCTION</a>
+    <a href="../../_George\Git\GIT.md">
+      GIT</a>
+    <a href="../../_George\JS\Methods JS\RegExp\RegExp_Methods.md">
+      REG_EXP</a>
+    <a href="../../_George\Frame Works\Lodash\lodash.docx">
+      LoDash</a>
+      <br><br>
+<!--
+8 8888888888       .8.                  8 8888 8 8888         ,o888888o.  `8.`888b           ,8'  8 8888 
+8 8888            .888.                 8 8888 8 8888      . 8888     `88. `8.`888b         ,8'   8 8888 
+8 8888           :88888.                8 8888 8 8888     ,8 8888       `8b `8.`888b       ,8'    8 8888 
+8 8888          . `88888.               8 8888 8 8888     88 8888        `8b `8.`888b     ,8'     8 8888 
+8 888888888888 .8. `88888.              8 8888 8 8888     88 8888         88  `8.`888b   ,8'      8 8888 
+8 8888        .8`8. `88888.             8 8888 8 8888     88 8888         88   `8.`888b ,8'       8 8888 
+8 8888       .8' `8. `88888. 88.        8 8888 8 8888     88 8888        ,8P    `8.`888b8'        8 8888 
+8 8888      .8'   `8. `88888.`88.       8 888' 8 8888     `8 8888       ,8P      `8.`888'         8 8888 
+8 8888     .888888888. `88888. `88o.    8 88'  8 8888      ` 8888     ,88'        `8.`8'          8 8888 
+8 8888    .8'       `8. `88888.  `Y888888 '    8 888888888888 `8888888P'           `8.`           8 8888 
+
+ -->
+    <h3>FAJLOVI I FOLDERI</h3>
+    <a href="../../_George\JS\">
+      [ JS ]</a><br>
+
+    <a href="../../_Projects\bbBlank\bbBlanko.html" download> 
+      bbBlank</a><br>
+<!-- parametar download, za bbBlanko pita da li da pokrene sa Sublime zato sto je stranica vec otvorena. Na ostalim linkovima ne bi radilo. Da bi radilo na ostalim linkovima, prvo mora ta stranica da se ucita u FF, pa onda da se klikne na link sa parametrom download -->
+    <a href="../../_George\HTML-CSS\HTML_svi_tagovi.html">
+      HTML tagovi</a><br>
+
+    <a href="../../_George\HTML-CSS\HTML_svi_tagovi_2.html">
+      HTML tagovi 2</a><br>
+
+    <a href="../../_George\JS\Prioritet operatora\Prioritet operatora.xlsx">
+      Operators</a><br>
+
+    <a href="../../_George\Emmet\Emmet.html">
+      Emmet</a><br>
+  </div>
+
+  <a href="../../_George\JS\Methods JS\Metode - moja slika iz CDR\Array.html">
+    <img hidden width="50%" src="../../_George\JS\Methods JS\Metode - moja slika iz CDR\Metode-Array.gif" alt="Sve Array Metode">
+    <img width="50%" src="../../_George\JS\Methods JS\Metode - moja slika iz CDR\Metode-Array.gif" alt="Sve Array Metode">
+  </a>
+  
+  <a href="../../_George\JS\Methods JS\Metode - moja slika iz CDR\String.html">
+    <img hidden width="50%" src="../../_George\JS\Methods JS\Metode - moja slika iz CDR\Metode-String.gif" alt="Sve String Metode">
+    <img width="50%" src="../../_George\JS\Methods JS\Metode - moja slika iz CDR\Metode-String.gif" alt="Sve String Metode">
+  </a>
+  
+  <img hidden width="50%" src="../../_George\JS\Boolean Advanced\Boolean Advanced.gif" alt="Advanced Boolean - Truthy-Falsy">
+  <img width="50%" src="../../_George\JS\Boolean Advanced\Boolean Advanced.gif" alt="Advanced Boolean - Truthy-Falsy"></img>
+
+  <!--img width="90%" src="../../_George\JS\Methods JS\Konverzije  Number-String-Boolean-Array.gif" alt="Konverzije izmedju Array - String - Number"> -->
+
+<!-- KREIRANJE OBJEKATA -->
+  <h3>Kreiranje {Objekata}</h3>
+  <ul>
+    <li>
+      <details>
+        <summary>Create an {object} from an [Array of Keys] and an [Array of Values]</summary>
+        <code>var keys = ['foo', 'bar', 'baz'];<br>
+          var values = [11, 22, 33]<br>
+          <br>
+          var result = {};<br>
+          keys.forEach((key, i) => result[key] = values[i]);<br>
+          console.log(result);</code>  <br>
+      </details>
+    </li>
+  </ul>
+
+<!-- KONVERZIJE NIZ - OBJEKAT -->
+  <h3 id="niz-u-obj">Konverzija [niza] u {objekat}</h3>
+  <ul>
+    <li>
+      <code>Object.assign({}, ['a','b','c']); // {0:"a", 1:"b", 2:"c"}</code>  <br>
+    </li>
+
+    <li><code>{ ...['a', 'b', 'c'] }</code></li>
+
+    <li>
+      <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/fromEntries">Object.fromEntries()</a>
+    </li>
+  </ul>
+
+<hr>
+<!-- KONVERZIJA {OBJEKATA} U [NIZ] -->
+  <h3>Konverzija {Objekata} u [Niz]</h3>
+  <ul>
+    <li>
+      <code>Object.keys(arr);</code>
+      // ['k1', 'k2']
+    </li>
+
+    <li>
+      <code>Object.values(arr);</code>
+      // ['v1', 'v2']
+    </li>
+    
+    <li>
+      <code>Object.entries(arr);</code>
+      // [ ['k1', 'v1'], ['k2', 'v2'] ]    
+    </li>
+  </ul>
+
+<hr>
+    <!-- KOPIRANJE OBJEKATA -->
+  <h3>Plitko kopiranje {Objekata}</h3>
+  <p><a href="#niz-u-obj">vidi Konverzija [niza] u {objekat}</a></p>
+
+  <h3>Duboko kopiranje jednostavnih objekata</h3>
+  <ul>
+    <li>
+      <details>
+        <summary>JSON.stringify - JSON.parse</summary>
+        <code>var objclone = JSON.parse(JSON.stringify(obj)) // najsporije sto se tice performansi</code>  <br>
+      </details>
+    </li>
+    <li>
+      <details>
+      <summary>Manuelno</summary>
+        <code>// (↑performanse↑, ↓komplexnost↓, ↓mora se znati struktira↓)
+let obj = {
+  id: 1,
+  m: { male: true },
+  i: { info: {name:"Jonh", lname:"Doe"}}
+};
+
+let objClone = {}
+objClone = {...obj} // ovde je vec ceo objekat iskloniran, ALI NE DUBINSKI
+objClone.m = {...obj.m}
+objClone.i = {...obj.i}
+objClone.i.info = {...obj.i.info}
+
+console.dir('Befor Change - objClone: ', objClone);
+
+obj.id = 2
+obj.m.male = false
+obj.i.info.name = "Joly";
+
+console.dir('After Change - obj: ', obj);
+console.dir('After Change - objClone: ', objClone);
+        </code>
+      </details>
+    </li>
+    <li>
+      <details>
+        <summary>Lodash.cloneDeep - npm libary</summary>
+        <a href="https://www.npmjs.com/package/lodash.clonedeep">Kazu da je najjednostvnije</a>
+      </details>
+    </li>
+  </ul>
+<hr>
+  <h3>Duboko brisanje objekata</h3>
+  <ul>
+    <li>
+      <details>
+        <summary>sto znaci da ce sadrzaj biti obrisan i u svim referencama ka ovom obj.</summary>
+        <code>Object.keys(obj).forEach(function(key) { delete obj[key]; });</code>  <br>
+      </details>
+    </li>
+  </ul>
+<hr>
+
+<h3>Sortiranje {OBJEKATA}</h3>
+  <ul>
+      <li>
+          <details>
+              <summary>u [nizu]</summary>
+              <code>psi.sort((a, b) => (a.god > b.god) ? 1 : -1)</code>
+          </details>
+      </li>
+      <li>
+          <details>
+              <summary>u [niz] i filtriranje po svojstvu</summary>
+                <code>restorani.results
+.filter( o => o.price > 3 )
+.sort( (a,b) => b.price - a.price ) // [{},{},...]
+                </code>
+          </details>
+      </li>
+  </ul>
+
+  <hr>
+
+  <h3 title="Obicno se funkcije sastoje iz 'spoljanje' i 'unutrasnje' metode. 'Spoljasnja' radi na nizovima, 'unutrasnja' radi na elemenitma u nizovima">Array 2D <i>(hover for tips)</i></h3>
+  <ul>
+      <li>
+        <details>
+            <summary title="Objasnjenje: Spoljasnji 'map' je da selektuje nizove. Unutrasnji 'map' je da selektuje elemente koji su u nizovima i da ih promeni.">Rad na svim elementima u nizovima</summary>
+            <code title="Rezultat: svi brojevi su postali stringovi">arr2D.map(arr=> arr.map( elem=> elem+'' ))</code>
+        </details>
+      </li>
+      <li>
+          <details>
+              <summary title='Objasnjenje: Spoljasnji "map" selektuje nizove i prikazuje samo [0] elemente'>Vertikalna selekcija</summary>
+              <code title="Rezultat: [ 2, 3, 5, 6, 7 ] // svi [0] elementi">arr2D.map( arr=>arr.slice(0,1) ).flat()</code>
+          </details>
+      </li>
+      <li>
+        <details>
+            <summary title="Objasnjenje: Filtriranje po nekoj karakteristici tj. po nekoj f-ji">Filtrirana selekcija</summary>
+            <code title="Rezultat: [ 125, 216, 343 ] // svi elementi koji su veci od 100">arr2D.map( arr=>arr.filter( elem=> elem>100 ) ).flat()</code>
+        </details>
+      </li>
+  </ul>
+
+  <hr>
+
+  <h3>Provere</h3>
+
+  <ul>
+    <li>
+      <details>
+      <summary>da li {objekat} ne postoji</summary>
+        <code>typeof objX === "undefined"</code>
+      </details>
+    </li>
+
+    <li>
+      <details>
+      <summary>da li je {objekat} null</summary>
+        <code>typeof objX !== "undefined" &&
+        objX !== null</code>
+      </details>
+    </li>
+
+    <li>
+      <details>
+      <summary>da li je Broj</summary>
+        <code>!Number.isNaN(e) &&<br> typeof e === "number" &&<wbr> Number.isFinite(e) <wbr>// true</code>
+      </details>
+    </li>
+    
+    <li>
+      <details>
+      <summary>Nulish: da li je null ili undefined, ako jeste vrati default vrednost</summary>
+        <code>null <span class="span-color-gray">??</span> <span class="span-color-brStr">5</span> <span style="color:#666">// 5</span>
+            undefined <span class="span-color-gray">??</span> <span class="span-color-brStr">5</span> <span style="color:#666">// 5</span>
+            false <span class="span-color-gray">??</span> <span class="span-color-brStr">5</span> <span style="color:#666">// false</span>
+            NaN <span class="span-color-gray">??</span> <span class="span-color-brStr">5</span> <span style="color:#666">// NaN</span>
+            0 <span class="span-color-gray">??</span> <span class="span-color-brStr">5</span> <span style="color:#666">// 0</span></code>
+      </details>
+    </li>
+    
+    <li>
+      <details>
+      <summary>IN: da li postoji <span class="span-color-yellow">ključ:</span> u <span class="span-color-yellow">{objektu}</span> (ili index u [nizu] ).
+    </summary>
+        <code>
+            <span class="span-color-brStr">"ime"</span> in <span style="color:violet">psi</span><span class="span-color-gray">[<span class="span-color-brStr">0</span>] </span><span style="color:#666">// true</span>
+            <span class="span-color-brStr">"god"</span> in <span style="color:violet">psi</span><span class="span-color-gray">[<span class="span-color-brStr">0</span>] </span><span style="color:#666">// true</span>
+            <span class="span-color-brStr">"god"</span> in <span style="color:violet">psi</span> <span style="color:#666">// false</span>
+           <span class="span-color-brStr">"boja"</span> in <span style="color:violet">psi</span><span class="span-color-gray">[<span class="span-color-brStr">0</span>] </span><span style="color:#666">// false</span>
+            
+            <span class="span-color-brStr">'0'</span> in <span style="color:violet">arr</span> <span style="color:#666">// true</span>
+            <span class="span-color-brStr">'1'</span> in <span style="color:violet">arr</span> <span style="color:#666">// true</span>
+            <span class="span-color-brStr">'2'</span> in <span style="color:violet">arr</span> <span style="color:#666">// true</span>
+            <span class="span-color-brStr">'3'</span> in <span style="color:violet">arr</span> <span style="color:#666">// true</span>
+            <span class="span-color-brStr">'4'</span> in <span style="color:violet">arr</span> <span style="color:#666">// true</span>
+            <span class="span-color-brStr">'5'</span> in <span style="color:violet">arr</span> <span style="color:#666">// false</span></code>
+      </details>
+    </li>
+    <li>
+      <details>
+      <summary>INCLUDES: da li postoji <span class="span-color-yellow">:vrednost</span> u <span class="span-color-yellow">[nizu]</span> (ili "stringu").
+    </summary>
+        <code>
+          abc.includes("a") // true <br>
+          qwe.includes("q") // true
+        </code>
+      </details>
+    </li>
+    <li>
+      JOS PROVERA VIDETI U Lodash.
+    </li>
+  </ul>
+
+      </div>
+    </div>
+  </div>
+
+  </div>
+
+
+ <!-- Separate Popper and Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+
+
+</body>
+
+<script>
+/* 
+   d888888o.       ,o888888o.    8 888888888o.    8 8888 8 888888888o 8888888 8888888888 
+ .`8888:' `88.    8888     `88.  8 8888    `88.   8 8888 8 8888    `88.     8 8888       
+ 8.`8888.   Y8 ,8 8888       `8. 8 8888     `88   8 8888 8 8888     `88     8 8888       
+ `8.`8888.     88 8888           8 8888     ,88   8 8888 8 8888     ,88     8 8888       
+  `8.`8888.    88 8888           8 8888.   ,88'   8 8888 8 8888.   ,88'     8 8888       
+   `8.`8888.   88 8888           8 888888888P'    8 8888 8 888888888P'      8 8888       
+    `8.`8888.  88 8888           8 8888`8b        8 8888 8 8888             8 8888       
+8b   `8.`8888. `8 8888       .8' 8 8888 `8b.      8 8888 8 8888             8 8888       
+`8b.  ;8.`8888    8888     ,88'  8 8888   `8b.    8 8888 8 8888             8 8888       
+ `Y8888P ,88P'     `8888888P'    8 8888     `88.  8 8888 8 8888             8 8888       
+*/
+help = {
+  "assign" : {0 :`Kopira se enumerabilne stavke iz jednog objekata u drugi.
+  const target = { a: 1, b: 2 };
+  const source = { b: 4, c: 5 };
+  const returnedTarget = Object.assign(target, source);
+  console.log(target); // expected output: Object { a: 1, b: 4, c: 5 } // sta je sa b:2? Njega je pregazio b:4
+  console.log(returnedTarget); // expected output: Object { a: 1, b: 4, c: 5 }`} 
+  ,
+  "create" : {0:`Nesto slicno kao Corel-u Clone. 
+  Pravi se novi, PRAZAN, objekat na osnovu postojeceg objekta, ali taj postojeci objekat ce da bude prototype novog objekta, a "skoljka" ce da bude prazna. 
+  Drugim recima, od postojeceg objekta pravi se prototip za novi objekat, a tom novom objektu skoljka ce da bude prazna. Ako promenim neko svojstavo objekta od kojeg je napravljen prototip za novi objekta, menja se i prototip u novom objektu. 
+  Object.create nije dobro za NE ZAVISNO kopiranje.`}
+  ,
+  "defineProperty" : {0:`Na ovaj nacin dodata svojstva su, po default-u imutabilna (confugurable:false) i nisu enumerabilna (enumerable:false).
+  Da bi se promenilo svojstvo(propString) od Objekta(obj), mora prvo da se dozvoli kofigurisanje objekta (confugurable:true), pa potom da se dozvoli upis u to svojstvo (writable:true). Ako jos zelim i da se to svojstvo npr. pojavi u for...in petlji tj. da bude enumerabilno onda moram to ukljuciti (enumerable:true).`}
+  ,  
+  "defineProperties" : {0:`Isto kao i "defineProperty" ali za vise svojstava odjednom.
+  OBRATI PAZNJU, nisu isti argumenti kao kod Object.defineProperty (vidi defineProperty). Ovde je drugi argument {blok} u kojem su prop.-si: {deskriptori}. PAZI, kada kucas u editoru sa intelisense. Obrati paznju sta si izabrao, ...Property ili Properties`}
+  ,
+  "getOwnPropertyDescriptor" : {0:`Pravi se novi objekat (tzv. deskriptor) pomocu kojeg se prikazuje konfiguracija nekog svojstva.
+
+		deskriptor = Object.getOwnPropertyDescriptor(qwe123, 'q')
+
+		console.log(deskriptor.value) // 1
+		console.log(deskriptor.writable) // T
+		console.log(deskriptor.enumerable) // T
+		console.log(deskriptor.configurable) // T
+		console.log(deskriptor.valueOf()) /*
+		Object {
+			value: 1,
+			writable: true,
+			enumerable: true,
+			configurable: true
+		}
+		*/
+		console.log(deskriptor.set) // undefined
+		console.log(deskriptor.get) // undefined
+
+		deskriptor.value = 11 // 11 // moze da se menja vrednost objekta koji prikazuje konfiguraciju svojstva, ali...
+		qwe123.q // 1 // ... vrednost u originalnom objektu ostaje nepromenjena. Verovatno zato sto je "deskriptor" nezavistan objekat. Prepisane vrednosi.`}
+    ,
+    "getOwnPropertyDescriptors" : {0:`Isto sto i ↑ Object.getOwnPropertyDescriptor samo sto prikazuje konfiguracije od SVIH svojstava (ili onih koje si odabrao).
+
+		deskriptor = Object.getOwnPropertyDescriptors(qwe123)
+		/*
+		deskriptor = {
+			"q": {
+				"value": 1,
+				"writable": true,
+				"enumerable": true,
+				"configurable": true
+			},
+			"w": {
+				"value": 2,
+				"writable": true,
+				"enumerable": true,
+				"configurable": true
+			},
+			"e": {
+				"value": 3,
+				"writable": true,
+				"enumerable": true,
+				"configurable": true
+			}
+		}
+		*/
+
+		console.log(deskriptor) // isto kao ↑
+		console.log(deskriptor.valueOf()) // isto kao ↑
+		console.log(deskriptor.w.value) // 2
+		console.log(deskriptor.w.writable) // T
+		console.log(deskriptor.w.enumerable) // T
+		console.log(deskriptor.w.configurable) // T
+		console.log(deskriptor.set) // undefined
+		console.log(deskriptor.get) // undefined
+
+		deskriptor.q.value = 11 // 11 // moze da se menja objekat koji prikazuje konfiguraciju svojstva, ali...
+		qwe123.q // 1 // ... vrednost u originalnom objektu ostaje nepromenjena.`}
+    ,
+    "preventExtensions" : {0:`Onemogucava objekat da mu se dodaju novi props`}
+    ,
+    "isExtensible" : {0:`Proverava da li objektu mogu da se dodoaju novi props`}
+    ,
+    "freeze" : {0:`Zamrzava objekat da ne moze da se menja. !Podobjekat nije smrznut. Svaki posebno mora da se smrzne. Takodje i obrnuto, ako zamrznem podobjekat(ili niz) to ne znaci da ce i maticni objekat biti smrzut.`}
+	  ,
+    "isFrozen" : {0:`Proverava da li je objekat zamrznut. Vidi "freeze"`} 
+    ,
+    "seal" : {0:`Zapečaćeno. Objekatu NE mogu da se dodaju novi props, a postojeci props NE mogu da se konfigurisu. Ali VREDNOSTI postojecih propsa mogu da se menjaju (ako su writable)`}
+    ,
+    "isSealed" : {0:`Proverava da li je objekat zapečaćen. Vidi "seal"`}
+    ,
+    "hasOwnProperty" : {0:`Proverava da li objekat sadrzi odredjeni properties. pogledaj fajl hasOwnProperty.js
+    psi.hasOwnProperty('ime') // F
+    psi[0].hasOwnProperty('ime') // T
+    psi[0].hasOwnProperty('Bela') // F`} 
+    ,
+    "propertyIsEnumerable" : {0:`Proverava da li prop pripada licno tom objektu i da li je enumerabilan.
+    qwe123.propertyIsEnumerable("q") // T
+    psi[0].propertyIsEnumerable('ime') // T
+    psi['0'].propertyIsEnumerable('god') // T
+    arr.propertyIsEnumerable(0) // T
+
+    arr.propertyIsEnumerable('length') // F
+    boo.propertyIsEnumerable() // F - ovo nisu Objekti vec primitive
+    qwe.propertyIsEnumerable() // F`}
+   , 
+    "keys" : {0:`Pravi niz (ne iterator) od kljuceva objekta. Moze da se koristi kao kod Array.length - Object.keys(qwe).length.
+		
+    Object.keys(qwe123) // [ 'q', 'w', 'e' ]
+    qwe123.keys()			 	// Pravi iterator (ne niz) od kljuceva objekta.`}
+    ,
+    "values" : {0:`Pravi niz od vrednosti svojstava (ako su enumerativni). Slicno je kao for...in loop, ali loop enumerise i propertie od prototype lanca.
+		Object.values(qwe123) // [ 1, 2, 3 ]
+    qwe123.values(qwe123) // Pravi iterator (ne niz) od vrednosti svojstava.`} 
+    ,
+    "entries" : {0:`Vraca 2D-niz kljuceva i vrednosti
+		Object.entries(qwe123) // [ [ "q", 1 ], [ "w", 2 ], [ "e", 3 ] ]
+    qwe123.entries()   	   // Pravi iterator (ne niz) od [kljuceva i vrednosti svojstava].`}
+    ,
+    "valueOf" : {0:`qwe123.valueOf()		// Vraca vrednost objekta, isto dobija i kada pozoves objekat qwe123`}
+    ,
+    "fromEntries" : {0:`Obrunto od Object.entries. Transformise neku listu vrednosti oblika [key, value] u objekat {key: value}
+		const entries = new Map([
+			['foo', 'bar'],
+			['baz', 42]
+		]);
+
+		const obj = Object.fromEntries(entries);
+
+		console.log(obj); // expected output: Object { foo: "bar", baz: 42 }`}
+    ,
+    "getOwnPropertyNames" : {0:`Vraca Array svih kljuceva (ukljucujuci i ne-enumerable, ISkljucujuci one koji koriste Symbol).
+	  Object.getOwnPropertyNames(obmix) // Array(12) [ "0", "1", "2", "3", "4", "q", "a", "qwe", "abc", "nan", "undef", "nul" ]`}
+    ,
+    "getOwnPropertySymbols" : {0:`Vraca Array od svih simbola koji su korisceni u datom objektu
+	Object.getOwnPropertySymbols(obmix) // Array [ Symbol("sym"), Symbol("nedeklarisani sym") ]
+
+	obmix[Object.getOwnPropertySymbols(obmix)[1]] // "kako ga pozvati?" ← ovo je vrednost koja stoji iz simbol kljuca`} 
+  ,
+  "setPrototypeOf" : {0:`Dodeljivanje prototipa nekom objektu, tacnije: target objektu se dodeljuje prototypeObject da mu bude prototip.
+		targetObj = {}
+
+		Object.setPrototypeOf(targetObj, obmix)
+
+		targetObj.hasOwnProperty(qwe) // false //targetObj "licno" NEMA qwe, vec ga ima u prototipu.
+		targetObj.qwe // 'qwerty'
+
+		targetObj.hasOwnProperty(abc) // false
+		targetObj.abc[0] // "a"`}
+    ,
+    "getPrototypeOf" : {0:`Vraca objekat koji je koriscen kao prototip
+
+		// ----- MOJA ISPITIVANJA -----
+		Object.getPrototypeOf(q)      // Number { 0 }
+		Object.getPrototypeOf(w)      // Number { 0 }
+		Object.getPrototypeOf(qwe)    // String { "" }
+		Object.getPrototypeOf(arr)    // Array []
+		Object.getPrototypeOf(boo)    // Boolean { false }
+		Object.getPrototypeOf(ta)     // function ()
+		Object.getPrototypeOf(qwe123) // Object { … }
+		Object.getPrototypeOf({}) 				// Object { … }
+		Object.getPrototypeOf(qwe123) === Object.getPrototypeOf({})  // T
+		Object.getPrototypeOf(Number)     // function ()
+		Object.getPrototypeOf(Function)   // function()
+		Object.getPrototypeOf(Object)     // function()
+		Object.getPrototypeOf(null)       // Uncaught TypeError: can't convert null to object
+		Object.getPrototypeOf(undefined)  // Uncaught TypeError: can't convert undefined to object
+		Object.getPrototypeOf(NaN)        // Number { 0 }
+		Object.getPrototypeOf(0/0)        // Number { 0 }
+
+		const prototype1 = {};
+		const object1 = Object.create(prototype1);
+		console.log(Object.getPrototypeOf(object1) === prototype1); // T`}
+    ,
+    "isPrototypeOf" : {0:`Proverava da li je neki objekat prototip drugom objektu.
+		// Object, Array, String, Number... Imaju prototype (tj. imaju svoju class). Posto su to kostruktori prototip im je Function > a njegov prototip je Object > a on je osnova svega tj. nema prototip tj prototype:null
+
+		Object.prototype.isPrototypeOf(String) // T
+		////////////////////////////
+		Object.__proto__.isPrototypeOf() //
+
+	// ----- moj primer -----------------------------------
+		targetObj = {}
+
+		Object.setPrototypeOf(targetObj, obmix) // obmix je postao prototip za targetObj
+
+		// DOKAZ:
+		targetObj.hasOwnProperty(qwe) // false
+		targetObj.qwe // 'qwerty'
+
+		targetObj.__proto__.isPrototypeOf(obmix) // F // BTW __proto__ je u FireFox
+		obmix.__proto__.isPrototypeOf(targetObj) // T
+
+	// ----- MDN PRIMER -----------------------------------
+	function object1() {}
+	function object2() {}
+
+	object1.prototype = Object.create(object2.prototype);
+
+	const object3 = new object1();
+
+	console.log(object1.prototype.isPrototypeOf(object3)); // T
+	console.log(object2.prototype.isPrototypeOf(object3)); // T
+	console.log(object1.prototype.isPrototypeOf(object2)); // T
+
+	// ----- moja ispitivanja -----------------------------
+	console.log([].isPrototypeOf(object3))       // F
+	console.log([].isPrototypeOf(Array))         // F
+	console.log(object3.isPrototypeOf(Function)) // F
+	console.log(object3.isPrototypeOf(Object))   // F
+	console.log(Math.isPrototypeOf(Number))      // F
+	console.log(Function.isPrototypeOf(object1)) // F
+	console.log(object3.isPrototypeOf(Function)) // F
+	console.log(object3.isPrototypeOf(Object))   // F`}
+  ,
+  "is" : {0:`Proverava istoću dve vrednosti. Za razliku od ==komparacije ovde je:
+		// NaN == NaN 					// F
+		Object.is(NaN, NaN)     // T
+		Object.is(NaN, 0/0);    // T
+		Object.is(0, -0);       // F
+		// '' == false == 0     // T
+		Object.is('', false);   // F
+		Object.is('', 0);       // F
+		Object.is(false, 0);    // F`}
+  ,
+  "toLocaleString" : {0:`Mislim da to ima neke veze sa "Srpski string"`}
+}
+
+nul = null
+undef = undefined
+nan = NaN
+arr = [1, 2, 3, 4, 5]
+arr2D = [
+  [2,4,8],
+  [3,9,27],
+  [5,25,125],
+  [6,36,216],
+  [7,49,343]
+]
+abc = ['a', 'b', 'c', 'd', 'e']
+qwe = 'qwerty'
+today = new Date
+lorem = `I said the keys are in here. So tell me, future boy, who's president of the United States in 1985? He's fine, and he's completely unaware that anything happened. As far as he's concerned the trip was instantaneous. That's why Einstein's watch is exactly one minute behind mine. He skipped over that minute to instantly arrive at this moment in time. Come here, I'll show you how it works. First, you turn the time circuits on. This readout tell you where you're going, this one tells you where you are, this one tells you where you were. You imput the destination time on this keypad. Say, you wanna see the signing of the declaration of independence, or witness the birth or Christ. Here's a red-letter date in the history of science, November 5, 1955. Yes, of course, November 5, 1955. Are you gonna order something, kid? No, it was The Enchantment Under The Sea Dance. Our first date. It was the night of that terrible thunderstorm, remember George? Your father kissed me for the very first time on that dance floor. It was then I realized I was going to spend the rest of my life with him.
+
+C'mon man, let's do something that really cooks. Hot, Jesus Christ, Doc. Jesus Christ, Doc, you disintegrated Einstein. Looks like a airplane, without wings. Radiation suit, of course, cause all of the fall out from the atomic wars. This is truly amazing, a portable television studio. No wonder your president has to be an actor, he's gotta look good on television. I guess you guys aren't ready for that yet. But your kids are gonna love it.
+
+Hello, hello, anybody home? Think, McFly, think. I gotta have time to recopy it. Do your realize what would happen if I hand in my homework in your handwriting? I'd get kicked out of school. You wouldn't want that to happen would you, would you? Right, I got it. Wait a minute, wait a minute, Doc, are you telling me that you built a time machine out of a delorean. Last night, Darth Vader came down from planet Vulcan. And he told me that if I didn't take Lorraine, that he'd melt my brain. No, why, what's a matter?`
+loraz = String.raw`abc def ghi jkl mno pqrs tuv wxyz ABC DEF GHI JKL MNO PQRS TUV WXYZ !"§ $%& /() =?* '<> #|; ²³~ @\`´ ©«» ¤¼× {} abc def ghi jkl mno pqrs tuv wxyz ABC DEF GHI JKL MNO PQRS TUV WXYZ !"§ $%& /() =?* '<> #|; ²³~ @\`´ ©«» ¤¼× {} abc def ghi jkl mno pqrs tuv wxyz ABC DEF GHI JKL MNO PQRS TUV WXYZ !"§ $%& /() =?* '<> #|; ²³~ @\`´ ©«» ¤¼× {} abc def ghi jkl mno pqrs tuv wxyz ABC DEF GHI JKL MNO PQRS TUV WXYZ`
+q = 1, w = 2, e = 3
+a = 'a', b = 'b', c = 'c'
+boo = true;
+sym = Symbol('sym')
+qwe123 = {q,w,e}
+aabbcc = {a,b,c}
+obar = {abc}
+obmix = {[sym] : boo, [Symbol('nedeklarisani sym')]: "kako ga pozvati?", q, a, qwe, qwe123, ...arr, abc, nan, undef, nul}
+// arrmix sam morao da stavim dole ispod psi i restorani da bi u arrmix moglo da se pozove psi i restorani
+
+function Pas (ime, godiste, muzjak, nadimci, vlasnik) {
+  // konstruktor
+  this.ime = ime[0].toUpperCase() + ime.slice(1)
+  this.godiste = (godiste>=1 && godiste<=99) ? 2000+Number(godiste) : godiste;
+  this.muzjak = muzjak;
+  this.nadimci = nadimci;
+  this.vlasnik = vlasnik;
+  
+  // Required validation
+    // Input (type and range) validation
+  if (typeof this.ime == "undefined") throw new Error(`ime je obavezno`)
+    if (typeof this.ime != "string" ) throw new Error(`ime mora biti tipa string`)
+  // console.log(this.ime)
+  if (typeof this.godiste == "undefined") throw new Error(`godiste je obavezno`)
+    if (Number.isNaN(this.godiste)) throw new Error('godiste ne moze biti NaN')
+    if (this.godiste>today.getFullYear() ) throw new Error(`godiste je iznad opsega`)  
+    if (this.godiste<0) throw new Error(`godiste je ispod opsega`)
+    if (typeof this.godiste != "number" ) throw new Error(`godiste mora biti tipa broj`)
+
+  if (typeof this.muzjak == "undefined") throw new Error(`muzjak je obavezno`)
+    if (typeof this.muzjak!= "boolean" ) throw new Error(`muzjak mora biti tipa boolean`)
+
+  if (typeof this.nadimci == "undefined") throw new Error(`nadimci je obavezno`)
+    if (!Array.isArray(this.nadimci) ) throw new Error(`nadimci mora biti Niz String-ova,`)
+
+  if (typeof this.vlasnik == "undefined") throw new Error(`vlasnik je obavezno`)
+    if (typeof this.vlasnik != "string" ) throw new Error(`vlasnik mora biti tipa string`)
+  
+  Object.defineProperties(this, {
+    ime: {
+      get(){
+        console.log(`Ime psa je: ${ime}`);
+        return ime; // ('ime' je parametar) od Pas clase
+      },
+      set(im){
+        let novoIme= im[0].toUpperCase() + im.slice(1);
+        nadimci.push(novoIme)
+      },
+      configurable: true,
+      enumerable: true,
+    },
+    godiste: {
+      get(){ console.log(`${ime} je rodjen-a ${godiste} godine`);   return godiste},
+      set(go){ godiste= (go>=1 && go<=99) ? 2000+Number(go) : go }
+    },
+    muzjak: {
+      get(){ console.log(`${ime} je ${muzjak? "muzjak":"zenka"}`);   return muzjak}
+    }
+  })
+}//↑ function Pas
+    
+class Mac {
+  brojNogu = 4 // public - svim klasama dostupno, postoji bez konstruktora
+  #privatnoPolje = "vidljivo samo za Mac"
+  #ime = '0';
+  #godiste = '0';
+
+  constructor(ime, godiste){
+    this.#ime = ime[0].toUpperCase() + ime.slice(1)
+    this.#godiste = godiste
+    // mora da se koristi _donja crta u _imenu jer ime 
+    // setera/getera ne sme biti isto sa _imenom svojstva.
+  }
+
+  // static metode ili svojstva se nece preneti na subklase.
+  // Samo ih Mac klasa poseduje
+  static toString (){
+    return "Macka" // Mac.toString() // "Macka"
+  } 
+  static poziv = "Mac, mac"
+  // Mac.poziv // "Mac, mac"
+
+  set ime(im){
+    if (typeof im == 'undefined' || im == ''){
+      throw new Error('Ime mora biti uneto.')
+    }
+    if (typeof im != 'string'){
+      throw new Error("Ime mora biti tipa String")
+    }
+    this.#ime = im
+  }
+  get ime(){
+    console.log(`Ime mace je ${this.#ime}`)
+    return this.#ime
+  }
+  
+  set godiste(go){
+    if (typeof go != "number") throw Error(`Godiste mora biti tipa Number`)
+    let temp = this.#godiste
+    this.#godiste = go
+    console.log(`Godiste je promenjeno ${temp} -> ${this.#godiste}`)
+  }
+  get godiste(){
+    console.log(`Godiste psa je ${this.#godiste}`)
+    return this.#godiste
+  }
+}
+
+class Domaća extends Mac {
+  constructor(ime){
+    super(ime)
+  }
+}
+
+psi= []
+psi.push(new Pas ('bela', 2019, false, ["Beki", "Čupi", "Pufi", "Lizača"], "Labat porodica"))
+psi.push(new Pas ('Vucko', 2010, true, ["Vuki", "Vule", "Matori", "Legenda"], "undefined"))
+psi.push(new Pas ('Sari', 1984, true, ["Šari", "Šarpi"], "Šarplanina"))
+psi.push(new Pas ('Snoopy', 1844, true, ["Snupi", "Snoopy"], "Shultz"))
+psi.push(new Pas ('Betoven', 1888, true, ["Beton"], "Filharmonija"))
+psi.push(new Pas ("Seljko", 2021 ,true, ['smrdisa','Belin "decko"', 'smoric'], 'Popovica'))
+
+function t(nekiText) {
+  document.getElementById('test').innerHTML = nekiText
+}
+
+function ta(nekiText) {
+  document.getElementById('test').innerHTML += "<br>" + nekiText
+}
+function LETIC(loc = 'document.body', newElem = 'div', txt = 'LETIC', ID = null, clas = null) {
+  if (loc == "?") {
+    return `
+L: qsel || document.body
+E: div
+T: 'LETIC'
+I: id=null
+C: class=null
+`
+  }
+  var d = document.createElement(newElem);
+  var t = document.createTextNode(txt);
+  if (loc) eval(`document.body.querySelector("${loc}").appendChild(d).appendChild(t)`)
+  else eval(`document.body.appendChild(d).appendChild(t)`)
+  if (clas) d.className = clas
+  if (ID) d.id = ID
+}
+
+// cClick → refresh Page
+document.addEventListener('click', (e)=>{
+    if (e.ctrlKey && (
+            document.location.href.startsWith("file:///") ||
+            document.location.href.startsWith("http://127.0.0.1")
+        )
+    )
+    {
+        location.reload() 
+    }
+});
+
+restorani = {"count":39,"results":[{"days":[1,2,3,4,5,6],"menuItems":[{"name":"Bockwurst Würstchen","price":4.95},{"name":"Bratwurst mit Brötchen und Sauerkraut","price":5.95},{"name":"Currywurst mit Brötchen","price":5.95},{"name":"Das Hausmannskost","price":11.45},{"name":"Fleishkas mit Kartoffelsalat","price":6.95},{"name":"Frankfurter Würstchen","price":9.95},{"name":"Französische Zwiebelsuppe mit Käse","price":10.45},{"name":"Frikadelle mit Brötchen","price":6.95},{"name":"Gebackener Camenbert","price":7.55},{"name":"Gemischter Salat","price":4.55},{"name":"Haus Salatteller","price":11.45},{"name":"Jaegerschnitzel","price":9.95},{"name":"Kaesepaetzle","price":6.95},{"name":"Kartoffel Reibekuchen mit Apfelmus","price":5.95},{"name":"Maultaschen mit Käse","price":7.95},{"name":"Sauerbraten","price":10.45},{"name":"Ungarische Gulaschsuppe mit Brötchen","price":3.95},{"name":"Wienerschnitzel","price":8.95},{"name":"Wurstsalad mit Bauernbrot","price":6.95}],"price":3,"rating":3,"name":"Esther's German Saloon","cuisine":"german","opens":"11:30:00","closes":"22:30:00","location":"22 Teutonic Ave.","description":"German home-cooked meals and fifty-eight different beers on tap. To get more authentic, you'd need to be wearing lederhosen.","_id":0},{"days":[1,2,3,4,5,6,0],"menuItems":[{"name":"California roll","price":5.95},{"name":"Chicken teriyaki","price":5.95},{"name":"Edamame","price":6.95},{"name":"Futomaki roll","price":null},{"name":"Green tea ice cream","price":6.95},{"name":"Kitsune Udon","price":9.5},{"name":"Miso soup","price":5.95},{"name":"Pork Katsu","price":5.95},{"name":"Salmon teriyaki","price":5.95},{"name":"Sashimi combo","price":6.95},{"name":"Spicy Yellowtail roll","price":7.55},{"name":"Sushi combo","price":4.55},{"name":"Teppa Maki","price":5.95},{"name":"Unagi Don","price":7.55},{"name":"Vegetable tempura","price":3.95},{"name":"Vegetarian sushi plate","price":6.95},{"name":"Wakame salad","price":4.95}],"price":4,"rating":5,"name":"Robatayaki Hachi","cuisine":"japanese","opens":"17:30:00","closes":"23:30:00","location":"8 Hawthorne Ln.","description":"Japanese food the way you like it. Fast, fresh, grilled.","_id":1},{"days":[1,3,5,6,0],"menuItems":[{"name":"bean and cheese burrito","price":6.95},{"name":"cheese tortellini in tomato sauce","price":3.95},{"name":"coffee","price":6.95},{"name":"falafel wrap with tabbouleh","price":4.95},{"name":"flourless chocolate cake","price":8.95},{"name":"garden fresh salad","price":6.5},{"name":"happy buddha stir fry","price":10.45},{"name":"hummus appetizer plate","price":8},{"name":"lentil burger","price":6},{"name":"lentil soup","price":4.5},{"name":"pasta with olives and marinated lemon","price":6.95},{"name":"spinach and cheese wrap","price":5.95},{"name":"tea","price":5.95},{"name":"toasted sandwich with grilled eggplant","price":8.95},{"name":"tofu chicken wrap","price":9.95},{"name":"tomato and cheese sandwich","price":11.45},{"name":"vegetable stew","price":5.95}],"price":2,"rating":1,"name":"BBQ Tofu Paradise","cuisine":"vegetarian","opens":"16:30:00","closes":"20:00:00","location":"22A King West","description":"Vegetarians, we have your BBQ needs covered. Our home-made tofu skewers and secret BBQ sauce will have you licking your fingers.","_id":2},{"days":[1,2,3,4,5,6,0],"menuItems":[{"name":"bavette dans son jus","price":4.95},{"name":"bœuf bourguignon ","price":18},{"name":"bouillabaisse","price":17.5},{"name":"coq au vin","price":10.45},{"name":"frites aïoli ","price":null},{"name":"moules et frites","price":3.95},{"name":"poulet au riesling","price":4.95},{"name":"quiche lorraine","price":7.95},{"name":"salade de chèvre chaud","price":5.95},{"name":"salade du midi","price":6.95},{"name":"salade niçoise","price":3.95},{"name":"sandwich croque-madame","price":3.95},{"name":"sandwich croque-monsieur","price":4.55},{"name":"soupe à l'oignon","price":9.95},{"name":"steak frites","price":5.95},{"name":"tarte pissaladière ","price":6.95},{"name":"tarte tatin","price":5.95}],"price":5,"rating":4,"name":"Le Bateau Rouge","cuisine":"french","opens":"17:00:00","closes":"23:30:00","location":"2 South Park Dr.","description":"Fine French dining in a romantic setting. From soupe à l'oignon to coq au vin, let our chef delight you with a local take on authentic favorites.","_id":3},{"days":[1,2,3,4,5],"menuItems":[{"name":"Dibi Lamb","price":8.25},{"name":"Doro Wat","price":5.95},{"name":"Grilled Chicken","price":4.95},{"name":"Grilled Fish","price":6.95},{"name":"Grilled Plantains in Spicy Peanut Sauce","price":7.95},{"name":"Lamb Mafe (Peanut Butter Stew)","price":8.75},{"name":"Meat Pie","price":6},{"name":"Mechoui with Plantains","price":5.95},{"name":"Pepper Soup","price":9.95},{"name":"Piri-Piri Shrimp","price":11.45},{"name":"Suppa Kandja","price":3.95},{"name":"Thiou Boulette","price":6.95},{"name":"Thiou Curry with Chicken","price":7.95},{"name":"Thu Okra","price":6.95},{"name":"Yassa Chicken","price":8.95},{"name":"Yassa Lamb","price":8.25}],"price":3,"rating":2,"name":"Khartoum Khartoum","cuisine":"african","opens":"11:00:00","closes":"14:00:00","location":"1566 Maple Rd.","description":"African homestyle cuisine, cooked fresh daily.","_id":4},{"days":[1,2,3,4,5,6,0],"menuItems":[{"name":"Buffalo wings","price":5.95},{"name":"California-style baked Tilapia with rice","price":6.95},{"name":"Cheeseburger and fries","price":4.55},{"name":"Cherry pie a la mode","price":4.95},{"name":"Chocolate milkshake","price":6.95},{"name":"Cobb salad","price":4.95},{"name":"Famous BLT on a kaiser roll with fries","price":4.95},{"name":"Firehouse chili","price":6.95},{"name":"Goat cheese and eggplant wrap (vegetarian)","price":5.95},{"name":"Greek salad","price":6.95},{"name":"Grilled chicken sandwich","price":4.95},{"name":"Grilled sausage on a bun","price":6.95},{"name":"Housemade pot roast with seasonal vegetable","price":16.95},{"name":"Roast beef dip","price":11.45},{"name":"Roast chicken and mashed potatoes","price":7.55},{"name":"Soup of the day","price":8.95},{"name":"Spaghetti and meatballs","price":11.45}],"price":4,"rating":3,"name":"Sally's Diner","cuisine":"american","opens":"8:30:00","closes":"20:00:00","location":"96 College Blvd.","description":"Food like mom cooked, if you grew up in Iowa and mom ran a diner. Try our blue plate special!","_id":5},{"days":[2,3,4,5,6,0],"menuItems":[{"name":"BBQ chicken","price":4.95},{"name":"Beef ribs (full)","price":9.95},{"name":"Beef ribs (delux)","price":10.45},{"name":"Beef ribs (half)","price":6.45},{"name":"Beer","price":7.55},{"name":"Coleslaw","price":8.95},{"name":"Collards","price":9.95},{"name":"Cornbread","price":11.45},{"name":"Devilled eggs","price":4},{"name":"German chocolate cake","price":5.95},{"name":"Housemade chips","price":4},{"name":"Hushpuppies","price":3.25},{"name":"Mac and cheese","price":6},{"name":"Pork ribs (half)","price":6.95},{"name":"Potato salad","price":3.95},{"name":"Pulled pork sandwich on a soft roll","price":4.95},{"name":"Riblets","price":10.45}],"price":3,"rating":2,"name":"Saucy Piggy","cuisine":"barbecue","opens":"15:00:00","closes":"22:00:00","location":"623 Industrial Rd.","description":"Pork. We know how to cook it. Award-winning BBQ sauce, and meat with all the trimmings.","_id":6},{"days":[1,2,3,4,5,6],"menuItems":[{"name":"Apple strudel","price":6.95},{"name":"Apricot dumpling with yogurt topping ","price":3.95},{"name":"Balkánský Salad","price":3.95},{"name":"Beef goulash","price":8.95},{"name":"Chicken breast fillet schnitzel ","price":10.45},{"name":"Cucumber Salad","price":7.55},{"name":"Dumplings","price":5.95},{"name":"Fried goose liver with onion and bread","price":7.55},{"name":"Halusky with sauerkraut and belly bacon ","price":9.95},{"name":"Lentil soup","price":4.5},{"name":"Pickles with cabbage and cheddar","price":10.45},{"name":"Pork schnitzel","price":3.95},{"name":"Potato pancake with bacon","price":5.95},{"name":"Potato Salad","price":4.55},{"name":"Segedínský gulash and dumplings","price":6.95},{"name":"Sour cabbage soup","price":10.45}],"price":1,"rating":4,"name":"Czech Point","cuisine":"czech/slovak","opens":"10:30:00","closes":"21:30:00","location":"5567 Queen-Mary Rd","description":"Make a point of trying our knedlíky and homemade soups. We have free wifi and the best desserts and coffee. ","_id":7},{"days":[1,2,3,4,5,6,0],"menuItems":[{"name":"Bockwurst Würstchen","price":4.95},{"name":"Bratwurst mit Brötchen und Sauerkraut","price":5.95},{"name":"Currywurst mit Brötchen","price":5.95},{"name":"Das Hausmannskost","price":11.45},{"name":"Fleishkas mit Kartoffelsalat","price":6.95},{"name":"Frankfurter Würstchen","price":9.95},{"name":"Französische Zwiebelsuppe mit Käse","price":10.45},{"name":"Frikadelle mit Brötchen","price":6.95},{"name":"Gebackener Camenbert","price":7.55},{"name":"Gemischter Salat","price":4.55},{"name":"Haus Salatteller","price":11.45},{"name":"Jaegerschnitzel","price":9.95},{"name":"Kaesepaetzle","price":6.95},{"name":"Kartoffel Reibekuchen mit Apfelmus","price":5.95},{"name":"Maultaschen mit Käse","price":7.95},{"name":"Sauerbraten","price":10.45},{"name":"Ungarische Gulaschsuppe mit Brötchen","price":3.95},{"name":"Wienerschnitzel","price":8.95},{"name":"Wurstsalad mit Bauernbrot","price":6.95}],"price":3,"rating":5,"name":"Der Speisewagen","cuisine":"german","opens":"17:00:00","closes":"22:30:00","location":"402 College Blvd.","description":"Award-winning schnitzel and other favorites. Look for our restored food truck in the NE corner of the College St lot.","_id":8},{"days":[1,3,5,6,0],"menuItems":[{"name":"Almond cookie","price":5.95},{"name":"Chicken and broccoli","price":9.95},{"name":"Chow mein","price":4.95},{"name":"Egg rolls (4)","price":3.95},{"name":"General Tao's chicken","price":5.95},{"name":"Hot and Sour Soup","price":7.55},{"name":"Hunan dumplings","price":6.5},{"name":"Mongolian beef","price":6.95},{"name":"Pan-fried beef noodle","price":7.95},{"name":"Pea shoots with garlic","price":8.95},{"name":"Potstickers (6)","price":6.95},{"name":"Seafood hotpot","price":4.95},{"name":"Steamed rice","price":5.95},{"name":"Sweet and sour pork","price":6.95},{"name":"Walnut prawns","price":4.95},{"name":"Wonton Soup","price":6.25},{"name":"Young Chow fried rice","price":6.45}],"price":2,"rating":4,"name":"Beijing Express","cuisine":"chinese","opens":"11:00:00","closes":"22:30:00","location":"38 Teutonic Ave.","description":"Fast, healthy, Chinese food. Family specials for takeout or delivery. Try our Peking Duck!","_id":9},{"days":[1,2,3,4,5,6,0],"menuItems":[{"name":"Basil duck with rice","price":4.55},{"name":"Curry salmon","price":12.45},{"name":"Egg rolls (4)","price":5.95},{"name":"Fried banana and ice cream","price":11.45},{"name":"Green curry with chicken","price":3.95},{"name":"Green curry with pork","price":4.55},{"name":"Hot tea","price":2.5},{"name":"Onion pancake","price":6.95},{"name":"Pad See Ew","price":4.95},{"name":"Pad Thai","price":6.95},{"name":"Pumpkin curry","price":6.95},{"name":"Red curry with chicken","price":8.95},{"name":"Red curry with pork","price":9.95},{"name":"Sticky rice with mango","price":6.95},{"name":"Thai iced coffee","price":6.95},{"name":"Thai iced tea","price":3.95},{"name":"Tofu salad rolls","price":10.45}],"price":4,"rating":2,"name":"Satay Village","cuisine":"thai","opens":"17:30:00","closes":"22:00:00","location":"12 High St.","description":"Fine dining Thai-style. Wide selection of vegetarian entrées. We also deliver.","_id":10},{"days":[1,2,3,4,5],"menuItems":[{"name":"Beans and rice","price":7.95},{"name":"Beef burrito","price":6.95},{"name":"Birria","price":7.95},{"name":"Chicken burrito","price":11.45},{"name":"Chicken mole platter","price":5.95},{"name":"Chile relleno (meat)","price":6.95},{"name":"Chile relleno (vegetarian)","price":3.95},{"name":"Chips and guacamole","price":5.95},{"name":"Enchiladas","price":4.55},{"name":"Flan","price":7.95},{"name":"Jamaica Aqua Fresca","price":2.5},{"name":"Pork al pastor platter","price":5.95},{"name":"Sopa de albondigas","price":7.95},{"name":"Sopa de pollo","price":6.95},{"name":"Strawberry Aqua Fresca","price":3.95},{"name":"Super nachos with carne asada","price":5.95},{"name":"Tacos de la casa (3)","price":4.95},{"name":"Vegetarian platter","price":4.55}],"price":3,"rating":3,"name":"Cancun","cuisine":"mexican","opens":"11:30:00","closes":"23:00:00","location":"2030 Maple Rd.","description":"Tacos, tortas, burritos, just the way you like them. Our hot sauce and guacamole are the best in town.","_id":11},{"days":[1,2,3,4,5,6,0],"menuItems":[{"name":"Aloo Gobi","price":5.95},{"name":"Basmati rice","price":6.95},{"name":"Butter Chicken","price":5.95},{"name":"Chicken Korma","price":7.55},{"name":"Chicken Tikka Masala","price":5.95},{"name":"Gulab Jamun","price":8.95},{"name":"Kheer","price":4.5},{"name":"Lamb Asparagus","price":9.5},{"name":"Lamb Vindaloo","price":7.95},{"name":"Mix Grill Bombay","price":5.95},{"name":"Mulligatawny soup","price":5.95},{"name":"Murgh Chicken","price":3.95},{"name":"Naan stuffed with spinach and lamb","price":4.55},{"name":"Plain naan","price":5.95},{"name":"Rogan Josh","price":5.95},{"name":"Saag Paneer","price":5.95},{"name":"Tandoori Chicken","price":4.95}],"price":4,"rating":5,"name":"Curry Up","cuisine":"indian","opens":"17:00:00","closes":"22:00:00","location":"455 University","description":"Indian food with a modern twist. We use all-natural ingredients and the finest spices to delight and tempt your palate.","_id":12},{"days":[2,3,4,5,6,0],"menuItems":[{"name":"Dibi Lamb","price":8.25},{"name":"Doro Wat","price":5.95},{"name":"Grilled Chicken","price":4.95},{"name":"Grilled Fish","price":6.95},{"name":"Grilled Plantains in Spicy Peanut Sauce","price":7.95},{"name":"Lamb Mafe (Peanut Butter Stew)","price":8.75},{"name":"Meat Pie","price":6},{"name":"Mechoui with Plantains","price":5.95},{"name":"Pepper Soup","price":9.95},{"name":"Piri-Piri Shrimp","price":11.45},{"name":"Suppa Kandja","price":3.95},{"name":"Thiou Boulette","price":6.95},{"name":"Thiou Curry with Chicken","price":7.95},{"name":"Thu Okra","price":6.95},{"name":"Yassa Chicken","price":8.95},{"name":"Yassa Lamb","price":8.25}],"price":2,"rating":1,"name":"Carthage","cuisine":"african","opens":"17:00:00","closes":"22:30:00","location":"59 Court Terrace","description":"Wholesome food and all the rich flavor of Africa. Try our famous lentil soup.","_id":13},{"days":[1,2,3,4,5,6],"menuItems":[{"name":"Buffalo wings","price":5.95},{"name":"California-style baked Tilapia with rice","price":6.95},{"name":"Cheeseburger and fries","price":4.55},{"name":"Cherry pie a la mode","price":4.95},{"name":"Chocolate milkshake","price":6.95},{"name":"Cobb salad","price":4.95},{"name":"Famous BLT on a kaiser roll with fries","price":4.95},{"name":"Firehouse chili","price":6.95},{"name":"Goat cheese and eggplant wrap (vegetarian)","price":5.95},{"name":"Greek salad","price":6.95},{"name":"Grilled chicken sandwich","price":4.95},{"name":"Grilled sausage on a bun","price":6.95},{"name":"Housemade pot roast with seasonal vegetable","price":16.95},{"name":"Roast beef dip","price":11.45},{"name":"Roast chicken and mashed potatoes","price":7.55},{"name":"Soup of the day","price":8.95},{"name":"Spaghetti and meatballs","price":11.45}],"price":5,"rating":4,"name":"Burgerama","cuisine":"american","opens":"11:00:00","closes":"23:00:00","location":"456 University","description":"Grade A beef, freshly ground every day, hand-cut fries, and home-made milkshakes. We make the best burgers in town. ","_id":14},{"days":[1,2,3,4,5,6,0],"menuItems":[{"name":"BBQ chicken","price":4.95},{"name":"Beef ribs (full)","price":9.95},{"name":"Beef ribs (delux)","price":10.45},{"name":"Beef ribs (half)","price":6.45},{"name":"Beer","price":7.55},{"name":"Coleslaw","price":8.95},{"name":"Collards","price":9.95},{"name":"Cornbread","price":11.45},{"name":"Devilled eggs","price":4},{"name":"German chocolate cake","price":5.95},{"name":"Housemade chips","price":4},{"name":"Hushpuppies","price":3.25},{"name":"Mac and cheese","price":6},{"name":"Pork ribs (half)","price":6.95},{"name":"Potato salad","price":3.95},{"name":"Pulled pork sandwich on a soft roll","price":4.95},{"name":"Riblets","price":10.45}],"price":3,"rating":2,"name":"Three Little Pigs","cuisine":"barbecue","opens":"11:30:00","closes":"22:30:00","location":"12 Summer Court","description":"Genuine East Texas barbecue. Accept no substitutes! ","_id":15},{"days":[1,3,5,6,0],"menuItems":[{"name":"Apple strudel","price":6.95},{"name":"Apricot dumpling with yogurt topping ","price":3.95},{"name":"Balkánský Salad","price":3.95},{"name":"Beef goulash","price":8.95},{"name":"Chicken breast fillet schnitzel ","price":10.45},{"name":"Cucumber Salad","price":7.55},{"name":"Dumplings","price":5.95},{"name":"Fried goose liver with onion and bread","price":7.55},{"name":"Halusky with sauerkraut and belly bacon ","price":9.95},{"name":"Lentil soup","price":4.5},{"name":"Pickles with cabbage and cheddar","price":10.45},{"name":"Pork schnitzel","price":3.95},{"name":"Potato pancake with bacon","price":5.95},{"name":"Potato Salad","price":4.55},{"name":"Segedínský gulash and dumplings","price":6.95},{"name":"Sour cabbage soup","price":10.45}],"price":4,"rating":3,"name":"Little Prague","cuisine":"czech/slovak","opens":"11:00:00","closes":"22:00:00","location":"44 Park Ave","description":"We're famous for our housemade sausage and desserts. Come taste real European cooking.","_id":16},{"days":[1,2,3,4,5,6,0],"menuItems":[{"name":"Bockwurst Würstchen","price":4.95},{"name":"Bratwurst mit Brötchen und Sauerkraut","price":5.95},{"name":"Currywurst mit Brötchen","price":5.95},{"name":"Das Hausmannskost","price":11.45},{"name":"Fleishkas mit Kartoffelsalat","price":6.95},{"name":"Frankfurter Würstchen","price":9.95},{"name":"Französische Zwiebelsuppe mit Käse","price":10.45},{"name":"Frikadelle mit Brötchen","price":6.95},{"name":"Gebackener Camenbert","price":7.55},{"name":"Gemischter Salat","price":4.55},{"name":"Haus Salatteller","price":11.45},{"name":"Jaegerschnitzel","price":9.95},{"name":"Kaesepaetzle","price":6.95},{"name":"Kartoffel Reibekuchen mit Apfelmus","price":5.95},{"name":"Maultaschen mit Käse","price":7.95},{"name":"Sauerbraten","price":10.45},{"name":"Ungarische Gulaschsuppe mit Brötchen","price":3.95},{"name":"Wienerschnitzel","price":8.95},{"name":"Wurstsalad mit Bauernbrot","price":6.95}],"price":3,"rating":2,"name":"Kohl Haus","cuisine":"german","opens":"17:00:00","closes":"22:30:00","location":"3421 Queen-Mary Rd","description":"East German specialties, in a family-friendly setting. Come warm up with our delicious soups.","_id":17},{"days":[1,2,3,4,5],"menuItems":[{"name":"Almond cookie","price":5.95},{"name":"Chicken and broccoli","price":9.95},{"name":"Chow mein","price":4.95},{"name":"Egg rolls (4)","price":3.95},{"name":"General Tao's chicken","price":5.95},{"name":"Hot and Sour Soup","price":7.55},{"name":"Hunan dumplings","price":6.5},{"name":"Mongolian beef","price":6.95},{"name":"Pan-fried beef noodle","price":7.95},{"name":"Pea shoots with garlic","price":8.95},{"name":"Potstickers (6)","price":6.95},{"name":"Seafood hotpot","price":4.95},{"name":"Steamed rice","price":5.95},{"name":"Sweet and sour pork","price":6.95},{"name":"Walnut prawns","price":4.95},{"name":"Wonton Soup","price":6.25},{"name":"Young Chow fried rice","price":6.45}],"price":1,"rating":4,"name":"Dragon's Tail","cuisine":"chinese","opens":"17:00:00","closes":"2:00:00","location":"8 Jasmine Rd.","description":"Take-out or dine-in Chinese food. Open late. Delivery available","_id":18},{"days":[1,2,3,4,5,6,0],"menuItems":[{"name":"Basil duck with rice","price":4.55},{"name":"Curry salmon","price":12.45},{"name":"Egg rolls (4)","price":5.95},{"name":"Fried banana and ice cream","price":11.45},{"name":"Green curry with chicken","price":3.95},{"name":"Green curry with pork","price":4.55},{"name":"Hot tea","price":2.5},{"name":"Onion pancake","price":6.95},{"name":"Pad See Ew","price":4.95},{"name":"Pad Thai","price":6.95},{"name":"Pumpkin curry","price":6.95},{"name":"Red curry with chicken","price":8.95},{"name":"Red curry with pork","price":9.95},{"name":"Sticky rice with mango","price":6.95},{"name":"Thai iced coffee","price":6.95},{"name":"Thai iced tea","price":3.95},{"name":"Tofu salad rolls","price":10.45}],"price":3,"rating":5,"name":"Hit Me Baby One More Thai","cuisine":"thai","opens":"15:00:00","closes":"22:00:00","location":"12 Jasmine Rd.","description":"Thai food with a youthful bar scene. Try our tropical inspired cocktails, or tuck into a plate of our famous pad thai.","_id":19},{"days":[2,3,4,5,6,0],"menuItems":[{"name":"Beans and rice","price":7.95},{"name":"Beef burrito","price":6.95},{"name":"Birria","price":7.95},{"name":"Chicken burrito","price":11.45},{"name":"Chicken mole platter","price":5.95},{"name":"Chile relleno (meat)","price":6.95},{"name":"Chile relleno (vegetarian)","price":3.95},{"name":"Chips and guacamole","price":5.95},{"name":"Enchiladas","price":4.55},{"name":"Flan","price":7.95},{"name":"Jamaica Aqua Fresca","price":2.5},{"name":"Pork al pastor platter","price":5.95},{"name":"Sopa de albondigas","price":7.95},{"name":"Sopa de pollo","price":6.95},{"name":"Strawberry Aqua Fresca","price":3.95},{"name":"Super nachos with carne asada","price":5.95},{"name":"Tacos de la casa (3)","price":4.95},{"name":"Vegetarian platter","price":4.55}],"price":2,"rating":4,"name":"The Whole Tamale","cuisine":"mexican","opens":"10:30:00","closes":"21:30:00","location":"401 University","description":"The tamale and hot sauce experts. Tamale special changes daily.","_id":20},{"days":[1,2,3,4,5,6],"menuItems":[{"name":"Aloo Gobi","price":5.95},{"name":"Basmati rice","price":6.95},{"name":"Butter Chicken","price":5.95},{"name":"Chicken Korma","price":7.55},{"name":"Chicken Tikka Masala","price":5.95},{"name":"Gulab Jamun","price":8.95},{"name":"Kheer","price":4.5},{"name":"Lamb Asparagus","price":9.5},{"name":"Lamb Vindaloo","price":7.95},{"name":"Mix Grill Bombay","price":5.95},{"name":"Mulligatawny soup","price":5.95},{"name":"Murgh Chicken","price":3.95},{"name":"Naan stuffed with spinach and lamb","price":4.55},{"name":"Plain naan","price":5.95},{"name":"Rogan Josh","price":5.95},{"name":"Saag Paneer","price":5.95},{"name":"Tandoori Chicken","price":4.95}],"price":4,"rating":2,"name":"Birmingham Bhangra","cuisine":"indian","opens":"17:00:00","closes":"22:30:00","location":"992 Riddick St.","description":"Curry with a metropolitan twist. Daily specials. Dine-in or takeaway, you choose.","_id":21},{"days":[1,2,3,4,5,6,0],"menuItems":[{"name":"Beans and rice","price":7.95},{"name":"Beef burrito","price":6.95},{"name":"Birria","price":7.95},{"name":"Chicken burrito","price":11.45},{"name":"Chicken mole platter","price":5.95},{"name":"Chile relleno (meat)","price":6.95},{"name":"Chile relleno (vegetarian)","price":3.95},{"name":"Chips and guacamole","price":5.95},{"name":"Enchiladas","price":4.55},{"name":"Flan","price":7.95},{"name":"Jamaica Aqua Fresca","price":2.5},{"name":"Pork al pastor platter","price":5.95},{"name":"Sopa de albondigas","price":7.95},{"name":"Sopa de pollo","price":6.95},{"name":"Strawberry Aqua Fresca","price":3.95},{"name":"Super nachos with carne asada","price":5.95},{"name":"Tacos de la casa (3)","price":4.95},{"name":"Vegetarian platter","price":4.55}],"price":3,"rating":3,"name":"Taqueria","cuisine":"mexican","opens":"11:00:00","closes":"22:30:00","location":"12 North Circle Dr.","description":"Taqueria y panaderia. Birria served on weekends.","_id":22},{"days":[1,3,5,6,0],"menuItems":[{"name":"Beans and rice","price":7.95},{"name":"Beef burrito","price":6.95},{"name":"Birria","price":7.95},{"name":"Chicken burrito","price":11.45},{"name":"Chicken mole platter","price":5.95},{"name":"Chile relleno (meat)","price":6.95},{"name":"Chile relleno (vegetarian)","price":3.95},{"name":"Chips and guacamole","price":5.95},{"name":"Enchiladas","price":4.55},{"name":"Flan","price":7.95},{"name":"Jamaica Aqua Fresca","price":2.5},{"name":"Pork al pastor platter","price":5.95},{"name":"Sopa de albondigas","price":7.95},{"name":"Sopa de pollo","price":6.95},{"name":"Strawberry Aqua Fresca","price":3.95},{"name":"Super nachos with carne asada","price":5.95},{"name":"Tacos de la casa (3)","price":4.95},{"name":"Vegetarian platter","price":4.55}],"price":4,"rating":5,"name":"Pedro's","cuisine":"mexican","opens":"17:30:00","closes":"22:00:00","location":"5521 Alameda","description":"Pedro's has been an Alameda staple for thirty years. Our list of fine tequilas and slow-cooked carnitas will make you a regular.","_id":23},{"days":[1,2,3,4,5,6,0],"menuItems":[{"name":"Almond cookie","price":5.95},{"name":"Chicken and broccoli","price":9.95},{"name":"Chow mein","price":4.95},{"name":"Egg rolls (4)","price":3.95},{"name":"General Tao's chicken","price":5.95},{"name":"Hot and Sour Soup","price":7.55},{"name":"Hunan dumplings","price":6.5},{"name":"Mongolian beef","price":6.95},{"name":"Pan-fried beef noodle","price":7.95},{"name":"Pea shoots with garlic","price":8.95},{"name":"Potstickers (6)","price":6.95},{"name":"Seafood hotpot","price":4.95},{"name":"Steamed rice","price":5.95},{"name":"Sweet and sour pork","price":6.95},{"name":"Walnut prawns","price":4.95},{"name":"Wonton Soup","price":6.25},{"name":"Young Chow fried rice","price":6.45}],"price":2,"rating":1,"name":"Super Wonton Express","cuisine":"chinese","opens":"11:30:00","closes":"23:00:00","location":"223 Milliways Ave","description":"Soups, stir-fries, and more. We cook fast.","_id":24},{"days":[1,2,3,4,5],"menuItems":[{"name":"Aloo Gobi","price":5.95},{"name":"Basmati rice","price":6.95},{"name":"Butter Chicken","price":5.95},{"name":"Chicken Korma","price":7.55},{"name":"Chicken Tikka Masala","price":5.95},{"name":"Gulab Jamun","price":8.95},{"name":"Kheer","price":4.5},{"name":"Lamb Asparagus","price":9.5},{"name":"Lamb Vindaloo","price":7.95},{"name":"Mix Grill Bombay","price":5.95},{"name":"Mulligatawny soup","price":5.95},{"name":"Murgh Chicken","price":3.95},{"name":"Naan stuffed with spinach and lamb","price":4.55},{"name":"Plain naan","price":5.95},{"name":"Rogan Josh","price":5.95},{"name":"Saag Paneer","price":5.95},{"name":"Tandoori Chicken","price":4.95}],"price":5,"rating":4,"name":"Naan Sequitur","cuisine":"indian","opens":"17:00:00","closes":"22:00:00","location":"Unit 12, Olde Towne Mall","description":"Naan and tandoori specialties, from our clay oven. ","_id":25},{"days":[1,2,3,4,5,6,0],"menuItems":[{"name":"California roll","price":5.95},{"name":"Chicken teriyaki","price":5.95},{"name":"Edamame","price":6.95},{"name":"Futomaki roll","price":null},{"name":"Green tea ice cream","price":6.95},{"name":"Kitsune Udon","price":9.5},{"name":"Miso soup","price":5.95},{"name":"Pork Katsu","price":5.95},{"name":"Salmon teriyaki","price":5.95},{"name":"Sashimi combo","price":6.95},{"name":"Spicy Yellowtail roll","price":7.55},{"name":"Sushi combo","price":4.55},{"name":"Teppa Maki","price":5.95},{"name":"Unagi Don","price":7.55},{"name":"Vegetable tempura","price":3.95},{"name":"Vegetarian sushi plate","price":6.95},{"name":"Wakame salad","price":4.95}],"price":3,"rating":2,"name":"Sakura","cuisine":"japanese","opens":"17:00:00","closes":"22:30:00","location":"Unit 18, Olde Towne Mall","description":"Sushi specials daily. We serve fast, friendly, fresh Japanese cuisine.","_id":26},{"days":[2,3,4,5,6,0],"menuItems":[{"name":"Almond cookie","price":5.95},{"name":"Chicken and broccoli","price":9.95},{"name":"Chow mein","price":4.95},{"name":"Egg rolls (4)","price":3.95},{"name":"General Tao's chicken","price":5.95},{"name":"Hot and Sour Soup","price":7.55},{"name":"Hunan dumplings","price":6.5},{"name":"Mongolian beef","price":6.95},{"name":"Pan-fried beef noodle","price":7.95},{"name":"Pea shoots with garlic","price":8.95},{"name":"Potstickers (6)","price":6.95},{"name":"Seafood hotpot","price":4.95},{"name":"Steamed rice","price":5.95},{"name":"Sweet and sour pork","price":6.95},{"name":"Walnut prawns","price":4.95},{"name":"Wonton Soup","price":6.25},{"name":"Young Chow fried rice","price":6.45}],"price":4,"rating":3,"name":"Shandong Lu","cuisine":"chinese","opens":"17:00:00","closes":"22:30:00","location":"335 University","description":"Szechuan and Mandarin specialities with a fine dining ambiance. Our hot and sour soup is the best in town.","_id":27},{"days":[1,2,3,4,5,6],"menuItems":[{"name":"Aloo Gobi","price":5.95},{"name":"Basmati rice","price":6.95},{"name":"Butter Chicken","price":5.95},{"name":"Chicken Korma","price":7.55},{"name":"Chicken Tikka Masala","price":5.95},{"name":"Gulab Jamun","price":8.95},{"name":"Kheer","price":4.5},{"name":"Lamb Asparagus","price":9.5},{"name":"Lamb Vindaloo","price":7.95},{"name":"Mix Grill Bombay","price":5.95},{"name":"Mulligatawny soup","price":5.95},{"name":"Murgh Chicken","price":3.95},{"name":"Naan stuffed with spinach and lamb","price":4.55},{"name":"Plain naan","price":5.95},{"name":"Rogan Josh","price":5.95},{"name":"Saag Paneer","price":5.95},{"name":"Tandoori Chicken","price":4.95}],"price":3,"rating":2,"name":"Curry Galore","cuisine":"indian","opens":"11:00:00","closes":"22:30:00","location":"56 Park Ave","description":"Famous North Indian home cooking. Spicy or mild, as you like it. Delivery available.","_id":28},{"days":[1,2,3,4,5,6,0],"menuItems":[{"name":"Apple pie","price":5.95},{"name":"B.L.T. and Avocado Sandwich","price":5.95},{"name":"Caesar salad","price":5.95},{"name":"Cappucino","price":3.95},{"name":"Cherry cheesecake","price":4.95},{"name":"Chocolate chip cookie","price":4.55},{"name":"Cobb salad","price":6.95},{"name":"Drip coffee","price":5.95},{"name":"Eggsalad Sandwich","price":3.95},{"name":"Espresso","price":6.95},{"name":"Greek salad","price":3.95},{"name":"Hot tea","price":2.5},{"name":"Iced tea","price":2.5},{"name":"Latte","price":4},{"name":"Mango and banana smoothie","price":3},{"name":"Orange juice","price":4.95},{"name":"Quiche of the day","price":6.95},{"name":"Turkey Sandwich","price":7.55}],"price":1,"rating":4,"name":"North by Northwest","cuisine":"cafe","opens":"6:00:00","closes":"18:00:00","location":"201 University","description":"Great coffee and snacks. Free wifi. ","_id":29},{"days":[1,3,5,6,0],"menuItems":[{"name":"Apple pie","price":5.95},{"name":"B.L.T. and Avocado Sandwich","price":5.95},{"name":"Caesar salad","price":5.95},{"name":"Cappucino","price":3.95},{"name":"Cherry cheesecake","price":4.95},{"name":"Chocolate chip cookie","price":4.55},{"name":"Cobb salad","price":6.95},{"name":"Drip coffee","price":5.95},{"name":"Eggsalad Sandwich","price":3.95},{"name":"Espresso","price":6.95},{"name":"Greek salad","price":3.95},{"name":"Hot tea","price":2.5},{"name":"Iced tea","price":2.5},{"name":"Latte","price":4},{"name":"Mango and banana smoothie","price":3},{"name":"Orange juice","price":4.95},{"name":"Quiche of the day","price":6.95},{"name":"Turkey Sandwich","price":7.55}],"price":3,"rating":5,"name":"Full of Beans","cuisine":"cafe","opens":"6:30:00","closes":"20:30:00","location":"498 College Ave.","description":"We roast on premises to give you the best cup of coffee in town. ","_id":30},{"days":[1,2,3,4,5,6,0],"menuItems":[{"name":"Apple pie","price":5.95},{"name":"B.L.T. and Avocado Sandwich","price":5.95},{"name":"Caesar salad","price":5.95},{"name":"Cappucino","price":3.95},{"name":"Cherry cheesecake","price":4.95},{"name":"Chocolate chip cookie","price":4.55},{"name":"Cobb salad","price":6.95},{"name":"Drip coffee","price":5.95},{"name":"Eggsalad Sandwich","price":3.95},{"name":"Espresso","price":6.95},{"name":"Greek salad","price":3.95},{"name":"Hot tea","price":2.5},{"name":"Iced tea","price":2.5},{"name":"Latte","price":4},{"name":"Mango and banana smoothie","price":3},{"name":"Orange juice","price":4.95},{"name":"Quiche of the day","price":6.95},{"name":"Turkey Sandwich","price":7.55}],"price":2,"rating":4,"name":"Tropical Jeeve's Cafe","cuisine":"cafe","opens":"7:00:00","closes":"14:30:00","location":"550 Milliways Ave","description":"Hawaiian style coffee, fresh juices, and tropical fruit smoothies.","_id":31},{"days":[1,2,3,4,5],"menuItems":[{"name":"Apple pie","price":5.95},{"name":"B.L.T. and Avocado Sandwich","price":5.95},{"name":"Caesar salad","price":5.95},{"name":"Cappucino","price":3.95},{"name":"Cherry cheesecake","price":4.95},{"name":"Chocolate chip cookie","price":4.55},{"name":"Cobb salad","price":6.95},{"name":"Drip coffee","price":5.95},{"name":"Eggsalad Sandwich","price":3.95},{"name":"Espresso","price":6.95},{"name":"Greek salad","price":3.95},{"name":"Hot tea","price":2.5},{"name":"Iced tea","price":2.5},{"name":"Latte","price":4},{"name":"Mango and banana smoothie","price":3},{"name":"Orange juice","price":4.95},{"name":"Quiche of the day","price":6.95},{"name":"Turkey Sandwich","price":7.55}],"price":4,"rating":2,"name":"Zardoz Cafe","cuisine":"cafe","opens":"10:30:00","closes":"0:00:00","location":"6202 Alameda","description":"Coffee bar and sci-fi bookshop. Come in for an espresso or a slice of our famous pie.","_id":32},{"days":[1,2,3,4,5,6,0],"menuItems":[{"name":"Cesar salad","price":5.95},{"name":"Cheesecake","price":6.95},{"name":"Chicago-style deep dish chicken and spinach","price":6.95},{"name":"Chicago-style deep dish pepperoni and cheese","price":7.95},{"name":"Chicago-style deep dish vegetarian","price":6.95},{"name":"Chicago-style meat lover's","price":8.95},{"name":"Chocolate cake","price":3.95},{"name":"Coffee","price":7.95},{"name":"Garlic bread","price":null},{"name":"Greek salad","price":5.95},{"name":"Pizza of the day (slice)","price":7.55},{"name":"Thin crust anchovy and garlic and chili pepper","price":5.95},{"name":"Thin crust broccoli, chicken, and mozarella","price":3.95},{"name":"Thin crust margherita","price":4.55},{"name":"Thin crust pepperoni","price":6.95},{"name":"Thin crust quattro stagione","price":4.95},{"name":"Thin crust sausage and guanciale bacon","price":4.95}],"price":1,"rating":5,"name":"Angular Pizza","cuisine":"pizza","opens":"6:00:00","closes":"0:00:00","location":"2232 King St.","description":"Home of the superheroic pizza! ","_id":33},{"days":[2,3,4,5,6,0],"menuItems":[{"name":"Cesar salad","price":5.95},{"name":"Cheesecake","price":6.95},{"name":"Chicago-style deep dish chicken and spinach","price":6.95},{"name":"Chicago-style deep dish pepperoni and cheese","price":7.95},{"name":"Chicago-style deep dish vegetarian","price":6.95},{"name":"Chicago-style meat lover's","price":8.95},{"name":"Chocolate cake","price":3.95},{"name":"Coffee","price":7.95},{"name":"Garlic bread","price":null},{"name":"Greek salad","price":5.95},{"name":"Pizza of the day (slice)","price":7.55},{"name":"Thin crust anchovy and garlic and chili pepper","price":5.95},{"name":"Thin crust broccoli, chicken, and mozarella","price":3.95},{"name":"Thin crust margherita","price":4.55},{"name":"Thin crust pepperoni","price":6.95},{"name":"Thin crust quattro stagione","price":4.95},{"name":"Thin crust sausage and guanciale bacon","price":4.95}],"price":4,"rating":5,"name":"Flavia","cuisine":"pizza","opens":"11:30:00","closes":"22:00:00","location":"401 Riddick St.","description":"Roman-style pizza -- square, the way the gods intended.","_id":34},{"days":[1,2,3,4,5,6],"menuItems":[{"name":"Cesar salad","price":5.95},{"name":"Cheesecake","price":6.95},{"name":"Chicago-style deep dish chicken and spinach","price":6.95},{"name":"Chicago-style deep dish pepperoni and cheese","price":7.95},{"name":"Chicago-style deep dish vegetarian","price":6.95},{"name":"Chicago-style meat lover's","price":8.95},{"name":"Chocolate cake","price":3.95},{"name":"Coffee","price":7.95},{"name":"Garlic bread","price":null},{"name":"Greek salad","price":5.95},{"name":"Pizza of the day (slice)","price":7.55},{"name":"Thin crust anchovy and garlic and chili pepper","price":5.95},{"name":"Thin crust broccoli, chicken, and mozarella","price":3.95},{"name":"Thin crust margherita","price":4.55},{"name":"Thin crust pepperoni","price":6.95},{"name":"Thin crust quattro stagione","price":4.95},{"name":"Thin crust sausage and guanciale bacon","price":4.95}],"price":2,"rating":1,"name":"Luigi's House of Pies","cuisine":"pizza","opens":"16:30:00","closes":"23:00:00","location":"5 Garcia Ave.","description":"Our secret pizza sauce makes our pizza better. We specialize in large groups.","_id":35},{"days":[1,2,3,4,5,6,0],"menuItems":[{"name":"Cesar salad","price":5.95},{"name":"Cheesecake","price":6.95},{"name":"Chicago-style deep dish chicken and spinach","price":6.95},{"name":"Chicago-style deep dish pepperoni and cheese","price":7.95},{"name":"Chicago-style deep dish vegetarian","price":6.95},{"name":"Chicago-style meat lover's","price":8.95},{"name":"Chocolate cake","price":3.95},{"name":"Coffee","price":7.95},{"name":"Garlic bread","price":null},{"name":"Greek salad","price":5.95},{"name":"Pizza of the day (slice)","price":7.55},{"name":"Thin crust anchovy and garlic and chili pepper","price":5.95},{"name":"Thin crust broccoli, chicken, and mozarella","price":3.95},{"name":"Thin crust margherita","price":4.55},{"name":"Thin crust pepperoni","price":6.95},{"name":"Thin crust quattro stagione","price":4.95},{"name":"Thin crust sausage and guanciale bacon","price":4.95}],"price":5,"rating":4,"name":"Thick and Thin","cuisine":"pizza","opens":"17:00:00","closes":"23:30:00","location":"832 Dominican Ave.","description":"Whether you're craving Chicago-style deep dish or thin as a wafer crust, we have you covered in toppings you'll love.","_id":36},{"days":[1,3,5,6,0],"menuItems":[{"name":"Cesar salad","price":5.95},{"name":"Cheesecake","price":6.95},{"name":"Chicago-style deep dish chicken and spinach","price":6.95},{"name":"Chicago-style deep dish pepperoni and cheese","price":7.95},{"name":"Chicago-style deep dish vegetarian","price":6.95},{"name":"Chicago-style meat lover's","price":8.95},{"name":"Chocolate cake","price":3.95},{"name":"Coffee","price":7.95},{"name":"Garlic bread","price":null},{"name":"Greek salad","price":5.95},{"name":"Pizza of the day (slice)","price":7.55},{"name":"Thin crust anchovy and garlic and chili pepper","price":5.95},{"name":"Thin crust broccoli, chicken, and mozarella","price":3.95},{"name":"Thin crust margherita","price":4.55},{"name":"Thin crust pepperoni","price":6.95},{"name":"Thin crust quattro stagione","price":4.95},{"name":"Thin crust sausage and guanciale bacon","price":4.95}],"price":3,"rating":2,"name":"When in Rome","cuisine":"pizza","opens":"11:00:00","closes":"21:30:00","location":"234 Valencia St.","description":"Authentic Italian pizza in a friendly neighborhood joint.","_id":37},{"days":[1,2,3,4,5,6,0],"menuItems":[{"name":"Cesar salad","price":5.95},{"name":"Cheesecake","price":6.95},{"name":"Chicago-style deep dish chicken and spinach","price":6.95},{"name":"Chicago-style deep dish pepperoni and cheese","price":7.95},{"name":"Chicago-style deep dish vegetarian","price":6.95},{"name":"Chicago-style meat lover's","price":8.95},{"name":"Chocolate cake","price":3.95},{"name":"Coffee","price":7.95},{"name":"Garlic bread","price":null},{"name":"Greek salad","price":5.95},{"name":"Pizza of the day (slice)","price":7.55},{"name":"Thin crust anchovy and garlic and chili pepper","price":5.95},{"name":"Thin crust broccoli, chicken, and mozarella","price":3.95},{"name":"Thin crust margherita","price":4.55},{"name":"Thin crust pepperoni","price":6.95},{"name":"Thin crust quattro stagione","price":4.95},{"name":"Thin crust sausage and guanciale bacon","price":4.95}],"price":4,"rating":3,"name":"Pizza 76","cuisine":"pizza","opens":"10:30:00","closes":"22:00:00","location":"76 Market St.","description":"Wood-fired pizza with daily ingredients fresh from our farmer's market. We make our own mozzarella in house.","_id":38}]}
+arrmix = ["",nan,nul,undef,  arr,qwe,boo,sym,  abc,obar,  q,w,e, qwe123,  a,b,c,aabbcc, psi,restorani]
+
+sym2 = Symbol('sym2')
+arrmix[sym2] = 'SYM 2 sadrzaj' 
+</script>
+  
+</html>
