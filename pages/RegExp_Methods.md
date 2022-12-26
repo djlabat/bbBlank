@@ -10,7 +10,7 @@ RegExp
 * **source** - The text of the pattern.  
 * **sticky** - Whether or not the search is sticky.  
 * **unicode** - Whether or not Unicode features are enabled.  
-* **lastIndex** - The index at which to start the next match.  
+* **lastIndex** - The index at which to start the next match. Pre koriscenja, RegExp mora biti snimnjen u varijablu. 
 * **hasIndices** - 'd' flag // Da li ce rezultat da prikaze pocetne i kranje indexe uhvacenog substringa.  
 ```js
 const str1 = 'foo bar foo';
@@ -30,15 +30,29 @@ console.log(regex2.hasIndices); // Output: false
 ## RegExp METODE
 
 ### test
+
 ```js
 console.log(/(.).*\1/.test('outsidertye')); // true
 /q/.test('qweq'); // true - proverava da li postoji 'q' u 'qweq'
 /Q/.test('qweq'); // false
 ```
 
+* Poput `exec`-a, `test` takodje ima svojstvo `lastIndex`, tako da moze pretraga da se pokrece nekoliko puta, a da se pamti gde je prethodno zavrsena pretraga.
+
+```js
+re = /qw\w/gdi // Mora ovako
+re.test('qwe qwr'); // true
+re.test('qwe qwr'); // true
+re.test('qwe qwr'); // false
+re.test('qwe qwr'); // true
+re.test('qwe qwr'); // true
+re.test('qwe qwr'); // false
+// Kad ne moze vise da nadje rezultat → `lastIndex:0`
+```
+
 ### exec
 
-* Poput "match" ali vraca samo jedan rezultat, prvi na koji naidje, pa prekida pretragu i pamti gde je stao sa pretragom. Kada ga ponovo pokrenes pocinje pretragu od indexa gde je stao tj. vraca ti sledeci rezultat pretrage. Znaci pomalo podseca na iterator.
+* Vraca prvi rezultat na koji je naisao, ali pored rezultata (koji je na [0] mestu u nizu) vraca i rezultat od (capturing groups), index, input (vidi dole primer)
 
 ```js
 console.log(/(.)(.*)(\1)/.exec('outsidertye')); // ["tsidert", "t", "sider", "t", index: 2, input: "outsidertye", groups: undefined] - vraca Array
@@ -49,6 +63,42 @@ console.log(/(.)(.*)(\1)/.exec('outsidertye')); // ["tsidert", "t", "sider", "t"
 // index: 2 = index na kojem je nadjen rezultat[0]
 // input: "outsidertye" = string koji je koriscen kao argument
 ```
+
+* Rezultat takodje moze da sadrzi i svojsto `indices`, ako je ukljucen flag `d`. Sta `indices` vraca? Vraca niz ↓
+
+```js
+[ // ovako bi izgledali rezultati sa gornjeg primera ↑ (sa `d` flag)
+  0: [ 0, 12 ] // 0 - index na kojem pocinje [0] rezultat, 12 - na kojem se zavrsava. 
+  1: [ 0, 1 ] // indexi [1] rezultata, 'o'
+  2: [ 1, 11 ] // [2] rezultata.
+  3: [ 11, 12 ] // [3]
+  groups: undefined // ovde bi trebalo da stoje imenovane grupe, ali posto ih nema `undefined`. Ima dobar primer dole. Za vise informacija → Google: named capturing groups mnd
+  length: 4
+]
+````
+* Bitno: Ako RegExp koristi `g` flag, kada se dobije prvi rezultat, u `lastIndex` se upisuje na kom indexu je pretraga zavrsena. Pri ponovnom pokretanju iste pretrage, pretraga pocinje od `lastIndex`. Bitno je da se RegExp posebno zapise u neku varijablu (vidi dole primer).
+
+* Pazi: ako cu isti RegExp da koristim na nekom drugom stringu, pretraga nece biti resetovana, nego ce poceti od indexa koji zabelezen u `lastIndex`, a koji je ubelezen pri pretrazi prvog stringa.
+
+* Dobar primer koji sadrzi sve u sebi ↓
+
+```js
+// Match "quick brown" followed by "jumps", ignoring characters in between
+// Remember "brown" and "jumps"
+// Ignore case
+const re = /quick\s(?<color>brown).+?(jumps)/dgi; // Bitno je da se RegExp posebno zapise, cisto da bi imao gde da zapisuje vrednosti svojstava, kao npr. `lastIndex`
+const result = re.exec("The Quick Brown Fox Jumps Over The Lazy Dog");
+/* [
+      0: "Quick Brown Fox Jumps"
+      1: "Brown"
+      2: "Jumps"
+      index: 4
+      indices: [[4, 25], [10, 15], [20, 25]]
+      groups: { color: [10, 15 ]}
+      input: "The Quick Brown Fox Jumps Over The Lazy Dog"
+      groups:  { color: "brown" }
+  ] */
+````
 
 ```js
 regex1 = RegExp('foo*', 'g'); // regexp koji ce da se koristi u pretrazi. Obavezno koristiti 'g' flag. RegExp objekti u sebi imaju parametar "lastIndex" koji se u ovom primeru koristi.
@@ -73,11 +123,18 @@ reg.toString() // "/qwe/g"
 
 ### match 
 
-* Kao rezultat vraca [Array] sa svim rezultatima koje je nasao
+* Kao rezultat vraca [Array] sa svim rezultatima koje je nasao  
 
-* If the `g` flag is used, all results matching the complete regular expression will be returned, but capturing groups are not included.
-* If the `g` flag is NOT used, only the first complete match and its related capturing groups are returned. In this case, match() will return the same result as RegExp.prototype.exec() (an array with some extra properties).
+* Ako je se koristi `g` flag, vratice sve rezultate, ali (capturing groups) nece biti ukljucene.  
 
+```js
+'A1 S2 D1 F2'.match(/(\w)1/g) //Array [ "A1", "D1" ]
+````
+
+* Ako je se NEKORISTI `g` flag, vratice samo prvi rezultat ali sa svim grupama. Isti rezultat bi dobio i sa `exec` metodom.
+```js
+'A1 S2 D1 F2'.match(/(\w)1/) //Array [ "A1", "A" ]
+````
 
 ```js
 console.log('outsidertye'.match(/(.)(.*)(\1)/)); // ["tsidert", "t", "sider", "t", index: 2, input: "outsidertye", groups: undefined]
@@ -155,15 +212,18 @@ console.log('Qwe & Asd!!!'.replace(/\W/g, '')) // QweAsd
 
 * `o*` ~ 0-∞ "o"-ova
   - Npr. "Hellooo World! Hello W3Schools!".match(\lo*\g) => l,looo,l,l,lo,l 
-  - Znaci trazi se 'l' ili 'lo' ili 'loo' ili itd. tj 'o' moze, ali i ne mora da ga bude.
+  - Znaci trazi se 'l' ili 'lo' ili 'loo'...
+  - OBJASNJENJE: Uz "l" moze da bude NULA ili VISE "o"
 
 * `o+` ~ 1-∞ "o"-ova
   - Npr. "Hellooo World! Hello W3Schools!".match(\lo+\g) => looo,loo
   - Znaci trazi se 'lo' ili 'loo' ili 'looo' ili itd.
+  - OBJASNJENJE: Uz "l" moze da bude JEDAN ili VISE "o"
 
 * `o?` ~ 0-1 "o"-ova
   - Npr. "Hellooo World! Hello W3Schools!".match(\lo?\g) => l,lo,l,l,lo,l
-  - Znaci trazi se 'l' i 'lo' tj 'o' moze, ali i ne mora da ga bude.
+  - Znaci trazi se 'l' i 'lo'
+  - OBJASNJENJE: Uz "l" moze da bude NULA ili JEDAN "o"
 
 * `[helo]` = (h|e|l|o) = [trazi se JEDAN karakter] "h" ili "e" ili "l" ili "o"
 * `[^helo]` = [bilo koji karakter osim] "h" ili "e" ili "l" ili "o"

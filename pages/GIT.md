@@ -33,10 +33,10 @@ csP (command Palete)> git clone
 
 
 ## START
-`git INIT`       // od vec stvorenog foldera na kompu pravi se repository na Git  
+`git INIT`       // u vec stvorenom folderu na kompu, GIT pravi direktorijum ".git" koji predstavlja LOKALNI repozitorijum.  
 
 ## STAGING
-`git ADD` <file> // to INCLUDE what will be committed. What will be on staging area  
+`git ADD <file>` // to INCLUDE what will be committed. What will be on staging area  
 `git ADD *.html` // dodaje sve *.html fajlove  
 `git ADD .`		 // *.*  
 
@@ -50,9 +50,11 @@ csP (command Palete)> git clone
 
 
 ## COMMIT
-`git COMMIT `    // fajlovi koji su oznaceni kao STAGED (pomocu komande ADD) se snimaju na Git. Kada se pokrene komanda otvara se "Vim" edior, ali da bi se nesto uradilo moram pritisnuti "I" da bi usao u insert mode. Potom kucam "opis" promene. U VIM edtoru, linije koje pocinju sa "#" su nevazece linije, a linije bez icega ce uci u commit "opis". Na kraju, pritisnem "ESC", pa kucam ":wq" (write-quit), enter. Dobijamo info o promenama.  
+`git COMMIT `    // fajlovi koji su oznaceni kao STAGED (pomocu komande ADD) se snimaju u ".git" folder. RAD U VIM EDITORU: Kada se pokrene komanda otvara se "Vim" edior, ali da bi se nesto uradilo moram pritisnuti "I" da bi usao u insert mode. Potom kucam "opis" promene. U VIM edtoru, linije koje pocinju sa "#" su nevazece linije, a linije bez icega ce uci u commit "opis". Na kraju, pritisnem "ESC", pa kucam ":wq" (write-quit), enter. Dobijamo info o promenama.  
 `git COMMIT -m "Ovde ide text o promenama."` // jednostavniji nacin.  
-`git COMMIT --amend` // dopuna poslednjeg commita novim izmenama.  
+`git COMMIT --amend` // Promena poruke poslednjeg commita.  
+`git COMMIT --amend -m "Potpuno nova poruka` // Brise se stara poruka i upisuje se nova.  
+
 
 ## LOG
 `git LOG`   // izlista ti sve komite do sada  
@@ -79,7 +81,7 @@ git push  origin  master
 ```
    
 ## REMOTE REPOSITORIES  
-git remote -v
+`git remote -v` // Prikazije koji link stoji pod "origin" tj. koji je link ka REMOTE REPOZITORIJUMU.  
 `git REMOTE add origin http://nasserver.git` // URL Adresa `http://nasserver.git` udaljenog servera je stavljena u konstantu "origin".  
 `git PUSH origin master` // push-uj na udaljeni server (Remote Repository) `http://nasserver.git`, granu "master".  
 `git REMOTE remove` // uklanjanje repozitorijuma  

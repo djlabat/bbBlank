@@ -40,22 +40,9 @@ abc.slice(20)     // uvwxyz
 abc.slice(-3)     // xyz
 abc.slice(-3, -2) // x 
 ```
-
-
-
-### *substring*
-
-  * substring ~ isecak (od index-a, do indexa) ---parametar ne moze da ima negativne vrednosti . Varaca String.
-
-```js
-abc.substring(5, 7)   // fg
-abc.substring(13, 0)  // abcdefghijklm
-abc.substring(13)     // nopqrstuvwxyz
-```
-
 ### *substr*
 
-  * substr ~ isecak (od index-a, duzina) ---2. parametar, ne moze da bude ngativan. Ako ga nema, ide do kraja (najvaceg indexa). Varaca String.
+  * substr ~ isecak (od index-a, duzina) ---2. parametar, ne moze da bude negativan. Ako ga nema, ide do kraja (najvaceg indexa). Varaca String.
 
 ```js
 abc.substr(5, 7)  // fghijkl
@@ -64,9 +51,21 @@ abc.substr(5)     // fghijklmnopqrstuvwxyz
 abc.substr(5,-7)  // '' 
 ```
 
-### _↑ PAZNJA: Zajednicko za slice, substring i substr je da: ako nemaju 2. parametar, idu do kraja !_
+### *substring*
 
---------
+  * substring ~ isecak (od index-a, do indexa) ---parametar NE MOZE DA IMA NEGATIVNE VREDNOSTI . Varaca String.
+
+  * nije deprecated ali, pomalo zastarelo, zamenio ga `slice`. Bolje ga izbegavati.
+
+```js
+abc.substring(5, 7)   // fg
+abc.substring(13, 0)  // abcdefghijklm
+abc.substring(13)     // nopqrstuvwxyz
+```
+
+### _↑ PAZNJA: Zajednicko za slice, substr i substring je da: ako nemaju 2. parametar, idu do kraja !_
+
+--------------------------------------------
 
 ### *split*
 
@@ -85,9 +84,9 @@ abc.substr(5,-7)  // ''
 ```js
 s_t_r.trim()      // skida space ispred i iza stringa.
 s_t_r.trimStart() // uklanja prazne prostore pre stringu
-s_t_r.trimLeft()  // -------------- || -----------------
-s_t_r.trimEnd()   // uklanja prazne prostore posle stringu
-s_t_r.trimRight() // -------------- || -------------------
+s_t_r.trimEnd()   // posle stringu
+s_t_r.trimLeft()  // pre   // should be replaced with `trimStart`
+s_t_r.trimRight() // posle // `trimEnd`
 ```
 
 ---

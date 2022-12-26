@@ -1,0 +1,1016 @@
+<html>
+<head>
+  <!-- <link rel="stylesheet" href="resource://content-accessible/plaintext.css">
+  <style media="screen" id="__markdown-viewer__md_css"></style>
+  <style media="print" id="__markdown-viewer__md_print_css"></style>
+  <style id="__markdown-viewer__hljs_css"></style>
+  <style id="__markdown-viewer__katex_css"></style>
+  <style id="__markdown-viewer__texmath_css"></style>
+  <style id="__markdown-viewer__menu_css"></style>
+  <style id="__markdown-viewer__custom_css"></style> -->
+  
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ARRAY METODE</title>
+</head>
+<body>
+  <div id="__markdown-viewer__tools" class="floating"><input type="checkbox" id="__markdown-viewer__show-tools"><label
+      for="__markdown-viewer__show-tools"></label>
+    <div id="__markdown-viewer__toc" class="toggleable">
+      <ul>
+        <li><a href="#array-metode">ARRAY METODE</a>
+          <ul>
+            <li><a href="#sadrzaj">SADRZAJ:</a></li>
+            <li><a href="#-paznja">! Paznja !</a></li>
+            <li><a href="#promenljive-koje-se-koriste-u-primerima-u-fajlu">Promenljive koje se koriste u primerima u
+                fajlu</a></li>
+            <li><a href="#seckanja">SECKANJA</a>
+              <ul>
+                <li><a href="#ukratko-tabela-ispod-prikazuje-sta-koja-sec-metoda-vraca">UKRATKO TABELA ISPOD PRIKAZUJE
+                    STA KOJA (SEC) METODA VRACA:</a></li>
+                <li><a href="#slice">slice</a></li>
+                <li><a href="#splice">splice</a></li>
+                <li><a href="#pop">pop</a></li>
+                <li><a href="#push">push</a></li>
+                <li><a href="#shift">shift</a></li>
+                <li><a href="#unshift">unshift</a></li>
+              </ul>
+            </li>
+            <li><a href="#razni-alati">RAZNI ALATI</a>
+              <ul>
+                <li><a href="#reverse">reverse</a></li>
+                <li><a href="#fill">fill</a></li>
+                <li><a href="#copywithin">copyWithin</a></li>
+                <li><a href="#sort">sort</a></li>
+                <li><a href="#concat">concat</a></li>
+                <li><a href="#includes">includes</a></li>
+              </ul>
+            </li>
+            <li><a href="#filtriranje-pomocu-callback-f-ja">FILTRIRANJE POMOCU CALLBACK F-JA</a>
+              <ul>
+                <li><a href="#filter">filter</a></li>
+                <li><a href="#every">every</a></li>
+                <li><a href="#some">some</a></li>
+                <li><a href="#find">find</a></li>
+                <li><a href="#findindex">findIndex</a></li>
+                <li><a href="#indexof">indexOf</a></li>
+                <li><a href="#lastindexof">lastIndexOf</a></li>
+                <li><a href="#flat">flat</a></li>
+                <li><a href="#flatmap">flatMap</a></li>
+              </ul>
+            </li>
+            <li><a href="#reduce">REDUCE</a>
+              <ul>
+                <li><a href="#reduce-1">reduce</a></li>
+                <li><a href="#reduceright">reduceRight</a></li>
+                <li><a href="#primena-reduce-a">PRIMENA REDUCE-a:</a></li>
+              </ul>
+            </li>
+            <li><a href="#map">MAP</a>
+              <ul>
+                <li><a href="#map-1">map</a></li>
+                <li><a href="#foreach">forEach</a></li>
+              </ul>
+            </li>
+            <li><a href="#pakovanje-u-string">PAKOVANJE U STRING</a>
+              <ul>
+                <li><a href="#tostring">toString</a></li>
+                <li><a href="#join">join</a></li>
+              </ul>
+            </li>
+            <li><a href="#array-prototype">ARRAY PROTOTYPE</a>
+              <ul>
+                <li><a href="#array">Array()</a></li>
+                <li><a href="#arrayof">Array.of()</a></li>
+                <li><a href="#arrayfrom">Array.from()</a></li>
+                <li><a href="#arrayisarray">Array.isArray()</a></li>
+                <li><a href="#arrayentries">Array.entries</a></li>
+                <li><a href="#arraykeys">Array.keys</a></li>
+                <li><a href="#manje-bitne-stvari">manje bitne stvari</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <p class="toggleable">Pick a markdown and code style:<br><select id="__markdown-viewer__mdselect">
+        <option value="sss">default</option>
+        <option value="github">github</option>
+      </select><select id="__markdown-viewer__hlselect">
+        <option value="a11y-dark">a11y-dark</option>
+        <option value="a11y-light">a11y-light</option>
+        <option value="a11y-auto">a11y-auto</option>
+        <option value="agate">agate</option>
+        <option value="androidstudio">androidstudio</option>
+        <option value="an-old-hope">an-old-hope</option>
+        <option value="arduino-light">arduino-light</option>
+        <option value="arta">arta</option>
+        <option value="ascetic">ascetic</option>
+        <option value="atelier-cave-dark">atelier-cave-dark</option>
+        <option value="atelier-cave-light">atelier-cave-light</option>
+        <option value="atelier-cave-auto">atelier-cave-auto</option>
+        <option value="atelier-dune-dark">atelier-dune-dark</option>
+        <option value="atelier-dune-light">atelier-dune-light</option>
+        <option value="atelier-dune-auto">atelier-dune-auto</option>
+        <option value="atelier-estuary-dark">atelier-estuary-dark</option>
+        <option value="atelier-estuary-light">atelier-estuary-light</option>
+        <option value="atelier-estuary-auto">atelier-estuary-auto</option>
+        <option value="atelier-forest-dark">atelier-forest-dark</option>
+        <option value="atelier-forest-light">atelier-forest-light</option>
+        <option value="atelier-forest-auto">atelier-forest-auto</option>
+        <option value="atelier-heath-dark">atelier-heath-dark</option>
+        <option value="atelier-heath-light">atelier-heath-light</option>
+        <option value="atelier-heath-auto">atelier-heath-auto</option>
+        <option value="atelier-lakeside-dark">atelier-lakeside-dark</option>
+        <option value="atelier-lakeside-light">atelier-lakeside-light</option>
+        <option value="atelier-lakeside-auto">atelier-lakeside-auto</option>
+        <option value="atelier-plateau-dark">atelier-plateau-dark</option>
+        <option value="atelier-plateau-light">atelier-plateau-light</option>
+        <option value="atelier-plateau-auto">atelier-plateau-auto</option>
+        <option value="atelier-savanna-dark">atelier-savanna-dark</option>
+        <option value="atelier-savanna-light">atelier-savanna-light</option>
+        <option value="atelier-savanna-auto">atelier-savanna-auto</option>
+        <option value="atelier-seaside-dark">atelier-seaside-dark</option>
+        <option value="atelier-seaside-light">atelier-seaside-light</option>
+        <option value="atelier-seaside-auto">atelier-seaside-auto</option>
+        <option value="atelier-sulphurpool-dark">atelier-sulphurpool-dark</option>
+        <option value="atelier-sulphurpool-light">atelier-sulphurpool-light</option>
+        <option value="atelier-sulphurpool-auto">atelier-sulphurpool-auto</option>
+        <option value="atom-one-dark">atom-one-dark</option>
+        <option value="atom-one-dark-reasonable">atom-one-dark-reasonable</option>
+        <option value="atom-one-light">atom-one-light</option>
+        <option value="brown-paper">brown-paper</option>
+        <option value="codepen-embed">codepen-embed</option>
+        <option value="color-brewer">color-brewer</option>
+        <option value="darcula">darcula</option>
+        <option value="dark">dark</option>
+        <option value="default">default</option>
+        <option value="docco">docco</option>
+        <option value="dracula">dracula</option>
+        <option value="far">far</option>
+        <option value="foundation">foundation</option>
+        <option value="github">github</option>
+        <option value="github-gist">github-gist</option>
+        <option value="gml">gml</option>
+        <option value="googlecode">googlecode</option>
+        <option value="gradient-dark">gradient-dark</option>
+        <option value="grayscale">grayscale</option>
+        <option value="gruvbox-dark">gruvbox-dark</option>
+        <option value="gruvbox-light">gruvbox-light</option>
+        <option value="gruvbox-auto">gruvbox-auto</option>
+        <option value="hopscotch">hopscotch</option>
+        <option value="hybrid">hybrid</option>
+        <option value="idea">idea</option>
+        <option value="ir-black">ir-black</option>
+        <option value="isbl-editor-dark">isbl-editor-dark</option>
+        <option value="isbl-editor-light">isbl-editor-light</option>
+        <option value="isbl-editor-auto">isbl-editor-auto</option>
+        <option value="kimbie">kimbie</option>
+        <option value="kimbie">kimbie</option>
+        <option value="lightfair">lightfair</option>
+        <option value="lioshi">lioshi</option>
+        <option value="magula">magula</option>
+        <option value="mono-blue">mono-blue</option>
+        <option value="monokai">monokai</option>
+        <option value="monokai-sublime">monokai-sublime</option>
+        <option value="night-owl">night-owl</option>
+        <option value="nnfx">nnfx</option>
+        <option value="nnfx-dark">nnfx-dark</option>
+        <option value="nord">nord</option>
+        <option value="obsidian">obsidian</option>
+        <option value="ocean">ocean</option>
+        <option value="paraiso-dark">paraiso-dark</option>
+        <option value="paraiso-light">paraiso-light</option>
+        <option value="paraiso-auto">paraiso-auto</option>
+        <option value="pojoaque">pojoaque</option>
+        <option value="purebasic">purebasic</option>
+        <option value="qtcreator_dark">qtcreator_dark</option>
+        <option value="qtcreator_light">qtcreator_light</option>
+        <option value="qtcreator_auto">qtcreator_auto</option>
+        <option value="railscasts">railscasts</option>
+        <option value="rainbow">rainbow</option>
+        <option value="routeros">routeros</option>
+        <option value="school-book">school-book</option>
+        <option value="shades-of-purple">shades-of-purple</option>
+        <option value="solarized-dark">solarized-dark</option>
+        <option value="solarized-light">solarized-light</option>
+        <option value="solarized-auto">solarized-auto</option>
+        <option value="srcery">srcery</option>
+        <option value="sunburst">sunburst</option>
+        <option value="tomorrow">tomorrow</option>
+        <option value="tomorrow-night">tomorrow-night</option>
+        <option value="tomorrow-night-blue">tomorrow-night-blue</option>
+        <option value="tomorrow-night-bright">tomorrow-night-bright</option>
+        <option value="tomorrow-night-eighties">tomorrow-night-eighties</option>
+        <option value="vs">vs</option>
+        <option value="vs2015">vs2015</option>
+        <option value="xcode">xcode</option>
+        <option value="xt256">xt256</option>
+        <option value="zenburn">zenburn</option>
+      </select></p>
+    <p class="toggleable"><a id="__markdown-viewer__download" download="markdown.html" style="display: none;">Download
+        as HTML</a></p>
+  </div>
+  <div class="markdownRoot">
+    <h1 id="array-metode">ARRAY METODE</h1>
+    <h2 id="sadrzaj">SADRZAJ:</h2>
+    <p><a href="#seckanja">SECKANJA</a><br>
+      <a href="#razni-alati">RAZNI ALATI</a><br>
+      <a href="#filtriranje-pomocu-callback-f-ja">FILTRIRANJE POMOCU CALLBACK F-JA</a><br>
+      <a href="#reduce">REDUCE</a><br>
+      <a href="#map">MAP</a><br>
+      <a href="#pakovanje-u-string">PAKOVANJE U STRING</a><br>
+      <a href="#array-prototype">ARRAY PROTOTYPE</a><br>
+      <a href="#manje-bitne-stvari">MANJE BITNE STVARI</a>
+    </p>
+    <hr>
+    <h2 id="-paznja">! Paznja !</h2>
+    <ul>
+      <li>Skoro sve metode za Array MENJAJU original, osim onih koje koriste callbackfn.</li>
+      <li>(VS CODE) Ako mi trebaju tacniji podatci sta koja metoda radi&gt; hover preko metode i pojavi se opis.</li>
+    </ul>
+    <hr>
+    <h2 id="promenljive-koje-se-koriste-u-primerima-u-fajlu">Promenljive koje se koriste u primerima u fajlu</h2>
+    <pre><code class="language-js"><span class="hljs-keyword">let</span> abc = [<span class="hljs-string">"a"</span>,
+        <span class="hljs-string">"b"</span>, <span class="hljs-string">"c"</span>, <span
+          class="hljs-string">"d"</span>, <span class="hljs-string">"e"</span>];
+        <span class="hljs-keyword">let</span> zxc = [<span class="hljs-string">'z'</span>, <span
+          class="hljs-string">'x'</span>, <span class="hljs-string">'c'</span>]
+        <span class="hljs-keyword">let</span> one2 = [<span class="hljs-number">1</span>, <span
+          class="hljs-number">2</span>]
+      </code></pre>
+    <hr>
+    <h2 id="seckanja"><strong>SECKANJA</strong></h2>
+    <h3 id="ukratko-tabela-ispod-prikazuje-sta-koja-sec-metoda-vraca">UKRATKO TABELA ISPOD PRIKAZUJE STA KOJA (SEC)
+      METODA VRACA:</h3>
+    <table>
+      <thead>
+        <tr>
+          <th style="text-align:right">METODA:</th>
+          <th style="text-align:center">shift</th>
+          <th style="text-align:center">unshift</th>
+          <th style="text-align:center">splice</th>
+          <th style="text-align:center">push</th>
+          <th style="text-align:center">pop</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="text-align:right">VRACA NAZAD:</td>
+          <td style="text-align:center">'a'</td>
+          <td style="text-align:center">length</td>
+          <td style="text-align:center">['x']</td>
+          <td style="text-align:center">length</td>
+          <td style="text-align:center">'z'</td>
+        </tr>
+      </tbody>
+    </table>
+    <ul>
+      <li>metode koje seku na pocetku i kraju (shift i pop) vracaju ono sto su obrisali</li>
+      <li>metode koje ubacuju na pocetku i kraju (unshift i push) vracaju novi length</li>
+      <li>splice vraca ono sto je odsekao, ali kao Array</li>
+    </ul>
+    <h3 id="slice"><em>slice</em></h3>
+    <ul>
+      <li>slice ~ crop, isecak ( od index-a, do indexa) ---negativne vrednosti broji od kraja. NEmenja original 'abc'
+      </li>
+    </ul>
+    <pre><code class="language-js">abc = [<span class="hljs-string">"a"</span>, <span class="hljs-string">"b"</span>,
+        <span class="hljs-string">"c"</span>, <span class="hljs-string">"d"</span>, <span
+          class="hljs-string">"e"</span>]
+        abc.slice(<span class="hljs-number">1</span>, <span class="hljs-number">4</span>) <span class="hljs-comment">//
+          [b,c,d]</span>
+        abc <span class="hljs-comment">// [a,b,c,d,e] // ostao NEporomenjen</span>
+
+        <span class="hljs-comment">// NEGATIVNI BROJEVI</span>
+        [<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span
+          class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span
+          class="hljs-number">6</span>,<span class="hljs-number">7</span>].slice(-<span class="hljs-number">3</span>)
+        <span class="hljs-comment">// poslednja tri // [5,6,7]</span>
+        [<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span
+          class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span
+          class="hljs-number">6</span>,<span class="hljs-number">7</span>].slice(<span class="hljs-number">3</span>)
+        <span class="hljs-comment">// od 3. zareza spreda se pocinje // [3,4,5,6,7]</span>
+        [<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span
+          class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span
+          class="hljs-number">6</span>,<span class="hljs-number">7</span>].slice(-<span
+          class="hljs-number">3</span>,<span class="hljs-number">7</span>) <span class="hljs-comment">// [5,6]</span>
+        [<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span
+          class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span
+          class="hljs-number">6</span>,<span class="hljs-number">7</span>].slice(-<span
+          class="hljs-number">4</span>,-<span class="hljs-number">1</span>) <span class="hljs-comment">// [4,5,6]</span>
+        [<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span
+          class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span
+          class="hljs-number">6</span>,<span class="hljs-number">7</span>].slice(<span
+          class="hljs-number">4</span>,-<span class="hljs-number">2</span>) <span class="hljs-comment">// [4,5]</span>
+
+        <span class="hljs-comment">// PRAVLJENJE NEZAVISNE KOPIJE</span>
+        <span class="hljs-keyword">let</span> sliceed2 = abc.slice(); <span
+          class="hljs-built_in">console</span>.log(sliceed2); <span class="hljs-comment">// [a,b,c,d,e]</span>
+      </code></pre>
+    <h3 id="splice"><em>splice</em></h3>
+    <ul>
+      <li>splice ~ replace - MENJA original 'abc' - Pamtim, kao da se na "slice" zalepi 'p'</li>
+    </ul>
+    <pre><code class="language-js">abc = [<span class="hljs-string">"a"</span>, <span class="hljs-string">"b"</span>,
+        <span class="hljs-string">"c"</span>, <span class="hljs-string">"d"</span>, <span
+          class="hljs-string">"e"</span>]
+        <span class="hljs-keyword">let</span> spliced = abc.splice(<span class="hljs-number">2</span>, <span
+          class="hljs-number">1</span>, <span class="hljs-string">'Q'</span>, <span class="hljs-string">'W'</span>)
+        <span class="hljs-comment">// index_od, duzina, novi_elementi - 'splice' od 'abc' odseca 'c' i zamenjuje ga sa
+          'Q', 'W' i vraca novi array od odsecenog ['c']</span>
+        abc <span class="hljs-comment">// [a,b,Q,W,d,e]</span>
+        <span class="hljs-comment">// Ako hocu da UBACIM novi element na ODREDJENU poziciju:</span>
+        spliced = abc.splice(<span class="hljs-number">3</span>, <span class="hljs-number">1</span>, abc[<span
+          class="hljs-number">3</span>], <span class="hljs-string">'E'</span>)
+        abc <span class="hljs-comment">// [a,b,Q,W,E,d,e]</span>
+      </code></pre>
+    <h3 id="pop"><em>pop</em></h3>
+    <ul>
+      <li>pop - menja original 'abc'</li>
+    </ul>
+    <pre><code class="language-js">abc = [<span class="hljs-string">"a"</span>, <span class="hljs-string">"b"</span>,
+        <span class="hljs-string">"c"</span>, <span class="hljs-string">"d"</span>, <span
+          class="hljs-string">"e"</span>]
+        <span class="hljs-keyword">let</span> popped = abc.pop(); <span class="hljs-comment">// e</span>
+        <span class="hljs-built_in">console</span>.log(popped, <span class="hljs-keyword">typeof</span> popped); <span
+          class="hljs-comment">// e string</span>
+        <span class="hljs-built_in">console</span>.log(abc); <span class="hljs-comment">// ['a', 'b', 'c', 'd']</span>
+      </code></pre>
+    <h3 id="push"><em>push</em></h3>
+    <ul>
+      <li>push - menja original 'abc'</li>
+    </ul>
+    <pre><code class="language-js">abc = [<span class="hljs-string">"a"</span>, <span class="hljs-string">"b"</span>,
+        <span class="hljs-string">"c"</span>, <span class="hljs-string">"d"</span>, <span
+          class="hljs-string">"e"</span>]
+        <span class="hljs-keyword">let</span> pushed = abc.push(<span class="hljs-string">"Pu"</span>);
+        <span class="hljs-built_in">console</span>.log(abc); <span class="hljs-comment">// [ 'a', 'b', 'c', 'd', 'e',
+          'Pu' ]</span>
+        <span class="hljs-built_in">console</span>.log(pushed, <span class="hljs-keyword">typeof</span> pushed); <span
+          class="hljs-comment">// 6 'number' = abc.length</span>
+      </code></pre>
+    <h3 id="shift"><em>shift</em></h3>
+    <ul>
+      <li>shift - menja original 'abc'</li>
+    </ul>
+    <pre><code class="language-js">abc = [<span class="hljs-string">"a"</span>, <span class="hljs-string">"b"</span>,
+        <span class="hljs-string">"c"</span>, <span class="hljs-string">"d"</span>, <span
+          class="hljs-string">"e"</span>]
+        <span class="hljs-keyword">let</span> shifted = abc.shift();
+        <span class="hljs-built_in">console</span>.log(abc); <span class="hljs-comment">// [ 'b', 'c', 'd', 'e' ]</span>
+        <span class="hljs-built_in">console</span>.log(shifted, <span class="hljs-keyword">typeof</span> shifted); <span
+          class="hljs-comment">// a string</span>
+      </code></pre>
+    <h3 id="unshift"><em>unshift</em></h3>
+    <ul>
+      <li>unshift - menja original 'abc'</li>
+    </ul>
+    <pre><code class="language-js">abc = [<span class="hljs-string">"a"</span>, <span class="hljs-string">"b"</span>,
+        <span class="hljs-string">"c"</span>, <span class="hljs-string">"d"</span>, <span
+          class="hljs-string">"e"</span>]
+        <span class="hljs-keyword">let</span> unshifted = abc.unshift(<span class="hljs-string">"XxX"</span>, <span
+          class="hljs-string">"YOY"</span>);
+        <span class="hljs-built_in">console</span>.log(abc); <span class="hljs-comment">// [ 'XxX', 'YOY', 'a', 'b',
+          'c', 'd', 'e' ]</span>
+        <span class="hljs-built_in">console</span>.log(unshifted, <span class="hljs-keyword">typeof</span> unshifted);
+        <span class="hljs-comment">// 7 'number' = abc.length</span>
+      </code></pre>
+    <hr>
+    <h2 id="razni-alati"><strong>RAZNI ALATI</strong></h2>
+    <ul>
+      <li>PAZNJA: Alati ispod menjaju original.</li>
+    </ul>
+    <pre><code class="language-js"><span class="hljs-keyword">var</span> q1 = [<span class="hljs-number">1</span>,<span
+          class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>]; <span
+          class="hljs-comment">// Svi ispod su prakticno reference za 'q1'</span>
+        <span class="hljs-keyword">var</span> q2 = q1.fill(<span class="hljs-number">5</span>,<span
+          class="hljs-number">0</span>,<span class="hljs-number">1</span>); <span class="hljs-comment">// q2 = q1 =
+          [5,2,3,4]</span>
+        <span class="hljs-keyword">var</span> q3 = q1.sort(); <span class="hljs-comment">// q3 = q2 = q1 =
+          [2,3,4,5]</span>
+        <span class="hljs-keyword">var</span> q4 = q3.reverse() <span class="hljs-comment">// q4 = q3 = q2 = q1 =
+          [5,4,3,2]</span>
+        <span class="hljs-keyword">var</span> q5 = q2.copyWithin(<span class="hljs-number">1</span>,<span
+          class="hljs-number">2</span>,<span class="hljs-number">3</span>) <span class="hljs-comment">// q5 = q4 = q3 =
+          q2 = q1 = [5,3,3,2]</span>
+      </code></pre>
+    <h3 id="reverse"><em>reverse</em></h3>
+    <ul>
+      <li>reverse ~ mirror MENJA ORIGINAL!</li>
+    </ul>
+    <pre><code class="language-js">abc = [<span class="hljs-string">"a"</span>, <span class="hljs-string">"b"</span>,
+        <span class="hljs-string">"c"</span>, <span class="hljs-string">"d"</span>, <span
+          class="hljs-string">"e"</span>]
+        <span class="hljs-keyword">let</span> reversed = abc.reverse();
+        <span class="hljs-built_in">console</span>.log(abc); <span class="hljs-comment">// [ 'e', 'd', 'c', 'b', 'a'
+          ]</span>
+        <span class="hljs-built_in">console</span>.log(reversed); <span class="hljs-comment">// [ 'e', 'd', 'c', 'b',
+          'a' ]</span>
+      </code></pre>
+    <h3 id="fill"><em>fill</em></h3>
+    <ul>
+      <li>fill ~ repeat() --- cime, od...do. MENJA ORIGINAL!</li>
+    </ul>
+    <pre><code class="language-js"><span class="hljs-built_in">console</span>.log(abc); <span class="hljs-comment">// [
+          'e', 'd', 'c', 'b', 'a' ]</span>
+        <span class="hljs-keyword">let</span> filled = abc.fill(<span class="hljs-string">'A'</span>, <span
+          class="hljs-number">2</span>, <span class="hljs-number">5</span>); <span
+          class="hljs-built_in">console</span>.log(filled); <span class="hljs-comment">// ['e', 'd', 'A', 'A',
+          'A']</span>
+        <span class="hljs-built_in">console</span>.log(abc); <span class="hljs-comment">// ['e', 'd', 'A', 'A',
+          'A']</span>
+      </code></pre>
+    <h3 id="copywithin"><em>copyWithin</em></h3>
+    <ul>
+      <li>copyWithin --- kopiranje elemenata unutar niza</li>
+      <li>parametri (gde_kopirati, sta_od, sta_do) - "sta_od" standardna vrednost mu je 'abc.length'. MENJA ORIGINAL!
+      </li>
+    </ul>
+    <pre><code class="language-js"><span class="hljs-keyword">let</span> copied = abc.copyWithin(<span
+          class="hljs-number">0</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>); <span
+          class="hljs-built_in">console</span>.log(copied); <span class="hljs-comment">// [e, b, c, d, e]</span>
+      </code></pre>
+    <ul>
+      <li>Ne moze da pravi nove elemente u nizu, tj. ne moze da menja .length</li>
+    </ul>
+    <h3 id="sort"><em>sort</em></h3>
+    <ul>
+      <li>sort - sortiranje po unikod vrednostima (sve se konvertuje u strignove pa se sortira). MENJA ORIGINAL!</li>
+    </ul>
+    <pre><code class="language-js"><span class="hljs-keyword">let</span> nizAZ = [<span class="hljs-string">'B'</span>,
+        <span class="hljs-number">2</span>, <span class="hljs-string">'a'</span>, <span class="hljs-string">'c'</span>,
+        <span class="hljs-string">'b'</span>, <span class="hljs-number">1</span>, <span class="hljs-number">3</span>,
+        <span class="hljs-string">'C'</span>, <span class="hljs-string">'A'</span>, <span
+          class="hljs-string">'.'</span>, <span class="hljs-string">'!'</span>, <span class="hljs-string">'?'</span>,]
+        <span class="hljs-keyword">let</span> sorted1 = nizAZ.sort(); <span
+          class="hljs-built_in">console</span>.log(nizAZ); <span class="hljs-comment">//[!.123?ABCabc]</span>
+        <span class="hljs-built_in">console</span>.log(sorted1); <span class="hljs-comment">// [!.123?ABCabc]</span>
+        <span class="hljs-comment">// lexikografsko sortiranje brojeva</span>
+        <span class="hljs-keyword">let</span> niz12 = [<span class="hljs-number">22</span>, <span
+          class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">1</span>, <span
+          class="hljs-number">11</span>]
+        <span class="hljs-keyword">let</span> sorted2_1 = niz12.sort(); <span
+          class="hljs-built_in">console</span>.log(sorted2_1); <span class="hljs-comment">// [1 11 2 22 3]</span>
+        <span class="hljs-built_in">console</span>.log(niz12); <span class="hljs-comment">// [1 11 2 22 3]</span>
+        <span class="hljs-comment">// sortiranje po vrednosti brojeva</span>
+        <span class="hljs-keyword">let</span> sorted2_2 = niz12.sort(<span class="hljs-function">(<span
+            class="hljs-params">a, b</span>) =&gt;</span> b - a); <span
+          class="hljs-built_in">console</span>.log(sorted2_2); <span class="hljs-comment">// [22 11 3 2 1]</span>
+        <span class="hljs-built_in">console</span>.log(niz12); <span class="hljs-comment">// [22 11 3 2 1]</span>
+        <span class="hljs-built_in">console</span>.log([<span class="hljs-number">1</span>, <span
+          class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span
+          class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>, <span
+          class="hljs-number">8</span>, <span class="hljs-number">9</span>].sort(<span class="hljs-function">(<span
+            class="hljs-params">a, b</span>) =&gt;</span> { <span class="hljs-keyword">return</span> <span
+          class="hljs-number">0.5</span> - <span class="hljs-built_in">Math</span>.random() })); <span
+          class="hljs-comment">// [4,2,1,3,9,7,5,6,8] - ali ovo je los nacin</span>
+      </code></pre>
+    <h3 id="concat"><em>concat</em></h3>
+    <ul>
+      <li>concat - spajanje nizova. MENJA ORIGINAL!</li>
+    </ul>
+    <pre><code class="language-js">abc = [<span class="hljs-string">"a"</span>, <span class="hljs-string">"b"</span>,
+        <span class="hljs-string">"c"</span>]; zxc = [<span class="hljs-string">'z'</span>, <span
+          class="hljs-string">'x'</span>, <span class="hljs-string">'c'</span>]; one2 = [<span
+          class="hljs-number">1</span>, <span class="hljs-number">2</span>]
+        <span class="hljs-keyword">let</span> concated = zxc.concat(<span class="hljs-string">"qwe"</span>, one2, abc);
+        <span class="hljs-built_in">console</span>.log(concated); <span class="hljs-comment">//
+          [z,x,c,qwe,1,2,a,b,c]</span>
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"CONCAT: "</span>, zxc, one2, abc);
+        <span class="hljs-comment">// [z,x,c][1,2][a,b,c]</span>
+        concated = zxc.concat(); <span class="hljs-built_in">console</span>.log(concated); <span class="hljs-comment">//
+          [z,x,c] // pravljenje kopije</span>
+      </code></pre>
+    <h3 id="includes"><em>includes</em></h3>
+    <ul>
+      <li>includes ~ find - provera da li zadati element postoji u nizu. Varaca Boolean.</li>
+    </ul>
+    <pre><code class="language-js"><span class="hljs-comment">// callback f-ja moze da ima 2 parametra:
+          vrednost_elementa, index_pocetka_pretrage. MENJA ORIGINAL!</span>
+        abc = [<span class="hljs-string">"a"</span>, <span class="hljs-string">"b"</span>, <span
+          class="hljs-string">"c"</span>, <span class="hljs-string">"d"</span>, <span class="hljs-string">"e"</span>]
+        <span class="hljs-keyword">let</span> included = abc.includes(<span class="hljs-string">'A'</span>)
+        <span class="hljs-built_in">console</span>.log(included); <span class="hljs-comment">// false</span>
+        <span class="hljs-built_in">console</span>.log(abc); <span class="hljs-comment">// [ 'a', 'b', 'c', 'd', 'e'
+          ]</span>
+      </code></pre>
+    <h2 id="filtriranje-pomocu-callback-f-ja"><strong>FILTRIRANJE POMOCU CALLBACK F-JA</strong></h2>
+    <h3 id="filter"><em>filter</em></h3>
+    <ul>
+      <li>filter - Pravi novi niz filtracijom elemenata zadatog niza, po zadatoj f-ji</li>
+      <li>f-ja moze da ima 4 parametra: vrednost_elementa, index_elementa, pozvani_niz, thisArg (vrednost koja se
+        koristi kao 'this' argument pri pozivanju f-je)</li>
+    </ul>
+    <pre><code class="language-js">abc = [<span class="hljs-string">'YoY'</span>, <span
+          class="hljs-string">'XxX'</span>, <span class="hljs-string">'A'</span>, <span class="hljs-string">'A'</span>,
+        <span class="hljs-string">'A'</span>, <span class="hljs-string">'YoY'</span>, <span
+          class="hljs-string">'XxX'</span>]
+        <span class="hljs-keyword">let</span> filtered = abc.filter(<span class="hljs-function"><span
+            class="hljs-params">vred_elem</span> =&gt;</span> vred_elem.length &gt; <span class="hljs-number">1</span>);
+        <span class="hljs-comment">// ako cb f-ja bude true, prolazi filter</span>
+        <span class="hljs-built_in">console</span>.log(abc); <span class="hljs-comment">// [ 'YoY', 'XxX', 'A', 'A',
+          'A', 'YoY', 'XxX' ]</span>
+        <span class="hljs-built_in">console</span>.log(filtered);<span class="hljs-comment">// [ 'YoY', 'XxX', 'YoY',
+          'XxX' ]</span>
+        <span class="hljs-built_in">console</span>.log(abc.filter(<span class="hljs-function"><span
+            class="hljs-params">ve</span> =&gt;</span> ve === <span class="hljs-string">'A'</span>)); <span
+          class="hljs-comment">//[A,A,A]</span>
+        <span class="hljs-built_in">console</span>.log(abc.filter(<span class="hljs-function">(<span
+            class="hljs-params">ve, ie, niz</span>) =&gt;</span> { <span class="hljs-keyword">return</span> niz[ie %
+        <span class="hljs-number">3</span>] === <span class="hljs-string">'A'</span> })); <span class="hljs-comment">//!
+          [A,YoY]</span>
+        <span class="hljs-comment">// ^^^ na pitanje: da li 'YOY' ulazi u novi niz =&gt; index od 'YOY' je 5, tj. ie =
+          5</span>
+        <span class="hljs-comment">// a 5%3 = 2 sto znaci da ce biti [2], a element pod indexom 2 je 'A',</span>
+        <span class="hljs-comment">// cime se ispunjava uslov za ulazak u novi niz</span>
+        <span class="hljs-built_in">console</span>.log(abc.filter(<span class="hljs-function">(<span
+            class="hljs-params">x</span>) =&gt;</span> { <span class="hljs-keyword">return</span> <span
+          class="hljs-regexp">/[a-z]/</span>.test(x) })); <span class="hljs-comment">//! [YoY,XxX,YoY,XxX]</span>
+        abc <span class="hljs-comment">//! [YoY,XxX,A,A,A,YOY,XxX]</span>
+        intersekcijaDvaNiza = abc.filter(<span class="hljs-function"><span class="hljs-params">value</span> =&gt;</span>
+        [<span class="hljs-string">'A'</span>, <span class="hljs-string">'b'</span>, <span
+          class="hljs-string">'c'</span>, <span class="hljs-string">'d'</span>].includes(value));
+        <span class="hljs-built_in">console</span>.log(intersekcijaDvaNiza); <span class="hljs-comment">//!
+          ['A','A','A']</span>
+        <span class="hljs-comment">// Kako oznacavati prethodni/sledeci element u nizu</span>
+        <span class="hljs-comment">// filter (e, i, a) → [ a[i-1], e, a[i+1] ]</span>
+      </code></pre>
+    <h3 id="every"><em>every</em></h3>
+    <ul>
+      <li><em>every</em> - proverava da li svi elementi mogu da prodju zadatu funkciju. Ako svi prodju, vraca True; ako
+        jedan punke, prekida se provera i vraca False.</li>
+      <li>f-ja moze da ima 4 parametra: vrednost_elementa, index_elementa, pozvani_niz, thisArg (vrednost koja se
+        koristi kao 'this' argument pri pozivanju f-je)</li>
+    </ul>
+    <pre><code class="language-js"><span class="hljs-built_in">console</span>.log(abc.every(<span
+          class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> x.length &gt; <span
+          class="hljs-number">0</span> &amp;&amp; x.length &lt;= <span class="hljs-number">3</span>)); <span
+          class="hljs-comment">// true</span>
+        <span class="hljs-built_in">console</span>.log(abc); <span class="hljs-comment">//!
+          [YoY,XxX,d,A,A,A,YoY,XxX]</span>
+      </code></pre>
+    <h3 id="some"><em>some</em></h3>
+    <ul>
+      <li>some - proverava da li bar jedan element moze da prodje callback f-ju. Vraca boolean</li>
+      <li>callback f-ja moze da ima 4 parametra: vrednost_elementa, index_elementa, pozvani_niz, thisArg (vrednost koja
+        se koristi kao
+        'this' argument pri pozivanju f-je)</li>
+    </ul>
+    <pre><code class="language-js"><span class="hljs-keyword">const</span> someed = [<span class="hljs-number">1</span>,
+        <span class="hljs-number">2</span>, <span class="hljs-string">'qwe'</span>, <span class="hljs-number">4</span>,
+        <span class="hljs-number">5</span>].some(<span class="hljs-function"><span class="hljs-params">ve</span>
+          =&gt;</span> ve == <span class="hljs-string">'4'</span>); <span
+          class="hljs-built_in">console</span>.log(someed); <span class="hljs-comment">//! true</span>
+      </code></pre>
+    <h3 id="find"><em>find</em></h3>
+    <ul>
+      <li>find - proverava sve elemente sa callback f-jom, a ako f-ja negde vrati 'true' pretraga se prekida i vraca se
+        vrednost tog elementa.</li>
+      <li>callback f-ja moze da ima 4 parametra: vrednost_elementa, index_elementa, pozvani_niz, thisArg (vrednost koja
+        se koristi kao 'this' argument pri pozivanju f-je)</li>
+    </ul>
+    <pre><code class="language-js"><span class="hljs-built_in">console</span>.log(abc.find(<span
+          class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> <span
+          class="hljs-regexp">/[Y]/</span>.test(x))); <span class="hljs-comment">// YOY // sadrzi Y</span>
+        <span class="hljs-built_in">console</span>.log(abc); <span class="hljs-comment">//!
+          [YoY,XxX,A,A,A,YoY,XxX]</span>
+      </code></pre>
+    <h3 id="findindex"><em>findIndex</em></h3>
+    <ul>
+      <li>findIndex - proverava sve elemente sa callback f-jom, a ako f-ja negde vrati 'true' pretraga se prekida i
+        vraca se index tog elementa.</li>
+    </ul>
+    <pre><code class="language-js"><span class="hljs-built_in">console</span>.log(abc.findIndex((<span
+          class="hljs-function"><span class="hljs-params">x</span> =&gt;</span> <span
+          class="hljs-regexp">/[Y]/</span>.test(x)))) <span class="hljs-comment">// 5</span>
+        <span class="hljs-built_in">console</span>.log(abc); <span class="hljs-comment">//!
+          [YoY,XxX,A,A,A,YoY,XxX]</span>
+        abc = [<span class="hljs-string">'YoY'</span>, <span class="hljs-string">'XxX'</span>, <span
+          class="hljs-string">'A'</span>, <span class="hljs-string">'A'</span>, <span class="hljs-string">'A'</span>,
+        <span class="hljs-string">'YoY'</span>, <span class="hljs-string">'XxX'</span>]
+      </code></pre>
+    <h3 id="indexof"><em>indexOf</em></h3>
+    <ul>
+      <li>indexOf - trazi element, a vraca INDEX OD njega. proverava da li postoji zadati element. Ako ga nadje prkida
+        pretragu i vraca index gde ga je naisao. Ako nije nasao -1</li>
+      <li>Metoda moze da ima 2 parametra: vrednost_elementa, index_pocetka_pretrage</li>
+    </ul>
+    <pre><code class="language-js"><span class="hljs-built_in">console</span>.log(abc.indexOf(<span
+          class="hljs-string">'YOY'</span>)); <span class="hljs-comment">// -1 // da sam trazio 'YoY' bilo bi 0</span>
+        <span class="hljs-built_in">console</span>.log(abc); <span class="hljs-comment">//!
+          [YoY,XxX,A,A,A,YoY,XxX]</span>
+      </code></pre>
+    <h3 id="lastindexof"><em>lastIndexOf</em></h3>
+    <ul>
+      <li>lastIndexOf - isto sto i 'indexOf, ali pretraga se vrsi sa kraja</li>
+      <li>Metoda moze da ima 2 parametra: vrednost_elementa, index_pocetka_pretrage</li>
+    </ul>
+    <pre><code class="language-js">abc = [<span class="hljs-string">'a'</span>, <span class="hljs-string">'ss'</span>,
+        <span class="hljs-string">'dD'</span>, <span class="hljs-string">'F'</span>, <span
+          class="hljs-string">'ss'</span>]
+        <span class="hljs-built_in">console</span>.log(abc.lastIndexOf(<span class="hljs-string">'ss'</span>, -<span
+          class="hljs-number">2</span>)); <span class="hljs-comment">//! 1</span>
+      </code></pre>
+    <h3 id="flat"><em>flat</em></h3>
+    <ul>
+      <li>flat - svodjenje multi-dimenzionalnih nizova</li>
+      <li>Metoda moze da ima 1 parametar: dubina_svodjenja. Default je 1</li>
+    </ul>
+    <pre><code class="language-js">num = [<span class="hljs-number">1</span>,[<span class="hljs-number">2</span>,[<span
+          class="hljs-number">3</span>,[<span class="hljs-number">4</span>,[<span class="hljs-number">5</span>,[<span
+          class="hljs-number">6</span>,[<span class="hljs-number">7</span>,[<span class="hljs-number">8</span>]]]]]]]]
+        <span class="hljs-built_in">console</span>.log(num.flat(<span class="hljs-number">3</span>)); <span
+          class="hljs-comment">//! [1,2,3,4,[5,[6,[7,[8]]]]]</span>
+      </code></pre>
+    <h3 id="flatmap"><em>flatMap</em></h3>
+    <ul>
+      <li>flatMap ~ map+flat</li>
+    </ul>
+    <pre><code class="language-js"><span class="hljs-keyword">let</span> arr1 = [<span class="hljs-string">"it's Sunny
+          in"</span>, <span class="hljs-string">""</span>, <span class="hljs-string">"California"</span>];
+        <span class="hljs-built_in">console</span>.log(arr1.flatMap(<span class="hljs-function"><span
+            class="hljs-params">x</span> =&gt;</span> x.split(<span class="hljs-string">" "</span>))); <span
+          class="hljs-comment">//! ["it's","Sunny","in", "", "California"]</span>
+        <span class="hljs-comment">// Stara alternativa</span>
+        <span class="hljs-built_in">console</span>.log(arr1.map(<span class="hljs-function"><span
+            class="hljs-params">x</span> =&gt;</span> x.split(<span class="hljs-string">" "</span>))); <span
+          class="hljs-comment">//! [["it's","Sunny","in"],[""],["California"]]</span>
+        <span class="hljs-built_in">console</span>.log(arr1.map(<span class="hljs-function"><span
+            class="hljs-params">x</span> =&gt;</span> x.split(<span class="hljs-string">" "</span>)).flat(<span
+          class="hljs-number">1</span>)); <span class="hljs-comment">//! ["it's","Sunny","in", "", "California"]</span>
+        <span class="hljs-comment">// Primer 2</span>
+        str2split = <span class="hljs-string">'qwe|asd|zxc&amp;rty|fgh|vbn^uio|jkl&amp;nm|mn'</span>
+        str2split.split(<span class="hljs-string">'^'</span>) <span class="hljs-comment">// [
+          qwe|asd|zxc&amp;rty|fgh|vbn, uio|jkl&amp;nm|mn ]</span>
+        .flatMap(<span class="hljs-function"><span class="hljs-params">str</span>=&gt;</span>str.split(<span
+          class="hljs-string">"&amp;"</span>)) <span class="hljs-comment">// [ qwe|asd|zxc, rty|fgh|vbn, uio|jkl, nm|mn
+          ]</span>
+        .flatMap(<span class="hljs-function"><span class="hljs-params">str</span>=&gt;</span>str.split(<span
+          class="hljs-string">"|"</span>)) <span class="hljs-comment">// [ qwe, asd, zxc, rty, fgh, vbn, uio, jkl, nm,
+          mn ]</span>
+        <span class="hljs-comment">// Stara alternativa</span>
+        str2split.split(<span class="hljs-string">'^'</span>)
+        .map(<span class="hljs-function"><span class="hljs-params">str</span>=&gt;</span>str.split(<span
+          class="hljs-string">"&amp;"</span>))
+        .flat()
+        .map(<span class="hljs-function"><span class="hljs-params">str</span>=&gt;</span>str.split(<span
+          class="hljs-string">"|"</span>))
+        .flat()
+      </code></pre>
+    <h2 id="reduce"><strong>REDUCE</strong></h2>
+    <h3 id="reduce-1"><em>reduce</em></h3>
+    <ul>
+      <li>
+        <p>reduce() Sta radi? Reduce() uzma dva susedna elementa niza i nesto uradi sa njima, u zavisnosti od toga sta
+          je definisano u callback funkciji. U sledecem krugu racunanja, ono sto je bio RETURN od prethodne callback
+          funkcije, bice prvi argument u trenutnoj funkciji (zove se akomulator ili prethodna vrednost), a za drugi
+          argument se uzima sledeci element niza (sabirak ili trenutna vrednost).</p>
+      </li>
+      <li>
+        <p>Kada se prvi put startuje callback funkcija tu nema RETURN od prethodne kalkulacije, a treba da ga bude. Ona
+          se moze dodeliti kao drugi argument od reduce() ili kao prvi element niza koji se obradjuje. Najbolja je
+          praksa da se stavlja kao drugi argument od reduce, jer ako se ne stavi onda ce callback funkcija po defaultu
+          uzeti [0] element niza kao pocetnu vrednost a iteracija sabiraka pocinje od [1] elementa (umesto od [0]), sto
+          moze dati neocekivane rezultate.</p>
+      </li>
+      <li>
+        <p>callback f-ja koja ide u reduce moze da ima 4 parametra: akomulator, sabirak, index_sabirka,
+          niz_koji_se_obradjuje</p>
+      </li>
+    </ul>
+    <pre><code class="language-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span
+            class="hljs-title">sabirach</span>(<span class="hljs-params">akumulator, sabirak</span>) </span>{ <span
+          class="hljs-keyword">return</span> akumulator + sabirak } <span class="hljs-comment">// callback f-ja</span>
+        <span class="hljs-keyword">let</span> reduced = niz12.reduce(sabirach); <span
+          class="hljs-built_in">console</span>.log(reduced); <span class="hljs-comment">//! 39 - vidi ispod
+          objasnjenje</span>
+        <span class="hljs-comment">// pocetna vrednost akumulatora je 22, a 1. sabirak je 11, 2. sab. je 3, pa 2, pa
+          1</span>
+        <span class="hljs-built_in">console</span>.log(niz12); <span class="hljs-comment">//! [22,11,3,2,1]</span>
+
+        <span class="hljs-keyword">let</span> reduced100 = niz12.reduce(sabirach, <span class="hljs-number">100</span>);
+        <span class="hljs-built_in">console</span>.log(reduced100); <span class="hljs-comment">//! 139</span>
+        <span class="hljs-comment">// pocetna vrednost akumulatora je 100, a 1. sabirak je 22</span>
+        <span class="hljs-built_in">console</span>.log(niz12); <span class="hljs-comment">//! [22,11,3,2,1]</span>
+
+        <span class="hljs-keyword">let</span> reducedConcat = nizAZ.reduce(<span class="hljs-function">(<span
+            class="hljs-params">a, s</span>) =&gt;</span> { <span class="hljs-keyword">return</span> a.concat(<span
+          class="hljs-string">'*'</span> + s + <span class="hljs-string">'*'</span>) }, <span
+          class="hljs-string">'QWE*'</span>);
+        <span class="hljs-built_in">console</span>.log(reducedConcat); <span class="hljs-comment">//!
+          QWE**!**.**1**2**3**?**A**B**C**a**b**c*</span>
+        <span class="hljs-comment">// da sam kao pocetnu vrednost stavio [], onda bi return bio array</span>
+        <span class="hljs-built_in">console</span>.log(nizAZ); <span class="hljs-comment">//! [!.123?ABCabc]</span>
+
+        <span class="hljs-comment">// evo primera gde se najbolje vidi kako funkcionise reduce()</span>
+        arr.reduce(<span class="hljs-function">(<span class="hljs-params">a,s</span>)=&gt;</span>{
+        <span class="hljs-built_in">console</span>.log(a, s)
+        <span class="hljs-keyword">return</span> nan
+        }, <span class="hljs-number">100</span>)
+        <span class="hljs-comment">// Output:</span>
+        <span class="hljs-comment">// 100 1</span>
+        <span class="hljs-comment">// NaN 2</span>
+        <span class="hljs-comment">// NaN 3</span>
+        <span class="hljs-comment">// NaN 4</span>
+        <span class="hljs-comment">// NaN 5</span>
+
+        <span class="hljs-comment">// ovo je jedan moj primer funkcije koja komparira da li je prvi parametar jednak sa
+          ostalim parametrima, a izmedju svake komparacije je OR. Znaci dovoljno samo jedan da je TRUE i vratice
+          TRUE</span>
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span
+            class="hljs-title">equalOr</span>(<span class="hljs-params">x, ...vals</span>) </span>{
+        c = [];
+        vals.reduce(<span class="hljs-function">(<span class="hljs-params">a, s</span>) =&gt;</span> {
+        c.push(a == s)
+        <span class="hljs-keyword">return</span> a
+        }, x)
+        <span class="hljs-keyword">return</span> c.some(<span class="hljs-function"><span
+            class="hljs-params">e</span>=&gt;</span>e==<span class="hljs-literal">true</span>)
+        }
+        equalOr(q, w,e,q)
+      </code></pre>
+    <h3 id="reduceright"><em>reduceRight</em></h3>
+    <ul>
+      <li>reduceRight---Isto sto i 'reduce' samo sto pocinje sa kraja</li>
+    </ul>
+    <pre><code class="language-js"><span class="hljs-keyword">let</span> reduceRighted = [[<span
+          class="hljs-number">0</span>, <span class="hljs-number">1</span>], [<span class="hljs-number">2</span>, <span
+          class="hljs-number">3</span>], [<span class="hljs-number">4</span>, <span class="hljs-number">5</span>],
+        [<span class="hljs-number">6</span>, <span class="hljs-number">7</span>], [<span class="hljs-number">8</span>,
+        <span class="hljs-number">9</span>]].reduceRight(<span class="hljs-function">(<span class="hljs-params">aku,
+            sab</span>) =&gt;</span> aku.concat(sab));
+        <span class="hljs-built_in">console</span>.log(reduceRighted); <span class="hljs-comment">//! [8, 9, 6, 7, 4, 5,
+          2, 3, 0, 1]</span>
+      </code></pre>
+    <h3 id="primena-reduce-a"><em>PRIMENA REDUCE-a:</em></h3>
+    <ul>
+      <li><em>brojanje slova</em></li>
+    </ul>
+    <pre><code class="language-js"><span class="hljs-keyword">var</span> brojanjeSlova = <span class="hljs-string">"qwe
+          qe e"</span>
+        .split(<span class="hljs-string">""</span>) <span class="hljs-comment">// [q,w,e, ,q,e, ,e]</span>
+        .reduce (<span class="hljs-function">(<span class="hljs-params">rezultat, slovo</span>)=&gt;</span>{
+        <span class="hljs-keyword">if</span> (slovo <span class="hljs-keyword">in</span> rezultat) rezultat[slovo]++
+        <span class="hljs-keyword">else</span> rezultat[slovo]=<span class="hljs-number">1</span>
+        <span class="hljs-keyword">return</span> rezultat
+        }, {}) <span class="hljs-comment">// bitno je koristiti {} kao pocetni objekat da bi i prvo slovo proslo kroz cb
+          fju</span>
+        <span class="hljs-built_in">console</span>.log (brojanjeSlova) <span class="hljs-comment">// {q:2, w:1, e:3, "
+          ":2}</span>
+      </code></pre>
+    <ul>
+      <li><em>Grupisanje objekata po svojstvu "prosek"</em></li>
+    </ul>
+    <pre><code class="language-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span
+            class="hljs-title">grupisi</span>(<span class="hljs-params">obAR, propOB</span>) </span>{
+        <span class="hljs-keyword">return</span> obAR.reduce( <span class="hljs-function">(<span
+            class="hljs-params">acc, objSab</span>) =&gt;</span> {
+        <span class="hljs-keyword">let</span> key = objSab[propOB]
+        <span class="hljs-keyword">if</span> (!acc[key]) {
+        acc[key] = []
+        }
+        acc[key].push(objSab)
+        <span class="hljs-keyword">return</span> acc
+        }, {})
+        }
+        <span class="hljs-built_in">console</span>.log(grupisi(psi, <span class="hljs-string">'god'</span>))
+        <span class="hljs-comment">/* Object {}
+          1: Array [ {…} ]
+          10: Array [ {…} ]
+          40: Array [ {…} ]
+          60: Array [ {…} ]
+          200: Array [ {…} ]
+          } */</span>
+      </code></pre>
+    <ul>
+      <li>sakupljanje svih nadimaka pasa na jednu gomilu</li>
+    </ul>
+    <pre><code class="language-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span
+            class="hljs-title">sviNadimci</span> (<span class="hljs-params">obj, prop</span>) </span>{
+        <span class="hljs-keyword">return</span> obj.reduce(<span class="hljs-function">(<span class="hljs-params">rez,
+            trenObj</span>) =&gt;</span> {
+        <span class="hljs-keyword">return</span> [...rez, ...trenObj[prop]]
+        }, [])
+        }
+
+        sviNadimci(psi, <span class="hljs-string">"nadimci"</span>) <span class="hljs-comment">// [ Beki, Čupi, Pufi,
+          Lizača, Vuki, Vule, Matori, Legenda, Šari, Šarpi, … ]</span>
+
+
+      </code></pre>
+    <h2 id="map"><strong>MAP</strong></h2>
+    <h3 id="map-1"><em>map</em></h3>
+    <ul>
+      <li>map - Slicno kao forEach, samo sto pravi novi Array, a ne menja original</li>
+      <li>otvara se svaki element niza, nesto mu se uradi i pravi se novi niz.</li>
+      <li>callback f-ja moze da ima 3 parametra: vrednost_elementa, index_elementa, pozvani_niz</li>
+    </ul>
+    <pre><code class="language-js"><span class="hljs-comment">// npr. [6,5,4].map(v, i, n) // ← neparvilan, jednostavan
+          zapis</span>
+        <span class="hljs-comment">// 1. krug: v=6, i=0, n=[6,5,4]</span>
+        <span class="hljs-comment">// 2. krug: v=5, i=1, n=[6,5,4]</span>
+        <span class="hljs-comment">// 3. krug: v=4, i=2, n=[6,5,4]</span>
+        <span class="hljs-comment">// console.log(one2) //! [1,2]</span>
+        <span class="hljs-keyword">let</span> maped = one2.map(<span class="hljs-function"><span
+            class="hljs-params">x</span> =&gt;</span> x + <span class="hljs-number">10</span>); <span
+          class="hljs-built_in">console</span>.log(maped); <span class="hljs-comment">//! [11,12]</span>
+        <span class="hljs-keyword">let</span> maped2 = zxc.map(<span class="hljs-function"><span
+            class="hljs-params">x</span> =&gt;</span> x.toUpperCase()); <span
+          class="hljs-built_in">console</span>.log(maped2); <span class="hljs-comment">//! [Z,X,C]</span>
+        <span class="hljs-comment">// console.log(one2) //! [1,2]</span>
+        <span class="hljs-keyword">let</span> arrObj = [{ <span class="hljs-attr">qqq</span>: <span
+          class="hljs-number">1</span>, <span class="hljs-attr">www</span>: <span class="hljs-number">2</span>, <span
+          class="hljs-attr">eee</span>: <span class="hljs-number">3</span> }, { <span class="hljs-attr">aaa</span>:
+        <span class="hljs-number">4</span>, <span class="hljs-attr">sss</span>: <span class="hljs-number">5</span>,
+        <span class="hljs-attr">ddd</span>: <span class="hljs-number">6</span> }] <span class="hljs-comment">// [{},
+          {}]</span>
+        <span class="hljs-keyword">let</span> maped3 = arrObj.map(<span class="hljs-function"><span
+            class="hljs-params">x</span> =&gt;</span> (x.qqq + x.www) * x.eee); <span
+          class="hljs-built_in">console</span>.log(maped3); <span class="hljs-comment">//! [9,NaN]</span>
+      </code></pre>
+    <h3 id="foreach"><em>forEach</em></h3>
+    <ul>
+      <li>
+        <p>forEach - Izvrsava se callback f-ja nad svakim elementom. !!! Radi samo sa Array + ne moze da radi sa praznim
+          elementima niza. forEach ne menja Array, ali c.b. f-ja moze da ga promeni. Ne mora da ima return (primer 1),
+          osim ako mu ne kazes (primer 2). Sporija od .map.</p>
+      </li>
+      <li>
+        <p>callback f-ja moze da ima 4 parametra: vrednost_elementa, index_elementa, pozvani_niz, thisArg (vrednost koja
+          se koristi kao 'this' argument pri pozivanju f-je)</p>
+      </li>
+    </ul>
+    <pre><code class="language-js"><span class="hljs-comment">// Primer 1</span>
+        zxc = [<span class="hljs-string">"z"</span>, <span class="hljs-string">"x"</span>, <span
+          class="hljs-string">"c"</span>]
+        <span class="hljs-keyword">let</span> foreacher = zxc.forEach(<span class="hljs-function"><span
+            class="hljs-params">x</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(x));<span
+          class="hljs-comment">// undefined - svaki element od "zxc" je bacen u console.log(), a povratna informacija za
+          "foreacher" je nista, undefined.</span>
+
+        <span class="hljs-comment">// Primer 2</span>
+        one2 = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>]
+        one2.forEach(<span class="hljs-function">(<span class="hljs-params">num, index</span>) =&gt;</span> {
+        <span class="hljs-keyword">return</span> one2[index] = num * <span class="hljs-number">2</span>;
+        });
+        one2 <span class="hljs-comment">// [2, 4] - svaki element od "one2" je pomnozen sa 2.</span>
+
+        <span class="hljs-comment">// Primer 2.1 - Sa .map bi to izgledalo ovako:</span>
+        one2 = one2.map(<span class="hljs-function">(<span class="hljs-params">num, index</span>) =&gt;</span> {
+        <span class="hljs-keyword">return</span> one2[index] = num * <span class="hljs-number">2</span>;
+        })
+        one2 <span class="hljs-comment">// [2, 4]</span>
+
+        <span class="hljs-comment">// Primer 3</span>
+        d = {}
+        arr = <span class="hljs-string">'qwertyuiopasdfghjklzxcvbnm'</span>.split(<span class="hljs-string">''</span>)
+        <span class="hljs-comment">// [q, w, e, r, ...]</span>
+        arr.forEach(<span class="hljs-function">(<span class="hljs-params">q</span>) =&gt;</span> {
+        d[q] = <span class="hljs-literal">undefined</span>
+        })
+        d <span class="hljs-comment">// {q:undef., w:undef., e:undef., r:undef., ...}</span>
+      </code></pre>
+    <h2 id="pakovanje-u-string"><strong>PAKOVANJE U STRING</strong></h2>
+    <h3 id="tostring"><em>toString</em></h3>
+    <ul>
+      <li><em>toString</em> - ne pretvara u String, nego ga samo prikazuje kao String.</li>
+      <li>Ako hocu da ga pretvorim, moram taj prikaz da snimim u neku novu promenljivu.</li>
+    </ul>
+    <pre><code class="language-js">abc; <span class="hljs-comment">//! [YOY,XxX,A,A,A,YOY,XxX]</span>
+        abc.toString(); <span class="hljs-comment">//! YOY,XxX,A,A,A,YOY,XxX</span>
+        abc; <span class="hljs-comment">//! [YOY,XxX,A,A,A,YOY,XxX]</span>
+      </code></pre>
+    <h3 id="join"><em>join</em></h3>
+    <ul>
+      <li>join - Spaja elemente nizolikog objekta u String.</li>
+      <li>To radi pomocu dopisivanja (konkatenacija).</li>
+    </ul>
+    <pre><code class="language-js">elements = [<span class="hljs-string">'Fire'</span>, <span
+          class="hljs-string">'Air'</span>, <span class="hljs-string">'Water'</span>];
+        elements.join() <span class="hljs-comment">// "Fire,Air,Water"</span>
+        elements.join(<span class="hljs-string">''</span>) <span class="hljs-comment">// "FireAirWater"</span>
+        elements.join(<span class="hljs-string">'-'</span>) <span class="hljs-comment">// "Fire-Air-Water"</span>
+        elements <span class="hljs-comment">// ne promenjeno - ['Fire', 'Air', 'Water']</span>
+      </code></pre>
+    <h2 id="array-prototype"><strong>ARRAY PROTOTYPE</strong></h2>
+    <h3 id="array"><em>Array()</em></h3>
+    <ul>
+      <li>Array "constructor" je metoda koja sluzi za pravljenje novih nizova. Array() u sebi sadrzi jos neke
+        sub-metode. Array, bez zagrada, je Objekat Array, koji u sebi, pod "prototype.constructor" sadrzi metodu Array()
+      </li>
+    </ul>
+    <pre><code class="language-js">arrayed = <span class="hljs-built_in">Array</span>(<span
+          class="hljs-number">2</span>); <span class="hljs-comment">// [ undefined, undefined ], length: 2</span>
+        arrayed = <span class="hljs-built_in">Array</span>(<span class="hljs-number">2</span>, <span
+          class="hljs-number">3</span>, <span class="hljs-string">'q'</span>, []); <span class="hljs-comment">//! [ 2,
+          3, 'q', [] ]</span>
+        arrayed = [<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span
+          class="hljs-string">'q'</span>,[]] <span class="hljs-comment">// isto kao gore ali literal</span>
+        <span class="hljs-built_in">console</span>.log(<span
+          class="hljs-built_in">Array</span>.prototype.constructor==<span class="hljs-built_in">Array</span>) <span
+          class="hljs-comment">// T</span>
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">Array</span>.constructor==<span
+          class="hljs-built_in">Array</span>) <span class="hljs-comment">// F *ovo je konstruktor za f-ju.</span>
+      </code></pre>
+    <h3 id="arrayof"><em>Array.of()</em></h3>
+    <ul>
+      <li>Array.of() - Ako se unosi vise parametara onda je isto kao i "constructor", ali ako se unese samo jedan
+        parametar onda se vidi razlika:</li>
+    </ul>
+    <pre><code class="language-js">arrayed = <span class="hljs-built_in">Array</span>.of(<span
+          class="hljs-number">3</span>); <span class="hljs-comment">// [ 3 ], normalan niz sa jednim elementom '3',
+          length: 1</span>
+        arrayed = <span class="hljs-built_in">Array</span>(<span class="hljs-number">3</span>); <span
+          class="hljs-comment">// [ &lt;3 empty slots&gt; ]</span>
+      </code></pre>
+    <h3 id="arrayfrom"><em>Array.from()</em></h3>
+    <ul>
+      <li>Array.from() - Pravi niz od necega sto je nizolikog oblika (str, arr, Map, Set) ili od iteratora.</li>
+      <li>Metoda moze da ima 3 parametra: {izvor_od_cega_ce_da_se_pravi_niz}, map_f-ja, thisArg (vrednost koja se
+        koristi kao 'this' argument pri pozivanju map f-je).</li>
+      <li><a
+          href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from</a>
+      </li>
+    </ul>
+    <pre><code class="language-js"><span class="hljs-keyword">let</span> nizAZ_2 = <span
+          class="hljs-built_in">Array</span>.from(nizAZ); <span class="hljs-comment">// Pravljenje novog niza na osnovu
+          postojeceg (kopiranje)</span>
+        <span class="hljs-keyword">let</span> arrayedFrom = <span class="hljs-built_in">Array</span>.from(<span
+          class="hljs-number">5</span>); <span class="hljs-comment">// prazan niz, length = 5</span>
+        <span class="hljs-built_in">Array</span>.from(<span class="hljs-built_in">Array</span>(<span
+          class="hljs-number">5</span>).keys()) <span class="hljs-comment">// [0,1,2,3,4] - Array(5).keys() je Array
+          iterator. Od indexa su napravljene vrednosti. </span>
+        <span class="hljs-built_in">Array</span>.from(<span class="hljs-built_in">Array</span>(<span
+          class="hljs-number">6</span>).keys()).slice(<span class="hljs-number">1</span>) <span class="hljs-comment">//
+          [1,2,3,4,5] - moj naziv za ovo je AFAKS (pocetna slova funkcija)</span>
+        <span class="hljs-comment">// Array.from(obj, mapFn, thisArg)</span>
+        <span class="hljs-comment">// has the same result as Array.from(obj).map(mapFn, thisArg),</span>
+        <span class="hljs-comment">// except that it does not create an intermediate array.</span>
+      </code></pre>
+    <h3 id="arrayisarray"><em>Array.isArray()</em></h3>
+    <ul>
+      <li>Array.isArray() - proverava da li je niz</li>
+    </ul>
+    <pre><code class="language-js"><span class="hljs-keyword">let</span> isArrayed = [<span
+          class="hljs-string">'e'</span>] + <span class="hljs-string">'Q'</span>; <span
+          class="hljs-built_in">console</span>.log(isArrayed); <span class="hljs-comment">//! eQ</span>
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">Array</span>.isArray(isArrayed));
+        <span class="hljs-comment">//! false</span>
+      </code></pre>
+    <pre><code class="language-js">arr = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>]
+        arr[<span class="hljs-string">'qwe'</span>]=<span class="hljs-number">4</span> <span class="hljs-comment">//
+          dodavanje asocijativnog elementa</span>
+        arr[<span class="hljs-built_in">Symbol</span>(<span class="hljs-string">'asd'</span>)]=<span
+          class="hljs-number">999</span> <span class="hljs-comment">// dodavanje simbol elementa</span>
+        <span class="hljs-keyword">delete</span> <span class="hljs-built_in">Symbol</span> <span class="hljs-comment">//
+          ne moze biti obrisan, iako prijavljuje "true" tj. da je obrisan.</span>
+        <span class="hljs-built_in">Array</span>.isArray(arr) <span class="hljs-comment">// true [1,2] // kad se
+          "otvori" niz onda se vide i ostali elementi (asoc. i sym.)</span>
+      </code></pre>
+    <pre><code class="language-js"><span class="hljs-comment">// drugi nacin da se proveri da li je "str" string:</span>
+        str = <span class="hljs-string">'qwe'</span>
+        <span class="hljs-keyword">typeof</span> str === <span class="hljs-string">"string"</span> <span
+          class="hljs-comment">// true</span>
+      </code></pre>
+    <h3 id="arrayentries"><em>Array.entries</em></h3>
+    <ul>
+      <li>Array.entries - Vraca iteraciju u obliku [kljuc, vrednost].</li>
+    </ul>
+    <pre><code class="language-js"><span class="hljs-keyword">var</span> array1 = [<span class="hljs-string">'a'</span>,
+        <span class="hljs-string">'b'</span>, <span class="hljs-string">'c'</span>];
+        <span class="hljs-keyword">var</span> iterator1 = array1.entries(); <span class="hljs-comment">// to sto vraca
+          se zove Array Iterator (a,b,c)</span>
+        <span class="hljs-built_in">console</span>.log(iterator1.next().value); <span class="hljs-comment">// Array [0,
+          "a"]</span>
+        <span class="hljs-built_in">console</span>.log(iterator1.next().value); <span class="hljs-comment">// Array [1,
+          "b"]</span>
+        <span class="hljs-keyword">var</span> entriesFromArr = <span class="hljs-built_in">Array</span>.from(iterator1)
+        <span class="hljs-built_in">console</span>.log(entriesFromArr); <span class="hljs-comment">//! [[0,"a"],
+          [1,"b"], [2,"c"]]</span>
+      </code></pre>
+    <p>`</p>
+    <h3 id="arraykeys"><em>Array.keys</em></h3>
+    <ul>
+      <li>Array.keys - vrace ITERATOR kljuceva (ako je Array onda su to indexi)</li>
+    </ul>
+    <pre><code class="language-js"><span class="hljs-built_in">console</span>.log(nizAZ_2); <span
+          class="hljs-comment">//! [ '.', 1, 2, 3, '?', 'A', 'B', 'C', 'a', 'b', 'c' ]</span>
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">Array</span>.from(nizAZ_2.keys()));
+        <span class="hljs-comment">//! [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]</span>
+        <span class="hljs-comment">// Kod objekta moze da se koristi za vracanje duzine objekta (posto objekat nema
+          "length" attribut) - Object.keys(qwe).length</span>
+      </code></pre>
+    <h3 id="manje-bitne-stvari"><em>manje bitne stvari</em></h3>
+    <p><a href="http://Array.name">Array.name</a> // "Array" - zamrznuta vrednost</p>
+    <p>arr = []<br>
+      <a href="http://arr.constructor.name">arr.constructor.name</a> === 'Array' ? 1:0 // 1
+      Object.isFrozen(<a href="http://arr.constructor.name">arr.constructor.name</a>) // true
+    </p>
+    <p>// prototype: Array [] // tu se nalaze sve metode vezane za Array ('seckanja', 'razni alati', 'filteri', map,
+      reduce). ?Sto znaci ja kad pozivam neku metodu za Array, ja zapravo pozivam prototip?</p>
+  </div>
+</body>
+</html>
