@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ARRAY</title>
+  <title>RegExp</title>
 
   <!-- Bootstrap 5 CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
   
   <!-- MD Tag -->
-  <script src="../js/Markdown-Tag-main/markdown-tag-commonmark.js"></script>
+  <script defer src="../js/Markdown-Tag-main/markdown-tag-commonmark.js"></script>
 
   <!-- Highlight -->
-  <link rel="stylesheet" href="../js/highlight/styles/atom-one-dark.min.css">
+  <link defer rel="stylesheet" href="../js/highlight/styles/atom-one-dark.min.css">
   <script src="../js/highlight/highlight.min.js"></script>
   <script>hljs.highlightAll();</script>
 
@@ -23,16 +23,16 @@
 <body>
 
 <md>
-RegExp
-======
+RegExp 
+=======
 
-## RegExp PARAMETRI:
+## PARAMETRI:
 * **flags** - npr. 'gmi'
-* **dotAll** - Whether . matches newlines or not. Da li . (tacka) podrazumeva i \n (novi red) ili ne // default: false  
+* **dotAll** - Da li . (tacka) podrazumeva i \n (novi red) ili ne // default: false  
 * **global** - da li se koristi 'g' flag  
 * **ignoreCase** - 'i' flag
 * **multiline** - 'm' flag
-* **source** - The text of the pattern.  
+* **source** - /Tekst paterna/.  
 * **sticky** - Whether or not the search is sticky.  
 * **unicode** - Whether or not Unicode features are enabled.  
 * **lastIndex** - The index at which to start the next match. Pre koriscenja, RegExp mora biti snimnjen u varijablu. 
