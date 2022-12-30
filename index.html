@@ -16,8 +16,10 @@
     <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
     <!-- <script src="js/lodash.js"></script> -->
     
-    <!-- jQuery
-    <script src="jquery-3.6.0_comp.js"></script>  -->
+    <!-- jQuery -->
+    <script src="jquery-3.6.0_comp.js"></script>
+    <!-- xZoom -->
+    <link rel="stylesheet" type="text/css" href="css/xzoom.css" media="all" />
 
     <!-- StyleBBBlanko -->
     <link rel="stylesheet" href="css/styleBBBlanko.css">
@@ -241,25 +243,7 @@ restorani={
 ,8'         `         `8.`8888. 8 888888888888     8 8888       `8888888P'     8 888888888P'      8 888888888888 
  -->
     <h3>METODE</h3>
-    <h4>MD</h4>
-    <a href="pages\!Array_Methods.md">
-      ARRAY</a>
-    <a href="pages\!String_Methods.md">
-      STRING</a>
-    <a href="pages\!Number_Methods.md">
-      NUMBER</a>
-    <a href="pages\!Object_Methods.md">
-      OBJECT</a>
-    <a href="pages\!Function_Methods.md">
-      FUNCTION</a>
-    <a href="pages\GIT.md">
-      GIT</a>
-    <a href="pages\RegExp_Methods.md">
-      REG_EXP</a>
-    <a href="pages\lodash.docx">
-      LoDash</a>
-
-    <h4>HTML</h4>
+    
     <a href="pages\!Array_Methods.html">
       ARRAY</a>
     <a href="pages/!String_Methods.html">
@@ -289,53 +273,73 @@ restorani={
 8 8888    .8'       `8. `88888.  `Y888888 '    8 888888888888 `8888888P'           `8.`           8 8888 
 
  -->
-    <h3>FAJLOVI I FOLDERI</h3>
-
-    <a href="Index.html" download> 
-      bbBlank</a><br>
-<!-- parametar download, za bbBlanko pita da li da pokrene sa Sublime zato sto je stranica vec otvorena. Na ostalim linkovima ne bi radilo. Da bi radilo na ostalim linkovima, prvo mora ta stranica da se ucita u FF, pa onda da se klikne na link sa parametrom download -->
-    <a href="pages\HTML_svi_tagovi.html">
-      HTML tagovi</a><br>
-
-    <a href="pages\HTML_svi_tagovi_2.html">
-      HTML tagovi 2</a><br>
-
-    <a href="pages\Prioritet operatora.xlsx">
-      Operators</a><br>
-
-    <a href="pages\Emmet.html">
-      Emmet</a><br>
-  </div>
+    <section class="fajlovi">
+      <h3>FAJLOVI I FOLDERI</h3>
+      <a href="Index.html" download>
+        bbBlank</a><br>
+      <!-- parametar download, za bbBlanko pita da li da pokrene sa Sublime zato sto je stranica vec otvorena. Na ostalim linkovima ne bi radilo. Da bi radilo na ostalim linkovima, prvo mora ta stranica da se ucita u FF, pa onda da se klikne na link sa parametrom download -->
+      <a href="pages\HTML_svi_tagovi.html">
+        HTML tagovi</a><br>
+      <a href="pages\HTML_svi_tagovi_2.html">
+        HTML tagovi 2</a><br>
+      <a href="pages\Prioritet operatora.xlsx">
+        Operators</a><br>
+      <a href="pages\Emmet.html">
+        Emmet</a><br>
+        </div>
+    </section>
 
   <!-- SLIKE -->
-  <h3>SLIKE</h3>
-  <small>Da bi zumirao sliku pomocu ugradjenog FFox plugina pritisni "Z", a potom "MouseWheel"</small><br>
+  <section class="slike">
+    <h3>SLIKE</h3>
+    <small>Da bi zumirao sliku pomocu ugradjenog FFox plugina pritisni "Z", a potom "MouseWheel"</small><br>
+    <a href="img/Metode - Array.svg">
+      <img width="30%" src="img\Metode-Array.gif" alt="Sve Array Metode"></a>
+    
+    <a href="img/Metode - String.svg">
+      <img width="30%" src="img\Metode-String.gif" alt="Sve String Metode"></a>
+    
+    <img width="39%" src="img\Boolean Advanced.gif" alt="Advanced Boolean - Truthy-Falsy">
+    <img width="49.5%" src="pages\Konverzije  Number-String-Boolean-Array.gif" alt="Konverzije izmedju Array - String - Number">
+    
+    <!-- xZoom -->
+    <!-- Uputstvo na: file:///D:/!Djordje%20Labat/GitHub/bbBlank/js/Feature-rich-Product-Gallery-With-Image-Zoom-xZoom/README.md -->
 
-  <a href="img/Metode - Array.svg">
-    <img width="30%" src="img\Metode-Array.gif" alt="Sve Array Metode"></a>
+    <img class="xzoom" src="path/to/preview_image_01.jpg" xoriginal="path/to/original_image_01.jpg" />
+
+    <div class="xzoom-thumbs">
+      <a href="path/to/original_image_01.jpg">
+        <img class="xzoom-gallery" width="80" src="path/to/thumbs_image_01.jpg"  xpreview="path/to/preview_image_01.jpg">
+      </a>
+      <a href="path/to/original_image_02.jpg">
+        <img class="xzoom-gallery" width="80" src="path/to/preview_image_02.jpg">
+      </a>
+      <a href="path/to/original_image_03.jpg">
+        <img class="xzoom-gallery" width="80" src="path/to/preview_image_03.jpg">
+      </a>
+      <a href="path/to/original_image_04.jpg">
+        <img class="xzoom-gallery" width="80" src="path/to/preview_image_04.jpg">
+      </a>
+    </div>
+  </section>
   
-  <a href="img/Metode - String.svg">
-    <img width="30%" src="img\Metode-String.gif" alt="Sve String Metode"></a>
-  
-  <img width="39%" src="img\Boolean Advanced.gif" alt="Advanced Boolean - Truthy-Falsy">
 
-  <img width="49.5%" src="pages\Konverzije  Number-String-Boolean-Array.gif" alt="Konverzije izmedju Array - String - Number">
-
-<!-- KREIRANJE OBJEKATA -->
-  <h3>Kreiranje {Objekata}</h3>
-  <ul>
-    <li>
-      <details>
-        <summary>Create an {object} from an [Array of Keys] and an [Array of Values]</summary>
-        <code>var keys = ['foo', 'bar', 'baz'];<br>
-          var values = [11, 22, 33]<br>
-          <br>
-          var result = {};<br>
-          keys.forEach((key, i) => result[key] = values[i]);<br>
-          console.log(result);</code>  <br>
-      </details>
-    </li>
-  </ul>
+    <!-- KREIRANJE OBJEKATA -->
+    <h3>Kreiranje {Objekata}</h3>
+    <ul>
+      <li>
+        <details>
+          <summary>Create an {object} from an [Array of Keys] and an [Array of Values]</summary>
+          <code>var keys = ['foo', 'bar', 'baz'];<br>
+            var values = [11, 22, 33]<br>
+            <br>
+            var result = {};<br>
+            keys.forEach((key, i) => result[key] = values[i]);<br>
+            console.log(result);</code>  <br>
+        </details>
+      </li>
+    </ul>
+  </section>
 
 <!-- KONVERZIJE NIZ - OBJEKAT -->
   <h3 id="niz-u-obj">Konverzija [niza] u {objekat}</h3>
@@ -758,5 +762,8 @@ arrmix = ["",nan,nul,undef,  arr,qwe,boo,sym,  abc,obar,  q,w,e, qwe123,  a,b,c,
 sym2 = Symbol('sym2')
 arrmix[sym2] = 'SYM 2 sadrzaj' 
 </script>
+
+<!-- xZoom -->
+<script>$(".xzoom, .xzoom-gallery").xzoom({tint: '#333', Xoffset: 15});</script>
   
 </html>
