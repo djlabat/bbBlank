@@ -17,9 +17,12 @@
     <!-- <script src="js/lodash.js"></script> -->
     
     <!-- jQuery -->
-    <script src="jquery-3.6.0_comp.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+
     <!-- xZoom -->
     <link rel="stylesheet" type="text/css" href="css/xzoom.css" media="all" />
+    <!-- XZOOM JQUERY PLUGIN  -->
+    <script type="text/javascript" src="js/xzoom.js"></script> 
 
     <!-- StyleBBBlanko -->
     <link rel="stylesheet" href="css/styleBBBlanko.css">
@@ -291,35 +294,20 @@ restorani={
 
   <!-- SLIKE -->
   <section class="slike">
-    <h3>SLIKE</h3>
-    <small>Da bi zumirao sliku pomocu ugradjenog FFox plugina pritisni "Z", a potom "MouseWheel"</small><br>
-    <a href="img/Metode - Array.svg">
-      <img width="30%" src="img\Metode-Array.gif" alt="Sve Array Metode"></a>
-    
-    <a href="img/Metode - String.svg">
-      <img width="30%" src="img\Metode-String.gif" alt="Sve String Metode"></a>
-    
-    <img width="39%" src="img\Boolean Advanced.gif" alt="Advanced Boolean - Truthy-Falsy">
-    <img width="49.5%" src="pages\Konverzije  Number-String-Boolean-Array.gif" alt="Konverzije izmedju Array - String - Number">
-    
-    <!-- xZoom -->
-    <!-- Uputstvo na: file:///D:/!Djordje%20Labat/GitHub/bbBlank/js/Feature-rich-Product-Gallery-With-Image-Zoom-xZoom/README.md -->
+    <h3>SLIKE</h3>    
 
-    <img class="xzoom" src="path/to/preview_image_01.jpg" xoriginal="path/to/original_image_01.jpg" />
+    <!-- xZoom -->
+    <img width="49.5%" class="xzoom" src="img/Metode-Array-Prev.gif" xoriginal="img/Metode-Array-Orig.gif" />
 
     <div class="xzoom-thumbs">
-      <a href="path/to/original_image_01.jpg">
-        <img class="xzoom-gallery" width="80" src="path/to/thumbs_image_01.jpg"  xpreview="path/to/preview_image_01.jpg">
-      </a>
-      <a href="path/to/original_image_02.jpg">
-        <img class="xzoom-gallery" width="80" src="path/to/preview_image_02.jpg">
-      </a>
-      <a href="path/to/original_image_03.jpg">
-        <img class="xzoom-gallery" width="80" src="path/to/preview_image_03.jpg">
-      </a>
-      <a href="path/to/original_image_04.jpg">
-        <img class="xzoom-gallery" width="80" src="path/to/preview_image_04.jpg">
-      </a>
+      <a href="img/Metode-Array-Orig.gif">
+        <img class="xzoom-gallery" width="100" src="img/Metode-Array-Thum.gif" xpreview="img/Metode-Array-Orig.gif"></a>
+
+      <a href="img/Metode-String-Orig.gif">
+        <img class="xzoom-gallery" width="100" src="img/Metode-String-Thum.gif" xpreview="img/Metode-String-Orig.gif"></a>
+
+      <!-- <a href="path/to/original_image_03.jpg">
+        <img class="xzoom-gallery" width="80" src="path/to/preview_image_03.jpg"></a> -->
     </div>
   </section>
   
@@ -560,7 +548,6 @@ console.dir('After Change - objClone: ', objClone);
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
 
-
 </body>
 
 <script>
@@ -762,8 +749,10 @@ arrmix = ["",nan,nul,undef,  arr,qwe,boo,sym,  abc,obar,  q,w,e, qwe123,  a,b,c,
 sym2 = Symbol('sym2')
 arrmix[sym2] = 'SYM 2 sadrzaj' 
 </script>
-
+ 
 <!-- xZoom -->
-<script>$(".xzoom, .xzoom-gallery").xzoom({tint: '#333', Xoffset: 15});</script>
-  
+<script>
+  $(".xzoom, .xzoom-gallery").xzoom({tint: '#333', Xoffset: 10, defaultScale: 0.6});
+</script>
+
 </html>
