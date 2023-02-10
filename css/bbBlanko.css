@@ -1,4 +1,5 @@
 html {font-size: 1.5em;}
+h3 {color: yellow; margin-top: 40px;}
 body {background-color: black; color: white;}
 hr {border: 1px solid #fff;}
 @media only screen and (max-width: 700px) {
@@ -11,3 +12,4 @@ details summary span {color: yellow}
 
 .span-color-gray {color:gray}
 .span-color-brStr {color:#40f}
+

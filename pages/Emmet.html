@@ -2,167 +2,215 @@
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     
-    <style type="text/css">
-        body {
-            background-color: black;
-            color: white;
-        }
-    </style>
+    <!-- Highlight -->
+    <link rel="stylesheet" href="../js/highlight/styles/atom-one-dark.min.css">
+    <script src="../js/highlight/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/pages.css">
 </head>
 
 <body>
 <a href="../../_George\Emmet\Emmet.html" download>
       otvori Emmet</a><br>
 
-<p>sve skracenice = https://docs.emmet.io/cheat-sheet/</p>
-<p>snippets.json - u njemu su smesteni svi snipeti</p>
-<p>znakovi *+^... odnose se na trenutni (poslednji) element u emmet definiciji, a ne na celu definiciju</p>
-<p>* ima znacenje "multiplikuj" i/ili "u svaku novu liniju"</p>
-<p>^ level up</p>
-<p>+ sibling</p>
-<p>{text elementa} - (taga), ali BUKVALAN TEXT, lorem pise kao "lorem" a ne kao formulu</p>
-<p>[atributi taga]</p>
-<p>(grupisanje)</p>
+<p> <code>sve skracenice</code> su na sledecoj adresi: <a href="https://docs.emmet.io/cheat-sheet/">https://docs.emmet.io/cheat-sheet/</a></br>
+    <code>snippets.json</code> - u njemu su smesteni svi snipeti</br>
+    <code>* + ^</code> - odnose se na trenutni (poslednji) element u emmet definiciji, a ne na celu definiciju</br>
+	<code>*</code> - ima znacenje "multiplikuj" i/ili "u svaku novu liniju"</br>
+	<code>^</code> - level up</br>
+	<code>+</code> - sibling</br>
+	<code>{text elementa}</code> - (taga), ali BUKVALAN TEXT, lorem pise kao "lorem" a ne kao formulu</br>
+	<code>[atributi taga]</code></br>
+	<code>(grupisanje)</code></p>
 
 
 
-<h3>Wrap individual lines with abbreviation</h3>
-p*
-<p>qweqwe</p>
-<p>asdasd</p>
-<p>zxczxc</p>
+<h2>Wrap individual lines with abbreviation</h2>
+<b>p*</b>
+<pre><code>qweqwe  →  &lt;p&gt;qweqwe&lt;/p&gt;
+asdasd  →  &lt;p&gt;asdasd&lt;/p&gt;
+zxczxc  →  &lt;p&gt;zxczxc&lt;/p&gt;
+</code></pre>
 
 <h3>↓↓↓ KOMPLEXAN PRIMER EMMETA KOJI U SEBI IMA SVEGA ↓↓↓</h3>
-<p>(nav>ul>li#link$$@0*4>a)+(header>h1{Ovo je HEADER}+p[lang="sr"]{text ispod header-a})+(main>(article>p*3>lorem5)*2)+(aside>div>h2>span>em^^p>lorem5)+footer>p</p>
-  <nav>
-      <ul>
-          <li id="link00"><a href=""></a></li>
-          <li id="link01"><a href=""></a></li>
-          <li id="link02"><a href=""></a></li>
-          <li id="link03"><a href=""></a></li>
-      </ul>
-  </nav>
-  <header>
-      <h1>Ovo je HEADER</h1>
-      <p lang="sr">text ispod header-a</p>
-  </header>
-  <main>
-      <article>
-          <p>Lorem ipsum dolor sit amet.</p>
-          <p>Minus officiis neque libero veritatis.</p>
-          <p>Recusandae cupiditate quibusdam quod expedita!</p>
-      </article>
-      <article>
-          <p>Rerum beatae natus culpa quo.</p>
-          <p>Id aspernatur incidunt dolor inventore!</p>
-          <p>Beatae ab rerum voluptatum debitis.</p>
-      </article>
-  </main>
-  <aside>
-      <div>
-          <h2><span><em></em></span></h2>
-          <p>Lorem ipsum dolor sit amet.</p>
-      </div>
-  </aside>
-  <footer>
-      <p></p>
-  </footer>
+<p><b>(nav>ul>li#link$$@0*4>a)+(header>h1{Ovo je HEADER}+p[lang="sr"]{text ispod header-a})+(main>(article>p*3>lorem5)*2)+(aside>div>h2>span>em^^p>lorem5)+footer>p</b></p>
+  <pre>
+      <code>&lt;nav>
+    &lt;ul>
+        &lt;li id="link00">&lt;a href="">&lt;/a>&lt;/li>
+        &lt;li id="link01">&lt;a href="">&lt;/a>&lt;/li>
+        &lt;li id="link02">&lt;a href="">&lt;/a>&lt;/li>
+        &lt;li id="link03">&lt;a href="">&lt;/a>&lt;/li>
+    &lt;/ul>
+&lt;/nav>
+&lt;header>
+    &lt;h1>Ovo je HEADER&lt;/h1>
+    &lt;p lang="sr">text ispod header-a&lt;/p>
+&lt;/header>
+&lt;main>
+    &lt;article>
+        &lt;p>Lorem ipsum dolor sit amet.&lt;/p>
+        &lt;p>Minus officiis neque libero veritatis.&lt;/p>
+        &lt;p>Recusandae cupiditate quibusdam quod expedita!&lt;/p>
+    &lt;/article>
+    &lt;article>
+        &lt;p>Rerum beatae natus culpa quo.&lt;/p>
+        &lt;p>Id aspernatur incidunt dolor inventore!&lt;/p>
+        &lt;p>Beatae ab rerum voluptatum debitis.&lt;/p>
+    &lt;/article>
+&lt;/main>
+&lt;aside>
+    &lt;div>
+        &lt;h2>&lt;span>&lt;em>&lt;/em>&lt;/span>&lt;/h2>
+        &lt;p>Lorem ipsum dolor sit amet.&lt;/p>
+    &lt;/div>
+&lt;/aside>
+&lt;footer>
+    &lt;p>&lt;/p>
+&lt;/footer></code>
+</pre>
 
+  <br>
+
+<b>(nav>ul>li#link$$@0*4>a)+(header>h1{Ovo je HEADER}+p[lang="sr"]{text ispod header-a})+(main>(article>p*3>lorem5)*2)+(aside>div>h2>span>em^^p>lorem5)+footer>p</b>
 <h3>↑↑↑ KOMPLEXAN PRIMER EMMETA KOJI U SEBI IMA SVEGA ↑↑↑</h3>
-(nav>ul>li#link$$@0*4>a)+(header>h1{Ovo je HEADER}+p[lang="sr"]{text ispod header-a})+(main>(article>p*3>lorem5)*2)+(aside>div>h2>span>em^^p>lorem5)+footer>p
+<br>
+<br>
 
+<h3>PRIMERI</h3>
+<b>.test</b>
+<pre>
+    <code>&lt;div class="test">&lt;/div></code>
+</pre>
 
+<b>table>.row>.col</b>
+<pre>
+    <code>&lt;table>
+    &lt;tr class="row">
+        &lt;td class="col">&lt;/td>
+    &lt;/tr>
+&lt;/table></code>
+</pre>
 
-.test
-<div class="test"></div>
+<b>ul>.item$*2</b>
+<pre>
+    <code>&lt;ul>
+    &lt;li class="item1">&lt;/li>
+    &lt;li class="item2">&lt;/li>
+&lt;/ul></code>
+</pre>
 
-table>.row>.col
-<table>
-    <tr class="row">
-        <td class="col"></td>
-    </tr>
-</table>
+<b>lorem (default: 30 reci)</b>
+<pre>
+    <code>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel unde nesciunt ad fugiat quod nemo ab in consectetur
+neque laboriosam! Ad, porro dolorum debitis labore laudantium nam alias eum maiores?</code>
+</pre>
 
-ul>.item$*2
-<ul>
-    <li class="item1"></li>
-    <li class="item2"></li>
-</ul>
+<b>p>lorem60 (generise lorem od 60 reci)</b>
+<pre>
+    <code>&lt;p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi soluta officia nam quaerat aut molestias tenetur consequuntur ipsam? Reiciendis debitis iure, inventore praesentium voluptatum officia nesciunt dolores eveniet quae, porro nemo obcaecati quidem recusandae sint hic autem esse numquam veritatis beatae quisquam nulla quis impedit sequi. Quidem aliquam ipsam quod. Optio facere quas saepe sit quos impedit sequi culpa possimus!&lt;/p></code>
+</pre>
 
-lorem (default: 30 reci)
-Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel unde nesciunt ad fugiat quod nemo ab in consectetur
-    neque laboriosam! Ad, porro dolorum debitis labore laudantium nam alias eum maiores?
+<b>p*3>lorem5</b>
+<pre>
+    <code>&lt;p>Lorem ipsum dolor sit amet.&lt;/p>
+&lt;p>Odit nam inventore numquam non?&lt;/p>
+&lt;p>Molestias perspiciatis explicabo in necessitatibus.&lt;/p></code>
+</pre>
 
-p>lorem60 (generise lorem od 60 reci)
-<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi soluta officia nam quaerat aut molestias tenetur consequuntur ipsam? Reiciendis debitis iure, inventore praesentium voluptatum officia nesciunt dolores eveniet quae, porro nemo obcaecati quidem recusandae sint hic autem esse numquam veritatis beatae quisquam nulla quis impedit sequi. Quidem aliquam ipsam quod. Optio facere quas saepe sit quos impedit sequi culpa possimus!</p>
-
-p*3>lorem5
-<p>Lorem ipsum dolor sit amet.</p>
-<p>Odit nam inventore numquam non?</p>
-<p>Molestias perspiciatis explicabo in necessitatibus.</p>
-
-lorem5*5
-Lorem ipsum dolor sit amet.
+<b>lorem5*5</b>
+<pre>
+    <code>Lorem ipsum dolor sit amet.
 Excepturi non iure totam incidunt.
 Nisi harum provident eos voluptate?
 Voluptas cupiditate doloribus recusandae eaque.
-Laborum culpa perspiciatis maiores adipisci?
+Laborum culpa perspiciatis maiores adipisci?</code>
+</pre>
 
-div>lorem3
-<div>Lorem, ipsum dolor.</div>
+<b>div>lorem3</b>
+<pre>
+    <code>&lt;div>Lorem, ipsum dolor.&lt;/div></code>
+</pre>
 
-ul>li>lorem
-<ul>
-    <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nam, odit blanditiis saepe impedit rem nostrum numquam molestias placeat a sapiente eligendi, atque id enim voluptatibus aspernatur maxime sed tempora debitis?</li>
-</ul>
+<b>ul>li>lorem</b>
+<pre>
+    <code>&lt;ul>
+    &lt;li>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nam, odit blanditiis saepe impedit rem nostrum numquam molestias placeat a sapiente eligendi, atque id enim voluptatibus aspernatur maxime sed tempora debitis?
+    &lt;/li>
+&lt;/ul></code>
+</pre>
 
-textarea>lorem
-<textarea name="" id="" cols="30" rows="10">Lorem, ipsum dolor.</textarea>
+<b>textarea>lorem</b>
+<pre>
+    <code>&lt;textarea name="" id="" cols="30" rows="10">
+        Lorem, ipsum dolor.
+&lt;/textarea></code>
+</pre>
 
-textarea#ID.CLASS[rows=20][name=NAME]>lorem
-<textarea name="NAME" id="ID" cols="30" rows="20" class="CLASS">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error nisi hic sapiente ullam laboriosam neque dolor nam recusandae odit illum dolores laudantium provident delectus, temporibus id maiores blanditiis debitis aliquam.</textarea>
+<b>textarea#ID.CLASS[rows=20][name=NAME]>lorem</b>
+<pre>
+    <code>&lt;textarea name="NAME" id="ID" cols="30" rows="20" class="CLASS">
+    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error nisi hic sapiente ullam laboriosam neque dolor nam recusandae odit illum dolores laudantium provident delectus, temporibus id maiores blanditiis debitis aliquam.
+&lt;/textarea>
+    </code>
+</pre>
 
-div>p.lorem_txt*4>lorem5   
-<div>
-    <p class="lorem_txt">Lorem ipsum dolor sit amet.</p>
-    <p class="lorem_txt">Unde harum consequatur quasi aliquid.</p>
-    <p class="lorem_txt">Cum, reprehenderit. Debitis, quam suscipit.</p>
-    <p class="lorem_txt">Incidunt repellat numquam maxime in.</p>
-</div>   
+<b>div>p.lorem_txt*4>lorem5</b>   
+<pre>
+    <code>&lt;div>
+    &lt;p class="lorem_txt">Lorem ipsum dolor sit amet.&lt;/p>
+    &lt;p class="lorem_txt">Unde harum consequatur quasi aliquid.&lt;/p>
+    &lt;p class="lorem_txt">Cum, reprehenderit. Debitis, quam suscipit.&lt;/p>
+    &lt;p class="lorem_txt">Incidunt repellat numquam maxime in.&lt;/p>
+&lt;/div></code>
+</pre>
 
 
-ol>li#test$@10*3
-<ol>
-	<li id="test10"></li>
-	<li id="test11"></li>
-	<li id="test12"></li>
-</ol>
+<b>ol>li#test$@10*3</b>
+<pre>
+    <code>&lt;ol>
+    &lt;li id="test10">&lt;/li>
+    &lt;li id="test11">&lt;/li>
+    &lt;li id="test12">&lt;/li>
+&lt;/ol></code>
+</pre>
 
-ul>li.item$@-10*3
-<ul>
-	<li class="item12"></li>
-	<li class="item11"></li>
-	<li class="item10"></li>
-</ul>
+<b>ul>li.item$@-10*3</b>
+<pre>
+    <code>&lt;ul>
+    &lt;li class="item12">&lt;/li>
+    &lt;li class="item11">&lt;/li>
+    &lt;li class="item10">&lt;/li>
+&lt;/ul></code>
+</pre>
 
-div>p{Lorem}+p{ipsum}
-<div>
-    <p>Lorem</p>
-    <p>ipsum</p>
-</div>
+<b>div>p{Lorem}+p{ipsum}</b>
+<pre>
+    <code>&lt;div>
+    &lt;p>Lorem&lt;/p>
+    &lt;p>ipsum&lt;/p>
+&lt;/div></code>
+</pre>
 
-div>div>p>a^p
-<div>
-    <div>
-        <p><a href=""></a></p>
-        <p></p>
-    </div>
-</div>
+<b>div>div>p>a^p</b>
+<pre>
+    <code>&lt;div>
+    &lt;div>
+        &lt;p>&lt;a href="">&lt;/a>&lt;/p>
+        &lt;p>&lt;/p>
+    &lt;/div>
+&lt;/div></code>
+</pre>
 
-{$$@9}*3
-09
+<b>{$$@9}*3</b>
+<pre>
+    <code>09
 10
-11
+11</code>
+</pre>
 
 
 <!-- 
