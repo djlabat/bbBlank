@@ -88,9 +88,11 @@ csP (command Palete)> git clone
 `git LOG`   // izlista ti sve komite do sada  
 
 ## RESTORE COMMIT
-`git RESET --hard 456df89a`  // Vracanje na stanje nekog prethodnog komita  
-`git RESET --hard`          // bez koda, resetuje trenutni git  
+`git RESET --hard 456df89a`  // Vracanje na stanje nekog prethodnog komita.  
+`git RESET --hard`          // bez koda, resetuje trenutni git.  
 `git CHECKOUT 146fa46a`  // Prebacivanje u neki drugi (prethodni) komit, pri cemu se cuva sadasnji  
+`git SWITCH` // tokom checkout-a, da bi se prebacio na HEAD commit, bez snimanja promena.  
+`git SWITCH -c nova_grana` // Pravljenje nove grane od promena koje sam uradio tokom checkout.  
 
 ## ORIGIN - MASTER  
 `origin` - je alias za punu URL adresu online repozitorijuma (npr. https://url_link_udaljenog_repozitorijuma). Ovakvo skraćeno predstavljanje URL-a nam omogućava jednostavniji rad sa naredbama jer izbegavate da koriste ogroman URL svaki put kada vam je u naredbi potreban. Koji tačno link predstavlja ovaj alias može se proveriti sa naredbom: `git remote -v`  

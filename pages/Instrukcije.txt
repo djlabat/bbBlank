@@ -1,0 +1,1 @@
+Ako hocu da editujem stranice, editujem HTML, a ne MD
