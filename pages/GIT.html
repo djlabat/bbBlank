@@ -91,7 +91,7 @@ csP (command Palete)> git clone
 `git RESET --hard 456df89a`  // Vracanje na stanje nekog prethodnog komita.  
 `git RESET --hard`          // bez koda, resetuje trenutni git.  
 `git CHECKOUT 146fa46a`  // Prebacivanje u neki drugi (prethodni) komit, pri cemu se cuva sadasnji  
-`git SWITCH` // tokom checkout-a, da bi se prebacio na HEAD commit, bez snimanja promena.  
+`git SWITCH -` // tokom checkout-a, da bi se prebacio na HEAD commit, bez snimanja promena.  
 `git SWITCH -c nova_grana` // Pravljenje nove grane od promena koje sam uradio tokom checkout.  
 
 ## ORIGIN-MASTER  
@@ -119,7 +119,11 @@ git push  origin  master
 `git CLONE https://github.com/mdbootstrap/knowledge-base.git` // skidanje nekog (tudjeg) Git projekta na svoj komp. Adresu skinuti sa gitHub sajta.  
 
 ## STASH
-`git STASH` // sprema se (lokalno) trenutno stanje radnog direktorijuma (bez commit) da bi mogao da se prebacima na rad na necem drugom. Nakon spremanja projekat se vraca na stanje poslednjeg commita.  
+`git STASH` // Stash je nesto kao mini-commit.  
+Kao kad u Corel-u pravim dizajn, pa da bi sacuvao sve verzije razvoja dizajna, snimam ih u vise fajlova iz dana u dan => to kao COMMIT. 
+Ali dok radim na dizajnu, da bih mogao da poredim koji dizajn je bolji od kojeg, pravim i vise verzija dizajna u jednom fajlu => to je kao STASH.
+Dakle, STASH snima trenutno stanje radnog direktorijuma, tj. fajlove u njemu (lokalno, bez commit-a) da bi mogao da se prebacima na rad na necem drugom, recimo pogledam neki drugi checkout. Nakon STASH-ovanja projekat se vraca na stanje poslednjeg commita. Odatle mozes da pravis drugu verziju izmena od poslednjeg commita. Pa 
+
 `git STASH list` // lista svih spremljenih stash izmena  
 `git STASH apply stash@{0}`  // Vraćanje spremljenih izmena  
 

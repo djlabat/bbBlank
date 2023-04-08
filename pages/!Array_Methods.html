@@ -669,7 +669,8 @@ arrayed = Array(3); // [ <3 empty slots> ]
 <pre>
 <code>let nizAZ_2 = Array.from(nizAZ); // Pravljenje novog niza na osnovu postojeceg (kopiranje)
 let arrayedFrom = Array.from(5); // prazan niz, length = 5
-Array.from(Array(5).keys()) // [0,1,2,3,4] - Array(5).keys() je Array iterator. Od indexa su napravljene vrednosti. 
+Array.from(Array(5).keys()) // [0,1,2,3,4] - Array(5).keys() je Array iterator. Od indexa su napravljene vrednosti.
+Array.from(Array(5).keys(), a=>++a) // [1,2,3,4,5] - koristeci map f-ju koja ide uz Array.from()
 Array.from(Array(6).keys()).slice(1) // [1,2,3,4,5] - moj naziv za ovo je AFAKS (pocetna slova funkcija)
 // Array.from(obj, mapFn, thisArg)
 // has the same result as Array.from(obj).map(mapFn, thisArg),
