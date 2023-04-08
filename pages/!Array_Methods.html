@@ -639,7 +639,7 @@ elements // ne promenjeno - ['Fire', 'Air', 'Water']
 
 </md>
 <pre>
-<code>arrayed = Array(2); // [ undefined, undefined ], length: 2
+<code>arrayed = Array(2); // [ &lt;2 empty slots> ], length: 2 // &lt;empty slot> nije isto sto i undefined. Vise o tome: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays
 arrayed = Array(2, 3, 'q', []); //! [ 2, 3, 'q', [] ]
 arrayed = [2,3,'q',[]] // isto kao gore ali literal
 console.log(Array.prototype.constructor==Array) // T
