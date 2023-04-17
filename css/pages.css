@@ -7,6 +7,8 @@ body {
   h1, h2, h3, h4, h5, h6 {
     color: yellow
   }
+  a {text-decoration: cyan underline; color: cyan; line-height: 2em;}
+  a:hover {color: azure}
   pre code {
     display:block;
     background: #222;
