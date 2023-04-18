@@ -22,40 +22,28 @@
 </head>
 <md>
 # EQUALITY - TYPE COERCION
----
+-----------
 ## SADRZAJ:  
-</md>
 
-<!-- Sadrzaj je napravljen pomocu FF plug-in-a za gledanje MarkDown fajlova -->
+- [1.) AKO SU OPERANTI ISTOG TIPA:](#1-ako-su-operanti-istog-tipa)
+	+ [Objekti](#objekti)
+	+ [Brojevi](#brojevi)
+	+ [Simboli](#simboli)
 
-<ul>
-	<li><a href="#1-ako-su-operanti-istog-tipa">1.) AKO SU OPERANTI ISTOG TIPA:</a>
-		<ul>
-			<li><a href="#objekti">Objekti</a></li>
-			<li><a href="#brojevi">Brojevi</a></li>
-			<li><a href="#simboli">Simboli</a></li>
-		</ul>
-	</li>
-	<li><a href="#2-ako-nisu-istog-tipa">2.) AKO NISU ISTOG TIPA</a>
-		<ul>
-			<li><a href="#null-undef-nan">Nulovane vrednosti: null, undefined, NaN</a></li>
-			<li><a href="#ako-je-jedan-operant-objekat-a-drugi-primitiva">Ako je jedan operant objekat a drugi primitiva</a></li>
-			<li><a href="#primeri-konverzija-raznih-objekata-u-primitivu">Primeri konverzija raznih objekata u primitivu</a></li>
-		</ul>
-	</li>
-	<li><a href="#3-ako-su-obe-strane-konvertovane-u-primitivu">3.) AKO SU OBE STRANE KONVERTOVANE U
-			PRIMITIVU:</a></li>
-	<li><a href="#ostalo">OSTALO</a>
-		<ul>
-			<li><a href="#simetrija">SIMETRIJA</a></li>
-			<li><a href="#primeri-koji-zbunjuju">PRIMERI KOJI ZBUNJUJU</a></li>
-			<li><a href="#poredjenje-nizova-i-stringova">POREDJENJE NIZOVA I STRINGOVA</a></li>
-		</ul>
-	</li>			
-</ul>
+- [2.) AKO NISU ISTOG TIPA](#2-ako-nisu-istog-tipa)
+	+ [Nulovane vrednosti: null, undefined, NaN](#null-undef-nan)
+	+ [Ako je jedan operant objekat a drugi primitiva](#ako-je-jedan-operant-objekat-a-drugi-primitiva)
+	+ [Primeri konverzija raznih objekata u primitivu](#primeri-konverzija-raznih-objekata-u-primitivu)
 
-<md>
+- [3.) AKO SU OBE STRANE KONVERTOVANE U PRIMITIVU:](#3-ako-su-obe-strane-konvertovane-u-primitivu)
+
+- [OSTALO](#ostalo)
+	+ [Simetrija](#simetrija)
+	+ [Primeri koji zbunjuju](#primeri-koji-zbunjuju)
+	+ [Poredjenje nizova i stringova](#poredjenje-nizova-i-stringova)
+
 ----------------------------------
+
 ## 1.) AKO SU OPERANTI ISTOG TIPA:
 
 ### OBJEKTI
@@ -70,7 +58,7 @@ Ako oba referiraju ka istom simbolu SAMO ONDA je T
 ----------------------------------
 ## 2.) AKO NISU ISTOG TIPA
 
-### null, undef, NaN
+### Nulovane vrednosti: null, undefined, NaN
 - Samo su sledece kombinacije T:
 </md>
 <pre><code>null == undef  // T

@@ -1,1 +1,6 @@
 Ako hocu da editujem stranice, editujem HTML, a ne MD
+
+Kada pravim novu stranicu od MD:
+1.) iskopiram <head> od neke postojece stranice.
+2.) zamenim "```js" sa </md><pre><code>
+	i zamenim "```" sa </code></pre><md>
