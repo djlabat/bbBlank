@@ -33,27 +33,28 @@
 <ul>
 	<li><a href="#1-ako-su-operanti-istog-tipa">1.) AKO SU OPERANTI ISTOG TIPA:</a>
 		<ul>
-			<li><a href="#objekti">OBJEKTI</a></li>
-			<li><a href="#brojevi">BROJEVI</a></li>
-			<li><a href="#simboli">SIMBOLI</a></li>
+			<li><a href="#objekti">Objekti</a></li>
+			<li><a href="#brojevi">Brojevi</a></li>
+			<li><a href="#simboli">Simboli</a></li>
 		</ul>
 	</li>
 	<li><a href="#2-ako-nisu-istog-tipa">2.) AKO NISU ISTOG TIPA</a>
 		<ul>
-			<li><a href="#null-undef-nan">null, undef, NaN</a></li>
-			<li><a href="#objekat-primitiva-coerce">Objekat == primitiva (coerce)</a>
-				<ul>
-					<li><a href="#primeri-konverzija-raznih-objekata-u-primitivu">PRIMERI KONVERZIJA
-							RAZNIH OBJEKATA U PRIMITIVU</a></li>
-				</ul>
-			</li>
+			<li><a href="#null-undef-nan">Nulovane vrednosti: null, undefined, NaN</a></li>
+			<li><a href="#ako-je-jedan-operant-objekat-a-drugi-primitiva">Ako je jedan operant objekat a drugi primitiva</a></li>
+			<li><a href="#primeri-konverzija-raznih-objekata-u-primitivu">Primeri konverzija raznih objekata u primitivu</a></li>
+
 		</ul>
 	</li>
 	<li><a href="#3-ako-su-obe-strane-konvertovane-u-primitivu">3.) AKO SU OBE STRANE KONVERTOVANE U
 			PRIMITIVU:</a></li>
-	<li><a href="#simetrija">SIMETRIJA</a></li>
-	<li><a href="#primeri-koji-zbunjuju">PRIMERI KOJI ZBUNJUJU</a></li>
-	<li><a href="#poredjenje-nizova-i-stringova">POREDJENJE NIZOVA I STRINGOVA</a></li>
+	<li><a href="#ostalo">OSTALO</a>
+		<ul>
+			<li><a href="#simetrija">SIMETRIJA</a></li>
+			<li><a href="#primeri-koji-zbunjuju">PRIMERI KOJI ZBUNJUJU</a></li>
+			<li><a href="#poredjenje-nizova-i-stringova">POREDJENJE NIZOVA I STRINGOVA</a></li>
+		</ul>
+	</li>			
 </ul>
 <md>
 ----------------------------------
@@ -81,8 +82,8 @@ Ako oba referiraju ka istom simbolu SAMO ONDA je T
 - BILO STA OSTALO da se poredi sa "null" ili "undefined" (i NaN) je F.  
 - Zasto su "null" i "undefined" jednaki? Zato sto "null" ne postoji u JSON-u, pa u situacije kada se konvertuje String => JSON, JS pretvara "null" => "undefined".
 -----------------------------------
-### Objekat == primitiva (coerce)
-- Ako je sa jedne strane object, a sa druge primitiva, onda se radi prisilna konverzija objekta u primitivu (coerce).  
+### Ako je jedan operant objekat, a drugi primitiva
+- Ako je sa jedne strane jednakosti object, a sa druge primitiva, onda se radi prisilna konverzija objekta u primitivu (coerce).  
 
 - Objekti se konvertuju koristeci njihove `[@@toPrimitive]()` ("default" kao hint - argument), `valueOf()`, i `toString()` metode, i to bas tim redosledom.  
 
@@ -92,7 +93,7 @@ Ako oba referiraju ka istom simbolu SAMO ONDA je T
 
 - Da bi dobio primitivnu vrednost iz objekta (Boolean, String, Number ili Date), koristi se metoda valueOf().
 
-#### PRIMERI KONVERZIJA RAZNIH OBJEKATA U PRIMITIVU
+### Primeri konverzija raznih objekata u primitivu
 --------------------------------------
 ```js
 // KOVERZIJA {OBJEKTA} U PRIMITIVU
@@ -167,6 +168,8 @@ Boo == Str   =>   Num == Num
 
 - Znaci sve (Boo i Str) se svodi na Num pa se poredi.  
 -----------------------------------
+# OSTALO
+
 ## SIMETRIJA
 
 - `A == B` je isto sto i `B == A`
