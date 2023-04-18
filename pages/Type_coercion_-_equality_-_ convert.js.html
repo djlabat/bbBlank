@@ -25,6 +25,7 @@
 # EQUALITY-TYPE COERCION   
 
 ------------------------  
+
 ## SADRZAJ:  
 
 - [1.) AKO SU OPERANTI ISTOG TIPA:](#1-ako-su-operanti-istog-tipa)  
@@ -46,16 +47,18 @@
 
 ## 1.) AKO SU OPERANTI ISTOG TIPA:
 
-### OBJEKTI
+### OBJEKTI  
 Ako oba referiraju ka istom objektu samo onda je T
 
-### BROJEVI
+### BROJEVI  
 +0 i -0 se tretira kao 0.
 BILO STA se poredi sa NaN, pa cak i sam NaN je F
 
-### SIMBOLI
+### SIMBOLI  
 Ako oba referiraju ka istom simbolu SAMO ONDA je T
+
 ----------------------------------
+
 ## 2.) AKO NISU ISTOG TIPA
 
 ### Nulovane vrednosti: null, undefined, NaN
@@ -68,7 +71,9 @@ undef == undef // T
 <md>
 - BILO STA OSTALO da se poredi sa "null" ili "undefined" (i NaN) je F.  
 - Zasto su "null" i "undefined" jednaki? Zato sto "null" ne postoji u JSON-u, pa u situacije kada se konvertuje String => JSON, JS pretvara "null" => "undefined".
+
 -----------------------------------
+
 ### Ako je jedan operant objekat, a drugi primitiva
 - Ako je sa jedne strane jednakosti object, a sa druge primitiva, onda se radi prisilna konverzija objekta u primitivu (coerce).  
 
@@ -81,7 +86,9 @@ undef == undef // T
 - Da bi dobio primitivnu vrednost iz objekta (Boolean, String, Number ili Date), koristi se metoda valueOf().
 
 ### Primeri konverzija raznih objekata u primitivu
+
 --------------------------------------
+
 </md>
 <pre><code>// KOVERZIJA {OBJEKTA} U PRIMITIVU
 o = {q:1}
@@ -93,7 +100,9 @@ o == "[object Object]" // true
 o == +"[object Object]" // false, zato sto je desna strana zapravo NaN, a poredjenja sa NaN uvek daje F
 </code></pre>
 <md>
+
 ---------------------------------------
+
 </md>
 <pre><code>// KOVERZIJA [ARRAY] U PRIMITIVU
 a = []
@@ -106,7 +115,9 @@ a == [''] // true
 a == [] // false
 </code></pre>
 <md>
+
 ---------------------------------------
+
 </md>
 <pre><code>// KOVERZIJA "STRING"-OBJEKTA U PRIMITIVU
 s = new String(1)
@@ -118,7 +129,9 @@ s == "1" // true
 s == 1 // true
 </code></pre>
 <md>
+
 ---------------------------------------
+
 </md>
 <pre><code>// KOVERZIJA !!BOOLEAN-OBJEKTA U PRIMITIVU
 b = Boolean(1)
@@ -127,7 +140,9 @@ b.toString() // "true"
 b.valueOf().toString() // "true"
 </code></pre>
 <md>
+
 --------------------------------------- 
+
 </md>
 <pre><code>// KOVERZIJA +NUMBER-OBJEKTA U PRIMITIVU 
 n = Number(1)
@@ -136,7 +151,9 @@ n.toString() // "1"
 n.valueOf().toString() // "1"
 </code></pre>
 <md>
+
 ---------------------------------------
+
 </md>
 <pre><code>// KOVERZIJA DATE-OBJEKTA U PRIMITIVU
 d = Date()
@@ -144,7 +161,9 @@ d.valueOf() // "danas"
 d.toString() // "danas"
 </code></pre>
 <md>
+
 ---------------------------------------
+
 ## 3.) AKO SU OBE STRANE KONVERTOVANE U PRIMITIVU:
 
 - ako je jedan Symbol, a druni nije => F  
@@ -160,7 +179,9 @@ Str => Num // vraca "broj" ili NaN ako nije uspela konverzija
 Boo == Str   =>   Num == Num   
 
 - Znaci sve (Boo i Str) se svodi na Num pa se poredi.  
+
 -----------------------------------
+
 # OSTALO
 
 ## SIMETRIJA
