@@ -63,12 +63,14 @@ Ako oba referiraju ka istom simbolu SAMO ONDA je T
 
 ### Nulovane vrednosti: null, undefined, NaN
 - Samo su sledece kombinacije T:
+
 </md>
 <pre><code>null == undef  // T
 null == null   // T
 undef == undef // T   
 </code></pre>
 <md>
+
 - BILO STA OSTALO da se poredi sa "null" ili "undefined" (i NaN) je F.  
 - Zasto su "null" i "undefined" jednaki? Zato sto "null" ne postoji u JSON-u, pa u situacije kada se konvertuje String => JSON, JS pretvara "null" => "undefined".
 
@@ -240,3 +242,4 @@ c == d; // true
 </md>
 </body>
 </html>
+
