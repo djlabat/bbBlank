@@ -4,20 +4,21 @@ body {
     background-color: black;
     color: white
   }
-  h1, h2, h3, h4, h5, h6 {
-    color: yellow
-  }
-  a {text-decoration: cyan underline; color: cyan; line-height: 2em;}
-  a:hover {color: azure}
-  pre code {
-    display:block;
-    background: #222;
-    padding: 16px;
-    margin: 0 36px;
-    white-space: pre-wrap;
-  }
-  td,th {
-    border: 2px solid #444;
-    background-color: #111;
-    padding: 10px;
-  }
+h1 {color: darkblue; background-color: BlanchedAlmond;  }
+h2 {color: yellow; background-color: #0e0e3f ;}
+h3 {color: skyblue;}
+h4 {color: PaleTurquoise  }
+a {text-decoration: cyan underline; color: cyan; line-height: 2em;}
+a:hover {color: azure}
+pre code {
+  display:block;
+  background: #222;
+  padding: 16px;
+  margin: 0 36px;
+  white-space: pre-wrap;
+}
+td,th {
+  border: 2px solid #444;
+  background-color: #111;
+  padding: 10px;
+}
