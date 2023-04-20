@@ -25,10 +25,20 @@
     <script src="js/highlight/highlight.min.js"></script>
     <script>hljs.highlightAll();</script>
     
-    <!-- StyleBBBlanko -->
-    <link rel="stylesheet" href="css/bbBlanko.css">
+    <!-- CSS StyleBBBlanko -->
+    <link rel="stylesheet" href="css/pages.css">
     
-    <!-- bbBlanko.JS -->
+    <!-- CSS dodatni za ovu stranu -->
+    <style>
+    html {font-size: 1.5em;} 
+    body {max-width: initial;}
+    hr {border: 1px solid #fff;} /* Dugacki <hr> */
+    hr.w30 {width: 30%; text-align: left;} /* Kratki <hr> */
+    
+    /* za markiranje teksta u <summary> koristiti <span> */
+    details summary span {color: yellow}
+    </style>
+    <!-- JS bbBlanko -->
     <script src="js/bbBlanko.js"></script>
     
     <!-- FavIcon -->
@@ -37,13 +47,13 @@
 
 <body>
   <div>
-    <h3>PREDEFINISANE FUNKCIJE</h3>
+    <h2>PREDEFINISANE FUNKCIJE</h2>
     <p>t("qwe") // qwe<br>
       ta("qwe") // qwe&lt;br&gt;<br>
       LETIC() - Loc(''), Elem, Txt, Id, Class<br>
       Ctrl+Click → refresh Page</p>
       
-    <h3>PREDEFINISANE PROMENJIVE</h3>
+    <h2>PREDEFINISANE PROMENJIVE</h2>
     <div id="test">&lt;div id='test'&gt;&lt;/div&gt;</div>
     <p><b>Nulovane vrednosti:</b> nul, undef, nan</p>
     <p>arr = [1,2,3,4,5]</p>
@@ -60,25 +70,25 @@
     <p>boo = true</p>
     <p>today = new Date</p>
     <p>sym = Symbol('sym')</p>
-      <hr width=30% align=left>
+      <hr class="w30">
     <p>abc = ['a','b','c','d','e'] </p>
     <details>
       <summary><span>Object</span> obar = { abc: ['a', 'b', 'c', 'd', 'e'] } </summary>
       <p>obar = {abc}</p>
     </details>
-      <hr width=30% align=left>
+      <hr class="w30">
     <p>q = 1, <br>w = 2, <br>e = 3 </p>
     <details>
       <summary><span>Object</span> qwe123 = { q:1, w:2, e:3 }</summary>
       <p>qwe123 = {q,w,e}</p>
     </details>
-      <hr width=30% align=left> 
+      <hr class="w30"> 
     <p>a = 'a', <br>b = 'b', <br>c= 'c' </p>
     <details>
       <summary><span>Object</span> aabbcc = { a:'a', b:'b', c:'c' }</summary>
       <p>aabbcc = {a,b,c}</p>
     </details>
-      <hr width=30% align=left>
+      <hr class="w30">
     <details>
       <summary><span>Object</span> obmix = { 0: 1, 1: 2, 2: 3, 3: 4, 4: 5, q: 1, a: "a", qwe: "qwerty", qwe123: {q:1, w:2, e:3}, abc: (5) […], nan: NaN, nul: null, undef: undefined, Symbol(sym): true, Symbol(nedeklarisani sym): "kako ga pozvati?" }</summary>
       <p>obmix = {{
@@ -89,7 +99,7 @@
     <details>
       <summary><span>Array</span> arrmix = ["", nan, nul, undef,  arr, qwe, boo, sym,  abc, obar,  q, w, e, qwe123,  a, b, c, aabbcc, psi, restorani]</summary>  
     </details>
-      <hr width=30% align=left>
+      <hr class="w30">
     <details>
       <summary>
         <span class="text-warning">Psi </span>
@@ -99,7 +109,6 @@
         <span class="text-info">] </span>
         
       </summary>
-      <pre>
 <!-- 
 8 888888888o     d888888o.    8 8888 
 8 8888    `88. .`8888:' `88.  8 8888 
@@ -111,8 +120,8 @@
 8 8888        8b   `8.`8888.  8 8888 
 8 8888        `8b.  ;8.`8888  8 8888 
 8 8888         `Y8888P ,88P'  8 8888 
- -->
-psi=[
+-->
+      <pre><code>psi=[
       {
         ime: 'Bela',
         god: 1,
@@ -148,8 +157,7 @@ psi=[
         nadimci: ["Beton"],
         vlasnik: "Filharmonija",
       }
-    ]
-      </pre>
+    ]</code></pre>
     </details>
     <details>
       <summary>
@@ -163,7 +171,6 @@ psi=[
         <span class="text-warning">] </span>
         <span class="text-info">} </span>
       </summary>
-      <pre>
 <!-- 
 8 888888888o.   8 8888888888     d888888o. 8888888 8888888888 ,o888888o.     8 888888888o.            .8.          b.             8  8 8888 
 8 8888    `88.  8 8888         .`8888:' `88.     8 8888    . 8888     `88.   8 8888    `88.          .888.         888o.          8  8 8888 
@@ -175,8 +182,8 @@ psi=[
 8 8888 `8b.     8 8888        8b   `8.`8888.     8 8888   `8 8888       ,8P  8 8888 `8b.       .8'   `8. `88888.   8      `Y8o. `Y8  8 8888 
 8 8888   `8b.   8 8888        `8b.  ;8.`8888     8 8888    ` 8888     ,88'   8 8888   `8b.    .888888888. `88888.  8         `Y8o.`  8 8888 
 8 8888     `88. 8 888888888888 `Y8888P ,88P'     8 8888       `8888888P'     8 8888     `88. .8'       `8. `88888. 8            `Yo  8 8888 
- -->
-restorani={
+  -->
+      <pre><code>restorani={
   "count": 39,
   "results": [
     {
@@ -218,10 +225,9 @@ restorani={
       },
     "rating": 3
   },{...}, ...
-}
-      </pre>
+}</code></pre>
     </details>
-    <hr width=30% align=left>
+    <hr class="w30">
 
 <!--
          ,8.       ,8.          8 8888888888 8888888 8888888888 ,o888888o.     8 888888888o.      8 8888888888   
@@ -235,9 +241,9 @@ restorani={
  ,8'       `8        `8.`8888.  8 8888             8 8888    ` 8888     ,88'   8 8888    ,o88P'   8 8888         
 ,8'         `         `8.`8888. 8 888888888888     8 8888       `8888888P'     8 888888888P'      8 888888888888 
  -->
-    <h3>METODE</h3>
+    <h2>METODE</h2>
     
-    <a href="pages\!Array_Methods.html">
+    <a href="pages/!Array_Methods.html">
       ARRAY</a>
     <a href="pages/!String_Methods.html">
       STRING</a>
@@ -251,7 +257,7 @@ restorani={
       GIT</a>
     <a href="pages/RegExp_Methods.html">
       REG_EXP</a>
-    <a href="pages\lodash.docx">
+    <a href="pages/lodash.docx">
       LoDash</a>
 <!--
 8 8888888888       .8.                  8 8888 8 8888         ,o888888o.  `8.`888b           ,8'  8 8888 
@@ -267,37 +273,36 @@ restorani={
 
  -->
     <section class="fajlovi">
-      <h3>FAJLOVI I FOLDERI</h3>
+      <h2>FAJLOVI I FOLDERI</h2>
       <a href="Index.html" download>
         bbBlank</a><br>
       <!-- parametar download, za bbBlanko pita da li da pokrene sa Sublime zato sto je stranica vec otvorena. Na ostalim linkovima ne bi radilo. Da bi radilo na ostalim linkovima, prvo mora ta stranica da se ucita u FF, pa onda da se klikne na link sa parametrom download -->
-      <a href="pages\HTML_svi_tagovi.html">
+      <a href="pages/HTML_svi_tagovi.html">
         HTML tagovi</a><br>
-      <a href="pages\HTML_svi_tagovi_2.html">
+      <a href="pages/HTML_svi_tagovi_2.html">
         HTML tagovi 2</a><br>
-      <a href="pages\Prioritet operatora.xlsx">
+      <a href="pages/Prioritet operatora.xlsx">
         Operators</a><br>
-      <a href="pages\Emmet.html">
+      <a href="pages/Emmet.html">
         Emmet</a><br>
-      <a href="pages\Type_coercion_-_equality_-_ convert.js.html">
+      <a href="pages/Type_coercion_-_equality_-_ convert.js.html">
         Equality - Type coercion</a><br>
-        </div>
     </section>
 
   <!-- SLIKE -->
   <section class="slike">
-    <h3>SLIKE</h3>    
-    <a href="img/Metode-Array-Orig.gif"><img  width="24.5%" src="img/Metode-Array-Prev.gif" alt="Sve Array Metode"></a>
-    <a href="img/Metode-String-Orig.gif"><img width="24.5%" src="img/Metode-String-Prev.gif" alt="Sve String Metode"></a>
+    <h2>SLIKE</h2>    
+    <a href="img/Metode-Array-Orig.gif"><img  width="25%" src="img/Metode-Array-Prev.gif" alt="Sve Array Metode"></a>
+    <a href="img/Metode-String-Orig.gif"><img width="25%" src="img/Metode-String-Prev.gif" alt="Sve String Metode"></a>
   </section>
   
 
     <!-- KREIRANJE OBJEKATA -->
-    <h3>Kreiranje {Objekata}</h3>
+    <h2>Kreiranje {Objekata}</h2>
     <ul>
       <li>
         <details>
-          <summary>Create an {object} from an [Array of Keys] and an [Array of Values]</summary>
+          <summary><span>[ Niz kljuceva ]</span> + [ Niza vrednosti ] => { Objekat } // (Stvaranje {objekta} od [Niz kljuceva] i [Niza vrednosti])</summary>
           <pre><code>var keys = ['foo', 'bar', 'baz'];
 var values = [11, 22, 33]
 var result = {};
@@ -306,44 +311,111 @@ console.log(result);</code></pre>
         </details>
       </li>
     </ul>
-  </section>
 
-<!-- KONVERZIJE NIZ - OBJEKAT -->
-  <h3 id="niz-u-obj">Konverzija [niza] u {objekat}</h3>
-  <ul>
-    <li><pre><code>Object.assign({}, ['a','b','c']); // {0:"a", 1:"b", 2:"c"}</code></pre></li>
 
-    <li><pre><code>{ ...['a', 'b', 'c'] }</code></pre></li>
+    <!-- KONVERZIJE NIZ - OBJEKAT -->
+    <h3 id="niz-u-obj">Konverzija [niza] u {objekat}</h2>  
+    <ul>
+      <li>
+        <details>
+          <summary>Pomocu {...[ spread ]} ili Object.assign().</summary>
+          <pre><code>{ ...['a', 'b', 'c'] }</code></pre>
+          <pre><code>Object.assign({}, ['a','b','c']); // {0:"a", 1:"b", 2:"c"}</code></pre>
+      </li>
 
-    <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/fromEntries">Object.fromEntries()</a></li>
-  </ul>
+      <li>
+        <details>
+          <summary>Konverzija Map ili Array2D u Objekat</summary>
+          <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/fromEntries">Object.fromEntries()</a>
+          <pre><code>// Map => Object
+const map = new Map([
+  ["foo", "bar"],
+  ["baz", 42],
+]);
+const obj = Object.fromEntries(map);
+console.log(obj); // { foo: "bar", baz: 42 }
+</code></pre>
+  <pre><code>// Array2D => Object
+const arr = [
+  ["0", "a"],
+  ["1", "b"],
+  ["2", "c"],
+];
+const obj = Object.fromEntries(arr);
+console.log(obj); // { 0: "a", 1: "b", 2: "c" }
+</code></pre>
+        </details>
+      </li>
+
+      
+    </ul>
+  </details>
+
 
 <hr>
 <!-- KONVERZIJA {OBJEKATA} U [NIZ] -->
-  <h3>Konverzija {Objekata} u [Niz]</h3>
+  <h2>Konverzija {Objekata} u [Niz]</h2>
   <ul>
-<li><pre><code>Object.keys(arr); // ['k1', 'k2']</code></pre></li>
-<li><pre><code>Object.values(arr); // ['v1', 'v2']</code></pre></li>
-<li><pre><code>Object.entries(arr); // [ ['k1', 'v1'], ['k2', 'v2'] ] </code></pre></li>
+    <li>
+      <details>
+        <summary>Pomocu Object. keys(arr). values(arr). entries(arr)</summary>
+        <pre><code>Object.keys(arr); // ['k1', 'k2']</code></pre>
+        <pre><code>Object.values(arr); // ['v1', 'v2']</code></pre>
+        <pre><code>Object.entries(arr); // [ ['k1', 'v1'], ['k2', 'v2'] ] </code></pre>
+      </details>
+    </li>
   </ul>
 
+  <hr>
+  <!-- TRANSFORMISANJE OBJEKTA -->
+  <h2>Transformisanje {Objekta}</h2>
+  <ul>
+    <li>
+      <details>
+        <summary>Ako treba ceo objekat da provucem kroz `map` ili `filter` koristiti kombinaciju Object.fromEntries( Object.entries() ).</summary>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/fromEntries">Object.fromEntries()</a>
+          <pre><code>// Object.map() - Dobijamo efekat kao da je objekat provucen kroz map.
+const object1 = { a: 1, b: 2, c: 3 };
+
+const object2 = Object.fromEntries(
+Object.entries(object1)
+.map(([key, val]) => [key, val * 2]),
+);
+
+console.log(object2);
+// { a: 2, b: 4, c: 6 }
+</code></pre>
+  <pre><code>// Object.filter() - Dobijamo efekat kao da je objekat provucen kroz filter.
+object1 = { a: 1, b: 2, c: 3 };
+
+object2 = Object.fromEntries(
+Object.entries(object1)
+.filter(arr => arr[1] != 2)
+);
+
+console.log(object2);
+// { a: 1, c: 3 }
+</code></pre>
+      </details>
+    </li>
+  </ul>
 <hr>
     <!-- KOPIRANJE OBJEKATA -->
-  <h3>Plitko kopiranje {Objekata}</h3>
+  <h2>Plitko kopiranje {Objekata}</h2>
   <p><a href="#niz-u-obj">vidi Konverzija [niza] u {objekat}</a></p>
 
-  <h3>Duboko kopiranje jednostavnih objekata</h3>
+  <h2>Duboko kopiranje jednostavnih objekata</h2>
   <ul>
     <li>
       <details>
         <summary>JSON.stringify - JSON.parse</summary>
-<pre><code>var objclone = JSON.parse(JSON.stringify(obj)) // najsporije sto se tice performansi</code></pre>
+        <pre><code>var objclone = JSON.parse(JSON.stringify(obj)) // najsporije sto se tice performansi</code></pre>
       </details>
     </li>
     <li>
       <details>
       <summary>Manuelno</summary>
-<pre><code>// (↑performanse↑, ↓komplexnost↓, ↓mora se znati struktira↓)
+        <pre><code>// (↑performanse↑, ↓komplexnost↓, ↓mora se znati struktira↓)
 let obj = {
   id: 1,
   m: { male: true },
@@ -374,7 +446,7 @@ console.dir('After Change - objClone: ', objClone);</code></pre>
     </li>
   </ul>
 <hr>
-  <h3>Duboko brisanje objekata</h3>
+  <h2>Duboko brisanje objekata</h2>
   <ul>
     <li>
       <details>
@@ -385,7 +457,7 @@ console.dir('After Change - objClone: ', objClone);</code></pre>
   </ul>
 <hr>
 
-<h3>Sortiranje {OBJEKATA}</h3>
+<h2>Sortiranje {OBJEKATA}</h2>
   <ul>
       <li>
           <details>
@@ -396,7 +468,7 @@ console.dir('After Change - objClone: ', objClone);</code></pre>
       <li>
           <details>
               <summary>u [niz] i filtriranje po svojstvu</summary>
-<code>restorani.results
+<pre><code>restorani.results
 .filter( o => o.price > 3 )
 .sort( (a,b) => b.price - a.price ) // [{},{},...]</code></pre>
           </details>
@@ -405,7 +477,7 @@ console.dir('After Change - objClone: ', objClone);</code></pre>
 
   <hr>
 
-  <h3 title="Obicno se funkcije sastoje iz 'spoljanje' i 'unutrasnje' metode. 'Spoljasnja' radi na nizovima, 'unutrasnja' radi na elemenitma u nizovima">Array 2D <i>(hover for tips)</i></h3>
+  <h3 title="Obicno se funkcije sastoje iz 'spoljanje' i 'unutrasnje' metode. 'Spoljasnja' radi na nizovima, 'unutrasnja' radi na elemenitma u nizovima">Array 2D <i>(hover for tips)</i></h2>
   <ul>
       <li>
         <details>
@@ -429,7 +501,7 @@ console.dir('After Change - objClone: ', objClone);</code></pre>
 
   <hr>
 
-  <h3>Provere</h3>
+  <h2>Provere</h2>
 
   <ul>
     <li>
@@ -467,7 +539,7 @@ NaN ?? 5 // NaN
     
     <li>
       <details>
-      <summary>IN: da li postoji <span class="span-color-yellow">ključ:</span> u <span class="span-color-yellow">{objektu}</span> (ili index u [nizu] ).
+      <summary>IN: da li postoji <span>ključ:</span> u <span>{objektu}</span> (ili index u [nizu] ).
     </summary>
 <pre><code>"ime" in psi[0] // true
 "god" in psi[0] // true
@@ -484,7 +556,7 @@ NaN ?? 5 // NaN
     </li>
     <li>
       <details>
-      <summary>INCLUDES: da li postoji <span class="span-color-yellow">:vrednost</span> u <span class="span-color-yellow">[nizu]</span> (ili "stringu").
+      <summary>INCLUDES: da li postoji <span>:vrednost</span> u <span>[nizu]</span> (ili "stringu").
     </summary>
 <pre><code>abc.includes("a") // true
 qwe.includes("q") // true</code></pre>
@@ -494,12 +566,6 @@ qwe.includes("q") // true</code></pre>
       JOS PROVERA VIDETI U Lodash.
     </li>
   </ul>
-
-      </div>
-    </div>
-  </div>
-
-  </div>
 
 
  <!-- Separate Popper and Bootstrap 5 JS -->
