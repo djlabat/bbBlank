@@ -38,6 +38,7 @@
     /* za markiranje teksta u <summary> koristiti <span> */
     details summary span {color: yellow}
     </style>
+
     <!-- JS bbBlanko -->
     <script src="js/bbBlanko.js"></script>
     
@@ -227,7 +228,7 @@
   },{...}, ...
 }</code></pre>
     </details>
-    <hr class="w30">
+
 
 <!--
          ,8.       ,8.          8 8888888888 8888888 8888888888 ,o888888o.     8 888888888o.      8 8888888888   
@@ -281,11 +282,11 @@
         HTML tagovi</a><br>
       <a href="pages/HTML_svi_tagovi_2.html">
         HTML tagovi 2</a><br>
-      <a href="pages/Prioritet operatora.xlsx">
+      <a href="pages/Prioritet%20operatora.xlsx">
         Operators</a><br>
       <a href="pages/Emmet.html">
         Emmet</a><br>
-      <a href="pages/Type_coercion_-_equality_-_ convert.js.html">
+      <a href="pages/Type_coercion_-_equality_-_convert.js.html">
         Equality - Type coercion</a><br>
     </section>
 
@@ -302,7 +303,7 @@
     <ul>
       <li>
         <details>
-          <summary><span>[ Niz kljuceva ]</span> + [ Niza vrednosti ] => { Objekat } // (Stvaranje {objekta} od [Niz kljuceva] i [Niza vrednosti])</summary>
+          <summary><span>[ Niz kljuceva ]</span> + <span>[ Niza vrednosti ]</span> => <span>{ Objekat }</span> // (Stvaranje {objekta} od [Niz kljuceva] i [Niza vrednosti])</summary>
           <pre><code>var keys = ['foo', 'bar', 'baz'];
 var values = [11, 22, 33]
 var result = {};
@@ -314,18 +315,19 @@ console.log(result);</code></pre>
 
 
     <!-- KONVERZIJE NIZ - OBJEKAT -->
-    <h3 id="niz-u-obj">Konverzija [niza] u {objekat}</h2>  
+    <h2 id="niz-u-obj">Konverzija [niza] u {objekat}</h2>
     <ul>
       <li>
         <details>
-          <summary>Pomocu {...[ spread ]} ili Object.assign().</summary>
+          <summary>Pomocu <span>{...[ spread ]}</span> ili <span>Object.assign()</span></summary>
           <pre><code>{ ...['a', 'b', 'c'] }</code></pre>
           <pre><code>Object.assign({}, ['a','b','c']); // {0:"a", 1:"b", 2:"c"}</code></pre>
+        </details>
       </li>
 
       <li>
         <details>
-          <summary>Konverzija Map ili Array2D u Objekat</summary>
+          <summary>Konverzija <span>Map</span> ili <span>Array2D</span> u Objekat</summary>
           <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/fromEntries">Object.fromEntries()</a>
           <pre><code>// Map => Object
 const map = new Map([
@@ -346,8 +348,6 @@ console.log(obj); // { 0: "a", 1: "b", 2: "c" }
 </code></pre>
         </details>
       </li>
-
-      
     </ul>
   </details>
 
@@ -372,7 +372,7 @@ console.log(obj); // { 0: "a", 1: "b", 2: "c" }
   <ul>
     <li>
       <details>
-        <summary>Ako treba ceo objekat da provucem kroz `map` ili `filter` koristiti kombinaciju Object.fromEntries( Object.entries() ).</summary>
+        <summary>Ako treba ceo objekat da provucem kroz <SPAN>map</SPAN> ili <SPAN>filter</SPAN> koristiti kombinaciju <SPAN>Object.fromEntries( Object.entries() )</SPAN>.</summary>
         <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/fromEntries">Object.fromEntries()</a>
           <pre><code>// Object.map() - Dobijamo efekat kao da je objekat provucen kroz map.
 const object1 = { a: 1, b: 2, c: 3 };
@@ -408,14 +408,14 @@ console.log(object2);
   <ul>
     <li>
       <details>
-        <summary>JSON.stringify - JSON.parse</summary>
+        <summary><span>JSON.parse</span> ( <span>JSON.stringify(obj)</span> )</summary>
         <pre><code>var objclone = JSON.parse(JSON.stringify(obj)) // najsporije sto se tice performansi</code></pre>
       </details>
     </li>
     <li>
       <details>
       <summary>Manuelno</summary>
-        <pre><code>// (↑performanse↑, ↓komplexnost↓, ↓mora se znati struktira↓)
+        <pre><code>// (↑performanse↑, ↓jednostavnost↓, ↓mora se znati struktira↓)
 let obj = {
   id: 1,
   m: { male: true },
@@ -441,7 +441,7 @@ console.dir('After Change - objClone: ', objClone);</code></pre>
     <li>
       <details>
         <summary>Lodash.cloneDeep - npm libary</summary>
-        <a href="https://www.npmjs.com/package/lodash.clonedeep">Kazu da je najjednostvnije</a>
+        <pre><code>obmix2 = _.cloneDeep(obmix)</code></pre>
       </details>
     </li>
   </ul>
@@ -477,24 +477,24 @@ console.dir('After Change - objClone: ', objClone);</code></pre>
 
   <hr>
 
-  <h3 title="Obicno se funkcije sastoje iz 'spoljanje' i 'unutrasnje' metode. 'Spoljasnja' radi na nizovima, 'unutrasnja' radi na elemenitma u nizovima">Array 2D <i>(hover for tips)</i></h2>
+  <h2 title="Obicno se funkcije sastoje iz 'spoljanje' i 'unutrasnje' metode. 'Spoljasnja' radi na nizovima, 'unutrasnja' radi na elemenitma u nizovima">Array 2D <i>(hover for tips)</i></h2>
   <ul>
       <li>
         <details>
-            <summary title="Objasnjenje: Spoljasnji 'map' je da selektuje nizove. Unutrasnji 'map' je da selektuje elemente koji su u nizovima i da ih promeni.">Rad na svim elementima u nizovima</summary>
-<pre><code title="Rezultat: svi brojevi su postali stringovi">arr2D.map(arr=> arr.map( elem=> elem+'' ))</code></pre>
+          <summary title="Objasnjenje: Spoljasnji 'map' je da selektuje nizove. Unutrasnji 'map' je da selektuje elemente koji su u nizovima i da ih promeni.">Rad na svim elementima u nizovima</summary>
+          <pre><code title="Rezultat: svi brojevi su postali stringovi">arr2D.map(arr=> arr.map( elem=> elem+'' ))</code></pre>
         </details>
       </li>
       <li>
-          <details>
-              <summary title='Objasnjenje: Spoljasnji "map" selektuje nizove i prikazuje samo [0] elemente'>Vertikalna selekcija</summary>
-<pre><code title="Rezultat: [ 2, 3, 5, 6, 7 ] // svi [0] elementi">arr2D.map( arr=>arr.slice(0,1) ).flat()</code></pre>
-          </details>
+        <details>
+          <summary title='Objasnjenje: Spoljasnji "map" selektuje nizove i prikazuje samo [0] elemente'>Vertikalna selekcija</summary>
+          <pre><code title="Rezultat: [ 2, 3, 5, 6, 7 ] // svi [0] elementi">arr2D.map( arr=>arr.slice(0,1) ).flat()</code></pre>
+        </details>
       </li>
       <li>
         <details>
-            <summary title="Objasnjenje: Filtriranje po nekoj karakteristici tj. po nekoj f-ji">Filtrirana selekcija</summary>
-<pre><code title="Rezultat: [ 125, 216, 343 ] // svi elementi koji su veci od 100">arr2D.map( arr=>arr.filter( elem=> elem>100 ) ).flat()</code></pre>
+          <summary title="Objasnjenje: Filtriranje po nekoj karakteristici tj. po nekoj f-ji">Filtrirana selekcija</summary>
+          <pre><code title="Rezultat: [ 125, 216, 343 ] // svi elementi koji su veci od 100">arr2D.map( arr=>arr.filter( elem=> elem>100 ) ).flat()</code></pre>
         </details>
       </li>
   </ul>
