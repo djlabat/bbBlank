@@ -23,6 +23,7 @@
 <body>
 
 <md>
+
 # OBJECT METODE
 
 ## SADRZAJ
@@ -127,7 +128,7 @@ console.log('After Change - objclone: ', objclone); // 45
 
 * Ako su potrebni primeri pogledati u HTML fajlu
 
----
+
 ## **DESCRIPTOR**
 
 * Ima 2 vrste descriptor-a: DATA i ACCESSOR. Njihove default vrednosti su:  
@@ -309,7 +310,6 @@ qwe123.q // 1 // ... vrednost u originalnom objektu ostaje nepromenjena.
 </pre>
 <md>
 
----
 ## **LOCK**  
 
 ### *Object.preventExtensions()*
@@ -337,7 +337,6 @@ qwe123.q // 1 // ... vrednost u originalnom objektu ostaje nepromenjena.
 * Proverava da li je objekat zapečaćen. Vidi "seal"
 
 
----
 ## **OWN_PROPEPRTIES**
 
 ### *Object.prototype.hasOwnProperty()*
@@ -374,7 +373,7 @@ qwe.propertyIsEnumerable() // F
 <md>
 
 
----
+
 ## **KEY_VALUE**
 
 * Postoji 2 nacina da se pozovu KEY-VALUE metode:
@@ -445,7 +444,7 @@ qwe123.valueOf()		// █ vraca vrednost objekta, isto dobija i kada pozoves obje
 
 ### **Izdvajanje kljuceva**
 
-* Properti nekog objekta moze da bude:
+* Svojstavo nekog objekta moze da bude:
 	1. string - Name → getOwnPropertyNames
 	2. Simbol - Symbol → getOwnPropertySymbols
 
@@ -478,7 +477,6 @@ qwe123.valueOf()		// █ vraca vrednost objekta, isto dobija i kada pozoves obje
 </pre>
 <md>
 
----
 ## **PROTOTYPE**
 
 ### *Object.setPrototypeOf(target, prototypeObject)*
@@ -609,11 +607,11 @@ console.log(object3.isPrototypeOf(Object))   // F
 
 ### *Object.is()*  
 	
-* Proverava istoću dve vrednosti. Za razliku od "==" komparacije ovde je:
+* Proverava jednakost dve vrednosti. Za razliku od "==" komparacije, gde je `NaN == NaN` =>`false`, ovde je `Object.is(NaN, NaN)` => `true`
 
 </md>
 <pre>
-<code>// NaN == NaN 					// F
+<code>NaN == NaN              // F
 Object.is(NaN, NaN)     // T
 Object.is(NaN, 0/0);    // T
 Object.is(0, -0);       // F

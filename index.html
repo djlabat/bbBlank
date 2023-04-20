@@ -16,7 +16,15 @@
     
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    
+    <!-- MD Tag -->
+    <!-- <script src="/js/Markdown-Tag-main/markdown-tag-commonmark.js"></script> -->
 
+    <!-- Highlight -->
+    <link rel="stylesheet" href="js/highlight/styles/atom-one-dark.min.css">
+    <script src="js/highlight/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    
     <!-- StyleBBBlanko -->
     <link rel="stylesheet" href="css/bbBlanko.css">
     
@@ -290,12 +298,11 @@ restorani={
       <li>
         <details>
           <summary>Create an {object} from an [Array of Keys] and an [Array of Values]</summary>
-          <code>var keys = ['foo', 'bar', 'baz'];<br>
-            var values = [11, 22, 33]<br>
-            <br>
-            var result = {};<br>
-            keys.forEach((key, i) => result[key] = values[i]);<br>
-            console.log(result);</code>  <br>
+          <pre><code>var keys = ['foo', 'bar', 'baz'];
+var values = [11, 22, 33]
+var result = {};
+keys.forEach((key, i) => result[key] = values[i]);
+console.log(result);</code></pre> 
         </details>
       </li>
     </ul>
@@ -304,35 +311,20 @@ restorani={
 <!-- KONVERZIJE NIZ - OBJEKAT -->
   <h3 id="niz-u-obj">Konverzija [niza] u {objekat}</h3>
   <ul>
-    <li>
-      <code>Object.assign({}, ['a','b','c']); // {0:"a", 1:"b", 2:"c"}</code>  <br>
-    </li>
+    <li><pre><code>Object.assign({}, ['a','b','c']); // {0:"a", 1:"b", 2:"c"}</code></pre></li>
 
-    <li><code>{ ...['a', 'b', 'c'] }</code></li>
+    <li><pre><code>{ ...['a', 'b', 'c'] }</code></pre></li>
 
-    <li>
-      <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/fromEntries">Object.fromEntries()</a>
-    </li>
+    <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/fromEntries">Object.fromEntries()</a></li>
   </ul>
 
 <hr>
 <!-- KONVERZIJA {OBJEKATA} U [NIZ] -->
   <h3>Konverzija {Objekata} u [Niz]</h3>
   <ul>
-    <li>
-      <code>Object.keys(arr);</code>
-      // ['k1', 'k2']
-    </li>
-
-    <li>
-      <code>Object.values(arr);</code>
-      // ['v1', 'v2']
-    </li>
-    
-    <li>
-      <code>Object.entries(arr);</code>
-      // [ ['k1', 'v1'], ['k2', 'v2'] ]    
-    </li>
+<li><pre><code>Object.keys(arr); // ['k1', 'k2']</code></pre></li>
+<li><pre><code>Object.values(arr); // ['v1', 'v2']</code></pre></li>
+<li><pre><code>Object.entries(arr); // [ ['k1', 'v1'], ['k2', 'v2'] ] </code></pre></li>
   </ul>
 
 <hr>
@@ -345,13 +337,13 @@ restorani={
     <li>
       <details>
         <summary>JSON.stringify - JSON.parse</summary>
-        <code>var objclone = JSON.parse(JSON.stringify(obj)) // najsporije sto se tice performansi</code>  <br>
+<pre><code>var objclone = JSON.parse(JSON.stringify(obj)) // najsporije sto se tice performansi</code></pre>
       </details>
     </li>
     <li>
       <details>
       <summary>Manuelno</summary>
-        <code>// (↑performanse↑, ↓komplexnost↓, ↓mora se znati struktira↓)
+<pre><code>// (↑performanse↑, ↓komplexnost↓, ↓mora se znati struktira↓)
 let obj = {
   id: 1,
   m: { male: true },
@@ -371,8 +363,7 @@ obj.m.male = false
 obj.i.info.name = "Joly";
 
 console.dir('After Change - obj: ', obj);
-console.dir('After Change - objClone: ', objClone);
-        </code>
+console.dir('After Change - objClone: ', objClone);</code></pre>
       </details>
     </li>
     <li>
@@ -388,7 +379,7 @@ console.dir('After Change - objClone: ', objClone);
     <li>
       <details>
         <summary>sto znaci da ce sadrzaj biti obrisan i u svim referencama ka ovom obj.</summary>
-        <code>Object.keys(obj).forEach(function(key) { delete obj[key]; });</code>  <br>
+<pre><code>Object.keys(obj).forEach(function(key) { delete obj[key]; });</code>  <br></pre>
       </details>
     </li>
   </ul>
@@ -399,16 +390,15 @@ console.dir('After Change - objClone: ', objClone);
       <li>
           <details>
               <summary>u [nizu]</summary>
-              <code>psi.sort((a, b) => (a.god > b.god) ? 1 : -1)</code>
+<pre><code>psi.sort((a, b) => (a.god > b.god) ? 1 : -1)</code></pre>
           </details>
       </li>
       <li>
           <details>
               <summary>u [niz] i filtriranje po svojstvu</summary>
-                <code>restorani.results
+<code>restorani.results
 .filter( o => o.price > 3 )
-.sort( (a,b) => b.price - a.price ) // [{},{},...]
-                </code>
+.sort( (a,b) => b.price - a.price ) // [{},{},...]</code></pre>
           </details>
       </li>
   </ul>
@@ -420,19 +410,19 @@ console.dir('After Change - objClone: ', objClone);
       <li>
         <details>
             <summary title="Objasnjenje: Spoljasnji 'map' je da selektuje nizove. Unutrasnji 'map' je da selektuje elemente koji su u nizovima i da ih promeni.">Rad na svim elementima u nizovima</summary>
-            <code title="Rezultat: svi brojevi su postali stringovi">arr2D.map(arr=> arr.map( elem=> elem+'' ))</code>
+<pre><code title="Rezultat: svi brojevi su postali stringovi">arr2D.map(arr=> arr.map( elem=> elem+'' ))</code></pre>
         </details>
       </li>
       <li>
           <details>
               <summary title='Objasnjenje: Spoljasnji "map" selektuje nizove i prikazuje samo [0] elemente'>Vertikalna selekcija</summary>
-              <code title="Rezultat: [ 2, 3, 5, 6, 7 ] // svi [0] elementi">arr2D.map( arr=>arr.slice(0,1) ).flat()</code>
+<pre><code title="Rezultat: [ 2, 3, 5, 6, 7 ] // svi [0] elementi">arr2D.map( arr=>arr.slice(0,1) ).flat()</code></pre>
           </details>
       </li>
       <li>
         <details>
             <summary title="Objasnjenje: Filtriranje po nekoj karakteristici tj. po nekoj f-ji">Filtrirana selekcija</summary>
-            <code title="Rezultat: [ 125, 216, 343 ] // svi elementi koji su veci od 100">arr2D.map( arr=>arr.filter( elem=> elem>100 ) ).flat()</code>
+<pre><code title="Rezultat: [ 125, 216, 343 ] // svi elementi koji su veci od 100">arr2D.map( arr=>arr.filter( elem=> elem>100 ) ).flat()</code></pre>
         </details>
       </li>
   </ul>
@@ -445,33 +435,33 @@ console.dir('After Change - objClone: ', objClone);
     <li>
       <details>
       <summary>da li {objekat} ne postoji</summary>
-        <code>typeof objX === "undefined"</code>
+<pre><code>typeof objX === "undefined"</code></pre>
       </details>
     </li>
 
     <li>
       <details>
       <summary>da li je {objekat} null</summary>
-        <code>typeof objX !== "undefined" &&
-        objX !== null</code>
+<pre><code>typeof objX !== "undefined" &&
+        objX !== null</code></pre>
       </details>
     </li>
 
     <li>
       <details>
       <summary>da li je Broj</summary>
-        <code>!Number.isNaN(e) &&<br> typeof e === "number" &&<wbr> Number.isFinite(e) <wbr>// true</code>
+<pre><code>!Number.isNaN(e) && typeof e === "number" && Number.isFinite(e) // true</code></pre>
       </details>
     </li>
     
     <li>
       <details>
       <summary>Nulish: da li je null ili undefined, ako jeste vrati default vrednost</summary>
-        <code>null <span class="span-color-gray">??</span> <span class="span-color-brStr">5</span> <span style="color:#666">// 5</span>
-            undefined <span class="span-color-gray">??</span> <span class="span-color-brStr">5</span> <span style="color:#666">// 5</span>
-            false <span class="span-color-gray">??</span> <span class="span-color-brStr">5</span> <span style="color:#666">// false</span>
-            NaN <span class="span-color-gray">??</span> <span class="span-color-brStr">5</span> <span style="color:#666">// NaN</span>
-            0 <span class="span-color-gray">??</span> <span class="span-color-brStr">5</span> <span style="color:#666">// 0</span></code>
+<pre><code>null ?? 5 // 5
+undefined ?? 5 // 5
+false ?? 5 // false
+NaN ?? 5 // NaN
+0 ?? 5 // 0</code></pre>
       </details>
     </li>
     
@@ -479,28 +469,25 @@ console.dir('After Change - objClone: ', objClone);
       <details>
       <summary>IN: da li postoji <span class="span-color-yellow">ključ:</span> u <span class="span-color-yellow">{objektu}</span> (ili index u [nizu] ).
     </summary>
-        <code>
-            <span class="span-color-brStr">"ime"</span> in <span style="color:violet">psi</span><span class="span-color-gray">[<span class="span-color-brStr">0</span>] </span><span style="color:#666">// true</span>
-            <span class="span-color-brStr">"god"</span> in <span style="color:violet">psi</span><span class="span-color-gray">[<span class="span-color-brStr">0</span>] </span><span style="color:#666">// true</span>
-            <span class="span-color-brStr">"god"</span> in <span style="color:violet">psi</span> <span style="color:#666">// false</span>
-           <span class="span-color-brStr">"boja"</span> in <span style="color:violet">psi</span><span class="span-color-gray">[<span class="span-color-brStr">0</span>] </span><span style="color:#666">// false</span>
-            
-            <span class="span-color-brStr">'0'</span> in <span style="color:violet">arr</span> <span style="color:#666">// true</span>
-            <span class="span-color-brStr">'1'</span> in <span style="color:violet">arr</span> <span style="color:#666">// true</span>
-            <span class="span-color-brStr">'2'</span> in <span style="color:violet">arr</span> <span style="color:#666">// true</span>
-            <span class="span-color-brStr">'3'</span> in <span style="color:violet">arr</span> <span style="color:#666">// true</span>
-            <span class="span-color-brStr">'4'</span> in <span style="color:violet">arr</span> <span style="color:#666">// true</span>
-            <span class="span-color-brStr">'5'</span> in <span style="color:violet">arr</span> <span style="color:#666">// false</span></code>
+<pre><code>"ime" in psi[0] // true
+"god" in psi[0] // true
+"god" in psi // false
+"boja" in psi[0] // false
+
+'0' in arr // true
+'1' in arr // true
+'2' in arr // true
+'3' in arr // true
+'4' in arr // true
+'5' in arr // false</code></pre>
       </details>
     </li>
     <li>
       <details>
       <summary>INCLUDES: da li postoji <span class="span-color-yellow">:vrednost</span> u <span class="span-color-yellow">[nizu]</span> (ili "stringu").
     </summary>
-        <code>
-          abc.includes("a") // true <br>
-          qwe.includes("q") // true
-        </code>
+<pre><code>abc.includes("a") // true
+qwe.includes("q") // true</code></pre>
       </details>
     </li>
     <li>
