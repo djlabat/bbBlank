@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LoDash</title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  
+  <!-- MD Tag -->
+  <script src="../js/Markdown-Tag-main/markdown-tag-commonmark.js"></script>
+
+  <!-- Highlight -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+  <!-- <script>hljs.initHighlightingOnLoad();</script> -->
+  <script>hljs.highlightAll();</script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../css/pages.css">
+
+
+</head>
+<body>
+  <md>
+## UKRATKO   
+
+-	`NaN == NaN` // T
+-	`Predicate` = f-ja koja vraca Boolean
+-	`_.identity` =  (e)=>e
+-	`iterratee` = cbFn() koja se koristi kao parametar (npr. pri upetrebi high-order f-ja: filter, sort. match...)
+-	`collection` = Collection functions work on arrays, objects, and array-like objects such as arguments, NodeList and similar. But it works by duck-typing, so avoid passing objects with a numeric length property. Duck typing in computer programming is an application of the duck test—"If it walks like a duck and it quacks like a duck, then it must be a duck"—to determine whether an object can be used for a particular purpose.
+-	`source`  = argument na osnovu kojeg se pravi f-ja ( može biti Boolean, Number, String, Date, RegExp, Object  ili Array )
+-	`_.xxxxBy` = Sve f-je kojima se naziv zavrsava sa By, prvi argument im je iterator (Array|Object), a drugi parametar je iterratee tj. DEFINICIJA f-je, ne poziv(), kojom će se obaviti to što treba da se obavi.
+
+- `izbegavati ucitavanje celog lodash-a`, nego bolje ovako: 
+```js    
+import chain from 'lodash/chain';
+import value from 'lodash/value';
+import map from 'lodash/map';
+import mixin from 'lodash/mixin';
+import _ from 'lodash/wrapperLodash';
+
+mixin(_, {
+  map: map,
+  value: value,
+  chain: chain
+}
+```
+i onda normalno koristim te funkcije koje sam importovao.
+
+
+
+## Najkorisnije metode:
+
+### `isEqual` ili `eq`
+> Za poredjenje objekata. Ako objekat u sebi sadrzi Symbol bice F
+
+### `isEmpty`
+> null, undefined, [], {} => true  
+> JS alternativa:
+```js
+Object.keys(obj1).length === 0
+```
+
+### `get`
+> ako ne nadje, ne pravi gresku nego vraca definisanu vrednost npr. ""  
+```js
+_.get(psi, '0.ime') // „Bela“;
+_.get(psi, '1.nadimci.3') // „Legenda“
+_.get(psi, '100'., "NEMA!") // "NEMA!"
+```
+> JS alternativa: 
+```js
+this?.sdf || „“)
+```
+
+### sortBy
+```js
+_.sortBy(restorani.results, e => e.rating ) // [{1}, {2}, {3}, {4}, {5}]
+_.sortBy(restorani.results, e => - e.rating ) // 5,4,3,2,1
+```
+
+### union
+> spajanje nizova bez da ponavlja vrednosti koje su iste u oba niza.
+> JS alternativa:
+```js
+arr.concat(arr2.filter( e => !arr.includes(e) ))
+```
+
+### cloneDeep
+```js
+_.cloneDeep(psi) // duboko kopiranje objekata
+```
+
+### debounce
+```js
+_.debounce( () =>{console.log('test') }, 1000);  // „test“ – posle 1s
+```
+
+### assign
+
+### pull
+> Izbacivanje iz niza, sa promenom niza 
+```js
+_.pull(arr, 3) // [ 1, 2, 4, 5 ]
+```
+
+### difference
+> Izbacivanje iz niza, bez promenom niza 
+```js
+_.pull(arr, 3) // [ 1, 2, 4, 5 ]
+```
+Brisanje na pocetku i kraju niza,  bez promene niza // drop i dropRight
+	sa promenom niza //
+Brisanje od – do indexa // slice
+
+  </md>
+</body>

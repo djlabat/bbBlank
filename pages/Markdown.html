@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MARKDOWN</title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  
+  <!-- MD Tag -->
+  <script src="../js/Markdown-Tag-main/markdown-tag-commonmark.js"></script>
+
+  <!-- Highlight -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../css/pages.css">
+  <style>
+    body {max-width: max-content;}
+  </style>
+
+</head>
+<body>
+<div>
+    <a href="https://dillinger.io/">DILLINGER</a>
+    <pre><code class="language-js">
+    # MARKDOWN
+    ## Naslov H2
+    ### naslov h3
+    #### i tako dalje h4
+    
+    
+    
+    NASLOV H1
+    =========
+    
+    Naslov h2
+    ---------
+    
+    
+    
+    [SADRZAJ](#sadrzaj)
+    [LINK KA NASLOVU 1](#link-ka-naslovu-1)
+    [LINK KA NASLOVU 2](#link-ka-naslovu-2)
+    
+    
+    
+    Paragraf, prazan red iznad i ispod
+    Ovo je drugi red paragrafa ali se nije prelomio jer nema dupli space na kraju reda.
+    Ovo je treci red paragrafa da duplim space na kraju prethodnog reda.
+    
+    Novi paragraf - space iznad
+    
+    
+    
+    *italic* sa _donjim linijama_ - Ctrl + I - plugin: Markdown All in One. Moze i _italic_
+    **BOLD** sa __donjim linijama__ - cB
+    ***italic + bold*** sa ___donjim linijama___ - cI, cB
+    ~~striketrough~~
+    
+    
+    
+    > citiranje nekog teksta
+    >
+    > jos malo citiranja
+    
+    
+    
+    1. Ordered List...
+    2. ...ili ti `&lt;ol>`
+    3. Bitno da je jedinica prvi broj...
+    
+        Jedinica otvara OL
+    
+    10. ...ostali brojevi ne moraju biti u redu.
+    
+    - Unordered List...
+    - ...ili ti `&lt;ul>`
+    
+        Pragragraf u listi (indent)
+    
+    - nastavak liste
+    
+    
+    
+    `backtick` je isto sto i `&lt;code>` u HTML (sirov text)
+    npr. `&lt;pre>#`
+    
+    
+    
+    &lt;!-- Fenced Code Block ↓ -->
+    ```js
+    {
+        "firstName": "John",
+        "lastName": "Smith",
+        "age": 25
+    }
+    ```
+    
+    
+    
+    &lt;!-- Markiranje texta -->
+    &lt;style>
+        mark {background-color:green}
+    &lt;/style>
+    
+    &lt;mark>Markirani text&lt;/mark>
+    &lt;span style="background-color:blue">Plavi markirani text&lt;/span>
+    
+    &lt;!-- Bojenje texta -->
+    &lt;span style="color:yellow">Zuto obojeni text&lt;/span>
+    
+    &lt;!-- horizontalna linija ↓ -->
+    ---
+    
+    &lt;!-- link inline -->
+    [Dillinger Markdown](https://dillinger.io/ "alt text linka") - inline link
+    
+    &lt;!-- link brzi -->
+    &lt;https://dillinger.io/> - brz i direktan link
+    
+    &lt;!-- link referentni -->
+    [YouTube] - referentni link (vidi na dnu fajla)
+    
+    &lt;!-- image -->
+    ![Dillinger - alt text](https://mdg.imgix.net/assets/images/dillinger.png)
+    
+    &lt;!-- TO DO lista -->
+    - [x] prvi task
+    - [ ] Alt + C (an)čekira - plugin: Markdown All in One
+    - [ ] treci task
+    
+    | Tabela | zaglavlje |
+    | :----- | :-------: |
+    | table  |    data   |
+    
+    &lt;!-- Emoji -->
+    That is so funny! :joy: :smile: :angry: :heart:
+    
+    (See also [Copying and Pasting Emoji](https://www.markdownguide.org/extended-syntax/#copying-and-pasting-emoji))
+    
+    &lt;!-- Highlight -->
+    I need to highlight these ==very important words==.
+    
+    ## LINK KA NASLOVU
+    
+    [YouTube]: &lt;code//www.youtube.com>
+    </code></pre>
+</div>
+</body>

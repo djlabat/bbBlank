@@ -25,6 +25,7 @@ pre code {
   margin: 0 36px;
   white-space: pre-wrap;
 }
+code {color: #94e4ff}
 td,th {
   border: 2px solid #444;
   background-color: #111;
