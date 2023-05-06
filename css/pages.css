@@ -10,7 +10,8 @@ h1 {color: darkblue; background-color: BlanchedAlmond;
 }
 h2 {
   color: yellow; background-color: #0e0e3f; 
-  padding: 16px 0 8px;
+  padding: 8px 0 8px;
+  margin: 32px 0 0;
   border-bottom: 3px solid #224; 
   text-align: center;
 }
