@@ -119,17 +119,6 @@ git push  origin  master
 `git PULL`    // skida sadrzaj sa udaljenog repozitorijuma i/ili odmah azurira lokalni repozitorijum sa verzijom koja je na udaljenom repozitorijumu.  
 `git CLONE https://github.com/mdbootstrap/knowledge-base.git` // skidanje nekog (tudjeg) Git projekta na svoj komp. Adresu skinuti sa gitHub sajta.  
 
-## STASH (eng. tajno skroviste)
-`git STASH` // Stash je nesto kao mini-commit.  
-Kao kad u Corel-u pravim dizajn, pa da bi sacuvao sve verzije razvoja dizajna, snimam ih u vise fajlova iz dana u dan => to kao COMMIT. 
-Ali dok radim na dizajnu, da bih mogao da poredim koji dizajn je bolji od kojeg, pravim i vise verzija dizajna u jednom fajlu pa cu kasnije da odaberem koju verziju dizajna cu da dalje razvijam => to je kao STASH.
-Dakle, STASH snima trenutno stanje radnog direktorijuma, tj. fajlove u njemu (lokalno, bez commit-a) da bi mogao da se prebacima na rad na necem drugom, recimo pogledam neki drugi checkout. Nakon STASH-ovanja projekat se vraca na stanje poslednjeg commita. Odatle mozes da pravis drugu verziju izmena od poslednjeg commita. 
-
-`git STASH list` // lista svih spremljenih stash izmena  
-`git STASH apply stash@{0}`  // Vraćanje spremljenih izmena  
-
-### Koja je razlika izmedju STASH i BRANCH postupka?
-Stash nepravi PRAVI commit niti pravi PRAVU granu, nego pravi takoreci PRIVREMENI, VIRTUELNI, LAYER BRANCH-COMMIT, koji ce kasnije biti (ne)iskoriscen/uklonjen, bez ikakvog traga da je ikada postojao. Kad se napravi STASH on odlozi, skrije, tvoj trenutni rad na posebni trć. BRANCH-COMMIT i vraca te na poslednji, cist, "no changes" HEAD commit. Kasnije mozes da primenis taj stash (`git stash apply`) na vrh neke grane KOJU TI ODABERES, ne mora master. Mozes da ga obrises (`git stash drop`) ili da ga primenis na neku granu i obrises ga (`git stash pop`). Apply ne brise stash.
 
 ## GRANE
 `git BRANCH develop` // stvara granu develop, koju cu kasnije moci da spojim sa master granom ili da je obrisem.  
@@ -138,6 +127,20 @@ Stash nepravi PRAVI commit niti pravi PRAVU granu, nego pravi takoreci PRIVREMEN
 `git CHECKOUT develop` // prebacivanje na develop granu. Pre ovoga uraditi commit da bi snimio  
 `git MERGE develop` // Prilikom spajanja grana, potrebno je vratiti se na roditeljsku granu (master) i pozvati komandu git merge \<develop>  
 `git REBASE master` // Drugi nacin spajanja. Uglavno služi u svrhe dopunjavanja sporednih grana (develop) izmenama sa master grane. Ovo pokrecem dok sam na develop grani.  
+
+
+## STASH (eng. tajno skroviste)
+`git STASH` // Stash je nesto kao mini-commit.  
+Kao kad u Corel-u pravim dizajn, pa da bi sacuvao sve verzije razvoja dizajna, snimam ih u vise fajlova iz dana u dan => to kao COMMIT. 
+Ali dok radim na dizajnu, da bih mogao da poredim koji dizajn je bolji od kojeg, pravim i vise verzija dizajna u jednom fajlu pa cu kasnije da odaberem koju verziju dizajna cu da dalje razvijam => to je kao STASH.
+Dakle, STASH snima trenutno stanje radnog direktorijuma, tj. fajlove u njemu (lokalno, bez commit-a) da bi mogao da se prebacima na rad na necem drugom, recimo pogledam neki drugi checkout. Nakon STASH-ovanja projekat se vraca na stanje poslednjeg commita. Odatle mozes da pravis drugu verziju izmena od poslednjeg commita. 
+
+		`git STASH list` // lista svih spremljenih stash izmena  
+		`git STASH apply stash@{0}`  // Vraćanje spremljenih izmena  
+
+### Koja je razlika izmedju STASH i BRANCH postupka?
+Stash nepravi PRAVI commit niti pravi PRAVU granu, nego pravi takoreci PRIVREMENI, VIRTUELNI, LAYER BRANCH-COMMIT, koji ce kasnije biti (ne)iskoriscen/uklonjen, bez ikakvog traga da je ikada postojao. Kad se napravi STASH on odlozi, skrije, tvoj trenutni rad na posebni trć. BRANCH-COMMIT i vraca te na poslednji, cist, "no changes" HEAD commit. Kasnije mozes da primenis taj stash (`git stash apply`) na vrh neke grane KOJU TI ODABERES, ne mora master. Mozes da ga obrises (`git stash drop`) ili da ga primenis na neku granu i obrises ga (`git stash pop`). Apply ne brise stash.
+
 
 ## FAJL .gitignore  
 U njega upisujem fajlove ili /foldere koji ce biti totalno ignosisani, kao da nepostoje.  
@@ -150,16 +153,16 @@ css/**/*.css // ignoriši sve css datoteke bilo gde u css folderu
 ### manje bitne stvari
 video uputstvo: <https://www.youtube.com/watch?v=SWYqp7iY_Tc&ab_channel=TraversyMedia>  
 `git`        // prikaz svih komandi  
-`touch`	// stvaranje novog fajla  
+`touch` // stvaranje novog fajla  
 `git --version`  // provera verzije  
-`clear` 		// brisanje ekrana  
+`clear`     // brisanje ekrana  
 
 
 
 ### Novi repozitorijum, github uptstva
 
 Quick setup — if you’ve done this kind of thing before  
-	
+  
 SSH: git@github.com:djlabat/George.git  
 HTTPS: https://github.com/djlabat/George.git   
 
