@@ -128,6 +128,16 @@ git push  origin  master
 `git MERGE develop` // Prilikom spajanja grana, potrebno je vratiti se na roditeljsku granu (master) i pozvati komandu git merge \<develop>  
 `git REBASE master` // Drugi nacin spajanja. Uglavno služi u svrhe dopunjavanja sporednih grana (develop) izmenama sa master grane. Ovo pokrecem dok sam na develop grani.  
 
+## UPSTREAM
+
+Upstream grana govori Gitu koju ↑REMOTE granu da --poveže-- sa kojom ↓LOCAL granom (i koristi se da naznači gde da gura nove COMMIT-e).
+
+### Podešavanje Upstream grane preko komandne palete Sublime Merge-a
+
+1. Otvorite [komandnu paletu] i izaberite "Set Branch Upstream…"
+2. Pronađite LOCAL granu za koju želite da postavite za Upstream i izaberite je
+3. Pronađite REMOTE granu koju želite da postavite za Upstream i izaberite je
+
 
 ## STASH (eng. tajno skroviste)
 `git STASH` // Stash je nesto kao mini-commit.  
@@ -140,6 +150,11 @@ Dakle, STASH snima trenutno stanje radnog direktorijuma, tj. fajlove u njemu (lo
 
 ### Koja je razlika izmedju STASH i BRANCH postupka?
 Stash nepravi PRAVI commit niti pravi PRAVU granu, nego pravi takoreci PRIVREMENI, VIRTUELNI, LAYER BRANCH-COMMIT, koji ce kasnije biti (ne)iskoriscen/uklonjen, bez ikakvog traga da je ikada postojao. Kad se napravi STASH on odlozi, skrije, tvoj trenutni rad na posebni trć. BRANCH-COMMIT i vraca te na poslednji, cist, "no changes" HEAD commit. Kasnije mozes da primenis taj stash (`git stash apply`) na vrh neke grane KOJU TI ODABERES, ne mora master. Mozes da ga obrises (`git stash drop`) ili da ga primenis na neku granu i obrises ga (`git stash pop`). Apply ne brise stash.
+
+
+## SUBMODULES (spr. podmoduli)
+
+Git podmoduli vam omogućavaju da držite git repository (srp. spremište) kao poddirektorijum drugog git spremišta. Git podmoduli su jednostavno referenca za drugo spremište na određenom snimku (eng. snapshot) u vremenu. Git podmoduli omogućavaju Git spremištu da inkorporira, i prati istoriju verzija eksternog koda.
 
 
 ## FAJL .gitignore  

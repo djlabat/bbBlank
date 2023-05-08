@@ -1,0 +1,3 @@
+[submodule "Git.git"]
+	path = Git
+	url = https://github.com/djlabat/Git.git
