@@ -118,15 +118,66 @@ git push  origin  master
 `git REMOTE remove` // uklanjanje repozitorijuma  
 `git PULL`    // skida sadrzaj sa udaljenog repozitorijuma i/ili odmah azurira lokalni repozitorijum sa verzijom koja je na udaljenom repozitorijumu.  
 `git CLONE https://github.com/mdbootstrap/knowledge-base.git` // skidanje nekog (tudjeg) Git projekta na svoj komp. Adresu skinuti sa gitHub sajta.  
+Obicno posle COMMIT, idu zajedno PUSH i PULL, i to bas tim redosledom.
 
+
+### Kad koristiti STASH?
+#### Use case - suddenly change commit
+If I work on `branch A` and suddenly need to work on `branch B`, before being ready with a commit on branch A, I stash my changes on A, checkout B, do my work there, then checkout A and apply the stash.
+
+#### Use case 2 - work to home - mid-commit
+I work both at work and at home. If I am not ready with a commit when I want to go home, can I stash my work, push it to GitHub and then pull that stash at home.
+
+#### Use case 3 - temp branch => stash
+I prefer creating a new temporary branch, than stashing.
+
+#### Use case 4
+I forgot something in my last commit and have already started working on the next one in the same branch. Lat's assume the latest commit was already done and I start working on the next patch, and discovered that I was missing something.
+
+- stash away the current mess I made in next patch
+      git stash save
+
+- Do some changes in the working dir
+
+- and now add them to the last commit:
+      git add -u
+      git commit --amend
+
+- back to work!
+      git stash pop
+
+## WORKTREE
+git worktree will create a new working folder allow us to work on multiple branches on the same time. Each copy will point to the origin repository while the 3-states are a new and fresh copy. This save us the need to use git stash or even to clone a new repository, since those worktrees shares the same repository, we can checkout any branch on any worktree, we can do a cherry-pick or merge and all will be done locally on our machine.
+
+Usage:
+
+      git worktree add <second path>
+
+will create another folder on your computer which allows you to work on a different branch simultaneously.
+
+This will allow you to do any experiments on the new worktree without having any effect on the repository itself. In the attached image you can see that there are 2 separate working folder but both of them are using a single repository and share the content.
+
+## CHERRY-PICK
+`git CHERRY-PICK master`
+Cherry-picking in git means choosing a commit from one branch and applying it to another branch. This is in contrast with other ways such as merge and rebases which normally apply many commits into another branch.
+
+Implementation: 
+
+Suppose a developer fails to recognize which branch he is currently on, and by mistake, he commits to another branch instead of committing that to the main branch. Now to fix it, he has to first run git show, then save the commit, then check out the main branch, apply patch there and commit with the same commit message. But all this can be done automatically by using just one command i.e. cherry-pick.
+
+      develop      ┌── (d1) ─── (d2) 
+      master   ════╧══ (m1) ═══ (m2) ═══ (  )  
+
+      develop      ┌── (d1) ─── (d2) ───>──┐
+      master   ════╧══ (m1) ═══ (m2) ═══ (d2)  
 
 ## GRANE
-`git BRANCH develop` // stvara granu develop, koju cu kasnije moci da spojim sa master granom ili da je obrisem.  
+`git BRANCH develop` // stvara granu develop, koju cu kasnije moci da spojim sa master granom i/ili da je obrisem.  
 `git BRANCH -v` // pregled svih grana  
 `git BRANCH -d develop` // brisanje develop grane  
-`git CHECKOUT develop` // prebacivanje na develop granu. Pre ovoga uraditi commit da bi snimio  
+`git CHECKOUT develop` // prebacivanje na develop granu. Pre ovoga uraditi commit da bi snimio, ili stash.  
 `git MERGE develop` // Prilikom spajanja grana, potrebno je vratiti se na roditeljsku granu (master) i pozvati komandu git merge \<develop>  
-`git REBASE master` // Drugi nacin spajanja. Uglavno služi u svrhe dopunjavanja sporednih grana (develop) izmenama sa master grane. Ovo pokrecem dok sam na develop grani.  
+`git REBASE master` // Drugi nacin spajanja. Uglavnom služi u svrhe dopunjavanja sporednih grana (develop) izmenama sa master grane. Ovo pokrecem dok sam na develop grani.  
 
 ## UPSTREAM
 
