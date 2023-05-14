@@ -38,6 +38,17 @@
 
 ## ! Paznja !
 * Skoro sve metode za Array MENJAJU original, osim onih koje koriste callbackfn.  
+* Array methods are always generic (srp. opste, generalno) — they don't access any internal (ne-index) data of the array object. They only access the array elements through the length property and the indexed elements. This means that they can be called on array-like objects as well.
+
+```js
+const arrayLike = {
+  0: "a",
+  1: "b",
+  length: 2,
+};
+console.log(Array.prototype.join.call(arrayLike, ", ")); // "a, b"
+```
+
 * (VS CODE) Ako mi trebaju tacniji podatci sta koja metoda radi> hover preko metode i pojavi se opis.
 
 ## Promenljive koje se koriste u primerima u fajlu
@@ -565,8 +576,22 @@ let maped3 = arrObj.map(x => (x.qqq + x.www) * x.eee); console.log(maped3); //! 
 
 ### *forEach*
 
-  * forEach - Izvrsava se callback f-ja nad svakim elementom. !!! Radi samo sa Array + ne moze da radi sa praznim elementima niza. forEach ne menja Array, ali c.b. f-ja moze da ga promeni. Ne mora da ima return (primer 1), osim ako mu ne kazes (primer 2). Sporija od .map.
-
+  * forEach - Izvrsava se callback f-ja nad svakim elementom. Sluzi da bi se nesto uradilo sa elementima iz niza npr. slanje u konzolu ili slanje na HTML stranicu, u neku tabelu. 
+    + !!! Radi samo sa Array 
+    + !!! Ne moze da radi sa praznim elementima niza (sparse array)
+    + !!! Iteracija ne moze da se prekine sa return. Eventualno sa `throw Error()`, ali ako su prekidi potrebni onda bolje probati sa: for, for...of, Array.prototype: every, some, find, findIndex.
+    + !!! return uvek vraca `undefined`
+      - posle forEach-a, nema nadovezivanja lancano, sto je i logicno jer je return `undefined`.
+      - Posto je nenadoveziv, najcesce se koristi na kraju lanca da bi izvrsio "side effect". Vidi fajl "Sta je side effect.md"
+    + forEach ne menja Array, ali c.b. f-ja moze da ga promeni 
+    + `length` niza se snima pre nego sto se pokrene prva iteracija. Prem tome:
+      - c.b. f-ja nece koristiti elemente koji su izvan `length`-a koji se snimio na pocetku.
+      - ?!ne razumem? Changes to already-visited indexes do not cause callbackFn to be invoked on them again.
+      - Ako postoji, jos-neposeceni element niza koji je vec promenjen od cb f-je, njegova vrednost koju prosledjuje ce biti ona koja je bila u vreme prve posete.
+      - Obrisani elementi se ne posecuju.
+      - !!! Upozorenje: Istovremene modifikacije gore opisane vrste često dovode do teško razumljivog koda i generalno ih treba izbegavati (osim u posebnim slučajevima).
+    + Ne mora da ima return (primer 1), osim ako mu ne kazes (primer 2). Sporiji od .map.
+    + forEach() ocekuje rad sa sinhronim f-jama => izbegavati prmomiss ili async f-ju, forEach nece cekati odgovore.
   * callback f-ja moze da ima 4 parametra: vrednost_elementa, index_elementa, pozvani_niz, thisArg (vrednost koja se koristi kao 'this' argument pri pozivanju f-je)
 
 </md>
