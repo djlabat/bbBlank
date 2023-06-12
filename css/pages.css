@@ -32,3 +32,8 @@ td,th {
   background-color: #111;
   padding: 10px;
 }
+.back-to-top {
+  position: fixed;
+  top: 10px;
+  left:300px;
+}
