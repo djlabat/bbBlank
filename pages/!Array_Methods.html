@@ -22,32 +22,37 @@
 </head>
 <body>
 
+<a href="#" class="back-to-top">SADRZAJ</a>
+
 <md>
 
 # ARRAY METODE
 
 ## SADRZAJ:  
-[SECKANJA](#seckanja)  
-[RAZNI ALATI](#razni-alati)  
-[FILTRIRANJE POMOCU CALLBACK F-JA](#filtriranje-pomocu-callback-f-ja)  
-[REDUCE](#reduce)  
-[MAP I FOREACH](#map-i-foreach)  
-[PAKOVANJE U STRING](#pakovanje-u-string)  
-[ARRAY PROTOTYPE](#array-prototype)  
-[MANJE BITNE STVARI](#manje-bitne-stvari)  
++ [SECKANJA](#seckanja) | [slice](#slice) | [splice](#splice) | [pop](#pop) | [push](#push) | [shift](#shift) | [unshift](#unshift)  
++ [RAZNI ALATI](#razni-alati) | [reverse](#reverse) | [fill](#fill) | [copyWithin](#copywithin) | [sort](#sort) | [concat](#concat) | [includes](#includes)  
++ [FILTRIRANJE POMOCU CALLBACK F-JA](#filtriranje-pomocu-callback-f-ja) | [filter](#filter) | [every](#every) | [some](#some) | [find](#find) | [findIndex](#findindex) | [indexOf](#indexof) | [lastIndexOf](#lastindexof) | [flat](#flat) | [flatMap](#flatmap)  
++ [REDUCE](#reduce) | [reduceRight](#reduceright)  
++ [MAP](#map) | [forEach](#foreach)  
++ [PAKOVANJE U STRING](#pakovanje-u-string) | [toString](#tostring), [join](#join)  
++ [ARRAY PROTOTYPE](#array-prototype) | [Array()](#array) | [Array.of()](#arrayof) | [Array.from()](#arrayfrom) | [Array.isArray()](#arrayisarray) | [Array.entries()](#arrayentries) | [Array.keys()](#arraykeys)  
++ [MANJE BITNE STVARI](#manje-bitne-stvari)
 
 ## ! Paznja !
 * Skoro sve metode za Array MENJAJU original, osim onih koje koriste callbackfn.  
-* Array methods are always generic (srp. opste, generalno) — they don't access any internal (ne-index) data of the array object. They only access the array elements through the length property and the indexed elements. This means that they can be called on array-like objects as well.
+* Array methods are always generic (srp. opšte, generalne) — they don't access any internal (ne-index) data of the array object. They only access the array elements through the length property and the indexed elements. This means that they can be called on array-like objects as well.
 
-```js
-const arrayLike = {
+</md>
+
+<pre>
+<code>const arrayLike = {
   0: "a",
   1: "b",
   length: 2,
 };
-console.log(Array.prototype.join.call(arrayLike, ", ")); // "a, b"
-```
+Array.prototype.join.call(arrayLike, ", "); // "a, b"</code>
+</pre>
+<md>
 
 * (VS CODE) Ako mi trebaju tacniji podatci sta koja metoda radi> hover preko metode i pojavi se opis.
 
@@ -63,8 +68,6 @@ let one2 = [1, 2]
 <md>
 
 
-
-  
 ## **SECKANJA**
 
 ### UKRATKO TABELA ISPOD PRIKAZUJE STA KOJA (SEC) METODA VRACA:
@@ -74,7 +77,7 @@ let one2 = [1, 2]
 
 * metode koje seku na pocetku i kraju (shift i pop) vracaju ono sto su obrisali
 * metode koje ubacuju na pocetku i kraju (unshift i push) vracaju novi length
-* splice vraca ono sto je odsekao, ali kao Array
+* splice vraca ono sto je odsekao, ali kao [Array]
 
 ### *slice*  
 
@@ -107,9 +110,105 @@ let sliceed2 = abc.slice(); console.log(sliceed2); // [a,b,c,d,e]
 <code>abc = ["a", "b", "c", "d", "e"]
 let spliced = abc.splice(2, 1, 'Q', 'W') // index_od, duzina, novi_elementi - 'splice' od 'abc' odseca 'c' i zamenjuje ga sa 'Q', 'W' i vraca novi array od odsecenog ['c']
 abc // [a,b,Q,W,d,e]
-// Ako hocu da UBACIM novi element na ODREDJENU poziciju:
-spliced = abc.splice(3, 1, abc[3], 'E') 
-abc // [a,b,Q,W,E,d,e]
+</code>
+</pre>
+
+<md>  
+  * Splice super sluzi za pomeranje, ubacivanje, izbacivanje elemenata u nizu 
+
+  * Splice moze da se poredi sa editovanjem texta (selektovanje teksta, cut, kucanje/paste):
+  
+    - Prva dva (prametra) od .slice su kao selekcija slova 
+    u tekstu (pocetak selekcije, duzina selekcije),
+    - to sto smo selektovali sa prva dva (parametra) ce da
+    se cut-uje tj. da se obrise i return-uje iz .splice u obliku [niza],
+    - ostali parametri su ono sto se ubacuje umesto 
+    selekcije teksta tj. paste-uje se ili kuca.  
+
+#### primeri pomeranja jednog elementa u nizu
+</md>
+Pomeranje 4-ke u nizu  
+<pre>
+<code>arr = [1,2,3,4,5]
+//          ┌── ← ── 4 ── ← ──┐
+arr.splice(1,0,...arr.splice(3,1))
+// [ 1 4 2 3 5 ]
+</code>
+</pre>
+
+Premestena 3-ka na POCETAK sa UNSHIFT  
+<pre>
+<code>arr = [1,2,3,4,5]
+arr.unshift(...arr.splice(2,1))
+// [1,2,3,4,5] => [3,1,2,4,5]
+</code>
+</pre>
+
+Premestena 3-ka na KRAJ sa PUSH
+<pre>
+<code>arr = [1,2,3,4,5]
+arr.push(...arr.splice(2,1))
+// [1,2,3,4,5] => [3,1,2,4,5]
+</code>
+</pre>
+
+Premestena 2 i 3-ka na kraj
+<pre>
+<code>arr = [1,2,3,4,5]
+arr.splice(3,0, ...arr.splice(1,2))
+// [ 1 4 5 2 3 ]
+</code>
+</pre>
+
+Izbacena 4-ka  
+<pre>
+<code>arr = [1,2,3,4,5]
+arr.splice(-2,1) // moze -index
+// [ 1 2 3 5 ]
+</code>
+</pre>
+
+<md>#### primeri razmene vrednosti dva elementa  </md>
+
+Promena mesta 2 i 4-ke  
+<pre>
+<code>arr = [1,2,3,4,5]
+//  ┌─── ← ──2── ← ──┐┌ ← 4 ← ┐
+arr[3] = arr.splice(1, 1, arr[3]) [0]
+// komutativnost parametara je moguca
+arr[1] = arr.splice(3,1, arr[1]) [0] // isti rezultat
+</code>
+</pre>
+
+
+
+
+Promena mesta 2-ke i 4-ke (Ako su poznate :vrednosti)  
+<pre>
+<code>arr = [1,2,3,4,5]
+arr.splice(1,1,4) // select 2 and overwright with 4
+arr.splice(3,1,2) // select 4 and overwright with 2
+// ili u jednoj liniji
+// select 2, copy, overwright ▼ 2 with 4
+arr.splice(3,1,...arr.splice(1,1,4))
+// select 4 ▲ and overwright with paste 2
+</code>
+</pre>
+
+
+Ubacivanje novog elementa na odredjenu poziciju (poznate :vrednosti)  
+<pre>
+<code>arr = [1,2,3,4,5]
+arr.splice(2,0,'x') // [ 1 2 x 3 4 5 ]
+</code>
+</pre>
+
+Visestruko kopiranje (ubacivanje) elementa u nizu
+<pre>
+<code>arr = [1,2,3]
+temp = Array(3).fill(arr[1])
+arr.splice(1,1,...temp)
+arr // [ 1, 2, 2, 2, 3 ]
 </code>
 </pre>
 <md>
@@ -736,7 +835,7 @@ typeof str === "string" // true
 </pre>
 <md>
 
-###  *Array.entries*
+###  *Array.entries()*
 
   * Array.entries - Vraca iteraciju u obliku [kljuc, vrednost].
 
@@ -752,7 +851,7 @@ console.log(entriesFromArr); //! [[0,"a"], [1,"b"], [2,"c"]]
 </pre>
 <md>
 
-### *Array.keys*
+### *Array.keys()*
 
   * Array.keys - vrace ITERATOR kljuceva (ako je Array onda su to indexi)
 </md>
