@@ -33,13 +33,11 @@ td,th {
   padding: 10px;
 }
 .back-to-top {
-  position: fixed;
-  bottom: 16px;
-  right: 30px;
   display: block;
-  width: 48px;
+  position: sticky;
+  top: 0px;
+  padding: 8px 16px 100vh 40px;
   text-align: center;
-  font-size: 24px;
-  background-color: #0e0e3f;
+  background: linear-gradient(#0e0e3f, #000);
 
 }
