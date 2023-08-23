@@ -23,12 +23,15 @@
 <body>
 
 <a href="#" class="back-to-top">SADRZAJ</a>
-
+<!--
+</md><h2 id="seckanja"><b>SECKANJA</b></h2><md>
+</md><h3 id="sasa"><i>sasa</i></h3><md>
+-->
 <md>
 
 # ARRAY METODE
 
-## SADRZAJ:  
+## SADRZAJ: 
 + [SECKANJA](#seckanja) | [slice](#slice) | [splice](#splice) | [pop](#pop) | [push](#push) | [shift](#shift) | [unshift](#unshift)  
 + [RAZNI ALATI](#razni-alati) | [reverse](#reverse) | [fill](#fill) | [copyWithin](#copywithin) | [sort](#sort) | [concat](#concat) | [includes](#includes)  
 + [FILTRIRANJE POMOCU CALLBACK F-JA](#filtriranje-pomocu-callback-f-ja) | [filter](#filter) | [every](#every) | [some](#some) | [find](#find) | [findIndex](#findindex) | [indexOf](#indexof) | [lastIndexOf](#lastindexof) | [flat](#flat) | [flatMap](#flatmap)  
@@ -67,8 +70,8 @@ let one2 = [1, 2]
 </pre>
 <md>
 
+</md><h2 id="seckanja"><b>SECKANJA</b></h2><md>
 
-## **SECKANJA**
 
 ### UKRATKO TABELA ISPOD PRIKAZUJE STA KOJA (SEC) METODA VRACA:
 |      METODA: | shift  | unshift  | splice  |  push  |  pop  |
@@ -79,7 +82,7 @@ let one2 = [1, 2]
 * metode koje ubacuju na pocetku i kraju (unshift i push) vracaju novi length
 * splice vraca ono sto je odsekao, ali kao [Array]
 
-### *slice*  
+</md><h3 id="slice"><i>slice</i></h3><md>
 
   * slice ~ crop, isecak ( od index-a, do indexa) ---negativne vrednosti broji od kraja. NEmenja original 'abc'  
 
@@ -101,7 +104,8 @@ let sliceed2 = abc.slice(); console.log(sliceed2); // [a,b,c,d,e]
 </code>
 </pre>
 <md>
-### *splice*  
+
+</md><h3 id="splice"><i>splice</i></h3><md>
   
   * splice ~ replace - MENJA original 'abc' - Pamtim, kao da se na "slice" zalepi 'p'  
 
@@ -112,7 +116,6 @@ let spliced = abc.splice(2, 1, 'Q', 'W') // index_od, duzina, novi_elementi - 's
 abc // [a,b,Q,W,d,e]
 </code>
 </pre>
-
 <md>  
   * Splice super sluzi za pomeranje, ubacivanje, izbacivanje elemenata u nizu 
 
@@ -213,7 +216,7 @@ arr // [ 1, 2, 2, 2, 3 ]
 </pre>
 <md>
 
-### *pop* 
+</md><h3 id="pop"><i>pop</i></h3><md>
   
   * pop - menja original 'abc'
 
@@ -228,7 +231,7 @@ console.log(abc); // ['a', 'b', 'c', 'd']
 <md>
 
 
-### *push* 
+</md><h3 id="push"><i>push</i></h3><md>
   
   * push - menja original 'abc'
 
@@ -243,7 +246,7 @@ console.log(pushed, typeof pushed); // 6 'number' = abc.length
 <md>
 
 
-### *shift*
+</md><h3 id="shift"><i>shift</i></h3><md>
 
   * shift - menja original 'abc'
 
@@ -257,7 +260,7 @@ console.log(shifted, typeof shifted); // a string
 </pre>
 <md>
 
-### *unshift*
+</md><h3 id="unshift"><i>unshift</i></h3><md>
   
   * unshift - menja original 'abc'
 
@@ -273,7 +276,7 @@ console.log(unshifted, typeof unshifted); // 7 'number' = abc.length
   
 ---------------------------------------------------------------------------------------------------------
 
-## **RAZNI ALATI**
+</md><h2 id="razni-alati"><b>RAZNI ALATI</b></h2><md>
 
   * PAZNJA: Alati ispod menjaju original.
 
@@ -288,7 +291,7 @@ var q5 = q2.copyWithin(1,2,3) // q5 = q4 = q3 = q2 = q1 = [5,3,3,2]
 </pre>
 <md>
 
-### *reverse*
+</md><h3 id="reverse"><i>reverse</i></h3><md>
 
   * reverse ~ mirror MENJA ORIGINAL!
 
@@ -302,7 +305,7 @@ console.log(reversed); //  [ 'e', 'd', 'c', 'b', 'a' ]
 </pre>
 <md>
 
-### *fill* 
+</md><h3 id="fill"><i>fill</i></h3><md>
 
   * fill ~ repeat() --- cime, od...do. MENJA ORIGINAL!
 
@@ -315,8 +318,8 @@ console.log(abc); // ['e', 'd', 'A', 'A', 'A']
 </pre>
 <md>
 
-### *copyWithin*
-  
+</md><h3 id="copywithin"><i>copyWithin</i></h3><md>
+
   * copyWithin --- kopiranje elemenata unutar niza
   * parametri (gde_kopirati, sta_od, sta_do) - "sta_od" standardna vrednost mu je 'abc.length'. MENJA ORIGINAL!
 
@@ -329,7 +332,7 @@ console.log(abc); // ['e', 'd', 'A', 'A', 'A']
 
   * Ne moze da pravi nove elemente u nizu, tj. ne moze da menja .length
 
-### *sort*
+</md><h3 id="sort"><i>sort</i></h3><md>
 
   * sort - sortiranje po unikod vrednostima (sve se konvertuje u strignove pa se sortira). MENJA ORIGINAL!
 
@@ -350,7 +353,7 @@ console.log([1, 2, 3, 4, 5, 6, 7, 8, 9].sort((a, b) => { return 0.5 - Math.rando
 </pre>
 <md>
 
-### *concat* 
+</md><h3 id="concat"><i>concat</i></h3><md>
 
   * concat - spajanje nizova. NE MENJA ORIGINAL!
 
@@ -364,7 +367,7 @@ concated = zxc.concat(); console.log(concated); // [z,x,c] // pravljenje kopije
 </pre>
 <md>
 
-### *includes* 
+</md><h3 id="includes"><i>includes</i></h3><md>
   
   * includes ~ find - provera da li zadati element postoji u nizu. Varaca Boolean.
 
@@ -379,9 +382,9 @@ console.log(abc); // [ 'a', 'b', 'c', 'd', 'e' ]
 </pre>
 <md>
 
-## **FILTRIRANJE POMOCU CALLBACK F-JA**
+</md><h2 id="filtriranje-pomocu-callback-f-ja"><b>FILTRIRANJE POMOCU CALLBACK F-JA</b></h2><md>
 
-### *filter*
+</md><h3 id="filter"><i>filter</i></h3><md>
 
   * filter - Pravi novi niz filtracijom elemenata zadatog niza, po zadatoj f-ji
   * f-ja moze da ima 4 parametra: vrednost_elementa, index_elementa, pozvani_niz, thisArg (vrednost koja se koristi kao 'this' argument pri pozivanju f-je)
@@ -407,7 +410,7 @@ console.log(intersekcijaDvaNiza); //! ['A','A','A']
 </pre>
 <md>
 
-### *every* 
+</md><h3 id="every"><i>every</i></h3><md>
   
   * *every* - proverava da li svi elementi mogu da prodju zadatu funkciju. Ako svi prodju, vraca True; ako jedan punke, prekida se provera i vraca False.
   * f-ja moze da ima 4 parametra: vrednost_elementa, index_elementa, pozvani_niz, thisArg (vrednost koja se koristi kao 'this' argument pri pozivanju f-je)
@@ -420,8 +423,8 @@ console.log(abc); //! [YoY,XxX,d,A,A,A,YoY,XxX]
 </pre>
 <md>
 
-### *some*
-  
+</md><h3 id="some"><i>some</i></h3><md>
+
   * some - proverava da li bar jedan element moze da prodje callback f-ju. Vraca boolean
   * callback f-ja moze da ima 4 parametra: vrednost_elementa, index_elementa, pozvani_niz, thisArg (vrednost koja se koristi kao 
   'this' argument pri pozivanju f-je)
@@ -433,7 +436,7 @@ console.log(abc); //! [YoY,XxX,d,A,A,A,YoY,XxX]
 </pre>
 <md>
 
-### *find*
+</md><h3 id="find"><i>find</i></h3><md>
 
   * find - proverava sve elemente sa callback f-jom, a ako f-ja negde vrati 'true' pretraga se prekida i vraca se vrednost tog elementa.
   * callback f-ja moze da ima 4 parametra: vrednost_elementa, index_elementa, pozvani_niz, thisArg (vrednost koja se koristi kao 'this' argument pri pozivanju f-je)
@@ -446,7 +449,7 @@ console.log(abc); //! [YoY,XxX,A,A,A,YoY,XxX]
 </pre>
 <md>
 
-### *findIndex*
+</md><h3 id="findindex"><i>findIndex</i></h3><md>
 
   * findIndex - proverava sve elemente sa callback f-jom, a ako f-ja negde vrati 'true' pretraga se prekida i vraca se index tog elementa.
 
@@ -459,7 +462,8 @@ abc = ['YoY', 'XxX', 'A', 'A', 'A', 'YoY', 'XxX']
 </pre>
 <md>
 
-### *indexOf*
+
+</md><h3 id="indexof"><i>indexOf</i></h3><md>
 
   * indexOf - trazi element, a vraca INDEX OD njega. proverava da li postoji zadati element. Ako ga nadje prkida pretragu i vraca index gde ga je naisao. Ako nije nasao -1
   * Metoda moze da ima 2 parametra: vrednost_elementa, index_pocetka_pretrage
@@ -472,7 +476,7 @@ console.log(abc); //! [YoY,XxX,A,A,A,YoY,XxX]
 </pre>
 <md>
 
-### *lastIndexOf*
+</md><h3 id="lastindexof"><i>lastIndexOf</i></h3><md>
 
   * lastIndexOf - isto sto i 'indexOf, ali pretraga se vrsi sa kraja
   * Metoda moze da ima 2 parametra: vrednost_elementa, index_pocetka_pretrage
@@ -485,7 +489,7 @@ console.log(abc.lastIndexOf('ss', -2)); //! 1
 </pre>
 <md>
 
-### *flat*
+</md><h3 id="flat"><i>flat</i></h3><md>
 
   * flat - svodjenje multi-dimenzionalnih nizova
   * Metoda moze da ima 1 parametar: dubina_svodjenja. Default je 1
@@ -498,7 +502,7 @@ console.log(num.flat(3)); //! [1,2,3,4,[5,[6,[7,[8]]]]]
 </pre>
 <md>
 
-### *flatMap*
+</md><h3 id="flatmap"><i>flatMap</i></h3><md>
   
   * flatMap ~ map+flat
 
@@ -526,7 +530,7 @@ str2split.split('^')
 
 ## **REDUCE**
 
-### *reduce*
+</md><h3 id="reduce"><i>reduce</i></h3><md>
 
   * reduce() Sta radi? Reduce() uzma dva susedna elementa niza i nesto uradi sa njima, u zavisnosti od toga sta je definisano u callback funkciji. U sledecem krugu racunanja, ono sto je bio RETURN od prethodne callback funkcije, bice prvi argument u trenutnoj funkciji (zove se akomulator ili prethodna vrednost), a za drugi argument se uzima sledeci element niza (sabirak ili trenutna vrednost).
 
@@ -576,7 +580,7 @@ equalOr(q, w,e,q)
 </pre>
 <md>
 
-### *reduceRight*
+</md><h3 id="reduceright"><i>reduceRight</i></h3><md>
 
   * reduceRight---Isto sto i 'reduce' samo sto pocinje sa kraja
 
@@ -652,7 +656,7 @@ sviNadimci(psi, "nadimci") // [ Beki, Čupi, Pufi, Lizača, Vuki, Vule, Matori, 
 
 ## **MAP i FOREACH** 
 
-### *map*
+</md><h3 id="map"><i>map</i></h3><md>
 
   * map - Slicno kao forEach, samo sto pravi novi Array, a ne menja original
   * otvara se svaki element niza, nesto mu se uradi i pravi se novi niz.
@@ -673,24 +677,24 @@ let maped3 = arrObj.map(x => (x.qqq + x.www) * x.eee); console.log(maped3); //! 
 </pre>
 <md>
 
-### *forEach*
+</md><h3 id="foreach"><i>forEach</i></h3><md>
 
   * forEach - Izvrsava se callback f-ja nad svakim elementom. Sluzi da bi se nesto uradilo sa elementima iz niza npr. slanje u konzolu ili slanje na HTML stranicu, u neku tabelu. 
     + !!! Radi samo sa Array 
     + !!! Ne moze da radi sa praznim elementima niza (sparse array)
-    + !!! Iteracija ne moze da se prekine sa return. Eventualno sa `throw Error()`, ali ako su prekidi potrebni onda bolje probati sa: for, for...of, Array.prototype: every, some, find, findIndex.
+    + !!! Iteracija ne moze da se prekine sa `return`. Eventualno sa `throw Error()`, ali ako su prekidi potrebni onda bolje probati sa: for, for...of, Array.prototype.every (some, find, findIndex).
     + !!! return uvek vraca `undefined`
       - posle forEach-a, nema nadovezivanja lancano, sto je i logicno jer je return `undefined`.
       - Posto je nenadoveziv, najcesce se koristi na kraju lanca da bi izvrsio "side effect". Vidi fajl "Sta je side effect.md"
     + forEach ne menja Array, ali c.b. f-ja moze da ga promeni 
-    + `length` niza se snima pre nego sto se pokrene prva iteracija. Prem tome:
+    + `length` niza se snima pre nego sto se pokrene prva iteracija. Prema tome:
       - c.b. f-ja nece koristiti elemente koji su izvan `length`-a koji se snimio na pocetku.
       - ?!ne razumem? Changes to already-visited indexes do not cause callbackFn to be invoked on them again.
       - Ako postoji, jos-neposeceni element niza koji je vec promenjen od cb f-je, njegova vrednost koju prosledjuje ce biti ona koja je bila u vreme prve posete.
       - Obrisani elementi se ne posecuju.
       - !!! Upozorenje: Istovremene modifikacije gore opisane vrste često dovode do teško razumljivog koda i generalno ih treba izbegavati (osim u posebnim slučajevima).
     + Ne mora da ima return (primer 1), osim ako mu ne kazes (primer 2). Sporiji od .map.
-    + forEach() ocekuje rad sa sinhronim f-jama => izbegavati prmomiss ili async f-ju, forEach nece cekati odgovore.
+    + forEach() ocekuje rad sa SINHRONIM f-jama => izbegavati promis ili async f-ju, forEach nece cekati odgovore.
   * callback f-ja moze da ima 4 parametra: vrednost_elementa, index_elementa, pozvani_niz, thisArg (vrednost koja se koristi kao 'this' argument pri pozivanju f-je)
 
 </md>
@@ -723,9 +727,9 @@ d // {q:undef., w:undef., e:undef., r:undef., ...}
 </pre>
 <md>
 
-## **PAKOVANJE U STRING**
+</md><h2 id="pakovanje-u-string"><b>PAKOVANJE U STRING</b></h2><md>
 
-### *toString*
+</md><h3 id="tostring"><i>toString</i></h3><md>
 
   * *toString* - ne pretvara u String, nego ga samo prikazuje kao String. 
   * Ako hocu da ga pretvorim, moram taj prikaz da snimim u neku novu promenljivu.
@@ -739,7 +743,7 @@ abc; //! [YOY,XxX,A,A,A,YOY,XxX]
 </pre>
 <md>
 
-### *join*
+</md><h3 id="join"><i>join</i></h3><md>
 
   * join - Spaja elemente nizolikog objekta u String.
   * To radi pomocu dopisivanja (konkatenacija).
@@ -755,9 +759,9 @@ elements // ne promenjeno - ['Fire', 'Air', 'Water']
 </pre>
 <md>
 
-## **ARRAY PROTOTYPE**
+</md><h2 id="array-prototype"><b>ARRAY PROTOTYPE</b></h2><md>
 
-### *Array()*
+</md><h3 id="array"><i>Array()</i></h3><md>
 
   * Array "constructor" je metoda koja sluzi za pravljenje novih nizova. Array() u sebi sadrzi jos neke sub-metode. Array, bez zagrada, je Objekat Array, koji u sebi, pod "prototype.constructor" sadrzi metodu Array()
 
@@ -771,7 +775,8 @@ console.log(Array.constructor==Array) // F *ovo je konstruktor za f-ju.
 </code>
 </pre>
 <md>
-### *Array.of()*
+
+</md><h3 id="arrayof"><i>Array.of()</i></h3><md>
 
   * Array.of() - Ako se unosi vise parametara onda je isto kao i "constructor", ali ako se unese samo jedan parametar onda se vidi razlika:
 
@@ -783,7 +788,7 @@ arrayed = Array(3); // [ <3 empty slots> ]
 </pre>
 <md>
 
-### *Array.from()*
+</md><h3 id="arrayfrom"><i>Array.from()</i></h3><md>
 
   * Array.from() - Pravi niz od necega sto je nizolikog oblika (str, arr, Map, Set) ili od iteratora.
   * Metoda moze da ima 3 parametra: {izvor_od_cega_ce_da_se_pravi_niz}, map_f-ja, thisArg (vrednost koja se koristi kao 'this' argument pri pozivanju map f-je).
@@ -803,8 +808,8 @@ Array.from(Array(6).keys()).slice(1) // [1,2,3,4,5] - moj naziv za ovo je AFAKS 
 </pre>
 <md>
 
-### *Array.isArray()*
-  
+</md><h3 id="arrayisarray"><i>Array.isArray()</i></h3><md>
+
   * Array.isArray() - proverava da li je niz
 
 </md>
@@ -835,7 +840,7 @@ typeof str === "string" // true
 </pre>
 <md>
 
-###  *Array.entries()*
+</md><h3 id="arrayentries"><i>Array.entries()</i></h3><md>
 
   * Array.entries - Vraca iteraciju u obliku [kljuc, vrednost].
 
@@ -851,7 +856,7 @@ console.log(entriesFromArr); //! [[0,"a"], [1,"b"], [2,"c"]]
 </pre>
 <md>
 
-### *Array.keys()*
+</md><h3 id="arraykeys"><i>Array.keys()</i></h3><md>
 
   * Array.keys - vrace ITERATOR kljuceva (ako je Array onda su to indexi)
 </md>
@@ -863,7 +868,7 @@ console.log(Array.from(nizAZ_2.keys())); //! [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 
 </pre>
 <md>
 
-### *manje bitne stvari*
+</md><h3 id="manje-bitne-stvari"><i>manje bitne stvari</i></h3><md>
 
 Array.name // "Array" - zamrznuta vrednost  
 
