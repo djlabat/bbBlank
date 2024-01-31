@@ -22,9 +22,9 @@
 </head>
 <body>
 
-<md>
-# NPM - osnove
-
+  <h1>NPM - osnove</h1>
+  
+  <md>
 * [UPDATE NPM](#update-npm)  
 * [INICIJALIZACIJA](#inicijalizacija)  
 * [PRVA INSTALACIJA PAKETA](#prva-instalacija-paketa)  
@@ -40,239 +40,274 @@
   + [Pregled outdated verzija](#pregled-outdated-verzija)  
 * [MOJI ZAPISI](#moji-zapisi)  
   + [npm START](#npm-start)  
-  + [package-lock json](#package-lock-json)  
+</md>
 
+<h2 id="brzi-podsetnik">BRZI PODSETNIK</h2>
 
-## BRZI PODSETNIK
-+ npm init - INICIJALIZACIJA => nastaje fajl "package.json"  
-+ npm i - INSTALACIJA SVIH PAKETA IZ package.json
-+ npm i nazivPaketa [-global] [-save-dev] - INSTALACIJA NOVIH PAKETA
-+ npm prune - BRISANJE NE NEUPISANIH MODULA U package.json
-+ npm i express
-izvor:  
-https://www.webprogramiranje.org/npm-yarn-osnove/
+<md>>
+  + npm init - INICIJALIZACIJA => nastaje fajl "package.json"  
+  + npm i - INSTALACIJA SVIH PAKETA IZ package.json
+  + npm i nazivPaketa [-global] [-save-dev] - INSTALACIJA NOVIH PAKETA
+  + npm prune - BRISANJE NE NEUPISANIH MODULA U package.json
+  + npm i express
+  izvor:  
+  https://www.webprogramiranje.org/npm-yarn-osnove/
+</md>
+  
+<h2 id="update-npm">UPDATE NPM</h2>
 
-## UPDATE NPM
+<md>
+  ```sh
+  npm install -global npm
+  ```
+</md>
 
-```sh
-npm install -global npm
-```
+<h2 id="inicijalizacija">INICIJALIZACIJA  </h2>
 
-## INICIJALIZACIJA  
+<md>
+  Inicijalizacija znaci otvaranje novog projekta.
+  
+  ```sh
+  npm init
+  ```
+  Posle ove komande nastaje fajl `package.json`.
+  `package.json` sadrzi pravila za pokretanje aplikacije i za instalaciju dependencies-a. Evo nekih svojstva za objasniti:
+    - main: Startni fajl projekta. Ako ostavim prazno bice `index.js`.
+    - scripts: Ovde se upisuju neke moje skripte (cmd linije) koje zelim da pokrecem `npm run` komandom. Vidi naslov [RUN SCRIPT](#run-script)
+    - `dependencies`: Packages required by your application in production (npr. http).
+    - `devDependencies`: Packages that are only needed for local development and testing (npr. eslint, grunt, Jest).
+    - `optionalDependencies`
+</md>
 
-Inicijalizacija znaci otvaranje novog projekta.
+<h2 id="prva-instalacija-paketa">PRVA INSTALACIJA PAKETA</h2>
+  <h3>a) Globalna instalacija (operativni sistem)</h3>
 
-```sh
-npm init
-```
-Posle ove komande nastaje fajl `package.json`.  
-`package.json` sadrzi pravila za pokretanje aplikacije i za instalaciju dependencies-a. Evo nekih svojstva za objasniti:
-  - main: Startni fajl projekta. Ako ostavim prazno bice `index.js`.
-  - scripts: Ovde se upisuju neke moje skripte (cmd linije) koje zelim da pokrecem `npm run` komandom. Vidi naslov [RUN SCRIPT](#run-script)
-  - `dependencies`: Packages required by your application in production (npr. http).
-  - `devDependencies`: Packages that are only needed for local development and testing (npr. eslint, grunt, Jest).
-  - `optionalDependencies`
+<md>
+  ```sh
+  npm install -global nazivPaketa
+  ```
+</md>
 
-## PRVA INSTALACIJA PAKETA
-### a) Globalna instalacija (operativni sistem)
+  <h3>b) Lokalna instalacija (u projektu)</h3>
 
-```sh
-npm install -global nazivPaketa
-```
+<md>
+  ```sh
+  npm install nazivPaketa [--save-dev]
+  ```
+  
+  Opcije pri instalaciji:
+  
+  | Flag 			| Shortcut | Namena                          |
+  | ----------| -------- | ------------------------------- |
+  | –-save 		| -S 	     | Dodavanje paketa u Dependencies u package.json, ali ovo se radi po difoltu od NPM 5, tako da je postalo nepotrebno. |
+  | –-save-dev | -D 	   | Dodavanje paketa u devDependencies, ovo NIJE default |
+  | --save-optional | ?  | Dodavanje paketa u optionalDependencies. NIJE difolt |
+  | @1.2.3 		| 	 	     | Dadatak zalepljen uz naziv paketa koji definiše tačnu verziju paketa koju želimo da instaliramo (ukoliko se izostavi instalira najnoviju verziju) |  
+</md>
+  
+  <h3>package-lock json</h3>
 
-### b) Lokalna instalacija (u projektu)
+<md>
+  `package-lock.json` NASTAJE pri bilo kakvoj PROMENI `package.json` fajla ILI PROMENI direktorijuma `node_modules`.
+  
+  ZAKLJUCAVA VERZIJU MODULA tacno na onu VERZIJU koja je bila prilikom PRVOG INSTALIRANJA.
+  
+  Primer: Instalirao sam modul `http` sa verzijom `^1.2.3`. Neko drugi je klonirao moj projekat na svoj komp i hoce da instalira module. Pokrece komandu `npm i`. NPM se prvo pogledati `package-lock.json` i instalirati tacno verziju 1.2.3, cak i ako postoji novija verzija modula. Znaci verzija 1.2.3 je minimalna i sigurna verzija, pod kojom ce projekat raditi sve kako treba.
+  
+  U slucaju da NE postoji `package-lock.json`, NPM ce instalirati pomocu `package.json`, a to znaci da ce instalirati NAJNOVIJE verzije modula.
+</md>
 
-```sh
-npm install nazivPaketa [--save-dev]
-```
+  <h4>Zasto je *package-lock.json* veci od *package.json*</h4>
 
-Opcije pri instalaciji:
+<md>Zato sto on snima i sub-dependencies, i sub-sub-dependencies, i sub-sub-sub-... bilo kog modula koji se koristi u projektu.</md>
 
-| Flag 			| Shortcut | Namena                          |
-| ----------| -------- | ------------------------------- |
-| –-save 		| -S 	     | Dodavanje paketa u Dependencies u package.json, ali ovo se radi po difoltu od NPM 5, tako da je postalo nepotrebno. |
-| –-save-dev | -D 	   | Dodavanje paketa u devDependencies, ovo NIJE default |
-| --save-optional | ?  | Dodavanje paketa u optionalDependencies. NIJE difolt |
-| @1.2.3 		| 	 	     | Dadatak zalepljen uz naziv paketa koji definiše tačnu verziju paketa koju želimo da instaliramo (ukoliko se izostavi instalira najnoviju verziju) |  
+  <h3>Why is this caret^ symbol important, and why should you take note of it?</h3>
 
-### package-lock json  
+<md>
+  When committing your changes on a version control platform like Git, you don’t need to push the node modules folder. Now, if somebody downloads/clones your repository on their system, they will run the npm install command, which checks the “package.json” file, downloads all the required packages, and generates a node modules folder.
+  
+  The caret symbol in the “package.json” file tells NPM that it can download a higher major version of the package if available. For example, if the version indicated in the “package.json” file is “1.3.5,” NPM can install a newer version of the package, say “1.9.3”, but never “2.0.0.”
+  
+  So what’s the problem with that?
+</md>
 
-`package-lock.json` NASTAJE pri bilo kakvoj PROMENI `package.json` fajla ILI PROMENI direktorijuma `node_modules`.  
+  <h4>What could possibly go wrong with downloading an updated package/module?  </h4>
 
-ZAKLJUCAVA VERZIJU MODULA tacno na onu VERZIJU koja je bila prilikom PRVOG INSTALIRANJA.
+<md>
+  In the best-case scenario, it sounds good because your application runs an updated module with better code optimization. However, this new release might contain bugs and vulnerabilities when you look at the worst-case scenario. Also, some packages get significant updates and changes that break your application—the worst nightmare for any developer.
+  
+  To solve this issue, NPM introduced the “package-lock.json” file.
+</md>
 
-Primer: Instalirao sam modul `http` sa verzijom `^1.2.3`. Neko drugi je klonirao moj projekat na svoj komp i hoce da instalira module. Pokrece komandu `npm i`. NPM se prvo pogledati `package-lock.json` i instalirati tacno verziju 1.2.3, cak i ako postoji novija verzija modula. Znaci verzija 1.2.3 je minimalna i sigurna verzija, pod kojom ce projekat raditi sve kako treba.  
+<h2 id="instalacija-paketa">INSTALACIJA PAKETA</h2>
 
-U slucaju da NE postoji `package-lock.json`, NPM ce instalirati pomocu `package.json`, a to znaci da ce instalirati NAJNOVIJE verzije modula.
+<md>
+  Kada se klonira projekat, on NE dolazi sa instaliranim paketima,
+  već samo sa uputstvom šta treba da se instalira. To uputstvo su fajlovi, pre svega, `package-lock.json`, pa i `package.json`.
+  
+  Instalacija svih dependencies se vrši sa:
+  
+  ```sh
+  npm install
+  ```
+  
+  ```sh
+  npm i
+  ```
+</md>
 
-#### Zasto je *package-lock.json* veci od *package.json*
+<h2 id="update-dependencies">UPDATE DEPENDENCIES</h2>
 
-Zato sto on snima i sub-dependencies, i sub-sub-dependencies, i sub-sub-sub-... bilo kog modula koji se koristi u projektu.
+<md>
+  ### Ažuriranje pojedinačnih paketa
+  Uz naredbu za ažuriranje instaliranog paketa potrebno je da koristimo odgovarajući flag koji je korišćen pri instalaciji:
+  
+  ```sh
+  npm update nazivPaketa [opcioni flag]
+  ```
+  
+  ### Reinstalacija svih paketa
+  
+  ```sh
+  rm -rf node_modules && npm install
+  ```
+</md>
 
-### Why is this caret^ symbol important, and why should you take note of it?
+<h2 id="uninstall-dependencies">UNINSTALL DEPENDENCIES</h2>
 
-When committing your changes on a version control platform like Git, you don’t need to push the node modules folder. Now, if somebody downloads/clones your repository on their system, they will run the npm install command, which checks the “package.json” file, downloads all the required packages, and generates a node modules folder.  
+<md>
+  Uz naredbu za uklanjanje instaliranog paketa potrebno je da koristimo odgovarajući flag koji je korišćen pri instalaciji:
+  
+  ```sh
+  npm uninstall nazivPaketa [opcioni flag npr. --save-dev]
+  ```
+</md>
 
-The caret symbol in the “package.json” file tells NPM that it can download a higher major version of the package if available. For example, if the version indicated in the “package.json” file is “1.3.5,” NPM can install a newer version of the package, say “1.9.3”, but never “2.0.0.”  
+<h2 id="run-script">RUN SCRIPT</h2>
 
-So what’s the problem with that?  
+<md>
+  Pokrece se skripta (cmd linija) koja je definisana u `package.json`:
+  
+  ```sh
+  npm run nazivSkripte // Pravi naziv komande je `run-script`, a `run` je alias, kao i `rum` i `urn`
+  ```
+  Evo jedan glup primer: Ako u `package.json` imam ovo `"scripts": {"gl": "git log"},` i pokrenem komandu `npm run gl`, pokrenuce se komanda `git log`. Znaci kao neka vrsta *.bat fajla :)
+</md>
 
-#### What could possibly go wrong with downloading an updated package/module?  
+<h2 id="tips">TIPS</h2>
 
-In the best-case scenario, it sounds good because your application runs an updated module with better code optimization. However, this new release might contain bugs and vulnerabilities when you look at the worst-case scenario. Also, some packages get significant updates and changes that break your application—the worst nightmare for any developer.
+<h3 id="koriscenje-git-repozitorijuma-umesto-npm-modules">Koriscenje Git repozitorijuma umesto npm Modules</h3>
 
-To solve this issue, NPM introduced the “package-lock.json” file.
-
-## INSTALACIJA PAKETA
-
-Kada se klonira projekat, on NE dolazi sa instaliranim paketima, 
-već samo sa uputstvom šta treba da se instalira. To uputstvo su fajlovi, pre svega, `package-lock.json`, pa i `package.json`.  
-
-Instalacija svih dependencies se vrši sa:
-
-```sh
-npm install
-```
-
-```sh
-npm i
-```
-
-## UPDATE DEPENDENCIES
-
-### Ažuriranje pojedinačnih paketa
-Uz naredbu za ažuriranje instaliranog paketa potrebno je da koristimo odgovarajući flag koji je korišćen pri instalaciji:  
-
-```sh
-npm update nazivPaketa [opcioni flag]
-```
-
-### Reinstalacija svih paketa
-
-```sh
-rm -rf node_modules && npm install
-```
-
-## UNINSTALL DEPENDENCIES
-
-Uz naredbu za uklanjanje instaliranog paketa potrebno je da koristimo odgovarajući flag koji je korišćen pri instalaciji:  
-
-```sh
-npm uninstall nazivPaketa [opcioni flag npr. --save-dev]
-```
-
-## RUN SCRIPT
-
-Pokrece se skripta (cmd linija) koja je definisana u `package.json`:  
-
-```sh
-npm run nazivSkripte // Pravi naziv komande je `run-script`, a `run` je alias, kao i `rum` i `urn`
-```
-Evo jedan glup primer: Ako u `package.json` imam ovo `"scripts": {"gl": "git log"},` i pokrenem komandu `npm run gl`, pokrenuce se komanda `git log`. Znaci kao neka vrsta *.bat fajla :)
-
-## TIPS
-
-### Koriscenje Git repozitorijuma umesto npm Modules
-
-Ako ne želimo da koristimo oficijalni sajt već neki privatni repozitorijum, možemo da u `package.json` ubacimo sledeći kod:  
+<md>
+  Ako ne želimo da koristimo oficijalni sajt već neki privatni repozitorijum, možemo da u `package.json` ubacimo sledeći kod:
+  
 
 ```js
 {
-   "dependencies": {
-       "angular-ui-codemirror": "git+ssh://git@github.com:jpetitcolas/ui-codemirror.git#di"
-   }
+    "dependencies": {
+        "angular-ui-codemirror": "git+ssh://git@github.com:jpetitcolas/ui-codemirror.git#di"
+    }
 }
 ```
-
-### Brisanje ne upisanih modula
-
-Ukoliko imamo neke module koji nisu upisani u `package.json` a zelimo da ih se resimo, koristi se:
-
+</md>
+  
+  <h3 id="brisanje-ne-upisanih-modula">Brisanje ne upisanih modula</h3>
+  
+  <md>
+  Ukoliko imamo neke module koji nisu upisani u `package.json` a zelimo da ih se resimo, koristi se:
+    
 ```sh
 npm prune
 ```
 
-ili u produkciji potrebno je dodati –production:  
+ili u produkciji potrebno je dodati –production:
 
 ```sh
 npm prune --production
 ```
-
-### Definisanje verzije paketa
-
+    
+  </md>
+  <h3 id="definisanje-verzije-paketa">Definisanje verzije paketa</h3>
+  
+  <md>
 Sa adekvatinim predznacima možemo da tačnije definišemo verziju paketa:
 
-   + (^) targetira sve glavne verzije (npr. 1.\*.\* tj. najvisa verzija koja pocinje sa 1)
-   + (~) targetira se najnovija minor verzija (npr. 1.2.*, tj. najvisa sa 1.2)
-   + Tačna verzija npr. (1.2.3)
-
-### Fiksiranje verzije paketa
-
+  + (^) targetira sve glavne verzije (npr. 1.\*.\* tj. najvisa verzija koja pocinje sa 1)
+  + (~) targetira se najnovija minor verzija (npr. 1.2.*, tj. najvisa sa 1.2)
+  + Tačna verzija npr. (1.2.3)
+  </md>
+  
+  <h3 id="fiksiranje-verzije-paketa">Fiksiranje verzije paketa</h3>
+  
+<md>
 Ukoliko želimo da "zauvek" fiksiramo verziju u toku instalacije dovoljno je da koristimo:
 
 ```sh
 npm install --save --save-exact nazivPaketa
 ```
-
-### Pregled outdated verzija
-
+</md>
+<h3 id="pregled-outdated-verzija">Pregled outdated verzija</h3>
+<md>   
 ```sh
 npm outdated
 ```
 
 Ova naredba pregledno izlistava stanje verzije za svaki paket:
 
-	Package                 Current  Wanted  Latest  Location
-	babel-cli                6.14.0  6.16.0  6.18.0  admin-on-rest
-	babel-core              MISSING  6.17.0  6.18.2  admin-on-rest
-	babel-eslint              6.1.2   7.0.0   7.1.0  admin-on-rest
-	babel-preset-es2015      6.14.0  6.16.0  6.18.0  admin-on-rest
--------------------------------------------------------------------
-## MOJI ZAPISI
+    Package                 Current  Wanted  Latest  Location
+    babel-cli                6.14.0  6.16.0  6.18.0  admin-on-rest
+    babel-core              MISSING  6.17.0  6.18.2  admin-on-rest
+    babel-eslint              6.1.2   7.0.0   7.1.0  admin-on-rest
+    babel-preset-es2015      6.14.0  6.16.0  6.18.0  admin-on-rest
 
-### npm START
+</md>
 
-```sh
-npm start [opcioni flag]
-```
 
-Ovo pokrece predefinisanu komandu koja je smestena u `package.json`, u `scripts` objekat.
+<h2 id="moji-zapisi">MOJI ZAPISI</h2>
 
-*package.json:*  
+<h3 id="npm-start">npm START</h3>
+<md>
+  
+  ```sh
+  npm start [opcioni flag]
+  ```
+  
+  Ovo pokrece predefinisanu komandu koja je smestena u `package.json`, u `scripts` objekat.
+  
+  *package.json:*
+  ```js
+  "script":{
+    "start":"nodemon index.js"
+  }
+  ```
+  
+  Ako `start` nije definisan, NPM ce pokrenuti `node server.js`
+  
+  Ovaj nacin pokretanja se razlikuje od standardnog nacina pokretanja, a to je: sa ulaznim fajlom, koji je definisan u `package.json`, u `main` svojstvu, a koji sa pokrece uz komandu `node`, npr. `node app.js`
+  
+  Do NPM 2, mogu da se koriste i argumanti za polteranje skripti. Vidi [RUN SCRIPT](#run-script)
+  
+  *Example:*
+  
 ```js
-"script":{
-  "start":"nodemon index.js"
+{
+  "scripts": {
+    "start": "node foo.js"
+  }
 }
+
+// output:
+
+npm start
+> npm@x.x.x start
+> node foo.js
+(foo.js output would be here)
 ```
+</md>
 
-Ako `start` nije definisan, NPM ce pokrenuti `node server.js`
-
-Ovaj nacin pokretanja se razlikuje od standardnog nacina pokretanja, a to je: sa ulaznim fajlom, koji je definisan u `package.json`, u `main` svojstvu, a koji sa pokrece uz komandu `node`, npr. `node app.js`
-
-Do NPM 2, mogu da se koriste i argumanti za polteranje skripti. Vidi [RUN SCRIPT](#run-script)  
-
-*Example:*
-
-```js
-    {
-      "scripts": {
-        "start": "node foo.js"
-      }
-    }
-
-// output:  
-
-		npm start
-		> npm@x.x.x start
-		> node foo.js
-		(foo.js output would be here)
-```
-
-### Kada instalirati GLOBALNO a kad LOKALNO
-
-+ Install it locally if you're going to require() it.
-+ Install it globally if you're going to run it on the command line.
-+ If you need both, then install it in both places, or use npm link.
-
-
+<h3 id="kada-instalirati-globalno-a-kad-lokalno">Kada instalirati GLOBALNO a kad LOKALNO</h3>
+<md>
+  + Install it locally if you're going to require() it.  
+  + Install it globally if you're going to run it on the command line.  
+  + If you need both, then install it in both places, or use npm link.  
 </md>

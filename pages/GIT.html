@@ -155,8 +155,8 @@ csP (command Palete)> git clone
 <h2 id="cherry-pick">CHERRY-PICK</h2>
 
 <md>
-   `git CHERRY-PICK master`
-   Cherry-picking in git means choosing a commit from one branch and applying it to another branch. This is in contrast with other ways such as merge and rebases which normally apply many commits into another branch.
+   `git CHERRY-PICK master`  
+   Sa Cherry-pick mozes da izaberes jedan commit sa jedne grane i da ga primenis na drugu granu. Ovo je u kontrastu sa drugim načinima kao što su `merge` i `rebases` koji primenjuju vise commit-a na drugu granu.
 
    Implementation:
 
@@ -183,8 +183,12 @@ csP (command Palete)> git clone
 
 <md>
    `git STASH` // Stash (eng. tajno skroviste) je nesto kao mini-commit.
-   Kao kad u Corel-u pravim dizajn, pa da bi sacuvao sve verzije razvoja dizajna, snimam ih u vise fajlova iz dana u dan => to kao COMMIT.
-   Ali dok radim na dizajnu, da bih mogao da poredim koji dizajn je bolji od kojeg, pravim i vise verzija dizajna u jednom fajlu pa cu kasnije da odaberem koju verziju dizajna cu da dalje razvijam => to je kao STASH.
+
+   ### COMMIT vs STASH
+   __COMMIT__, to je kao kad u Corel-u pravim dizajn, pa da bi sacuvao sve verzije razvoja dizajna, snimam ih u vise fajlova iz dana u dan.  
+
+   __STASH__, to je kao dok radim na dizajnu, da bih mogao da poredim koji dizajn je bolji od kojeg, pravim i vise verzija dizajna u jednom fajlu pa cu kasnije da odaberem koju verziju dizajna cu da dalje razvijam.
+
    Dakle, STASH snima trenutno stanje radnog direktorijuma, tj. fajlove u njemu (lokalno, bez commit-a) da bi mogao da se prebacima na rad na necem drugom, recimo pogledam neki drugi checkout. Nakon STASH-ovanja projekat se vraca na stanje poslednjeg commita. Odatle mozes da pravis drugu verziju izmena od poslednjeg commita.
    Stash je LOKALNOG karaktera. To znaci da KAD PRAVIM COMMIT on se NE SNIMA U COMMIT, nego je vezan za LOKALNI REPOZITORIJUM.
    
@@ -192,29 +196,32 @@ csP (command Palete)> git clone
    `git STASH apply stash@{0}`  // Vraćanje spremljenih izmena
    
    ### Koja je razlika izmedju STASH i BRANCH postupka?
-   Stash nepravi PRAVI commit niti pravi PRAVU granu, nego pravi takoreci PRIVREMENI, VIRTUELNI, LAYER BRANCH-COMMIT, koji ce kasnije biti (ne)iskoriscen/uklonjen, bez ikakvog traga da je ikada postojao. Kad se napravi STASH on odlozi, skrije, tvoj trenutni rad na posebni trć. BRANCH-COMMIT i vraca te na poslednji, cist, "no changes" HEAD commit. Kasnije mozes da primenis taj stash (`git stash apply`) na vrh neke grane KOJU TI ODABERES, ne mora master. Mozes da ga obrises (`git stash drop`) ili da ga primenis na neku granu i obrises ga (`git stash pop`). Apply ne brise stash.
+   Stash nepravi PRAVI commit niti pravi PRAVU granu, nego pravi takoreci PRIVREMENI, VIRTUELNI, LAYER BRANCH-COMMIT, koji ce kasnije biti (ne)iskoriscen/uklonjen, bez ikakvog traga da je ikada postojao. Kad se napravi STASH on odlozi, skrije, tvoj trenutni rad na posebni tkrć. BRANCH-COMMIT i vraca te na poslednji, cist, "no changes" HEAD commit. Kasnije mozes da primenis taj stash (`git stash apply`) na vrh neke grane KOJU TI ODABERES, ne mora master. Mozes da ga obrises (`git stash drop`) ili da ga primenis na neku granu i obrises ga (`git stash pop`). Apply ne brise stash.
    
    ### Kad koristiti STASH?
    #### Use case - suddenly change commit
-   If I work on `branch A` and suddenly need to work on `branch B`, before being ready with a commit on branch A, I stash my changes on A, checkout B, do my work there, then checkout A and apply the stash.
+   Ako radim na `branch A` i iznenada moram da se prebacim da radim na `branch B`, a pri tome nisam jos zavrsio sa `branch A`, nisam spreman da ga komitujem, onda odlazem tj. `stash`-ujem Imoje promene na `branch A`, skocima tj. checkout na B, uradim sta treba, onda se oped checkout na A i "prilepim" tj, vratim stash na A.
    
    #### Use case 2 - temp branch => stash
-   I prefer creating a new temporary branch, than stashing.
+   Moze da se koristi kao `temp branch`, ali bolje je napraviti pravi temp branch, pa u njemu praviti izmene, nego temp stashovanje.
    
    #### Use case 3
    I forgot something in my last commit and have already started working on the next one in the same branch. Lat's assume the latest commit was already done and I start working on the next patch, and discovered that I was missing something.
    
-   - stash away the current mess I made in next patch
-   git stash save
+   - stash away the current mess I made in next patch  
+
+         git stash save
    
    - Do some changes in the working dir
    
-   - and now add them to the last commit:
-   git add -u
-   git commit --amend
+   - and now add them to the last commit:  
+
+         git add -u  
+         git commit --amend
    
    - back to work!
-   git stash pop
+
+         git stash pop
 </md>
 
 <h2 id="upstream">UPSTREAM</h2>
@@ -239,21 +246,22 @@ csP (command Palete)> git clone
 
 <md>
    U njega upisujem fajlove ili /foldere koji ce biti totalno ignosisani, kao da nepostoje.
-   \# ovo je komentar
-   log/ // ignoriši sve datoteke u log folderu
-   *.txt // ignoriši sve tekstualne datoteke
-   !users.txt // ali ne i datoteku 'users.
-   css/**/*.css // ignoriši sve css datoteke bilo gde u css folderu
+
+      \# ovako se obeleyzvaju komentari u .gitignore fajlu
+      log/ // ignoriši sve datoteke u log folderu
+      *.txt // ignoriši sve tekstualne datoteke
+      !users.txt // ali ne i datoteku users.txt
+      css/**/*.css // u css/ folderu, **/gde god da nadjes, *.css datoteku, ignorisi ih
 </md>
 
 <h2 id="manje-bitne-stvari">manje bitne stvari</h2>
 
 <md>
-   video uputstvo: <https://www.youtube.com/watch?v=SWYqp7iY_Tc&ab_channel=TraversyMedia>
-   `git`        // prikaz svih komandi
-   `touch` // stvaranje novog fajla
-   `git --version`  // provera verzije
-   `clear`     // brisanje ekrana
+   video uputstvo: [Traversy media: Git & GitHub Crash Course For Beginners](https://www.youtube.com/watch?v=SWYqp7iY_Tc&ab_channel=TraversyMedia)  
+   `git`        // prikaz svih komandi  
+   `touch` // stvaranje novog fajla  
+   `git --version`  // provera verzije  
+   `clear`     // brisanje ekrana  
 </md>
 
 
@@ -262,25 +270,25 @@ csP (command Palete)> git clone
 <md>
    Quick setup — if you’ve done this kind of thing before
    
-   SSH: git@github.com:djlabat/George.git
+   SSH: git@github.com:djlabat/George.git  
    HTTPS: https://github.com/djlabat/George.git
    
    
-   …or create a new repository on the command line
-   echo "# George" >> README.md
-   git init
-   git add README.md
-   git commit -m "first commit"
-   git branch -M main
-   git remote add origin https://github.com/djlabat/George.git
-   git push -u origin main
+   …or create a new repository on the command line  
+   echo "# George" >> README.md  
+   git init  
+   git add README.md  
+   git commit -m "first commit"  
+   git branch -M main  
+   git remote add origin https://github.com/djlabat/George.git  
+   git push -u origin main  
    
-   …or push an existing repository from the command line
-   git remote add origin https://github.com/djlabat/George.git
-   git branch -M main
-   git push -u origin main
+   …or push an existing repository from the command line  
+   git remote add origin https://github.com/djlabat/George.git  
+   git branch -M main  
+   git push -u origin main  
    
-   …or import code from another repository
+   …or import code from another repository  
    You can initialize this repository with code from a Subversion, Mercurial, or TFS project.
 </md>
 
@@ -298,7 +306,7 @@ csP (command Palete)> git clone
       * `git push origin main`
       * Provera: da li se Upload na GitHub
    
-   Bitna stvar: Kad napravim stranicu sa README.md i Index.html odem na → GitHub Pages: Settings → Sekcija: GitHub pages → Source: Main Branc → [ Save ]. Provera: trebalo bi da se na tom istom mestu ↑ u settings-u pojavi i adresa stranice
+   Bitna stvar: Kad napravim stranicu sa README.md i Index.html odem na → GitHub Pages: Settings → Sekcija: GitHub pages → Source: Main Branch → [ Save ]. Provera: trebalo bi da se na tom istom mestu ↑ u settings-u pojavi i adresa stranice
    
    
    ### Editovanje sajta
