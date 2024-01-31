@@ -7,7 +7,7 @@
 
   <!-- Bootstrap 5 CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-  
+
   <!-- MD Tag -->
   <script src="../js/Markdown-Tag-main/markdown-tag-commonmark.js"></script>
 
@@ -25,7 +25,7 @@
 <md>
 # GIT
 ## SADRZAJ
-[PRAVLJENJE NOVOG REPOZITORIJUMA](#pravljenje-novog-repozitorijuma)
+[PRAVLJENJE NOVOG REPOZITORIJUMA](#pravljenje-novog-repozitorijuma)  
 [START](#start)  
 [STAGING](#staging)  
 [UNSTAGE](#unstage)  
@@ -39,264 +39,322 @@
 [CHERRY-PICK](#cherry-pick)  
 [BRANCH](#branch)  
 [STASH](#stash)  
-[UPSTREAN](#upstrean)  
+[UPSTREAM](#upstream)  
 [SUBMODULE](#submodule)  
 [FAJL_.gitignore](#fajl-gitignore)  
 [manje bitne stvari](#manje-bitne-stvari)  
 [Novi repozitorijum, github uptstva](#novi-repozitorijum-github-uptstva)  
 [GIT PAGES](#git-pages)  
-[Errors](#errors)
+[Errors](#errors)  
 
-> Lep tutor na srpskom: https://www.webprogramiranje.org/git-komande/  
+> Lep tutor na srpskom: https://www.webprogramiranje.org/git-komande/
 
 ## VS Code shortcut
-csP (command Palete)> git clone 
+csP (command Palete)> git clone
+</md>
 
-PRAVLJENJE NOVOG REPOZITORIJUMA
-------------------------------------------------------------
+<h2 id="pravljenje-novog-repozitorijuma"><b>PRAVLJENJE NOVOG REPOZITORIJUMA</b></h2>
+
+<md>
 1. napravim folder na kompu, koji cu da bacim na git. RMB> "Git Bash here".
 2. `touch .gitignore index.html style.css app.js`
 3. `git INIT` // u vec stvorenom folderu na kompu, GIT pravi direktorijum ".git" koji predstavlja LOKALNI repozitorijum.  
 3.1 `git config --global user.name 'djlabat'` (ovo se radi samo prvi put na novom kompu)  
-3.2 `git config --global user.email 'djlabat@gmail.com'` (samo prvi put na novom kompu)  
+3.2 `git config --global user.email 'djlabat@gmail.com'` (samo prvi put na novom kompu)
+</md>
 
-STAGING
-------------------------------------------------------------
-`git ADD fajl.ekstenzija` // to INCLUDE what will be committed. What will be on staging area  
-`git ADD *.html` // dodaje sve *.html fajlove  
-`git ADD .`      // *.*  
+<h2 id="staging">STAGING</h2>
 
-UNSTAGE
-------------------------------------------------------------
-`git RM <file>`          // unstage and DELETE from hard disk. Nije dovoljno samo rucno obrsati fajlove, nego moraju se i unstage. Zato je ova komanda super.   
-`git RM --cached <file>` // UNSTAGE, to exclude what will be committed  
-`git RM -f <file>`   // DELETE izmenjenih fajlova.  
+<md>
+   `git ADD fajl.ekstenzija` // to INCLUDE what will be committed. What will be on staging area  
+   `git ADD *.html` // dodaje sve *.html fajlove  
+   `git ADD .`      // *.*  
+</md>
 
-STATUS
-------------------------------------------------------------
-`git STATUS `    // Prikaz statusa fajlova, da li su dodati na listu za commit (ako jesu, onda su staged - zeleni) ili ne (crveni), da li su se promenili (modified) ili ne (nema ih). Ako se pokrene STATUS a ne vidi se nista onda znaci da nista nije promenjeno od poslednjeg commit-a. Kad se nesto izmeni, u statusu ce da se pojavi (modified). Ako nije ADD-ovan onda ce pisati da je izmenjen ali nije staged. Sto znaci da posle svakog COMMIT-a moraju fajlovi nanovo da se dodaju pre novog commit-a, bilo da su promenjeni ili ne, mada ako nisu promenjeni onda nema ni razloga da se dodaju.  
+<h2 id="unstage">UNSTAGE</h2>
 
-COMMIT
-------------------------------------------------------------
-`git COMMIT `    // fajlovi koji su oznaceni kao STAGED (pomocu komande ADD) se snimaju u ".git" folder.  
-RAD U VIM EDITORU: Kada se pokrene komanda otvara se "Vim" edior, ali da bi se nesto uradilo moram pritisnuti "I" da bi usao u insert mode. Potom kucam "opis" promene. U VIM edtoru, linije koje pocinju sa "#" su nevazece linije, a linije bez icega ce uci u commit "opis". Na kraju, pritisnem "ESC", pa kucam ":wq" (write-quit), enter. Dobijamo info o promenama.  
-`git COMMIT -m "Ovde ide text o promenama."` // jednostavniji nacin.  
-`git COMMIT --amend` // Promena poruke poslednjeg commita.  
-`git COMMIT --amend -m "Potpuno nova poruka` // Brise se stara poruka i upisuje se nova.  
+<md>
+   `git RM <file>`          // unstage and DELETE from hard disk. Nije dovoljno samo rucno obrsati fajlove, nego moraju se i unstage. Zato je ova komanda super.  
+   `git RM --cached <file>` // UNSTAGE, to exclude what will be committed  
+   `git RM -f <file>`   // DELETE izmenjenih fajlova.  
+</md>
 
-LOG
-------------------------------------------------------------
-`git LOG`   // izlista ti sve komite do sada  
+<h2 id="status">STATUS</h2>
 
-RESTORE COMMIT
-------------------------------------------------------------
-`git RESET --hard 456df89a`  // Vracanje na stanje nekog prethodnog komita.  
-`git RESET --hard`          // bez koda, resetuje trenutni git.  
-`git CHECKOUT 146fa46a`  // Prebacivanje u neki drugi (prethodni) komit, pri cemu se cuva sadasnji  
-`git SWITCH -` // tokom checkout-a, da bi se prebacio na HEAD commit, bez snimanja promena.  
-`git SWITCH -c nova_grana` // Pravljenje nove grane od promena koje sam uradio tokom checkout.  
+<md>
+   `git STATUS `    // Prikaz statusa fajlova, da li su dodati na listu za commit (ako jesu, onda su staged - zeleni) ili ne (crveni), da li su se promenili (modified) ili ne (nema ih). Ako se pokrene STATUS a ne vidi se nista onda znaci da nista nije promenjeno od poslednjeg commit-a. Kad se nesto izmeni, u statusu ce da se pojavi (modified). Ako nije ADD-ovan onda ce pisati da je izmenjen ali nije staged. Sto znaci da posle svakog COMMIT-a moraju fajlovi nanovo da se dodaju pre novog commit-a, bilo da su promenjeni ili ne, mada ako nisu promenjeni onda nema ni razloga da se dodaju.
+</md>
 
-ORIGIN-MASTER  
-------------------------------------------------------------
-`origin` - je alias za punu URL adresu online repozitorijuma (npr. https://url_link_udaljenog_repozitorijuma). Ovakvo skraćeno predstavljanje URL-a nam omogućava jednostavniji rad sa naredbama jer izbegavate da koriste ogroman URL svaki put kada vam je u naredbi potreban. Koji tačno link predstavlja ovaj alias može se proveriti sa naredbom: `git remote -v`  
+<h2 id="commit">COMMIT</h2>
 
-`master` - grana (branch).
-Kada se u nekim naredbama pominje neka GRANA (npr. master) na UDALJENOM REPOZITORIJUMU potrebno je pored imena grane dodati i link do udaljenog repozitorijuma npr:  
+<md>
+   `git COMMIT `    // fajlovi koji su oznaceni kao STAGED (pomocu komande ADD) se snimaju u ".git" folder.  
+   RAD U VIM EDITORU: Kada se pokrene komanda otvara se "Vim" edior, ali da bi se nesto uradilo moram pritisnuti "I" da bi usao u insert mode. Potom kucam "opis" promene. U VIM edtoru, linije koje pocinju sa "#" su nevazece linije, a linije bez icega ce uci u commit "opis". Na kraju, pritisnem "ESC", pa kucam ":wq" (write-quit), enter. Dobijamo info o promenama.  
+   `git COMMIT -m "Ovde ide text o promenama."` // jednostavniji nacin.  
+   `git COMMIT --amend` // Promena poruke poslednjeg commita.  
+   `git COMMIT --amend -m "Potpuno nova poruka` // Brise se stara poruka i upisuje se nova.  
+</md>
+
+<h2 id="log">LOG</h2>
+
+<md>
+   `git LOG`   // izlista ti sve komite do sada  
+</md>
+
+<h2 id="restore-commit">RESTORE COMMIT</h2>
+
+<md>
+   `git RESET --hard 456df89a`  // Vracanje na stanje nekog prethodnog komita.  
+   `git RESET --hard`          // bez koda, resetuje trenutni git.  
+   `git CHECKOUT 146fa46a`  // Prebacivanje u neki drugi (prethodni) komit, pri cemu se cuva sadasnji  
+   `git SWITCH -` // tokom checkout-a, da bi se prebacio na HEAD commit, bez snimanja promena.  
+   `git SWITCH -c nova_grana` // Pravljenje nove grane od promena koje sam uradio tokom checkout.  
+</md>
+
+<h2 id="origin-master">ORIGIN-MASTER</h2>
+
+<md>
+   `origin` - je alias za punu URL adresu online repozitorijuma (npr. https://url_link_udaljenog_repozitorijuma). Ovakvo skraćeno predstavljanje URL-a nam omogućava jednostavniji rad sa naredbama jer izbegavate da koriste ogroman URL svaki put kada vam je u naredbi potreban. Koji tačno link predstavlja ovaj alias može se proveriti sa naredbom: `git remote -v`
+
+   `master` - grana (branch).
+   Kada se u nekim naredbama pominje neka GRANA (npr. master) na UDALJENOM REPOZITORIJUMU potrebno je pored imena grane dodati i link do udaljenog repozitorijuma npr:
 
 ```sh
-git push    https://url_link_udaljenog_repozitorijuma    master
+   git push    https://url_link_udaljenog_repozitorijuma    master
 ```
 
-Znajući da je "origin" alias za ovaj link, sada se "master" grana na udaljenom repu može označiti jednostavnije sa “origin master”. Pa bi komanda iz prethodnog primera izgledala ovako:  
+   Znajući da je "origin" alias za ovaj link, sada se "master" grana na udaljenom repu može označiti jednostavnije sa “origin master”. Pa bi komanda iz prethodnog primera izgledala ovako:
 
 ```sh
-git push  origin  master
+   git push  origin  master
 ```
+</md>
 
-REMOTE REPOSITORIES  
-------------------------------------------------------------
-`git remote -v` // Prikazije koji link stoji pod "origin" tj. koji je link ka REMOTE REPOZITORIJUMU.  
-`git REMOTE add origin http://nasserver.git` // URL Adresa `http://nasserver.git` udaljenog servera je stavljena u konstantu "origin".  
-`git PUSH origin master` // push-uj na udaljeni server (Remote Repository) `http://nasserver.git`, granu "master".  
-`git REMOTE remove` // uklanjanje repozitorijuma  
-`git PULL`    // skida sadrzaj sa udaljenog repozitorijuma i/ili odmah azurira lokalni repozitorijum sa verzijom koja je na udaljenom repozitorijumu.  
-`git CLONE https://github.com/mdbootstrap/knowledge-base.git` // skidanje nekog (tudjeg) Git projekta na svoj komp. Adresu skinuti sa gitHub sajta.  
-Obicno posle COMMIT, idu zajedno PUSH i PULL, i to bas tim redosledom.
+<h2 id="remote-repositories">REMOTE REPOSITORIES</h2>
 
-WORKTREE
-------------------------------------------------------------
-git WORKTREE will create a new working folder witch allow us to work on multiple branches on the same time. Each copy will point to the origin repository while the 3-states are a new and fresh copy. This save us the need to use git stash or even to clone a new repository, since those worktrees shares the same repository, we can checkout any branch on any worktree, we can do a cherry-pick or merge and all will be done locally on our machine.
+<md>
+   `git remote -v` // Prikazije koji link stoji pod "origin" tj. koji je link ka REMOTE REPOZITORIJUMU. 
+   `git REMOTE add origin http://nasserver.git` // URL Adresa `http://nasserver.git` udaljenog servera je stavljena u konstantu "origin".  
+   `git PUSH origin master` // push-uj na udaljeni server (Remote Repository) `http://nasserver.git`, granu "master".  
+   `git REMOTE remove` // uklanjanje repozitorijuma  
+   `git PULL`    // skida sadrzaj sa udaljenog repozitorijuma i/ili odmah azurira lokalni repozitorijum sa verzijom koja je na udaljenom repozitorijumu.  
+   `git CLONE https://github.com/mdbootstrap/knowledge-base.git` // skidanje nekog (tudjeg) Git projekta na svoj komp. Adresu skinuti sa gitHub sajta.  
+   Obicno posle COMMIT, idu zajedno PUSH i PULL, i to bas tim redosledom.  
+</md>
 
-`git WORKTREE add second/path` will create another folder on your computer which allows you to work on a different branch simultaneously.
+<h2 id="worktree">WORKTREE</h2>
 
-This will allow you to do any experiments on the new worktree without having any effect on the repository itself. In the attached image you can see that there are 2 separate working folder but both of them are using a single repository and share the content.
+<md>
+   git WORKTREE will create a new working folder witch allow us to work on multiple branches on the same time. Each copy will point to the origin repository while the 3-states are a new and fresh copy. This save us the need to use git stash or even to clone a new repository, since those worktrees shares the same repository, we can checkout any branch on any worktree, we can do a cherry-pick or merge and all will be done locally on our machine.
 
-CHERRY-PICK
-------------------------------------------------------------
-`git CHERRY-PICK master`
-Cherry-picking in git means choosing a commit from one branch and applying it to another branch. This is in contrast with other ways such as merge and rebases which normally apply many commits into another branch.
+   `git WORKTREE add second/path` will create another folder on your computer which allows you to work on a different branch simultaneously.
 
-Implementation: 
+   This will allow you to do any experiments on the new worktree without having any effect on the repository itself. In the attached image you can see that there are 2 separate working folder but both of them are using a single repository and share the content.
+</md>
 
-Suppose a developer fails to recognize which branch he is currently on, and by mistake, he commits to another branch instead of committing that to the main branch. Now to fix it, he has to first run git show, then save the commit, then check out the main branch, apply patch there and commit with the same commit message. But all this can be done automatically by using just one command i.e. cherry-pick.
+<h2 id="cherry-pick">CHERRY-PICK</h2>
 
-      develop      ┌── (d1) ─── (d2) 
-      master   ════╧══ (m1) ═══ (m2) - - - (  )  
+<md>
+   `git CHERRY-PICK master`
+   Cherry-picking in git means choosing a commit from one branch and applying it to another branch. This is in contrast with other ways such as merge and rebases which normally apply many commits into another branch.
 
-      develop      ┌── (d1) ─── (d2) ───>───┐
-      master   ════╧══ (m1) ═══ (m2) ═════ (d2)  
+   Implementation:
 
-BRANCH
-------------------------------------------------------------
-`git BRANCH develop` // stvara granu develop, koju cu kasnije moci da spojim sa master granom i/ili da je obrisem.  
-`git BRANCH -v` // pregled svih grana  
-`git BRANCH -d develop` // brisanje develop grane  
-`git CHECKOUT develop` // prebacivanje na develop granu. Pre ovoga uraditi commit da bi snimio, ili stash.  
-`git MERGE develop` // Prilikom spajanja grana, potrebno je vratiti se na roditeljsku granu (master) i pozvati komandu git merge \<develop>  
-`git REBASE master` // Drugi nacin spajanja. Uglavnom služi u svrhe dopunjavanja sporednih grana (develop) izmenama sa master grane. Ovo pokrecem dok sam na develop grani.  
+   Suppose a developer fails to recognize which branch he is currently on, and by mistake, he commits to another branch instead of committing that to the main branch. Now to fix it, he has to first run git show, then save the commit, then check out the main branch, apply patch there and commit with the same commit message. But all this can be done automatically by using just one command i.e. cherry-pick.
 
-STASH
-------------------------------------------------------------
-`git STASH` // Stash (eng. tajno skroviste) je nesto kao mini-commit.  
-Kao kad u Corel-u pravim dizajn, pa da bi sacuvao sve verzije razvoja dizajna, snimam ih u vise fajlova iz dana u dan => to kao COMMIT.  
-Ali dok radim na dizajnu, da bih mogao da poredim koji dizajn je bolji od kojeg, pravim i vise verzija dizajna u jednom fajlu pa cu kasnije da odaberem koju verziju dizajna cu da dalje razvijam => to je kao STASH.  
-Dakle, STASH snima trenutno stanje radnog direktorijuma, tj. fajlove u njemu (lokalno, bez commit-a) da bi mogao da se prebacima na rad na necem drugom, recimo pogledam neki drugi checkout. Nakon STASH-ovanja projekat se vraca na stanje poslednjeg commita. Odatle mozes da pravis drugu verziju izmena od poslednjeg commita.  
-Stash je LOKALNOG karaktera. To znaci da KAD PRAVIM COMMIT on se NE SNIMA U COMMIT, nego je vezan za LOKALNI REPOZITORIJUM.  
+         develop      ┌── (d1) ─── (d2)
+         master   ════╧══ (m1) ═══ (m2) - - - (  )
 
-        `git STASH list` // lista svih spremljenih stash izmena  
-        `git STASH apply stash@{0}`  // Vraćanje spremljenih izmena  
+         develop      ┌── (d1) ─── (d2) ───>───┐
+         master   ════╧══ (m1) ═══ (m2) ═════ (d2)
+</md>
 
-### Koja je razlika izmedju STASH i BRANCH postupka?
-Stash nepravi PRAVI commit niti pravi PRAVU granu, nego pravi takoreci PRIVREMENI, VIRTUELNI, LAYER BRANCH-COMMIT, koji ce kasnije biti (ne)iskoriscen/uklonjen, bez ikakvog traga da je ikada postojao. Kad se napravi STASH on odlozi, skrije, tvoj trenutni rad na posebni trć. BRANCH-COMMIT i vraca te na poslednji, cist, "no changes" HEAD commit. Kasnije mozes da primenis taj stash (`git stash apply`) na vrh neke grane KOJU TI ODABERES, ne mora master. Mozes da ga obrises (`git stash drop`) ili da ga primenis na neku granu i obrises ga (`git stash pop`). Apply ne brise stash.  
+<h2 id="branch">BRANCH</h2>
+<md>
+   `git BRANCH develop` // stvara granu develop, koju cu kasnije moci da spojim sa master granom i/ili da je obrisem.
 
-### Kad koristiti STASH?
-#### Use case - suddenly change commit
-If I work on `branch A` and suddenly need to work on `branch B`, before being ready with a commit on branch A, I stash my changes on A, checkout B, do my work there, then checkout A and apply the stash.
+   `git BRANCH -v` // pregled svih grana
 
-#### Use case 2 - temp branch => stash
-I prefer creating a new temporary branch, than stashing.
+   `git BRANCH -d develop` // brisanje develop grane
 
-#### Use case 3
-I forgot something in my last commit and have already started working on the next one in the same branch. Lat's assume the latest commit was already done and I start working on the next patch, and discovered that I was missing something.
+   `git CHECKOUT develop` // prebacivanje na develop granu. Pre ovoga uraditi commit da bi snimio, ili stash.
 
-- stash away the current mess I made in next patch
-      git stash save
+   `git MERGE develop` // Prilikom spajanja grana, potrebno je vratiti se na roditeljsku granu (master) i pozvati komandu git merge \<develop>
 
-- Do some changes in the working dir
+   `git REBASE master` // Drugi nacin spajanja. Uglavnom služi u svrhe dopunjavanja sporednih grana (develop) izmenama sa master grane. Ovo pokrecem dok sam na develop grani.  
+</md>
 
-- and now add them to the last commit:
-      git add -u
-      git commit --amend
+<h2 id="stash">STASH</h2>
 
-- back to work!
-      git stash pop
+<md>
+   `git STASH` // Stash (eng. tajno skroviste) je nesto kao mini-commit.
 
-UPSTREAM
-------------------------------------------------------------
+   Kao kad u Corel-u pravim dizajn, pa da bi sacuvao sve verzije razvoja dizajna, snimam ih u vise fajlova iz dana u dan => to kao COMMIT.
 
-Upstream grana govori Gitu koju ↑REMOTE granu da --poveže-- sa kojom ↓LOCAL granom (i koristi se da naznači gde da gura nove COMMIT-e).
+   Ali dok radim na dizajnu, da bih mogao da poredim koji dizajn je bolji od kojeg, pravim i vise verzija dizajna u jednom fajlu pa cu kasnije da odaberem koju verziju dizajna cu da dalje razvijam => to je kao STASH.
 
-### Podešavanje Upstream grane preko komandne palete Sublime Merge-a
+   Dakle, STASH snima trenutno stanje radnog direktorijuma, tj. fajlove u njemu (lokalno, bez commit-a) da bi mogao da se prebacima na rad na necem drugom, recimo pogledam neki drugi checkout. Nakon STASH-ovanja projekat se vraca na stanje poslednjeg commita. Odatle mozes da pravis drugu verziju izmena od poslednjeg commita.
 
-1. Otvorite [komandnu paletu] i izaberite "Set Branch Upstream…"
-2. Pronađite LOCAL granu za koju želite da postavite za Upstream i izaberite je
-3. Pronađite REMOTE granu koju želite da postavite za Upstream i izaberite je
+   Stash je LOKALNOG karaktera. To znaci da KAD PRAVIM COMMIT on se NE SNIMA U COMMIT, nego je vezan za LOKALNI REPOZITORIJUM.
+   
+   `git STASH list` // lista svih spremljenih stash izmena
 
-SUBMODULE
-------------------------------------------------------------
+   `git STASH apply stash@{0}`  // Vraćanje spremljenih izmena
+   
+   ### Koja je razlika izmedju STASH i BRANCH postupka?
 
-Git podmoduli vam omogućavaju da držite git repository (srp. spremište) kao poddirektorijum drugog git spremišta. Git podmoduli su jednostavno referenca za drugo spremište na određenom snimku (eng. snapshot) u vremenu. Git podmoduli omogućavaju Git spremištu da inkorporira, i prati istoriju verzija eksternog koda.  
+   Stash nepravi PRAVI commit niti pravi PRAVU granu, nego pravi takoreci PRIVREMENI, VIRTUELNI, LAYER BRANCH-COMMIT, koji ce kasnije biti (ne)iskoriscen/uklonjen, bez ikakvog traga da je ikada postojao. Kad se napravi STASH on odlozi, skrije, tvoj trenutni rad na posebni trć. BRANCH-COMMIT i vraca te na poslednji, cist, "no changes" HEAD commit. Kasnije mozes da primenis taj stash (`git stash apply`) na vrh neke grane KOJU TI ODABERES, ne mora master. Mozes da ga obrises (`git stash drop`) ili da ga primenis na neku granu i obrises ga (`git stash pop`). Apply ne brise stash.
+   
+   ### Kad koristiti STASH?
 
-FAJL .gitignore  
-------------------------------------------------------------
-U njega upisujem fajlove ili /foldere koji ce biti totalno ignosisani, kao da nepostoje.  
-\# ovo je komentar  
-log/ // ignoriši sve datoteke u log folderu  
-*.txt // ignoriši sve tekstualne datoteke  
-!users.txt // ali ne i datoteku 'users.  
-css/**/*.css // ignoriši sve css datoteke bilo gde u css folderu  
+   #### Use case - suddenly change commit
 
-manje bitne stvari
-------------------------------------------------------------
-video uputstvo: <https://www.youtube.com/watch?v=SWYqp7iY_Tc&ab_channel=TraversyMedia>  
-`git`        // prikaz svih komandi  
-`touch` // stvaranje novog fajla  
-`git --version`  // provera verzije  
-`clear`     // brisanje ekrana  
+   If I work on `branch A` and suddenly need to work on `branch B`, before being ready with a commit on branch A, I stash my changes on A, checkout B, do my work there, then checkout A and apply the stash.
+   
+   #### Use case 2 - temp branch => stash
 
+   I prefer creating a new temporary branch, than stashing.
+   
+   #### Use case 3
 
-Novi repozitorijum, github uptstva
-------------------------------------------------------------
-Quick setup — if you’ve done this kind of thing before  
-  
-SSH: git@github.com:djlabat/George.git  
-HTTPS: https://github.com/djlabat/George.git   
+   I forgot something in my last commit and have already started working on the next one in the same branch. Lat's assume the latest commit was already done and I start working on the next patch, and discovered that I was missing something.
+   
+   - stash away the current mess I made in next patch
+   git stash save
+   
+   - Do some changes in the working dir
+   
+   - and now add them to the last commit:
+   git add -u
+   git commit --amend
+   
+   - back to work!
+   git stash pop
+</md>
 
+<h2 id="upstream">UPSTREAM</h2>
 
-…or create a new repository on the command line  
-echo "# George" >> README.md  
-git init  
-git add README.md  
-git commit -m "first commit"  
-git branch -M main  
-git remote add origin https://github.com/djlabat/George.git  
-git push -u origin main  
-                
-…or push an existing repository from the command line  
-git remote add origin https://github.com/djlabat/George.git  
-git branch -M main  
-git push -u origin main  
+<md>
+   Upstream grana govori Gitu koju ↑REMOTE granu da --poveže-- sa kojom ↓LOCAL granom (i koristi se da naznači gde da gura nove COMMIT-e).
+   
+   ### Podešavanje Upstream grane preko komandne palete Sublime Merge-a
+   
+   1. Otvorite [komandnu paletu] i izaberite "Set Branch Upstream…"
+   2. Pronađite LOCAL granu za koju želite da postavite za Upstream i izaberite je
+   3. Pronađite REMOTE granu koju želite da postavite za Upstream i izaberite je
+</md>
 
-…or import code from another repository  
-You can initialize this repository with code from a Subversion, Mercurial, or TFS project.  
+<h2 id="submodule">SUBMODULE</h2>
 
-GIT PAGES
-------------------------------------------------------------
-### Pravljenje stranice
-   * pratim proceduru sa GitHub Pages, napravio sam sajt
-   * cloniram je na moj komp: git clone [https://...repozitorijem](#git-pages)
-   * `code .`
-   * napravim index.html > editujem ga
-   * provera: ime mog branch-a: git status // main
-   * `git add .`
-   * `git commit -m 'initial commit'`
-   * `git push origin main`
-   * Provera: da li se Upload na GitHub
+<md>
+   Git podmoduli vam omogućavaju da držite git repository (srp. spremište) kao poddirektorijum drugog git spremišta. Git podmoduli su jednostavno referenca za drugo spremište na određenom snimku (eng. snapshot) u vremenu. Git podmoduli omogućavaju Git spremištu da inkorporira, i prati istoriju verzija eksternog koda.
+</md>
 
-Bitna stvar: Kad napravim stranicu sa README.md i Index.html odem na → GitHub Pages: Settings → Sekcija: GitHub pages → Source: Main Branc → [ Save ]. Provera: trebalo bi da se na tom istom mestu ↑ u settings-u pojavi i adresa stranice
+<h2 id="fajl-gitignore">FAJL .gitignore</h2>
+
+<md>
+   U njega upisujem fajlove ili /foldere koji ce biti totalno ignosisani, kao da nepostoje.
+
+   \# ovo je komentar
+
+   log/ // ignoriši sve datoteke u log folderu
+
+   *.txt // ignoriši sve tekstualne datoteke
+
+   !users.txt // ali ne i datoteku 'users.
+
+   css/**/*.css // ignoriši sve css datoteke bilo gde u css folderu  
+</md>
+
+<h2 id="manje-bitne-stvari">manje bitne stvari</h2>
+
+<md>
+   video uputstvo: <https://www.youtube.com/watch?v=SWYqp7iY_Tc&ab_channel=TraversyMedia>
+   `git`        // prikaz svih komandi  
+   `touch` // stvaranje novog fajla  
+   `git --version`  // provera verzije  
+   `clear`     // brisanje ekrana  
+</md>
 
 
-### Editovanje sajta
+<h2 id="novi-repozitorijum-github-uptstva">Novi repozitorijum, github uptstva</h2>
 
-```txt
-        ┌── styling ──┐
-main ═══╧═════════════╧═══ main
-```
-   * pravim novi branch: `git checkout -b styling`
-   * Editujem sajt u VS CODE
-   * `git add .`
-   * `git commit -m styling`
-   * upload Branch: `git push origin styling`
-   * odem na gitHub (proverim upload), stvoren novi branch → Open pull request, Pull-ujem, Merge-ujem
+<md>
+   Quick setup — if you’ve done this kind of thing before
+   
+   SSH: git@github.com:djlabat/George.git
+   HTTPS: https://github.com/djlabat/George.git
+   
+   
+   …or create a new repository on the command line
+   echo "# George" >> README.md
+   git init
+   git add README.md
+   git commit -m "first commit"
+   git branch -M main
+   git remote add origin https://github.com/djlabat/George.git
+   git push -u origin main
+   
+   …or push an existing repository from the command line
+   git remote add origin https://github.com/djlabat/George.git
+   git branch -M main
+   git push -u origin main
+   
+   …or import code from another repository
+   You can initialize this repository with code from a Subversion, Mercurial, or TFS project.
+</md>
 
-### Promena branch-a
-```txt
-        ┌── site ──╔══════
-main ═══╧══════════╩──────
-```
+<h2 id="git-pages">GIT PAGES</h2>
 
+<md>
+   ### Pravljenje stranice
+      * pratim proceduru sa GitHub Pages, napravio sam sajt
+      * cloniram je na moj komp: git clone [https://...repozitorijem](#git-pages)
+      * `code .`
+      * napravim index.html > editujem ga
+      * provera: ime mog branch-a: git status // main
+      * `git add .`
+      * `git commit -m 'initial commit'`
+      * `git push origin main`
+      * Provera: da li se Upload na GitHub
+   
+   Bitna stvar: Kad napravim stranicu sa README.md i Index.html odem na → GitHub Pages: Settings → Sekcija: GitHub pages → Source: Main Branc → [ Save ]. Provera: trebalo bi da se na tom istom mestu ↑ u settings-u pojavi i adresa stranice
+   
+   
+   ### Editovanje sajta
+   
+   ```txt
+           ┌── styling ──┐
+   main ═══╧═════════════╧═══ main
+   ```
+      * pravim novi branch: `git checkout -b styling`
+      * Editujem sajt u VS CODE
+      * `git add .`
+      * `git commit -m styling`
+      * upload Branch: `git push origin styling`
+      * odem na gitHub (proverim upload), stvoren novi branch → Open pull request, Pull-ujem, Merge-ujem
+   
+   ### Promena branch-a
+   ```txt
+           ┌── site ──╔══════
+   main ═══╧══════════╩──────
+   ```
+   
+   
+      * pravim novi branch: `git checkout -b site`
+      * upload Branch: `git push origin site`
+      * GitHub Settings → promenim branch na site
+   
+   ### Tip & Tricks
+      - editovanje sajta i na GitHub (commit + 10 sec + F5)
+</md>
 
-   * pravim novi branch: `git checkout -b site`
-   * upload Branch: `git push origin site`
-   * GitHub Settings → promenim branch na site
+<h2 id="errors">ERRORS</h2>
 
-### Tip & Tricks
-   - editovanje sajta i na GitHub (commit + 10 sec + F5)
-
-ERRORS
-------------------------------------------------------------
+<md>
    - Otvorim folder u VSCode i pop-up mi prozorcic (dole-desno) da ovaj folder nije bezbedan jer neki drugi user je vlasnik, nesto u tom smislu kenja. Samo klikni na dugme [Manage unsafe], pa gore u vrhu ekrana izaberi current folder.
    - Kada pravim projekat od kojeg cu posle napraviti sajt na GitHub, bitno je fajl nazvati `index.html` (mala slova) inace ce biti problema.
 </md>
+
 </body>
 </html>

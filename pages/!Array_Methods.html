@@ -21,12 +21,11 @@
 
 </head>
 <body>
-<a href="#" class="back-to-top" title="Back to top">
+<!--a href="#" class="back-to-top" title="Back to top">
   SADRŽAJ
-</a>
+</a-->
 
 <md>
-
 # ARRAY METODE
 
 ## SADRZAJ: 
@@ -42,7 +41,6 @@
 ## ! Paznja !
 * Skoro sve metode za Array MENJAJU original, osim onih koje koriste callbackfn.  
 * Array methods are always generic (srp. opšte, generalne) — they don't access any internal (ne-index) data of the array object. They only access the array elements through the length property and the indexed elements. This means that they can be called on array-like objects as well.
-
 </md>
 
 <pre>
@@ -53,24 +51,24 @@
 };
 Array.prototype.join.call(arrayLike, ", "); // "a, b"</code>
 </pre>
-<md>
 
+<md>
 * (VS CODE) Ako mi trebaju tacniji podatci sta koja metoda radi> hover preko metode i pojavi se opis.
 
 ## Promenljive koje se koriste u primerima u fajlu
-
 </md>
+
 <pre>
 <code>let abc = ["a", "b", "c", "d", "e"];
 let zxc = ['z', 'x', 'c']
 let one2 = [1, 2]
 </code>
 </pre>
+
+
+<h2 id="seckanja"><b>SECKANJA</b></h2>
+
 <md>
-
-</md><h2 id="seckanja"><b>SECKANJA</b></h2><md>
-
-
 ### UKRATKO TABELA ISPOD PRIKAZUJE STA KOJA (SEC) METODA VRACA:
 |      METODA: | shift  | unshift  | splice  |  push  |  pop  |
 |         ---: |  :---: | :---:    | :---:   | :---:  | :---: |

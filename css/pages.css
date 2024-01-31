@@ -32,11 +32,3 @@ td,th {
   background-color: #111;
   padding: 10px;
 }
-.back-to-top {
-  position: fixed;
-  bottom: 0px;
-  right: 0px;
-  padding: 4px 16px ;
-  text-align: center;
-  background: linear-gradient(#0e0e3f, #000);
-}
