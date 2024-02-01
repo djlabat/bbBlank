@@ -89,7 +89,7 @@ console.log(obj) // Object { q: 1, w: 3 }
 ---
 ## **COPY**
 
-### *Object.assign()*
+### *Object. assign()*
 
 * Kombinuje vise objekata u jedan. Prvi argument - target-objekat se menja, a ostali source-objekti se NE menjaju. Ako hocu da napravim novi objekat, kombinacijom vise objekata, a da se ni jedan ne promeni, kao 1. argument koristiti {}. Zvanicna definicija metofe: Kopira se enumerabilne stavke iz jednog objekata u drugi.
 
@@ -122,7 +122,7 @@ console.log('After Change - objclone: ', objclone); // 45
 <md>
 
 
-### *Object.create()*
+### *Object. create()*
 
 * Nesto slicno kao Corel-u Clone. Pravi se novi, PRAZAN, objekat na osnovu postojeceg objekta, ali taj postojeci objekat ce da bude prototype novog objekta, a "skoljka" ce da bude prazna. Drugim recima, od postojeceg objekta pravi se prototip za novi objekat, a tom novom objektu skoljka ce da bude prazna. Ako promenim neko svojstavo objekta od kojeg je napravljen prototip za novi objekta, menja se i prototip u novom objektu. Object.create nije dobro za NE ZAVISNO kopiranje. 
 
@@ -141,7 +141,7 @@ console.log('After Change - objclone: ', objclone); // 45
 
 ### DATA
 
-### *Object.defineProperty ( obj, propString, descriptorObject )* 
+### *Object. defineProperty( obj, propString, descriptorObject )* 
 
 * Na ovaj nacin dodata svojstva su, po default-u imutabilna (confugurable:false) i nisu enumerabilna (enumerable:false).
   // Da bi se promenilo svojstvo(propString) od Objekta(obj), mora prvo da se dozvoli kofigurisanje objekta (confugurable:true), pa potom da se dozvoli upis u to svojstvo (writable:true). Ako jos zelim i da se to svojstvo npr. pojavi u for...in petlji tj. da bude enumerabilno onda moram to ukljuciti (enumerable:true).
@@ -196,7 +196,7 @@ arc.temperatura; // 13
 
 
 
-### *Object.defineProperties(obj, { {...}, {...}, ...} )*
+### *Object. defineProperties(obj, { {...}, {...}, ...} )*
 	
 * Isto kao i ↑prethodni↑ ali za vise svojstava odjednom.
 * OBRATI PAZNJU, nisu isti argumenti kao kod Object.defineProperty (vidi ↑ gore). Ovde je drugi argument {blok} u kojem su prop.-si: {deskriptori}. PAZI, kada kucas u editoru sa intelisense. Obrati paznju sta si izabrao, ...Property ili Properties
@@ -234,7 +234,7 @@ qwe123.s // '$r6;_=345+'
 
 
 
-### *Object.getOwnPropertyDescriptor()*
+### *Object. getOwnPropertyDescriptor()*
 
 * Pravi se novi objekat (tzv. deskriptor) pomocu kojeg se prikazuje konfiguracija nekog svojstva.
 
@@ -265,7 +265,7 @@ qwe123.q // 1 // ... vrednost u originalnom objektu ostaje nepromenjena. Verovat
 
 
 
-### *Object.getOwnPropertyDescriptors()*
+### *Object. getOwnPropertyDescriptors()*
 
 * Isto sto i ↑ Object.getOwnPropertyDescriptor samo sto prikazuje konfiguracije od SVIH svojstava (ili onih koje si odabrao).
 
@@ -312,34 +312,34 @@ qwe123.q // 1 // ... vrednost u originalnom objektu ostaje nepromenjena.
 
 ## **LOCK**  
 
-### *Object.preventExtensions()*
+### *Object. preventExtensions()*
 
 * Onemogucava objekat da mu se dodaju novi props
 
-### *Object.isExtensible()*
+### *Object. isExtensible()*
 
 * Proverava da li objektu mogu da se dodoaju novi props
 
-### *Object.freeze()*
+### *Object. freeze()*
 
 * Zamrzava objekat da ne moze NISTA da se menja (ni dodaje, ni oduzima, ni kofigurise). !Podobjekat nije smrznut. Svaki posebno mora da se smrzne. Takodje i obrnuto, ako zamrznem podobjekat(ili niz) to ne znaci da ce i maticni objekat biti smrzut. OBJASNJENJE: Ovo je i logicno jer "podobjekat" je samo referenca ka tom drugom (pod)objektu. Objekat ne može da se obriše.
 
-###	*Object.isFrozen()*
+###	*Object. isFrozen()*
 
 * Proverava da li je objekat zamrznut. Vidi "freeze"
 
-###	*Object.seal()*
+###	*Object. seal()*
 
 * Zapečaćeno. (Kao freeze, ali param su promenjivi) Objekatu NE mogu da se dodaju novi props, a postojeci props NE mogu da se konfigurisu. Ali VREDNOSTI postojecih propsa mogu da se menjaju (ako su writable). Objekat ne može da se obriše.
 
-### *Object.isSealed()*
+### *Object. isSealed()*
 
 * Proverava da li je objekat zapečaćen. Vidi "seal"
 
 
 ## **OWN_PROPEPRTIES**
 
-### *Object.prototype.hasOwnProperty()*
+### *Object. prototype. hasOwnProperty()*
 
 * Proverava da li objekat sadrzi odredjeni properties. pogledaj fajl hasOwnProperty.js
 
@@ -354,7 +354,7 @@ psi[0].hasOwnProperty('Bela') // F
 
 
 
-### *Object.prototype.propertyIsEnumerable("property")*
+### *Object. prototype. propertyIsEnumerable ( "property" )*
 
 * Proverava da li prop pripada licno tom objektu i da li je enumerabilan.
 
@@ -395,7 +395,7 @@ qwe123.valueOf()		// █ vraca vrednost objekta, isto dobija i kada pozoves obje
 
 ### **2.) Pozivanje putem Object**
 
-### *Object.keys()*
+### *Object. keys()*
 
 * Pravi niz (ne iterator) od kljuceva objekta. Moze da se koristi kao kod Array.length
 </md>
@@ -405,18 +405,18 @@ qwe123.valueOf()		// █ vraca vrednost objekta, isto dobija i kada pozoves obje
 </pre>
 <md>
 
-### *Object.values()*
+### *Object. values()*
 
 * Pravi niz od vrednosti svojstava (ako su enumerativni). Slicno je kao for...in loop, ali loop enumerise i propertie od prototype lanca.
 
 </md>
 <pre>
-<code>Object.values(qwe123) // [1,2,3]
+<code>Object. values( qwe123 ) // [1,2,3]
 </code>
 </pre>
 <md>
 
-### *Object.entries()*
+### *Object. entries()*
 
 * Pravi [2D-niz] kljuceva i vrednosti
 
@@ -427,7 +427,7 @@ qwe123.valueOf()		// █ vraca vrednost objekta, isto dobija i kada pozoves obje
 </pre>
 <md>
 
-### *Object.fromEntries(ob)*
+### *Object. fromEntries( ob )*
 
 * Obrunto od ↑ Object.entries. Transformise neku listu vrednosti oblika [key, value] u objekat {key: value}
 
@@ -448,38 +448,38 @@ qwe123.valueOf()		// █ vraca vrednost objekta, isto dobija i kada pozoves obje
 	1. string - Name → getOwnPropertyNames
 	2. Simbol - Symbol → getOwnPropertySymbols
 
-### 1.) *Object.getOwnPropertyNames(obj)*
+### 1.) *Object. getOwnPropertyNames( obj )*
 
 * Vraca Array svih kljuceva (ukljucujuci i ne-enumerable, **IS**kljucujuci one koji koriste Symbol).
 
 </md>
 <pre>
-<code>Object.getOwnPropertyNames(obmix) // [0,1,2,3,4,q,a,qwe,qwe123,abc,…]
+<code>Object. getOwnPropertyNames( obmix ) // [0,1,2,3,4,q,a,qwe,qwe123,abc,…]
 </code>
 </pre>
 <md>
 
 
-### 2.) *Object.getOwnPropertySymbols(obj)*
+### 2.) *Object. getOwnPropertySymbols( obj )*
 
 * Vraca Array od svih simbola koji su korisceni u datom objektu
 
 </md>
 <pre>
-<code>Object.getOwnPropertySymbols(obmix) // [Symbol("sym"), Symbol("nedeklarisani sym")]
+<code>Object. getOwnPropertySymbols( obmix ) // [Symbol("sym"), Symbol("nedeklarisani sym")]
 </code>
 </pre>
 <md>
 </md>
 <pre>
-<code>obmix[Object.getOwnPropertySymbols(obmix)[1]] // "kako ga pozvati?" ← ovo je vrednost koja stoji iz simbol kljuca
+<code>obmix[ Object. getOwnPropertySymbols( obmix ) [1] ] // "kako ga pozvati?" ← ovo je vrednost koja stoji iz simbol kljuca
 </code>
 </pre>
 <md>
 
 ## **PROTOTYPE**
 
-### *Object.setPrototypeOf(target, prototypeObject)*
+### *Object. setPrototypeOf( target, prototypeObject )*
 
 * Dodeljivanje prototipa nekom objektu, tacnije: "target" objektu se dodeljuje "prototypeObject" da mu bude prototip.
 
@@ -498,7 +498,7 @@ targetObj.abc[0] // "a"
 </pre>
 <md>
 
-### *Object.getPrototypeOf()*
+### *Object. getPrototypeOf()*
 
 * Vraca objekat koji je koriscen kao prototip
 
@@ -550,7 +550,7 @@ console.log(Object.getPrototypeOf(object1) === prototype1); // █ poredjenje [[
 <md>
 
 
-### *Object.prototype.isPrototypeOf()*
+### *Object. prototype. isPrototypeOf()*
 
 * proverava da li je neki objekat prototip drugom objektu.
 *	Object, Array, String, Number... Imaju prototype (tj. imaju svoju class). Posto su to kostruktori prototip im je Function > a njegov prototip je Object > a on je osnova svega tj. nema prototip tj prototype:null
@@ -605,7 +605,7 @@ console.log(object3.isPrototypeOf(Object))   // F
 
 ## **IS_equal**  
 
-### *Object.is()*  
+### *Object. is()*  
 	
 * Proverava jednakost dve vrednosti. Za razliku od "==" komparacije, gde je `NaN == NaN` =>`false`, ovde je `Object.is(NaN, NaN)` => `true`
 
@@ -626,7 +626,7 @@ Object.is(false, 0);    // F
 
 ## **OSTALO**
 
-###	*Object.prototype.toString()*
+###	*Object. prototype. toString()*
 
 * Po default-u vraca "[object Object]", ali ta metoda moze da se promeni pa da vraca sta ti hoces. Vidi primer:
 
@@ -648,7 +648,7 @@ console.log(dog1.toString());
 </pre>
 <md>
 
-### *Object.prototype.valueOf()*
+### *Object. prototype. valueOf()*
 
 * Kao sto samo ime kaze "valueOf" - vrednostOd, a to znaci da vraca vrednost od objekta kada se primoravanjem od njega to zatrazi. To se najcesce desava u situacijama kad je objekat izlozen nekom operatoru, pa se trazi od objekta njegova vrednost. Posto se od objekta trazi da vrati vrednost (value) onda ta vrednost MORA biti primitiva.
 
@@ -681,7 +681,7 @@ console.log(a == a) // true // n
 </pre>
 <md>
 
-### *Object.prototype.toLocaleString()*
+### *Object. prototype. toLocaleString()*
 </md>
 </body>
 </html>

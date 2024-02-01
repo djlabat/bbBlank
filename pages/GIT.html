@@ -58,25 +58,25 @@ csP (command Palete)> git clone
 <md>
 1. napravim folder na kompu, koji cu da bacim na git. RMB> "Git Bash here".
 2. `touch .gitignore index.html style.css app.js`
-3. `git INIT` // u vec stvorenom folderu na kompu, GIT pravi direktorijum ".git" koji predstavlja LOKALNI repozitorijum.
-3.1 `git config --global user.name 'djlabat'` (ovo se radi samo prvi put na novom kompu)
+3. `git INIT` // u vec stvorenom folderu na kompu, GIT pravi direktorijum ".git" koji predstavlja LOKALNI repozitorijum.  
+3.1 `git config --global user.name 'djlabat'` (ovo se radi samo prvi put na novom kompu)  
 3.2 `git config --global user.email 'djlabat@gmail.com'` (samo prvi put na novom kompu)
 </md>
 
 <h2 id="staging">STAGING</h2>
 
 <md>
-   `git ADD fajl.ekstenzija` // to INCLUDE what will be committed. What will be on staging area
-   `git ADD *.html` // dodaje sve *.html fajlove
-   `git ADD .`      // *.*
+   `git ADD fajl.ekstenzija` // to INCLUDE what will be committed. What will be on staging area  
+   `git ADD *.html` // dodaje sve *.html fajlove  
+   `git ADD .`      // *.*  
 </md>
 
 <h2 id="unstage">UNSTAGE</h2>
 
 <md>
-   `git RM <file>`          // unstage and DELETE from hard disk. Nije dovoljno samo rucno obrsati fajlove, nego moraju se i unstage. Zato je ova komanda super.
-   `git RM --cached <file>` // UNSTAGE, to exclude what will be committed
-   `git RM -f <file>`   // DELETE izmenjenih fajlova.
+   `git RM <file>`          // unstage and DELETE from hard disk. Nije dovoljno samo rucno obrsati fajlove, nego moraju se i unstage. Zato je ova komanda super.  
+   `git RM --cached <file>` // UNSTAGE, to exclude what will be committed  
+   `git RM -f <file>`   // DELETE izmenjenih fajlova.  
 </md>
 
 <h2 id="status">STATUS</h2>
@@ -88,27 +88,27 @@ csP (command Palete)> git clone
 <h2 id="commit">COMMIT</h2>
 
 <md>
-   `git COMMIT `    // fajlovi koji su oznaceni kao STAGED (pomocu komande ADD) se snimaju u ".git" folder.
-   RAD U VIM EDITORU: Kada se pokrene komanda otvara se "Vim" edior, ali da bi se nesto uradilo moram pritisnuti "I" da bi usao u insert mode. Potom kucam "opis" promene. U VIM edtoru, linije koje pocinju sa "#" su nevazece linije, a linije bez icega ce uci u commit "opis". Na kraju, pritisnem "ESC", pa kucam ":wq" (write-quit), enter. Dobijamo info o promenama.
-   `git COMMIT -m "Ovde ide text o promenama."` // jednostavniji nacin.
-   `git COMMIT --amend` // Promena poruke poslednjeg commita.
-   `git COMMIT --amend -m "Potpuno nova poruka` // Brise se stara poruka i upisuje se nova.
+   `git COMMIT `    // fajlovi koji su oznaceni kao STAGED (pomocu komande ADD) se snimaju u ".git" folder.  
+   RAD U VIM EDITORU: Kada se pokrene komanda otvara se "Vim" edior, ali da bi se nesto uradilo moram pritisnuti "I" da bi usao u insert mode. Potom kucam "opis" promene. U VIM edtoru, linije koje pocinju sa "#" su nevazece linije, a linije bez icega ce uci u commit "opis". Na kraju, pritisnem "ESC", pa kucam ":wq" (write-quit), enter. Dobijamo info o promenama.  
+   `git COMMIT -m "Ovde ide text o promenama."` // jednostavniji nacin.  
+   `git COMMIT --amend` // Promena poruke poslednjeg commita.  
+   `git COMMIT --amend -m "Potpuno nova poruka` // Brise se stara poruka i upisuje se nova.  
 </md>
 
 <h2 id="log">LOG</h2>
 
 <md>
-   `git LOG`   // izlista ti sve komite do sada
+   `git LOG`   // izlista ti sve komite do sada  
 </md>
 
 <h2 id="restore-commit">RESTORE COMMIT</h2>
 
 <md>
-   `git RESET --hard 456df89a`  // Vracanje na stanje nekog prethodnog komita.
-   `git RESET --hard`          // bez koda, resetuje trenutni git.
-   `git CHECKOUT 146fa46a`  // Prebacivanje u neki drugi (prethodni) komit, pri cemu se cuva sadasnji
-   `git SWITCH -` // tokom checkout-a, da bi se prebacio na HEAD commit, bez snimanja promena.
-   `git SWITCH -c nova_grana` // Pravljenje nove grane od promena koje sam uradio tokom checkout.
+   `git RESET --hard 456df89a`  // Vracanje na stanje nekog prethodnog komita.  
+   `git RESET --hard`          // bez koda, resetuje trenutni git.  
+   `git CHECKOUT 146fa46a`  // Prebacivanje u neki drugi (prethodni) komit, pri cemu se cuva sadasnji  
+   `git SWITCH -` // tokom checkout-a, da bi se prebacio na HEAD commit, bez snimanja promena.  
+   `git SWITCH -c nova_grana` // Pravljenje nove grane od promena koje sam uradio tokom checkout.  
 </md>
 
 <h2 id="origin-master">ORIGIN-MASTER</h2>
@@ -119,27 +119,27 @@ csP (command Palete)> git clone
    `master` - grana (branch).
    Kada se u nekim naredbama pominje neka GRANA (npr. master) na UDALJENOM REPOZITORIJUMU potrebno je pored imena grane dodati i link do udaljenog repozitorijuma npr:
 
-   ```sh
+```sh
    git push    https://url_link_udaljenog_repozitorijuma    master
-   ```
+```
 
    Znajući da je "origin" alias za ovaj link, sada se "master" grana na udaljenom repu može označiti jednostavnije sa “origin master”. Pa bi komanda iz prethodnog primera izgledala ovako:
 
-   ```sh
+```sh
    git push  origin  master
-   ```
+```
 </md>
 
 <h2 id="remote-repositories">REMOTE REPOSITORIES</h2>
 
 <md>
-   `git remote -v` // Prikazije koji link stoji pod "origin" tj. koji je link ka REMOTE REPOZITORIJUMU.
-   `git REMOTE add origin http://nasserver.git` // URL Adresa `http://nasserver.git` udaljenog servera je stavljena u konstantu "origin".
-   `git PUSH origin master` // push-uj na udaljeni server (Remote Repository) `http://nasserver.git`, granu "master".
-   `git REMOTE remove` // uklanjanje repozitorijuma
-   `git PULL`    // skida sadrzaj sa udaljenog repozitorijuma i/ili odmah azurira lokalni repozitorijum sa verzijom koja je na udaljenom repozitorijumu.
-   `git CLONE https://github.com/mdbootstrap/knowledge-base.git` // skidanje nekog (tudjeg) Git projekta na svoj komp. Adresu skinuti sa gitHub sajta.
-   Obicno posle COMMIT, idu zajedno PUSH i PULL, i to bas tim redosledom.
+   `git remote -v` // Prikazije koji link stoji pod "origin" tj. koji je link ka REMOTE REPOZITORIJUMU. 
+   `git REMOTE add origin http://nasserver.git` // URL Adresa `http://nasserver.git` udaljenog servera je stavljena u konstantu "origin".  
+   `git PUSH origin master` // push-uj na udaljeni server (Remote Repository) `http://nasserver.git`, granu "master".  
+   `git REMOTE remove` // uklanjanje repozitorijuma  
+   `git PULL`    // skida sadrzaj sa udaljenog repozitorijuma i/ili odmah azurira lokalni repozitorijum sa verzijom koja je na udaljenom repozitorijumu.  
+   `git CLONE https://github.com/mdbootstrap/knowledge-base.git` // skidanje nekog (tudjeg) Git projekta na svoj komp. Adresu skinuti sa gitHub sajta.  
+   Obicno posle COMMIT, idu zajedno PUSH i PULL, i to bas tim redosledom.  
 </md>
 
 <h2 id="worktree">WORKTREE</h2>
@@ -172,11 +172,16 @@ csP (command Palete)> git clone
 <h2 id="branch">BRANCH</h2>
 <md>
    `git BRANCH develop` // stvara granu develop, koju cu kasnije moci da spojim sa master granom i/ili da je obrisem.
+
    `git BRANCH -v` // pregled svih grana
+
    `git BRANCH -d develop` // brisanje develop grane
+
    `git CHECKOUT develop` // prebacivanje na develop granu. Pre ovoga uraditi commit da bi snimio, ili stash.
+
    `git MERGE develop` // Prilikom spajanja grana, potrebno je vratiti se na roditeljsku granu (master) i pozvati komandu git merge \<develop>
-   `git REBASE master` // Drugi nacin spajanja. Uglavnom služi u svrhe dopunjavanja sporednih grana (develop) izmenama sa master grane. Ovo pokrecem dok sam na develop grani.
+
+   `git REBASE master` // Drugi nacin spajanja. Uglavnom služi u svrhe dopunjavanja sporednih grana (develop) izmenama sa master grane. Ovo pokrecem dok sam na develop grani.  
 </md>
 
 <h2 id="stash">STASH</h2>
@@ -190,22 +195,29 @@ csP (command Palete)> git clone
    __STASH__, to je kao dok radim na dizajnu, da bih mogao da poredim koji dizajn je bolji od kojeg, pravim i vise verzija dizajna u jednom fajlu pa cu kasnije da odaberem koju verziju dizajna cu da dalje razvijam.
 
    Dakle, STASH snima trenutno stanje radnog direktorijuma, tj. fajlove u njemu (lokalno, bez commit-a) da bi mogao da se prebacima na rad na necem drugom, recimo pogledam neki drugi checkout. Nakon STASH-ovanja projekat se vraca na stanje poslednjeg commita. Odatle mozes da pravis drugu verziju izmena od poslednjeg commita.
+
    Stash je LOKALNOG karaktera. To znaci da KAD PRAVIM COMMIT on se NE SNIMA U COMMIT, nego je vezan za LOKALNI REPOZITORIJUM.
    
    `git STASH list` // lista svih spremljenih stash izmena
+
    `git STASH apply stash@{0}`  // Vraćanje spremljenih izmena
    
    ### Koja je razlika izmedju STASH i BRANCH postupka?
+
    Stash nepravi PRAVI commit niti pravi PRAVU granu, nego pravi takoreci PRIVREMENI, VIRTUELNI, LAYER BRANCH-COMMIT, koji ce kasnije biti (ne)iskoriscen/uklonjen, bez ikakvog traga da je ikada postojao. Kad se napravi STASH on odlozi, skrije, tvoj trenutni rad na posebni tkrć. BRANCH-COMMIT i vraca te na poslednji, cist, "no changes" HEAD commit. Kasnije mozes da primenis taj stash (`git stash apply`) na vrh neke grane KOJU TI ODABERES, ne mora master. Mozes da ga obrises (`git stash drop`) ili da ga primenis na neku granu i obrises ga (`git stash pop`). Apply ne brise stash.
    
    ### Kad koristiti STASH?
+
    #### Use case - suddenly change commit
+
    Ako radim na `branch A` i iznenada moram da se prebacim da radim na `branch B`, a pri tome nisam jos zavrsio sa `branch A`, nisam spreman da ga komitujem, onda odlazem tj. `stash`-ujem Imoje promene na `branch A`, skocima tj. checkout na B, uradim sta treba, onda se oped checkout na A i "prilepim" tj, vratim stash na A.
    
    #### Use case 2 - temp branch => stash
+
    Moze da se koristi kao `temp branch`, ali bolje je napraviti pravi temp branch, pa u njemu praviti izmene, nego temp stashovanje.
    
    #### Use case 3
+
    I forgot something in my last commit and have already started working on the next one in the same branch. Lat's assume the latest commit was already done and I start working on the next patch, and discovered that I was missing something.
    
    - stash away the current mess I made in next patch  
@@ -247,21 +259,26 @@ csP (command Palete)> git clone
 <md>
    U njega upisujem fajlove ili /foldere koji ce biti totalno ignosisani, kao da nepostoje.
 
-      \# ovako se obeleyzvaju komentari u .gitignore fajlu
-      log/ // ignoriši sve datoteke u log folderu
-      *.txt // ignoriši sve tekstualne datoteke
-      !users.txt // ali ne i datoteku users.txt
-      css/**/*.css // u css/ folderu, **/gde god da nadjes, *.css datoteku, ignorisi ih
+   
+   \# ovako se obeleyzvaju komentari u .gitignore fajlu
+   
+   log/ // ignoriši sve datoteke u log folderu
+   
+   *.txt // ignoriši sve tekstualne datoteke
+   
+   !users.txt // ali ne i datoteku users.txt
+
+      css/**/*.css // u css/ folderu, **/gde god da nadjes, *.css datoteku, ignorisi ih  
 </md>
 
 <h2 id="manje-bitne-stvari">manje bitne stvari</h2>
 
 <md>
    video uputstvo: [Traversy media: Git & GitHub Crash Course For Beginners](https://www.youtube.com/watch?v=SWYqp7iY_Tc&ab_channel=TraversyMedia)  
-   `git`        // prikaz svih komandi  
-   `touch` // stvaranje novog fajla  
-   `git --version`  // provera verzije  
-   `clear`     // brisanje ekrana  
+   `git`        // prikaz svih komandi    
+   `touch` // stvaranje novog fajla    
+   `git --version`  // provera verzije    
+   `clear`     // brisanje ekrana    
 </md>
 
 
