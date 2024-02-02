@@ -25,6 +25,7 @@ pre code {
   padding: 16px;
   margin: 0 36px;
   white-space: pre-wrap;
+  font-size: calc(0.55rem + .35vw); /* font scaling with window-width size change */
 }
 code {color: #94e4ff}
 td,th {
