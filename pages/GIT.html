@@ -273,6 +273,16 @@ csP (command Palete)> git clone
 
 <md>
    Git podmoduli vam omogućavaju da držite git repository (srp. spremište) kao poddirektorijum drugog git spremišta. Git podmoduli su jednostavno referenca za drugo spremište na određenom snimku (eng. snapshot) u vremenu. Git podmoduli omogućavaju Git spremištu da inkorporira, i prati istoriju verzija eksternog koda.
+
+   Kako da **obrisem submodul**, recimo da se modul zove "trashModul":
+
+   + U root-u projekta, u fajlu .gitmodules obrisem ceo sektor [trashModul]. Ako je fajl prazan posle brisanja, mozes i fajl da obrises.  
+   + Odem u .git/.config tamo takodje obrisem ceo [sektor za taj modul]  
+   + Obrisem u root-u ceo direktorijum trashModul  
+   + Odem u /.git/modules/ i tu takodje obrisem trashModul direktorijum. Opet, ako je prazan modules direktorijum, mozes ga obrisati.  
+   + `git commit -m "obrisan modul trashModul"`  
+   ↑ ovo je moj, rucni nacin, mada ima i nacin preko GitBash ali ja mislim da je isto. Ako hoces taj drugi nacin mozda ce ti pomoci ovaj video: https://www.youtube.com/watch?v=6pGxk0B_Ino
+
 </md>
 
 <h2 id="fajl-gitignore">FAJL .gitignore</h2>
