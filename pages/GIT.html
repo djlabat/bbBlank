@@ -172,6 +172,10 @@ csP (command Palete)> git clone
 
 <h2 id="branch">BRANCH</h2>
 <md>
+   `git checkout -b &lt;new branch&gt; &lt;from branch&gt;`
+
+   
+
    `git BRANCH develop` // stvara granu develop, koju cu kasnije moci da spojim sa master granom i/ili da je obrisem.
 
    `git BRANCH -v` // pregled svih grana
@@ -179,10 +183,26 @@ csP (command Palete)> git clone
    `git BRANCH -d develop` // brisanje develop grane
 
    `git CHECKOUT develop` // prebacivanje na develop granu. Pre ovoga uraditi commit da bi snimio, ili stash.
+   
+   `git CHECKOUT -b develop master` // stvara develop granu i prebacuje se na nju.
 
-   `git MERGE develop` // Prilikom spajanja grana, potrebno je vratiti se na roditeljsku granu (master) i pozvati komandu git merge \<develop>
+   Kada se pravi nova grana, bitno je **sa koje grane je proistekla nova grana**. Na primeru iznad se stvara nova `develop` grana od roditeljskie `master` grane i prebacuje se na nju. Ako se u komndi ne navede roditeljska grana onda se trenutno radna grana uzima kao roditeljska.
+
+   `git MERGE develop` // **BITNO JE**, prilikom spajanja grana vratiti se na roditeljsku granu (master) i odatle pozvati komandu `git merge &lt;develop&gt;`. Jer nije svejedno koja grana je roditelj a koja je dete.
 
    `git REBASE master` // Drugi nacin spajanja. Uglavnom služi u svrhe dopunjavanja sporednih grana (develop) izmenama sa master grane. Ovo pokrecem dok sam na develop grani.  
+
+   ### razlika izmedju MERGE i REBASE
+
+   MERGE  
+
+      develop      ┌── (d1) ─── (d2) ──>───┐  
+      master   ════╧══ (m1) ═══ (m2) ════ (m3)
+
+   REBASE  
+
+      develop      ┌── (d1) ─── (d2) ──>───┐
+      master   ════╧══ (m1) ═══ (m2) ════ (d1) ═══ (d2)
 </md>
 
 <h2 id="stash">STASH</h2>
