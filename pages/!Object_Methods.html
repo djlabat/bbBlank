@@ -24,6 +24,7 @@
 
 <md>
 [Home](http://djlabat.github.io/bbBlank/index.html)
+
 # OBJECT METODE
 
 ## SADRZAJ
@@ -73,6 +74,45 @@ console.log(obj) // Object { q: 1, w: 3 }
 </code>
 </pre>
 <md>
+
+* Kada se referenca ka nekom objektu stavi u niz, sta se tu tacno desava?
+
+</md>
+<pre>
+<code>let person = { name: "Lydia" };
+
+  const members = [person]; /*
+    Sta se ovde tacno desilo?
+    Napravljen je Array tj. drugi objekat.
+    Index [0] tj. parametar ["0"] je postao 
+    REFERENCA ka objektu { name: "Lydia" }
+    Znaci, members[0] === person // T
+  */
+  
+  person = null; /*
+    posto je: typeof null // object
+    to znaci da je person sada referenca za 
+    potpuno novi objekat, za treci objekat tj. null.
+    
+    Znaci nisam promenio, dodao ili obrisao 
+    neki parametar od objekta { name: "Lydia" }, 
+    sto bi rezultovalo promenu objekta, 
+    sto bi bilo vidljivo na obe reference, 
+    nego sam referenci person dodelio vezu 
+    ka trecem objektu tj. ka null.
+  */
+  
+  
+  console.log(members); /*
+    members je i dalje Array koji na [0] indexu 
+    drzi svoju [REFERENCU] ka objektu 
+    { name: "Lydia" }
+  */
+
+</code>
+</pre>
+<md>
+
 
 * Kljucevi objekta mogu biti samo stringovi ili Symboli. To znaci ako stavim broj kao [kljuc] on ce da prodje kroz toString() i bice upisan kao string.  
 	npr. [.12e3] bice upisan kao ["120"]
