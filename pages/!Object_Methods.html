@@ -28,15 +28,69 @@
 # OBJECT METODE
 
 ## SADRZAJ
-
-[COPY](#copy)  
-[DESCRIPTOR](#descriptor)  
-[LOCK (freeze, seal)](#lock)  
-[OWN PROPEPRTIES](#own_propeprties)   
-[KEY, VALUE](#key_value)  
-[PROTOTYPE](#prototype)  
-[IS (equal)](#is_equal)  
-[OSTALO](#ostalo)   
+</md>
+<ul>
+  <li>
+    <a href="#copy">COPY</a>
+    | 
+    <a href="#assign">assign</a>
+    | 
+    <a href="#create">create</a>
+  </li>
+  <li>
+    <a href="#descriptor">DESCRIPTOR</a> |
+    <a href="#defineProperties">defineProperties</a> | 
+    <a href="#getOwnPropertyDescriptor">getOwnPropertyDescriptor</a> | 
+    <a href="#getOwnPropertyDescriptors">getOwnPropertyDescriptors</a> |
+    <a href="#defineProperties">defineProperties</a> |
+    <a href="#getOwnPropertyDescriptor">getOwnPropertyDescriptor</a> |
+    <a href="#getOwnPropertyDescriptors">getOwnPropertyDescriptors</a>
+  </li>
+  <li>
+    <a href="#lock">LOCK</a> |
+    <a href="#preventExtensions">preventExtensions</a> |
+    <a href="#isExtensible">isExtensible</a> |
+    <a href="#freeze">freeze</a> |
+    <a href="#isFrozen">isFrozen</a> |
+    <a href="#seal">seal</a> |
+    <a href="#isSealed">isSealed</a> 
+  </li>
+  <li>
+    <a href="#own-propeprties">OWN PROPEPRTIES</a> |
+    <a href="#hasOwnProperty">hasOwnProperty</a> |
+    <a href="#propertyIsEnumerable">propertyIsEnumerable </a>
+  </li>
+  <li>
+    <a href="#key-value">KEY, VALUE</a> |
+    <a href="#keys">keys</a> |
+    <a href="#values">values</a> |
+    <a href="#entries">entries</a> |
+    <a href="#fromEntries">fromEntries</a>  
+    <ul>
+      <li>
+        <a href="#Izdvajanje-kljuceva"><strong>Izdvajanje kljuceva</strong></a> |
+        <a href="#getOwnPropertyNames">getOwnPropertyNames</a> |
+        <a href="#getOwnPropertySymbols">getOwnPropertySymbols</a>
+      </li>
+    </ul>  
+  </li>
+  <li>
+    <a href="#prototype">PROTOTYPE</a> |
+    <a href="#setPrototypeOf">setPrototypeOf</a> |
+    <a href="#getPrototypeOf">getPrototypeOf</a> |
+    <a href="#isPrototypeOf">isPrototypeOf</a>
+  </li>
+  <li>
+    <a href="#is-equal">IS (equal)</a>
+  </li>
+  <li>
+    <a href="#ostalo">OSTALO</a> |
+    <a href="#toString">toString</a> |
+    <a href="#valueOf">valueOf</a> |
+    <a href="#toLocaleString">toLocaleString</a>
+  </li>
+</ul>
+<md>
 
 * SublimeText - Ako hocu da: UNfold all > cK, cJ.  <---->    FOLD all cK, c1  
 
@@ -127,9 +181,10 @@ console.log(obj) // Object { q: 1, w: 3 }
 	2) Object.prototype
 
 ---
-## **COPY**
-
-### *Object. assign()*
+</md>
+<h2 id="copy"><strong>COPY</strong></h2>
+<h3 id="assign"><em>Object. assign()</em></h3>
+<md>
 
 * Kombinuje vise objekata u jedan. Prvi argument - target-objekat se menja, a ostali source-objekti se NE menjaju. Ako hocu da napravim novi objekat, kombinacijom vise objekata, a da se ni jedan ne promeni, kao 1. argument koristiti {}. Zvanicna definicija metofe: Kopira se enumerabilne stavke iz jednog objekata u drugi.
 
@@ -159,18 +214,18 @@ console.log('After Change - obj: ', obj);           // 45 - This also changes
 console.log('After Change - objclone: ', objclone); // 45
 </code>
 </pre>
+
+<h3 id="create"><em>Object. create()</em></h3>
+
 <md>
-
-
-### *Object. create()*
-
 * Nesto slicno kao Corel-u Clone. Pravi se novi, PRAZAN, objekat na osnovu postojeceg objekta, ali taj postojeci objekat ce da bude prototype novog objekta, a "skoljka" ce da bude prazna. Drugim recima, od postojeceg objekta pravi se prototip za novi objekat, a tom novom objektu skoljka ce da bude prazna. Ako promenim neko svojstavo objekta od kojeg je napravljen prototip za novi objekta, menja se i prototip u novom objektu. Object.create nije dobro za NE ZAVISNO kopiranje. 
 
 * Ako su potrebni primeri pogledati u HTML fajlu
 
 
-## **DESCRIPTOR**
-
+</md>
+<h2 id="descriptor"><strong>DESCRIPTOR</strong></h2>
+<md>
 * Ima 2 vrste descriptor-a: DATA i ACCESSOR. Njihove default vrednosti su:  
 	- DATA: writable: false; value: undefined
 	- ACCESSOR: undefined (inace mogu da budu: getter ili setter)
@@ -235,9 +290,9 @@ arc.temperatura; // 13
 <md>
 
 
-
-### *Object. defineProperties(obj, { {...}, {...}, ...} )*
-	
+</md>
+<h3 id="defineProperties"><em>Object. defineProperties(obj, { {...}, {...}, ...} )</em></h3>
+<md>
 * Isto kao i ↑prethodni↑ ali za vise svojstava odjednom.
 * OBRATI PAZNJU, nisu isti argumenti kao kod Object.defineProperty (vidi ↑ gore). Ovde je drugi argument {blok} u kojem su prop.-si: {deskriptori}. PAZI, kada kucas u editoru sa intelisense. Obrati paznju sta si izabrao, ...Property ili Properties
 
@@ -273,9 +328,9 @@ qwe123.s // '$r6;_=345+'
 <md>
 
 
-
-### *Object. getOwnPropertyDescriptor()*
-
+</md>
+<h3 id="getOwnPropertyDescriptor"><em>Object. getOwnPropertyDescriptor()</em></h3>
+<md>
 * Pravi se novi objekat (tzv. deskriptor) pomocu kojeg se prikazuje konfiguracija nekog svojstva.
 
 </md>
@@ -301,11 +356,9 @@ deskriptor.value = 11 // 11 // moze da se menja vrednost objekta koji prikazuje 
 qwe123.q // 1 // ... vrednost u originalnom objektu ostaje nepromenjena. Verovatno zato sto je "deskriptor" nezavistan objekat. Prepisane vrednosi.
 </code>
 </pre>
+
+<h3 id="getOwnPropertyDescriptors"><em>Object. getOwnPropertyDescriptors()</em></h3>
 <md>
-
-
-
-### *Object. getOwnPropertyDescriptors()*
 
 * Isto sto i ↑ Object.getOwnPropertyDescriptor samo sto prikazuje konfiguracije od SVIH svojstava (ili onih koje si odabrao).
 
@@ -348,38 +401,47 @@ deskriptor.q.value = 11 // 11 // moze da se menja objekat koji prikazuje konfigu
 qwe123.q // 1 // ... vrednost u originalnom objektu ostaje nepromenjena.
 </code>
 </pre>
+
+<h2 id="lock"><strong>LOCK</strong></h2>
+<h3 id="preventExtensions"><em>Object. preventExtensions()</em></h3>
 <md>
 
-## **LOCK**  
+  * Onemogucava objekat da mu se dodaju novi props
 
-### *Object. preventExtensions()*
+</md>
+<h3 id="isExtensible"><em>Object. isExtensible()</em></h3>
+<md>
 
-* Onemogucava objekat da mu se dodaju novi props
+  * Proverava da li objektu mogu da se dodoaju novi props
 
-### *Object. isExtensible()*
+</md>
+<h3 id="freeze"><em>Object. freeze()</em></h3>
+<md>
 
-* Proverava da li objektu mogu da se dodoaju novi props
+  * Zamrzava objekat da ne moze NISTA da se menja (ni dodaje, ni oduzima, ni kofigurise). !Podobjekat nije smrznut. Svaki posebno mora da se smrzne. Takodje i obrnuto, ako zamrznem podobjekat(ili niz) to ne znaci da ce i maticni objekat biti smrzut. OBJASNJENJE: Ovo je i logicno jer "podobjekat" je samo referenca ka tom drugom (pod)objektu. Objekat ne može da se obriše.
 
-### *Object. freeze()*
+</md>
+<h3 id="isFrozen"><em>Object. isFrozen()</em></h3>
+<md>
 
-* Zamrzava objekat da ne moze NISTA da se menja (ni dodaje, ni oduzima, ni kofigurise). !Podobjekat nije smrznut. Svaki posebno mora da se smrzne. Takodje i obrnuto, ako zamrznem podobjekat(ili niz) to ne znaci da ce i maticni objekat biti smrzut. OBJASNJENJE: Ovo je i logicno jer "podobjekat" je samo referenca ka tom drugom (pod)objektu. Objekat ne može da se obriše.
+  * Proverava da li je objekat zamrznut. Vidi "freeze"
 
-###	*Object. isFrozen()*
+</md>
+<h3 id="seal"><em>Object. seal()</em></h3>
+<md>
 
-* Proverava da li je objekat zamrznut. Vidi "freeze"
+  * Zapečaćeno. (Kao freeze, ali param su promenjivi) Objekatu NE mogu da se dodaju novi props, a postojeci props NE mogu da se konfigurisu. Ali VREDNOSTI postojecih propsa mogu da se menjaju (ako su writable). Objekat ne može da se obriše.
 
-###	*Object. seal()*
+</md>
+<h3 id="isSealed"><em>Object. isSealed()</em></h3>
+<md>
 
-* Zapečaćeno. (Kao freeze, ali param su promenjivi) Objekatu NE mogu da se dodaju novi props, a postojeci props NE mogu da se konfigurisu. Ali VREDNOSTI postojecih propsa mogu da se menjaju (ako su writable). Objekat ne može da se obriše.
+  * Proverava da li je objekat zapečaćen. Vidi "seal"
 
-### *Object. isSealed()*
-
-* Proverava da li je objekat zapečaćen. Vidi "seal"
-
-
-## **OWN_PROPEPRTIES**
-
-### *Object. prototype. hasOwnProperty()*
+</md>
+<h2 id="own-propeprties"><strong>OWN_PROPEPRTIES</strong></h2>
+<h3 id="hasOwnProperty"><em>Object. prototype. hasOwnProperty()</em></h3>
+<md>
 
 * Proverava da li objekat sadrzi odredjeni properties. pogledaj fajl hasOwnProperty.js
 
@@ -390,11 +452,9 @@ psi[0].hasOwnProperty('ime') // T
 psi[0].hasOwnProperty('Bela') // F
 </code>
 </pre>
+
+<h3 id="propertyIsEnumerable"><em>Object. prototype. propertyIsEnumerable ( "property" )</em></h3>
 <md>
-
-
-
-### *Object. prototype. propertyIsEnumerable ( "property" )*
 
 * Proverava da li prop pripada licno tom objektu i da li je enumerabilan.
 
@@ -410,11 +470,9 @@ boo.propertyIsEnumerable() // F - ovo nisu Objekti vec primitive
 qwe.propertyIsEnumerable() // F
 </code>
 </pre>
+
+<h2 id="key-value"><strong>KEY_VALUE</strong></h2>
 <md>
-
-
-
-## **KEY_VALUE**
 
 * Postoji 2 nacina da se pozovu KEY-VALUE metode:
 
@@ -431,47 +489,51 @@ qwe123.entries()		// █ Pravi iterator (ne niz) od [kljuceva i vrednosti svojst
 qwe123.valueOf()		// █ vraca vrednost objekta, isto dobija i kada pozoves objekat qwe123 // { q: 1, w: 2, e: 3 }
 </code>
 </pre>
+
 <md>
-
 ### **2.) Pozivanje putem Object**
+</md>
 
-### *Object. keys()*
+<h3 id="keys"><em>Object. keys()</em></h3>
 
+
+<md>
 * Pravi niz (ne iterator) od kljuceva objekta. Moze da se koristi kao kod Array.length
 </md>
+
 <pre>
 <code>Object.keys(qwe123).length // [q,w,e].length // 3
 </code>
 </pre>
+
+<h3 id="values"><em>Object. values()</em></h3>
+
 <md>
-
-### *Object. values()*
-
 * Pravi niz od vrednosti svojstava (ako su enumerativni). Slicno je kao for...in loop, ali loop enumerise i propertie od prototype lanca.
-
 </md>
+
 <pre>
 <code>Object. values( qwe123 ) // [1,2,3]
 </code>
 </pre>
+
+<h3 id="entries">Object. entries()</h3>
+
 <md>
-
-### *Object. entries()*
-
 * Pravi [2D-niz] kljuceva i vrednosti
-
 </md>
+
 <pre>
 <code>Object.entries(qwe123) // [ [q,1], [w,2], [e,3] ]
 </code>
 </pre>
+
+<h3 id="fromEntries"><em>Object. fromEntries( ob )</em></h3>
+
 <md>
-
-### *Object. fromEntries( ob )*
-
 * Obrunto od ↑ Object.entries. Transformise neku listu vrednosti oblika [key, value] u objekat {key: value}
-
 </md>
+
 <pre>
 <code>Object.fromEntries([
   ['qwe', '123'],
@@ -479,32 +541,33 @@ qwe123.valueOf()		// █ vraca vrednost objekta, isto dobija i kada pozoves obje
 ]); // {qwe:"123", asd:456}
 </code>
 </pre>
+
+<h3 id="Izdvajanje-kljuceva"><strong>Izdvajanje kljuceva</strong></h3>
+
 <md>
-
-
-### **Izdvajanje kljuceva**
-
 * Svojstavo nekog objekta moze da bude:
 	1. string - Name → getOwnPropertyNames
 	2. Simbol - Symbol → getOwnPropertySymbols
-
-### 1.) *Object. getOwnPropertyNames( obj )*
-
-* Vraca Array svih kljuceva (ukljucujuci i ne-enumerable, **IS**kljucujuci one koji koriste Symbol).
-
 </md>
+
+<h3 id="getOwnPropertyNames"><em>1.) Object. getOwnPropertyNames( obj )</em></h3>
+
+<md>
+* Vraca Array svih kljuceva (ukljucujuci i ne-enumerable, **IS**kljucujuci one koji koriste Symbol).
+</md>
+
 <pre>
 <code>Object. getOwnPropertyNames( obmix ) // [0,1,2,3,4,q,a,qwe,qwe123,abc,…]
 </code>
 </pre>
+
+
+<h3 id="getOwnPropertySymbols"><em>2.) Object. getOwnPropertySymbols( obj )</em></h3>
+
 <md>
-
-
-### 2.) *Object. getOwnPropertySymbols( obj )*
-
 * Vraca Array od svih simbola koji su korisceni u datom objektu
-
 </md>
+
 <pre>
 <code>Object. getOwnPropertySymbols( obmix ) // [Symbol("sym"), Symbol("nedeklarisani sym")]
 </code>
@@ -515,15 +578,15 @@ qwe123.valueOf()		// █ vraca vrednost objekta, isto dobija i kada pozoves obje
 <code>obmix[ Object. getOwnPropertySymbols( obmix ) [1] ] // "kako ga pozvati?" ← ovo je vrednost koja stoji iz simbol kljuca
 </code>
 </pre>
+
+<h2 id="prototype"><strong>PROTOTYPE</strong></h2>
+
+<h3 id="setPrototypeOf"><em>Object. setPrototypeOf( target, prototypeObject )</em></h3>
+
 <md>
-
-## **PROTOTYPE**
-
-### *Object. setPrototypeOf( target, prototypeObject )*
-
 * Dodeljivanje prototipa nekom objektu, tacnije: "target" objektu se dodeljuje "prototypeObject" da mu bude prototip.
-
 </md>
+
 <pre>
 <code>targetObj = {}
 
@@ -536,13 +599,13 @@ targetObj.hasOwnProperty(abc) // false
 targetObj.abc[0] // "a"
 </code>
 </pre>
+
+<h3 id="getPrototypeOf"><em>Object. getPrototypeOf()</em></h3>
+
 <md>
-
-### *Object. getPrototypeOf()*
-
 * Vraca objekat koji je koriscen kao prototip
-
 </md>
+
 <pre>
 <code>// ----- MOJA ISPITIVANJA -----
 Object.getPrototypeOf(q)      // Number { 0 }
@@ -566,8 +629,8 @@ propertyIsEnumerable: function propertyIsEnumerable()
 toLocaleString: function toLocaleString()
 toString: function toString()
 valueOf: function valueOf()
-<get __proto__()>: function __proto__()
-<set __proto__()>: function __proto__()
+&lt;get __proto__()>: function __proto__()
+&lt;set __proto__()>: function __proto__()
 Object.getPrototypeOf(q)
 */
 Object.getPrototypeOf({}) 				// isti rezultat kao ↑, vidi ↓
@@ -587,15 +650,14 @@ console.log(Object.getPrototypeOf(object1) === prototype1); // █ poredjenje [[
 // expected output: true
 </code>
 </pre>
+
+<h3 id="isPrototypeOf"><em>Object. prototype. isPrototypeOf()</em></h3>
+
 <md>
-
-
-### *Object. prototype. isPrototypeOf()*
-
 * proverava da li je neki objekat prototip drugom objektu.
 *	Object, Array, String, Number... Imaju prototype (tj. imaju svoju class). Posto su to kostruktori prototip im je Function > a njegov prototip je Object > a on je osnova svega tj. nema prototip tj prototype:null
-
 </md>
+
 <pre>
 <code>Object.prototype.isPrototypeOf(String)* // T
 </code>
@@ -641,15 +703,13 @@ console.log(object3.isPrototypeOf(Function)) // F
 console.log(object3.isPrototypeOf(Object))   // F
 </code>
 </pre>
+
+<h2 id="is-equal"><strong>IS_equal</strong></h2>
+
 <md>
-
-## **IS_equal**  
-
-### *Object. is()*  
-	
 * Proverava jednakost dve vrednosti. Za razliku od "==" komparacije, gde je `NaN == NaN` =>`false`, ovde je `Object.is(NaN, NaN)` => `true`
-
 </md>
+
 <pre>
 <code>NaN == NaN              // F
 Object.is(NaN, NaN)     // T
@@ -662,15 +722,15 @@ Object.is('', 0);       // F
 Object.is(false, 0);    // F
 </code>
 </pre>
+
+<h2 id="ostalo"><stron>OSTALO</stron></h2>
+
+<h3 id="toString"><em>Object. prototype. toString()</em></h3>
+
 <md>
-
-## **OSTALO**
-
-###	*Object. prototype. toString()*
-
 * Po default-u vraca "[object Object]", ali ta metoda moze da se promeni pa da vraca sta ti hoces. Vidi primer:
-
 </md>
+
 <pre>
 <code>function Dog(name) {
   this.name = name;
@@ -686,17 +746,18 @@ console.log(dog1.toString());
 // expected output: "Gabby"
 </code>
 </pre>
+
+<h3 id="valueOf"><em>Object. prototype. valueOf()</em></h3>
+
+
 <md>
-
-### *Object. prototype. valueOf()*
-
 * Kao sto samo ime kaze "valueOf" - vrednostOd, a to znaci da vraca vrednost od objekta kada se primoravanjem od njega to zatrazi. To se najcesce desava u situacijama kad je objekat izlozen nekom operatoru, pa se trazi od objekta njegova vrednost. Posto se od objekta trazi da vrati vrednost (value) onda ta vrednost MORA biti primitiva.
 
 * Uglavnom su to +-aritmeticki*% i >komparativni< operanti, i vecina >>~bitwise^== operatora. Operatori koji su vezani za !Boolean&&|| ne koriste "valueOf" vec samo citaju komplatan objekat. Tako npr. !!a je isto sto i !!{...}, sto je uvek true.
 
 > *Zanimljivo: ime "valueOf"... po istom principu je nastalo ime "indexOf"*
-
 </md>
+
 <pre>
 <code>const a = {
   br : 1,
@@ -719,9 +780,8 @@ console.log(a&3, a) // 3 {23} // M
 console.log(a == a) // true // n
 </code>
 </pre>
-<md>
 
-### *Object. prototype. toLocaleString()*
-</md>
+<h3 id="toLocaleString">Object. prototype. toLocaleString()</h3>
+
 </body>
 </html>
