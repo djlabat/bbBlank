@@ -5,6 +5,8 @@ body {
     background-color: black;
     color: white
   }
+
+/* NASLOVI */
 h1 {color: darkblue; background-color: BlanchedAlmond; 
   text-align: center;
 }
@@ -17,8 +19,12 @@ h2 {
 }
 h3 {color: skyblue;}
 h4 {color: PaleTurquoise  }
+
+/* LINKOVI */
 a {text-decoration: cyan underline; color: cyan; line-height: 2em;}
 a:hover {color: azure}
+
+/* KODOVI */ 
 pre code {
   display:block;
   background: #222;
@@ -28,6 +34,7 @@ pre code {
   font-size: calc(0.55rem + .35vw); /* font scaling with window-width size change */
 }
 code {color: #94e4ff}
+
 td,th {
   border: 2px solid #444;
   background-color: #111;
