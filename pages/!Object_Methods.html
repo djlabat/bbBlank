@@ -545,15 +545,15 @@ qwe123.valueOf()		// █ vraca vrednost objekta, isto dobija i kada pozoves obje
 <h3 id="Izdvajanje-kljuceva"><strong>Izdvajanje kljuceva</strong></h3>
 
 <md>
-* Svojstavo nekog objekta moze da bude:
-	1. string - Name → getOwnPropertyNames
-	2. Simbol - Symbol → getOwnPropertySymbols
+* Svojstvo nekog objekta moze da bude:
+	1. string - ProperyName → getOwnPropertyNames
+	2. Simbol - ProperySymbol → getOwnPropertySymbols
 </md>
 
 <h3 id="getOwnPropertyNames"><em>1.) Object. getOwnPropertyNames( obj )</em></h3>
 
 <md>
-* Vraca Array svih kljuceva (ukljucujuci i ne-enumerable, **IS**kljucujuci one koji koriste Symbol).
+* Vraca Array svih kljuceva (ukljucujuci i ne-enumerable, **IS**kljucujuci one koji koriste Symbol i koji su iz Prototype).
 </md>
 
 <pre>
