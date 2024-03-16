@@ -53,14 +53,14 @@ var num = 128;
 var s_t_r = "     a,  s,   d,  f  f   f,    ";
 </code>
 </pre>
+
+<md>---</md>
+
+<h2 id="seckanja"><b>SECKANJA</b></h2>
+
+<h3 id="slice"><i>slice</i></h3>
+
 <md>
-
-------------------------------------------------
-
-## **SECKANJA**
-
-### *slice* 
-
   * slice ~ isecak (od index-a, do indexa) ---negativne vrednosti broji od kraja. Varaca String.  
 
 </md>
@@ -71,9 +71,9 @@ abc.slice(-3)     // xyz
 abc.slice(-3, -2) // x 
 </code>
 </pre>
-<md>
-### *substr*
 
+<h3 id="substr"><i>substr</i></h3>
+<md>
   * substr ~ isecak (od index-a, duzina) ---2. parametar, ne moze da bude negativan. Ako ga nema, ide do kraja (najvaceg indexa). Varaca String.
 
 </md>
@@ -84,10 +84,9 @@ abc.substr(5)     // fghijklmnopqrstuvwxyz
 abc.substr(5,-7)  // '' 
 </code>
 </pre>
+
+<h3 id="substring"><i>substring</i></h3>
 <md>
-
-### *substring*
-
   * substring ~ isecak (od index-a, do indexa) ---parametar NE MOZE DA IMA NEGATIVNE VREDNOSTI . Varaca String.
 
   * nije deprecated ali, pomalo zastarelo, zamenio ga `slice`. Bolje ga izbegavati.
@@ -104,25 +103,26 @@ abc.substring(13)     // nopqrstuvwxyz
 ### _↑ PAZNJA: Zajednicko za slice, substr i substring je da: ako nemaju 2. parametar, idu do kraja !_
 
 ------------------------------------------------
-
-### *split*
-
-  * split ~ string => array (sta ce da bude znak za secenje)
-
 </md>
+
+<h3 id="split"><i>split</i></h3>
+
+<md>
+  * split ~ string => array (sta ce da bude znak za secenje)
+</md>
+
 <pre>
 <code>"a,s,d".split(",") 	// [ "a", "s", "d"] - splitting a string on commas gives an array.
 "a,s,d".split("")   // [ "a",  ",",  "s",  ",",  "d" ] - splitting on characters
 "a,s,d".split()     // [ "a,s,d" ] - Ako nema "," onda vraca Array [ abc ]. Qukka prikazuje s___space kao s_space sto nije realno. za tacan prikaz Ctrl+Shift+U (OUTPUT)
 </code>
 </pre>
+
+<h3 id="trim"><i>trim</i></h3>
 <md>
-
-### *trim*
-
   * trim ~ brise prazan prostor
-
 </md>
+
 <pre>
 <code>s_t_r.trim()      // skida space ispred i iza stringa.
 s_t_r.trimStart() // uklanja prazne prostore pre stringu
@@ -131,28 +131,30 @@ s_t_r.trimLeft()  // pre   // should be replaced with `trimStart`
 s_t_r.trimRight() // posle // `trimEnd`
 </code>
 </pre>
+
 <md>
-
 ---
-
-## **PRETRAGA KORISCENJEM INDEX-A**
-
-### *indexOf, lastIndexOf, charAt*
-
 </md>
+
+<h2 id="pretraga-koriscenjem-index-a"><b>PRETRAGA KORISCENJEM INDEX-A</b></h2>
+
+<md>
+### *indexOf, lastIndexOf, charAt*
+</md>
+
 <pre>
 <code>abc.indexOf("lmmno", 5)  // 11 - 'l' se nalazi na 11. indexu. Ako ne nadje nigde substring 'lmno' onda vraca -1 // Pretragu je poceo od 5.indexa (slovo 'f')
 abc.lastIndexOf("lmno")  // 11 - last occurance
 abc.charAt(2)            // character at index: "c"
 </code>
 </pre>
+
 <md>
-
 ---
-
-## **PRETRAGA KORISCENJEM UNICODE VREDNOSTI**
-
 </md>
+
+<h2 id="pretraga-koriscenjem-unicode-vrednosti"><b>PRETRAGA KORISCENJEM UNICODE VREDNOSTI</b></h2>
+
 <pre>
 <code>abc.codePointAt(2)         // 99 - result is codePoint at index 2 (witch is 'c')
 String.fromCharCode(99)    // c  - Convert a Unicode number into a character
@@ -160,12 +162,12 @@ String.fromCharCode(99)    // c  - Convert a Unicode number into a character
 // Ako cu da radim sa emojima onda NEkoristiti charCodeAt vec codePointAt ili fromCodePoint
 </code>
 </pre>
+
 <md>
-
 ---
-
-## **RAZNI ALATI**
 </md>
+
+<h2 id="razni-alati"><b>RAZNI ALATI</b></h2>
 <pre>
 <code>abc.replace("abc", "123")  // 123defghi... - find and replace, takes regular expressions (/abc/g, '123'), and callback
 s_t_r.replaceAll("f", "X") // "     a,  s,   d,  X  X   X,    "; - svako "f" zamenuje sa "X"
@@ -181,13 +183,13 @@ Primeri za 1: a...!@#$ 123 '' ' '. Kao sortiranje fajlova po imenu, pa koji ide 
 eval('1+2'); eval('"qwqe".toUpperCase()') // 3; QWQE - posmatra string kao kod - !Nekoristiti u\ produkciji. Takodje postoji i komanda uneval() (pretvara kod u string), ali skoro da je ni jedan browser ne podrzava (2020 / Jul).
 </code>
 </pre>
+
 <md>
-
 ---
-
-## **CESTO KORISCENO ALI ZAPISANO NA DRUGI NACIN**
-
 </md>
+
+<h2 id="cesto-korisceno-ali-zapisano-na-drugi-nacin"><b>CESTO KORISCENO ALI ZAPISANO NA DRUGI NACIN</b></h2>
+
 <pre>
 <code>num.toString(16)         // number to hex(16), octal (8) or binary (2). Ne moze odmah da pretvori broj u string (npr. 128.toString), nego mora preko promenljive ili preko konctruktora za broj (Number(128).toString(16))
 abc.concat(QWE)          // abc + QWE
@@ -197,13 +199,13 @@ abc.length               // 26 - string length
 num.valueOf()            // 128
 </code>
 </pre>
+
 <md>
-
 ---
-
-## **PROVERE SADRZAJA**
-
 </md>
+
+<h2 id="provere-sadrzaja"><b>PROVERE SADRZAJA</b></h2>
+
 <pre>
 <code>abc.startsWith("A")  // false - proverava da li 'abc' pocinje sa "A"
 abc.endsWith("z") // true - proverava da li 'abc' zavrsava sa "z"
@@ -211,8 +213,8 @@ abc.includes("jk l")  // false - proverava da li 'abc' sadrzi "jk l"
 "İstanbul".toLocaleLowerCase('tr') // i̇stanbul - Konverzija po turskom. Tursko "i" !== Englesko "i". Generally, this method returns the same result as the toLowerCase() method. However, for some locales, where language conflict with the regular Unicode case mappings occurs (such as Turkish), the results may vary. 
 </code>
 </pre>
-<md>
 
+<md>
 ------------------------------------------------
 
 ### _↑ PAZNJA: *'abc' izvorni je ostao isti.     
@@ -220,15 +222,20 @@ abc.includes("jk l")  // false - proverava da li 'abc' sadrzi "jk l"
 Nista ga od gornjih metoda nije promenilo. Zato sto je string nepromenljiv! Mozes ga prikazati na drugi nacin, mozes taj drugi nacin snimiti u drugu var. ali onaj osnovni je ne promenljiv.  
 
 ------------------------------------------------
+</md>
 
-## **PREVAZIDJENE METODE**
+<h2 id="prevazidjene-metode"><b>PREVAZIDJENE METODE</b></h2>
+
+<md>
 .big .blink .bold .fixed .italics .strike
 
 ---
-
-## **Funkcija za konverziju Decimalnog coda u surrogate code**
-Javascript uses UTF-16 internally
 </md>
+
+<h2 id="funkcija-za-konverziju-decimalnog-coda-u-surrogate-code"><b>Funkcija za konverziju Decimalnog coda u surrogate code</b></h2>
+
+</md>
+Javascript uses UTF-16 internally
 <pre>
 <code>function toUTF16(codePoint) { // codePoint = 128512
   var TEN_BITS = 0b1111111111;
