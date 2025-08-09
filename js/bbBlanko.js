@@ -153,6 +153,10 @@ psi.push(new Pas ('Snoopy', 1844, true, ["Snupi", "Snoopy"], "Shultz"))
 psi.push(new Pas ('Betoven', 1888, true, ["Beton"], "Filharmonija"))
 psi.push(new Pas ("Seljko", 2021 ,true, ['smrdisa','Belin "decko"', 'smoric'], 'Popovica'))
 
+function rnd (n) {
+  return Math.floor(Math.random()*n)
+}
+
 function t(nekiText) {
   document.getElementById('test').innerHTML = nekiText
 }
