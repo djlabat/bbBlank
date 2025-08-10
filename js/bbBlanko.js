@@ -184,12 +184,7 @@ C: class=null
 
 // cClick → refresh Page
 document.addEventListener('click', (e)=>{
-    if (e.ctrlKey && (
-            document.location.href.startsWith("file:///") ||
-            document.location.href.startsWith("http://127.0.0.1")
-        )
-    )
-    {
+    if (e.ctrlKey && document.location.href.startsWith("https://djlabat.github.io/console") {
         location.reload() 
     }
 });
