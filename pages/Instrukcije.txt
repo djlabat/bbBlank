@@ -1,4 +1,5 @@
-Ako hocu da editujem stranice, editujem HTML, a ne MD
+Ako hocu da editujem stranice, onda cu da editujem HTML, a ne MD.  
+Fajlovi u MD dir-u su bili korisceni da bi se napravili HTML fajlovi i vise nisu potrebni. Cuvaju se samo da bi se videlo od cega su HTML-ovi nastali.
 
 Kada pravim novu stranicu od MD:
 1.) iskopiram <head> od neke postojece stranice.

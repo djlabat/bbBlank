@@ -59,7 +59,7 @@ csP (command Palete)> git clone
 <md>
 1. napravim folder na kompu, koji cu da bacim na git. RMB> "Git Bash here".
 2. `touch .gitignore index.html style.css app.js`
-3. `git INIT` // u vec stvorenom folderu na kompu, GIT pravi direktorijum ".git" koji predstavlja LOKALNI repozitorijum.  
+3. `git init` // u vec stvorenom folderu na kompu, GIT pravi direktorijum ".git" koji predstavlja LOKALNI repozitorijum.  
 3.1 `git config --global user.name 'djlabat'` (ovo se radi samo prvi put na novom kompu)  
 3.2 `git config --global user.email 'djlabat@gmail.com'` (samo prvi put na novom kompu)
 </md>
@@ -67,49 +67,89 @@ csP (command Palete)> git clone
 <h2 id="staging">STAGING</h2>
 
 <md>
-   `git ADD fajl.ekstenzija` // to INCLUDE what will be committed. What will be on staging area  
-   `git ADD *.html` // dodaje sve *.html fajlove  
-   `git ADD .`      // *.*  
+   `git add fajl.ekstenzija` // to INCLUDE what will be committed. What will be on staging area  
+   `git add *.html` // dodaje sve *.html fajlove  
+   `git add .`      // *.*  
 </md>
 
 <h2 id="unstage">UNSTAGE</h2>
 
 <md>
-   `git RM <file>`          // unstage and DELETE from hard disk. Nije dovoljno samo rucno obrsati fajlove, nego moraju se i unstage. Zato je ova komanda super.  
-   `git RM --cached <file>` // UNSTAGE, to exclude what will be committed  
-   `git RM -f <file>`   // DELETE izmenjenih fajlova.  
+   `git rm <file>`          // unstage and DELETE from hard disk. Nije dovoljno samo rucno obrsati fajlove, nego moraju se i unstage. Zato je ova komanda super.  
+   `git rm --cached <file>` // UNSTAGE, to exclude what will be committed  
+   `git rm -f <file>`   // DELETE izmenjenih fajlova.  
 </md>
 
 <h2 id="status">STATUS</h2>
 
 <md>
-   `git STATUS `    // Prikaz statusa fajlova, da li su dodati na listu za commit (ako jesu, onda su staged - zeleni) ili ne (crveni), da li su se promenili (modified) ili ne (nema ih). Ako se pokrene STATUS a ne vidi se nista onda znaci da nista nije promenjeno od poslednjeg commit-a. Kad se nesto izmeni, u statusu ce da se pojavi (modified). Ako nije ADD-ovan onda ce pisati da je izmenjen ali nije staged. Sto znaci da posle svakog COMMIT-a moraju fajlovi nanovo da se dodaju pre novog commit-a, bilo da su promenjeni ili ne, mada ako nisu promenjeni onda nema ni razloga da se dodaju.
+   `git status `    // Prikaz statusa fajlova, da li su dodati na listu za commit (ako jesu, onda su staged - zeleni) ili ne (crveni), da li su se promenili (modified) ili ne (nema ih). Ako se pokrene STATUS a ne vidi se nista onda znaci da nista nije promenjeno od poslednjeg commit-a. Kad se nesto izmeni, u statusu ce da se pojavi (modified). Ako nije ADD-ovan onda ce pisati da je izmenjen ali nije staged. Sto znaci da posle svakog COMMIT-a moraju fajlovi nanovo da se dodaju pre novog commit-a, bilo da su promenjeni ili ne, mada ako nisu promenjeni onda nema ni razloga da se dodaju.
 </md>
 
 <h2 id="commit">COMMIT</h2>
 
 <md>
-   `git COMMIT `    // fajlovi koji su oznaceni kao STAGED (pomocu komande ADD) se snimaju u ".git" folder.  
+   `git commit `    // fajlovi koji su oznaceni kao STAGED (pomocu komande ADD) se snimaju u ".git" folder.  
    RAD U VIM EDITORU: Kada se pokrene komanda otvara se "Vim" edior, ali da bi se nesto uradilo moram pritisnuti "I" da bi usao u insert mode. Potom kucam "opis" promene. U VIM edtoru, linije koje pocinju sa "#" su nevazece linije, a linije bez icega ce uci u commit "opis". Na kraju, pritisnem "ESC", pa kucam ":wq" (write-quit), enter. Dobijamo info o promenama.  
-   `git COMMIT -m "Ovde ide text o promenama."` // jednostavniji nacin.  
-   `git COMMIT --amend` // Promena poruke poslednjeg commita.  
-   `git COMMIT --amend -m "Potpuno nova poruka` // Brise se stara poruka i upisuje se nova.  
+   `git commit -m "Ovde ide text o promenama."` // jednostavniji nacin.  
+   `git commit --amend` // Nadogradnja poslednjeg komita. !Ne koristiti na javnim granama!  
+   `git commit --amend -m "Potpuno nova poruka` // Brise se stara poruka i upisuje se nova. 
+
+   Važno upozorenje:
+
+   `git commit --amend` prepisuje istoriju!
+
+   Kao i kod `git rebase`, komanda `git commit --amend` stvara novi commit koji zamenjuje stari. Ovo znači da nikada, ali zaista nikada, ne bi trebalo da koristiš `git commit --amend` na javnim granama koje su već podeljene sa drugima (pushed).
+
+   Ako pokušaš da gurneš (push) izmenjenu granu na daljinski repozitorijum, verovatno ćeš dobiti grešku jer tvoja lokalna istorija više nije usklađena sa istorijom na serveru. Ako baš moraš da to uradiš, moraćeš da koristiš `git push --force-with-lease` (ili `git push --force`), što se ne preporučuje jer može obrisati rad drugih.
+
+   Zapamti: Koristi git `commit --amend` samo na **lokalnim granama**, pre nego što ih podeliš sa ostatkom tima. To je idealan način da se očisti istorija pre nego što gurneš svoj rad. 
 </md>
 
 <h2 id="log">LOG</h2>
 
 <md>
-   `git LOG`   // izlista ti sve komite do sada  
+   `git log`   // izlista ti sve komite do sada.  
+   `git log --oneline` // lista komite sabijeno. Po jedan red za svaki komit.  
+   `git log --after="2025-8-24"` // liste sve u gitu posle datuma  
+   `git log --before="2025-8-24"` // liste sve u gitu pre datuma  
+   `git log --after="2024-1-1" --before="2025-8-24"` // kombinacija vise flagova  
+   `git log --grep="update"` // lista sve komita koji imaju u poruci rec "update" (regExp)  
+   `git log --author="djlabat"` // lista sve sto sam ja napravio  
+   `git log -- ideja.md` // lista sve gde se koristio fajl. prazan -- nije greska  
+   `git log dev..master` // prikazije sve komite koji jesu na master-u a nisu na dev-u  
+
+</md>
+
+<h2 id="reflog">REFLOG</h2>
+
+<md>
+   `reflog` ti izlista celu istoriju kretanja HEAD-a.  
+
+   Ako hocu da vratim OBRISAN KOMIT:  
+
+   `git reflog`   // Nadji kad je obrisano.  
+   `git branch grana_spasa e579c6` // Hash kod je od 1 pre brisanja.  
+
+   Umesto pravljenja grana_spasa moze i ovo:  
+
+   `git reset e579c6`  
+
+   Ako hocu da vratim OBRISANU GRANU DEV:  
+
+   `git reflog` // Nadjem kad je obrisano  
+   `git branch dev f6a56e` // kod pre brisanja  
+
 </md>
 
 <h2 id="restore-commit">RESTORE COMMIT</h2>
 
 <md>
-   `git RESET --hard 456df89a`  // Vracanje na stanje nekog prethodnog komita.  
-   `git RESET --hard`          // bez koda, resetuje trenutni git.  
-   `git CHECKOUT 146fa46a`  // Prebacivanje u neki drugi (prethodni) komit, pri cemu se cuva sadasnji  
-   `git SWITCH -` // tokom checkout-a, da bi se prebacio na HEAD commit, bez snimanja promena.  
-   `git SWITCH -c nova_grana` // Pravljenje nove grane od promena koje sam uradio tokom checkout.  
+   `git reset --hard 456df89a`  // Vracanje na stanje nekog prethodnog komita.  
+   `git reset --hard`          // bez koda, resetuje trenutni git.  
+   `git checkout 146fa46a`  // Prebacivanje u neki drugi (prethodni) komit, pri cemu se cuva sadasnji  
+   `git switch -` // tokom checkout-a, da bi se prebacio na HEAD commit, bez snimanja promena.  
+   `git switch -c nova_grana` // Pravljenje nove grane od promena koje sam uradio tokom checkout.  
 </md>
 
 <h2 id="origin-master">ORIGIN-MASTER</h2>
@@ -124,7 +164,7 @@ csP (command Palete)> git clone
    git push    https://url_link_udaljenog_repozitorijuma    master
 ```
 
-   Znajući da je "origin" alias za ovaj link, sada se "master" grana na udaljenom repu može označiti jednostavnije sa “origin master”. Pa bi komanda iz prethodnog primera izgledala ovako:
+   Znajući da je "origin" alias za ovaj link, sada se "master" grana na udaljenom repu može označiti jednostavnije sa "origin master". Pa bi komanda iz prethodnog primera izgledala ovako:
 
 ```sh
    git push  origin  master
@@ -135,11 +175,11 @@ csP (command Palete)> git clone
 
 <md>
    `git remote -v` // Prikazije koji link stoji pod "origin" tj. koji je link ka REMOTE REPOZITORIJUMU.  
-   `git REMOTE add origin http://nasserver.git` // URL Adresa `http://nasserver.git` udaljenog servera je stavljena u konstantu "origin".  
-   `git PUSH origin master` // push-uj na udaljeni server (Remote Repository) `http://nasserver.git`, granu "master".  
-   `git REMOTE remove` // uklanjanje repozitorijuma  
-   `git PULL`    // skida sadrzaj sa udaljenog repozitorijuma i/ili odmah azurira lokalni repozitorijum sa verzijom koja je na udaljenom repozitorijumu.  
-   `git CLONE https://github.com/mdbootstrap/knowledge-base.git` // skidanje nekog (tudjeg) Git projekta na svoj komp. Adresu skinuti sa gitHub sajta.  
+   `git remote add origin http://nasserver.git` // URL Adresa `http://nasserver.git` udaljenog servera je stavljena u konstantu "origin".  
+   `git push origin master` // push-uj na udaljeni server (Remote Repository) `http://nasserver.git`, granu "master".  
+   `git remote remove` // uklanjanje repozitorijuma  
+   `git pull`    // skida sadrzaj sa udaljenog repozitorijuma i/ili odmah azurira lokalni repozitorijum sa verzijom koja je na udaljenom repozitorijumu.  
+   `git clone https://github.com/mdbootstrap/knowledge-base.git` // skidanje nekog (tudjeg) Git projekta na svoj komp. Adresu skinuti sa gitHub sajta.  
    Obicno posle COMMIT, idu zajedno PUSH i PULL, i to bas tim redosledom.  
 </md>
 
@@ -148,7 +188,7 @@ csP (command Palete)> git clone
 <md>
    git WORKTREE will create a new working folder witch allow us to work on multiple branches on the same time. Each copy will point to the origin repository while the 3-states are a new and fresh copy. This save us the need to use git stash or even to clone a new repository, since those worktrees shares the same repository, we can checkout any branch on any worktree, we can do a cherry-pick or merge and all will be done locally on our machine.
 
-   `git WORKTREE add second/path` will create another folder on your computer which allows you to work on a different branch simultaneously.
+   `git worktree add second/path` will create another folder on your computer which allows you to work on a different branch simultaneously.
 
    This will allow you to do any experiments on the new worktree without having any effect on the repository itself. In the attached image you can see that there are 2 separate working folder but both of them are using a single repository and share the content.
 </md>
@@ -156,48 +196,50 @@ csP (command Palete)> git clone
 <h2 id="cherry-pick">CHERRY-PICK</h2>
 
 <md>
-   `git CHERRY-PICK master`  
+   `git cherry-pick master`  
    Sa Cherry-pick mozes da izaberes jedan commit sa jedne grane i da ga primenis na drugu granu. Ovo je u kontrastu sa drugim načinima kao što su `merge` i `rebases` koji primenjuju vise commit-a na drugu granu.
 
-   Implementation:
+   Najcesce se upotrebljava ako je komit napravljen na pogresnoj grani (master), pa je potrebno premestanje komita na drugu grranu (dev).
 
-   Suppose a developer fails to recognize which branch he is currently on, and by mistake, he commits to another branch instead of committing that to the main branch. Now to fix it, he has to first run git show, then save the commit, then check out the main branch, apply patch there and commit with the same commit message. But all this can be done automatically by using just one command i.e. cherry-pick.
+   Evo kako se to radi ukratko:
+```js
+   git checkout dev
+   git cherry-pick 560dd6a // HESH kod od komita koji kopiram, sa mastera
+   git checkout master
+   git reset --hard HEAD~1 // brisem komit na masteru
+```
 
-         develop      ┌── (d1) ─── (d2)
-         master   ════╧══ (m1) ═══ (m2) - - - (  )
-
-         develop      ┌── (d1) ─── (d2) ───>───┐
-         master   ════╧══ (m1) ═══ (m2) ═════ (d2)
-</md>
+   Izvor: [https://www.youtube.com/watch?v=qsTthZi23VE&t=614s]
+   
+   
+   </md>
 
 <h2 id="branch">BRANCH</h2>
 <md>
    `git checkout -b &lt;new branch&gt; &lt;from branch&gt;`
 
+   `git branch develop` // stvara granu develop, koju cu kasnije moci da spojim sa master granom i/ili da je obrisem.
+
+   `git branch -v` // pregled svih grana
+
+   `git branch -d develop` // brisanje develop grane
+
+   `git checkout develop` // prebacivanje na develop granu. Pre ovoga uraditi commit da bi snimio, ili stash.
    
+   `git checkout -b develop master` // stvara develop granu i prebacuje se na nju.
 
-   `git BRANCH develop` // stvara granu develop, koju cu kasnije moci da spojim sa master granom i/ili da je obrisem.
+   Kada se pravi nova grana, bitno je **sa koje grane je proistekla nova grana**. Na primeru iznad se stvara nova `develop` grana od roditeljske `master` grane i prebacuje se na nju. Ako se u komndi ne navede roditeljska grana onda se trenutno radna grana uzima kao roditeljska.
 
-   `git BRANCH -v` // pregled svih grana
+   `git merge develop` // **BITNO JE**, prilikom spajanja grana vratiti se na roditeljsku granu (master) i odatle pozvati komandu `git merge &lt;develop&gt;`. Jer nije svejedno koja grana je roditelj a koja je dete.
 
-   `git BRANCH -d develop` // brisanje develop grane
-
-   `git CHECKOUT develop` // prebacivanje na develop granu. Pre ovoga uraditi commit da bi snimio, ili stash.
-   
-   `git CHECKOUT -b develop master` // stvara develop granu i prebacuje se na nju.
-
-   Kada se pravi nova grana, bitno je **sa koje grane je proistekla nova grana**. Na primeru iznad se stvara nova `develop` grana od roditeljskie `master` grane i prebacuje se na nju. Ako se u komndi ne navede roditeljska grana onda se trenutno radna grana uzima kao roditeljska.
-
-   `git MERGE develop` // **BITNO JE**, prilikom spajanja grana vratiti se na roditeljsku granu (master) i odatle pozvati komandu `git merge &lt;develop&gt;`. Jer nije svejedno koja grana je roditelj a koja je dete.
-
-   `git REBASE master` // Drugi nacin spajanja. Uglavnom služi u svrhe dopunjavanja sporednih grana (develop) izmenama sa master grane. Ovo pokrecem dok sam na develop grani.  
+   `git rebase master` // Drugi nacin spajanja. Uglavnom služi u svrhe dopunjavanja sporednih grana (develop) izmenama sa master grane. Ovo pokrecem dok sam na develop grani.  
 
    ### razlika izmedju MERGE i REBASE
 
    MERGE  
 
       develop      ┌── (d1) ─── (d2) ──>───┐  
-      master   ════╧══ (m1) ═══ (m2) ════ (m3)
+      master   ════╧══ (m1) ═══ (m2) ══>═ (m3)
 
    REBASE  
 
@@ -208,7 +250,7 @@ csP (command Palete)> git clone
 <h2 id="stash">STASH</h2>
 
 <md>
-   `git STASH` // Stash (eng. tajno skroviste) je nesto kao mini-commit.
+   `git stash` // Stash (eng. tajno skroviste) je nesto kao mini-commit.
 
    ### COMMIT vs STASH
    __COMMIT__, to je kao kad u Corel-u pravim dizajn, pa da bi sacuvao sve verzije razvoja dizajna, snimam ih u vise fajlova iz dana u dan.  
@@ -219,9 +261,9 @@ csP (command Palete)> git clone
 
    Stash je LOKALNOG karaktera. To znaci da KAD PRAVIM COMMIT on se NE SNIMA U COMMIT, nego je vezan za LOKALNI REPOZITORIJUM.
    
-   `git STASH list` // lista svih spremljenih stash izmena
+   `git stash list` // lista svih spremljenih stash izmena
 
-   `git STASH apply stash@{0}`  // Vraćanje spremljenih izmena
+   `git stash apply stash@{0}`  // Vraćanje spremljenih izmena
    
    ### Koja je razlika izmedju STASH i BRANCH postupka?
 
